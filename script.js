@@ -474,8 +474,8 @@ function advanceDay(days = 1) {
 
 // Game Mechanics
 function skillCheck(skill, difficulty) {
-    const skillValue = skill.includes('.') ? 
-        gameState.skills[skill.split('.')[0]][skill.split('.')[1]] : 
+    const skillValue = skill.includes('.') ?
+        gameState.skills[skill.split('.')[0]][skill.split('.')[1]] :
         gameState.skills[skill];
     const roll = randomInt(1, 20);
     return (roll + skillValue) >= difficulty;
@@ -587,18 +587,18 @@ function updateCharacterInfo() {
         <p>Days Passed: ${gameState.daysPassed}</p>
         <h3>Skills:</h3>
         <ul>
-            ${Object.entries(gameState.skills).map(([skill, value]) => 
-                typeof value === 'object' ?
-                    `<li>${skill}: ${Object.entries(value).map(([subSkill, subValue]) => 
-                        `${subSkill}: ${subValue}`).join(', ')}</li>` :
-                    `<li>${skill}: ${value}</li>`
-            ).join('')}
+            ${Object.entries(gameState.skills).map(([skill, value]) =>
+        typeof value === 'object' ?
+            `<li>${skill}: ${Object.entries(value).map(([subSkill, subValue]) =>
+                `${subSkill}: ${subValue}`).join(', ')}</li>` :
+            `<li>${skill}: ${value}</li>`
+    ).join('')}
         </ul>
         <h3>Reputation:</h3>
         <ul>
-            ${Object.entries(gameState.reputation).map(([faction, value]) => 
-                `<li>${faction}: ${value}</li>`
-            ).join('')}
+            ${Object.entries(gameState.reputation).map(([faction, value]) =>
+        `<li>${faction}: ${value}</li>`
+    ).join('')}
         </ul>
         <h3>Allies:</h3>
         <ul>
@@ -1950,48 +1950,48 @@ function handleFinalChoice(choice) {
                 endGame("Mercy's Folly");
             }
             break;
-            case 4:
-                updateStoryText("You decide to sacrifice all bending to create a world without these powers...");
-                if (skillCheck('spirituality', 27) && gameState.skills.bending.spirit > 9) {
-                    updateStoryText("In a monumental act of sacrifice, you reshape the very fabric of the world. Bending ceases to exist, ushering in an era of true equality.");
-                    endGame("A World Reborn");
-                } else {
-                    updateStoryText("The enormity of your task overwhelms you. The attempt fails, leaving you powerless as Ozai's reign of terror continues.");
-                    endGame("A Dream Shattered");
-                }
-                break;
-        }
+        case 4:
+            updateStoryText("You decide to sacrifice all bending to create a world without these powers...");
+            if (skillCheck('spirituality', 27) && gameState.skills.bending.spirit > 9) {
+                updateStoryText("In a monumental act of sacrifice, you reshape the very fabric of the world. Bending ceases to exist, ushering in an era of true equality.");
+                endGame("A World Reborn");
+            } else {
+                updateStoryText("The enormity of your task overwhelms you. The attempt fails, leaving you powerless as Ozai's reign of terror continues.");
+                endGame("A Dream Shattered");
+            }
+            break;
     }
-    
-    function endGame(ending) {
-        let endingText = "<h2>The End</h2>";
-        switch (ending) {
-            case "Victory through Strength":
-                endingText += "<p>Through sheer power and determination, you've defeated Fire Lord Ozai and ended the Hundred Year War. The world begins the long process of healing and rebuilding. Your legend will be remembered for generations to come.</p>";
-                break;
-            case "A World in Flames":
-                endingText += "<p>Despite your best efforts, Ozai's power proved too great. The world has fallen under the dominion of the Fire Nation. Hope remains that one day, a new hero will rise to challenge the Phoenix King's rule.</p>";
-                break;
-            case "A New Harmony":
-                endingText += "<p>By removing Ozai's bending, you've ended the war without further bloodshed. The world enters a new age of peace and balance. Your wisdom and mercy become the foundation for a brighter future.</p>";
-                break;
-            case "Spirit Broken":
-                endingText += "<p>The energybending technique backfired, leaving you vulnerable. Ozai seized this opportunity to claim victory. The world has fallen into darkness, with the hope of the Avatar extinguished.</p>";
-                break;
-            case "Redemption's Light":
-                endingText += "<p>Against all odds, you've redeemed Ozai. This unexpected turn of events leads to a peaceful transition of power. The world marvels at the power of compassion and the possibility of change.</p>";
-                break;
-            case "Mercy's Folly":
-                endingText += "<p>Your attempt at redemption failed, and Ozai's ambition has consumed the world. The consequences of your mercy will be felt for generations to come.</p>";
-                break;
-            case "A World Reborn":
-                endingText += "<p>Your sacrifice has reshaped the world. Without bending, a new era of true equality begins. The challenges ahead are many, but for the first time, all people face them on equal footing.</p>";
-                break;
-            case "A Dream Shattered":
-                endingText += "<p>Your ambitious attempt to reshape the world has failed, leaving you powerless. Ozai's reign continues unchallenged, and the dream of a world without bending fades into legend.</p>";
-                break;
-        }
-        endingText += `<p>Final Stats:<br>
+}
+
+function endGame(ending) {
+    let endingText = "<h2>The End</h2>";
+    switch (ending) {
+        case "Victory through Strength":
+            endingText += "<p>Through sheer power and determination, you've defeated Fire Lord Ozai and ended the Hundred Year War. The world begins the long process of healing and rebuilding. Your legend will be remembered for generations to come.</p>";
+            break;
+        case "A World in Flames":
+            endingText += "<p>Despite your best efforts, Ozai's power proved too great. The world has fallen under the dominion of the Fire Nation. Hope remains that one day, a new hero will rise to challenge the Phoenix King's rule.</p>";
+            break;
+        case "A New Harmony":
+            endingText += "<p>By removing Ozai's bending, you've ended the war without further bloodshed. The world enters a new age of peace and balance. Your wisdom and mercy become the foundation for a brighter future.</p>";
+            break;
+        case "Spirit Broken":
+            endingText += "<p>The energybending technique backfired, leaving you vulnerable. Ozai seized this opportunity to claim victory. The world has fallen into darkness, with the hope of the Avatar extinguished.</p>";
+            break;
+        case "Redemption's Light":
+            endingText += "<p>Against all odds, you've redeemed Ozai. This unexpected turn of events leads to a peaceful transition of power. The world marvels at the power of compassion and the possibility of change.</p>";
+            break;
+        case "Mercy's Folly":
+            endingText += "<p>Your attempt at redemption failed, and Ozai's ambition has consumed the world. The consequences of your mercy will be felt for generations to come.</p>";
+            break;
+        case "A World Reborn":
+            endingText += "<p>Your sacrifice has reshaped the world. Without bending, a new era of true equality begins. The challenges ahead are many, but for the first time, all people face them on equal footing.</p>";
+            break;
+        case "A Dream Shattered":
+            endingText += "<p>Your ambitious attempt to reshape the world has failed, leaving you powerless. Ozai's reign continues unchallenged, and the dream of a world without bending fades into legend.</p>";
+            break;
+    }
+    endingText += `<p>Final Stats:<br>
                        Health: ${gameState.health}<br>
                        Energy: ${gameState.energy}<br>
                        Reputation:<br>
@@ -1999,58 +1999,55 @@ function handleFinalChoice(choice) {
                        - Earth Kingdom: ${gameState.reputation.earthKingdom}<br>
                        - Water Tribe: ${gameState.reputation.waterTribe}<br>
                        - Air Nomads: ${gameState.reputation.airNomads}</p>`;
-        endingText += "<p>Thank you for playing Avatar: The Last Airbender - Journey of Destiny!</p>";
-        endingText += "<button onclick='restartGame()'>Play Again</button>";
-    
-        updateStoryText(endingText);
-        // Hide choices as the game has ended
-        document.getElementById('choices').style.display = 'none';
-    }
-    
-    function restartGame() {
-        // Reset game state
-        gameState = {
-            playerName: "",
-            currentChapter: 0,
-            inventory: [],
-            allies: [],
-            reputation: {
-                fireNation: 0,
-                earthKingdom: 0,
-                waterTribe: 0,
-                airNomads: 0
-            },
-            skills: {
-                combat: 0,
-                stealth: 0,
-                diplomacy: 0,
-                bending: {
-                    fire: 0,
-                    water: 0,
-                    earth: 0,
-                    air: 0,
-                    spirit: 0
-                }
-            },
-            health: 100,
-            energy: 100,
-            gold: 50,
-            questLog: [],
-            completedQuests: [],
-            currentLocation: "Southern Water Tribe",
-            daysPassed: 0
-        };
-    
-        // Show choices again
-        document.getElementById('choices').style.display = 'block';
-    
-        // Start the game from the beginning
-        startGame();
-    }
-    
-    // Make sure to call startGame() when the page loads to begin the adventure
-    window.onload = startGame;
-    
+    endingText += "<p>Thank you for playing Avatar: The Last Airbender - Journey of Destiny!</p>";
+    endingText += "<button onclick='restartGame()'>Play Again</button>";
 
-// Start the game
-startGame();
+    updateStoryText(endingText);
+    // Hide choices as the game has ended
+    document.getElementById('choices').style.display = 'none';
+}
+
+function restartGame() {
+    // Reset game state
+    gameState = {
+        playerName: "",
+        currentChapter: 0,
+        inventory: [],
+        allies: [],
+        reputation: {
+            fireNation: 0,
+            earthKingdom: 0,
+            waterTribe: 0,
+            airNomads: 0
+        },
+        skills: {
+            combat: 0,
+            stealth: 0,
+            diplomacy: 0,
+            bending: {
+                fire: 0,
+                water: 0,
+                earth: 0,
+                air: 0,
+                spirit: 0
+            }
+        },
+        health: 100,
+        energy: 100,
+        gold: 50,
+        questLog: [],
+        completedQuests: [],
+        currentLocation: "Southern Water Tribe",
+        daysPassed: 0
+    };
+
+    // Show choices again
+    document.getElementById('choices').style.display = 'block';
+
+    // Start the game from the beginning
+    startGame();
+}
+
+// Make sure to call startGame() when the page loads to begin the adventure
+window.onload = startGame;
+
