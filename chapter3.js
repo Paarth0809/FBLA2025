@@ -86,8 +86,5 @@ function handleChapter3Choice(choice) {
     }, 300);
 
     logGameState("End of Chapter 3");
-    setTimeout(() => {
-        logGameState("Starting Chapter 4");
-        startChapter4();
-    }, 300);
+   
 }
