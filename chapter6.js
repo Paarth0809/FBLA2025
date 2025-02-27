@@ -13,75 +13,62 @@ export function startChapter6() {
 
 function displayChapter6() {
     const chapter6Text = `
-        <h2>Chapter 6: The Day of Black Sun</h2>
-        <p>The day of the solar eclipse has arrived. Your forces are in position, ready to launch 
-        the assault on the Fire Nation capital. As the moon begins to cover the sun, you must 
-        make crucial decisions that will determine the outcome of this daring attack.</p>
+        <h2>Chapter 6: The Northern Water Tribe</h2>
+        <p>After a relentless pursuit, you finally reach the Northern Water Tribe, where the Avatar seeks to master Waterbending. The tribe's formidable defenses and the natural barriers of ice and snow make your mission more difficult than ever. Yet, your resolve does not waver. As the Fire Nation prepares to lay siege, you plan your own covert operation to capture the Avatar, knowing this might be your last chance to regain your honor.</p>
     `;
     updateStoryText(chapter6Text);
     updateChoices([
-        { text: "Lead the frontal assault on the palace", action: () => handleChapter6Choice(1) },
-        { text: "Guide a small team to capture Fire Lord Ozai", action: () => handleChapter6Choice(2) },
-        { text: "Defend the invasion force from counter-attacks", action: () => handleChapter6Choice(3) },
-        { text: "Search for Princess Azula to prevent her interference", action: () => handleChapter6Choice(4) }
+        { text: "Infiltrate the city under the cover of night", action: () => handleChapter6Choice(1) },
+        { text: "Challenge the Avatar to a duel", action: () => handleChapter6Choice(2) },
+        { text: "Use the siege to your advantage", action: () => handleChapter6Choice(3) },
+        { text: "Seek out allies within the tribe", action: () => handleChapter6Choice(4) }
     ]);
 }
 
 function handleChapter6Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You lead the frontal assault on the palace...");
-            updateSkill('combat', 3);
-            updateSkill('leadership', 2);
-            if (skillCheck('combat', 20) && skillCheck('leadership', 18)) {
-                updateStoryText("Your leadership inspires the troops. You break through the palace defenses and secure key positions.");
-                addToInventory(items.royalScepter);
-                updateReputation('earthKingdom', 5);
+            updateStoryText("Using the chaos of the ongoing siege, you slip into the city unnoticed. The icy labyrinth of the Northern Water Tribe's capital challenges you, but your determination guides your steps.");
+            updateSkill('stealth', 2);
+            if (skillCheck('stealth', 12)) {
+                updateHealth(5);
+                updateStoryText("Your stealth allows you to navigate closer to the Avatar's known location without confrontation.");
             } else {
-                updateStoryText("The assault meets heavy resistance. You're forced to retreat as the eclipse ends, but not before dealing significant damage.");
-                updateHealth(-40);
-                updateReputation('fireNation', -4);
+                updateHealth(-10);
+                updateStoryText("Despite your best efforts, you encounter unexpected guards, leading to a skirmish that weakens you.");
             }
             break;
         case 2:
-            updateStoryText("You guide a small team to capture Fire Lord Ozai...");
-            updateSkill('stealth', 3);
-            updateSkill('strategy', 2);
-            if (skillCheck('stealth', 19) && randomInt(1, 10) > 7) {
-                updateStoryText("Against all odds, you locate Ozai's bunker. However, you find it empty - he anticipated the attack and fled.");
-                addToInventory(items.ozaisBattlePlans);
+            updateStoryText("Fueled by desperation, you issue a challenge to the Avatar, hoping to settle the score once and for all in a duel of honor.");
+            updateSkill('combat', 2);
+            if (skillCheck('combat', 14)) {
+                updateHealth(-5);
+                updateStoryText("The duel is fierce, and though you fight valiantly, the Avatar escapes, leaving you to ponder the true meaning of honor.");
             } else {
-                updateStoryText("Your team is ambushed by the royal guards. You fight valiantly but must retreat as the eclipse ends.");
-                updateHealth(-30);
-                updateEnergy(-40);
+                updateHealth(-20);
+                updateStoryText("Overpowered and outmatched, you barely escape with your life, forcing you to retreat and recover.");
             }
             break;
         case 3:
-            updateStoryText("You focus on defending the invasion force from counter-attacks...");
-            updateSkill('combat', 2);
-            updateSkill('strategy', 3);
-            if (skillCheck('combat', 17) && skillCheck('strategy', 18)) {
-                updateStoryText("Your defensive strategies prove effective. You successfully repel several counter-attacks, allowing the invasion to progress.");
-                updateReputation('earthKingdom', 3);
-                updateReputation('waterTribe', 3);
+            updateStoryText("As the Fire Nation's forces begin their attack, you find a way to use the siege's chaos to your advantage, aiming to capture the Avatar amidst the confusion.");
+            updateSkill('strategy', 2);
+            if (skillCheck('strategy', 13)) {
+                updateHealth(0);
+                updateStoryText("Your plan is sound, but the Avatar proves elusive once more, slipping away amid the battle's chaos.");
             } else {
-                updateStoryText("The Fire Nation's counter-attacks are fiercer than anticipated. You prevent a total rout, but the invasion force suffers heavy losses.");
-                updateHealth(-20);
-                updateReputation('earthKingdom', -1);
+                updateHealth(-15);
+                updateStoryText("Your plan backfires, and you find yourself caught between Water Tribe defenders and your own nation's soldiers.");
             }
             break;
         case 4:
-            updateStoryText("You search for Princess Azula to prevent her interference...");
-            updateSkill('combat', 2);
-            updateSkill('stealth', 2);
-            if (skillCheck('stealth', 18) && skillCheck('combat', 19)) {
-                updateStoryText("You manage to track down Azula and engage her in combat. Though she escapes, you've significantly disrupted her plans.");
-                addToInventory(items.azulasBlueFire);
-                updateReputation('fireNation', -3);
+            updateStoryText("Understanding the value of allies, you seek to turn the tribe's members against the Avatar, using guile to weave a web of deceit.");
+            updateSkill('diplomacy', 2);
+            if (skillCheck('diplomacy', 12)) {
+                updateHealth(5);
+                updateStoryText("Though you find no allies, your efforts do not go completely wasted, as you gather valuable intelligence on the Avatar's whereabouts.");
             } else {
-                updateStoryText("Azula outmaneuvers you, leading you into a trap. You barely escape with your life as the eclipse ends.");
-                updateHealth(-50);
-                updateEnergy(-50);
+                updateHealth(-5);
+                updateStoryText("Your attempts to sow discord only alienate you further, leaving you isolated in enemy territory.");
             }
             break;
     }

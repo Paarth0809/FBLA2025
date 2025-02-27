@@ -1,3 +1,5 @@
+// aangs final chapter. We did an outline of all the charcters first but realized we should do each individual. We kept this for aand as we thought we already made this and shouldnt go to waste
+
 import { startFinalChapter } from './finalChapter.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, addAlly, updateHealth, updateEnergy, updateReputation } from './utilityFunctions.js';

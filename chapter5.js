@@ -13,73 +13,59 @@ export function startChapter5() {
 
 function displayChapter5() {
     const chapter5Text = `
-        <h2>Chapter 5: The Eclipse Plan</h2>
-        <p>Having escaped the Fire Nation prison, your group learns of an upcoming solar eclipse, 
-        a rare moment when firebending is rendered useless. This presents a unique opportunity 
-        to strike at the heart of the Fire Nation. You must devise a plan to take advantage of 
-        this momentous event.</p>
+        <h2>Chapter 5: The Blue Spirit</h2>
+        <p>News reaches you that the Avatar has been captured and is being held in a heavily fortified Fire Nation outpost. Recognizing this as both a threat and an opportunity, you don the mask of the Blue Spirit. This dual identity allows you to move with anonymity, striking against your own nation to achieve your goals. The mission is clear: rescue the Avatar to ensure that your quest for honor remains yours alone to fulfill.</p>
     `;
     updateStoryText(chapter5Text);
     updateChoices([
-        { text: "Lead a direct assault on the Fire Nation capital", action: () => handleChapter5Choice(1) },
-        { text: "Sabotage the Fire Nation's supply lines first", action: () => handleChapter5Choice(2) },
-        { text: "Attempt diplomacy with Fire Nation defectors", action: () => handleChapter5Choice(3) },
-        { text: "Infiltrate the Fire Nation to gather intelligence", action: () => handleChapter5Choice(4) }
+        { text: "Sneak into the fortress undetected", action: () => handleChapter5Choice(1) },
+        { text: "Confront the guards head-on as the Blue Spirit", action: () => handleChapter5Choice(2) },
+        { text: "Create a diversion to draw the guards away", action: () => handleChapter5Choice(3) },
+        { text: "Use the environment to your advantage", action: () => handleChapter5Choice(4) }
     ]);
 }
 
 function handleChapter5Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to lead a direct assault on the Fire Nation capital...");
-            updateSkill('combat', 3);
-            updateReputation('fireNation', -5);
-            if (skillCheck('combat', 19)) {
-                updateStoryText("Your bold strategy catches the Fire Nation off guard. You make significant progress towards the palace.");
-                addToInventory(items.royalArmor);
+            updateStoryText("Using the shadows to your advantage, you infiltrate the fortress, avoiding detection with your agility and stealth. You reach the Avatar's cell undetected, freeing him and escaping without alerting the entire fortress to your presence.");
+            updateSkill('stealth', 3);
+            updateReputation('fireNation', -2);
+            if (skillCheck('stealth', 10)) {
+                updateHealth(10);  // Success in stealth increases health.
             } else {
-                updateStoryText("The assault is met with fierce resistance. You suffer heavy losses but manage to establish a foothold.");
-                updateHealth(-50);
-                updateReputation('earthKingdom', 2);
+                updateHealth(-5);  // Failure or partial success results in minor health loss.
             }
             break;
         case 2:
-            updateStoryText("You opt to sabotage the Fire Nation's supply lines...");
-            updateSkill('stealth', 3);
-            updateSkill('strategy', 2);
-            if (skillCheck('stealth', 17)) {
-                updateStoryText("Your sabotage is successful, severely hampering the Fire Nation's ability to defend against the upcoming assault.");
-                addToInventory(items.fireNationIntelligence);
+            updateStoryText("Embracing the persona of the Blue Spirit, you engage the guards directly, using your superior combat skills to overcome them. Though the approach is risky, you manage to defeat the guards and free the Avatar, proving your prowess as a warrior.");
+            updateSkill('combat', 3);
+            updateReputation('fireNation', -5);
+            if (skillCheck('combat', 12)) {
+                updateHealth(-10);  // Successful combat reduces health due to the fight.
             } else {
-                updateStoryText("Your sabotage attempt is partially successful, but you're discovered and must flee quickly.");
-                updateHealth(-20);
-                updateReputation('fireNation', -2);
+                updateHealth(-20);  // Less successful attempt costs more health.
             }
             break;
         case 3:
-            updateStoryText("You attempt diplomacy with Fire Nation defectors...");
-            updateSkill('diplomacy', 3);
-            if (skillCheck('diplomacy', 18)) {
-                updateStoryText("Your diplomatic efforts pay off. A significant number of Fire Nation soldiers agree to stand down during the eclipse.");
-                addAlly(characters.jeongJeong);
-                updateReputation('fireNation', -1);
-                updateReputation('earthKingdom', 3);
+            updateStoryText("You craft a clever diversion, setting off a series of explosions that draw the guards away from the Avatar's cell. With the guards distracted, you swiftly move to free the Avatar, showcasing your tactical acumen.");
+            updateSkill('strategy', 2);
+            updateReputation('fireNation', -3);
+            addToInventory('smoke bombs');
+            if (skillCheck('strategy', 11)) {
+                updateHealth(5);  // Successful strategy improves situation with minimal risk.
             } else {
-                updateStoryText("Your diplomatic overtures are met with suspicion. While some defectors join you, others alert the Fire Nation to your plans.");
-                updateReputation('fireNation', -3);
+                updateHealth(-5);  // Less effective strategy leads to minor setbacks.
             }
             break;
         case 4:
-            updateStoryText("You decide to infiltrate the Fire Nation to gather intelligence...");
-            updateSkill('stealth', 2);
+            updateStoryText("Observing the fortress's layout and natural features, you use the environment to create obstacles and barriers, confusing and slowing down the guards. This approach allows you to reach the Avatar with minimal confrontation, highlighting your ability to adapt and use resources creatively.");
             updateSkill('strategy', 2);
-            if (skillCheck('stealth', 16) && skillCheck('strategy', 15)) {
-                updateStoryText("Your infiltration is a success. You uncover crucial information about the Fire Nation's defenses and escape undetected.");
-                addToInventory(items.fireNationBattlePlans);
+            updateReputation('fireNation', -1);
+            if (skillCheck('environmental awareness', 10)) {
+                updateHealth(5);  // Successfully using the environment to advantage.
             } else {
-                updateStoryText("Your cover is blown during the infiltration. You manage to escape, but not before sustaining injuries.");
-                updateHealth(-30);
-                updateReputation('fireNation', -2);
+                updateHealth(-5);  // Failing to effectively use the environment.
             }
             break;
     }

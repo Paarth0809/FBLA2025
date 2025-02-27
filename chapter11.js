@@ -11,12 +11,13 @@ export function startChapter11() {
     displayChapter11();
 }
 
+
 function displayChapter11() {
     const chapter11Text = `
         <h2>Chapter 11: The Boiling Rock</h2>
         <p>Sokka learns that his father might be imprisoned at the Boiling Rock, the Fire Nation's 
-        most secure prison. Despite the risks, he's determined to mount a rescue mission. You must 
-        decide how to approach this dangerous endeavor.</p>
+        most secure prison. Despite the risks, he's determined to mount a rescue mission.  
+        You must decide how to approach this dangerous endeavor.</p>
     `;
     updateStoryText(chapter11Text);
     updateChoices([
@@ -30,21 +31,21 @@ function displayChapter11() {
 function handleChapter11Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You infiltrate the prison disguised as guards...");
+            updateStoryText("You decide to infiltrate the prison disguised as guards. The disguise provides initial cover...");
             updateSkill('stealth', 2);
             updateSkill('deception', 2);
             if (skillCheck('stealth', 18) && skillCheck('deception', 17)) {
                 updateStoryText("Your disguises work perfectly. You locate Sokka's father and orchestrate a daring escape.");
                 addAlly(characters.hakoda);
                 addToInventory(items.prisonMasterKey);
+                updateReputation('fireNation', -2);
             } else {
                 updateStoryText("Your cover is blown midway through the mission. You manage to escape, but without freeing the prisoners.");
                 updateHealth(-30);
-                updateReputation('fireNation', -2);
             }
             break;
         case 2:
-            updateStoryText("You attempt a stealth mission to break in and out quickly...");
+            updateStoryText("You attempt a stealth mission, aiming to break in and out quickly without detection...");
             updateSkill('stealth', 3);
             if (skillCheck('stealth', 19)) {
                 updateStoryText("Your stealth skills are impeccable. You free Sokka's father and several other prisoners without raising the alarm.");
@@ -56,9 +57,9 @@ function handleChapter11Choice(choice) {
             }
             break;
         case 3:
-            updateStoryText("You create a diversion to draw away the prison's forces...");
+            updateStoryText("You create a diversion to draw away the prison's forces, creating an opening for the rescue...");
             updateSkill('strategy', 2);
-            updateSkill('bending.fire', 1);
+            updateSkill('bending.fire', 1); // Assuming Zuko uses firebending as part of the diversion
             if (skillCheck('strategy', 17) && randomInt(1, 10) > 6) {
                 updateStoryText("Your diversion works brilliantly, allowing a small team to free the prisoners during the chaos.");
                 addAlly(characters.hakoda);
@@ -70,15 +71,15 @@ function handleChapter11Choice(choice) {
             }
             break;
         case 4:
-            updateStoryText("You attempt to negotiate with sympathetic prison staff...");
+            updateStoryText("You attempt to negotiate with sympathetic prison staff, hoping for inside help...");
             updateSkill('diplomacy', 3);
             if (skillCheck('diplomacy', 18)) {
                 updateStoryText("You successfully convince some staff members to help. Their inside knowledge proves crucial to the escape plan.");
                 addAlly(characters.hakoda);
                 addToInventory(items.guardSchedule);
+                updateReputation('fireNation', -2);
             } else {
                 updateStoryText("Your negotiations fail, and the staff alert the warden. You're forced to flee, mission unaccomplished.");
-                updateReputation('fireNation', -2);
             }
             break;
     }

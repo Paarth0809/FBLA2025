@@ -15,7 +15,7 @@ export function startChapter2() {
 function displayChapter2() {
     const chapter2Text = `
       <h2>Chapter 2: The Southern Water Tribe</h2>
-        <p>Exiled Prince Zuko, driven by his quest to regain his honor, arrives at the fringes of the Southern Water Tribe. The Avatar, he learns, has been seen in the area. With his loyal uncle and crew by his side, Zuko faces a crucial decision on how to approach his search. The choices he makes could change his destiny forever.</p>
+        <p>You are driven by your quest to regain your honor, arrives at the fringes of the Southern Water Tribe. The Avatar, you learn, has been seen in the area. With your loyal uncle and crew by your side, you faces a crucial decision on how to approach your search. The choices you makes could change you destiny forever.</p>
     `;
     updateStoryText(chapter2Text);
     updateChoices([

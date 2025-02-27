@@ -1,19 +1,6 @@
 
-// Characters
+// Characters just an idea so far. We dont have much of thew charcters implemented.
 export const characters = {
-    ren: {
-        name: "Ren",
-        description: "Son of the banished warrior General Kaidan",
-        skills: {
-            combat: 5,
-            stealth: 3,
-            diplomacy: 2,
-            bending: {
-                fire: 4
-            }
-        },
-        backstory: "Ren grew up hearing stories of his father's bravery and honor. He struggles with his loyalty to the Fire Nation and his desire to uncover the truth about his father's banishment."
-    },
     aang: {
         name: "Aang",
         description: "The last Airbender and the Avatar",

@@ -12,63 +12,65 @@ export function startChapter14() {
 
 function displayChapter14() {
     const chapter14Text = `
-        <h2>Chapter 14: The Ember Island Players</h2>
-        <p>With tensions high and Sozin's Comet approaching, your group stumbles upon a theater 
-        troupe performing a play about your adventures. This unexpected encounter forces you 
-        to reflect on your journey and the challenges ahead.</p>
+        <h2>Chapter 14: The Old Masters</h2>
+        <p>After years of struggle and growth, you, as Zuko, finally reunite with Uncle Iroh. The moment is fraught with emotion as you seek forgiveness 
+        for your past actions. Iroh's acceptance and unwavering love symbolize your full redemption. Together with the Order of the White Lotus, you 
+        begin preparations for the final battle to liberate Ba Sing Se and restore balance to the world.</p>
     `;
     updateStoryText(chapter14Text);
     updateChoices([
-        { text: "Attend the play to gather intelligence on public perception", action: () => handleChapter14Choice(1) },
-        { text: "Use this time for last-minute training instead", action: () => handleChapter14Choice(2) },
-        { text: "Attempt to influence the play's narrative for propaganda purposes", action: () => handleChapter14Choice(3) },
-        { text: "Reflect privately on the journey and meditate on the coming battle", action: () => handleChapter14Choice(4) }
+        { text: "Seek forgiveness from Uncle Iroh", action: () => handleChapter14Choice(1) },
+        { text: "Strategize with the Order of the White Lotus", action: () => handleChapter14Choice(2) },
+        { text: "Reflect on your journey and the lessons learned", action: () => handleChapter14Choice(3) },
+        { text: "Prepare yourself for the final battle", action: () => handleChapter14Choice(4) }
     ]);
 }
 
 function handleChapter14Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to attend the play...");
-            updateSkill('intelligence', 2);
-            if (skillCheck('intelligence', 16)) {
-                updateStoryText("The play provides valuable insights into public perception and Fire Nation propaganda tactics.");
-                addToInventory(items.propagandaPamphlet);
-                updateReputation('fireNation', -1);
+            updateStoryText("You approach Uncle Iroh, heavy with the weight of your past, seeking his forgiveness...");
+            if (skillCheck('empathy', 18)) {
+                updateStoryText("Iroh embraces you, his forgiveness immediate and unconditional, reinforcing the bond between you.");
+                updateSkill('wisdom', 2);
+                updateEnergy(20);
+                addToInventory(items.teaSet);
             } else {
-                updateStoryText("The play is wildly inaccurate and somewhat demoralizing. It provides little useful information.");
-                updateEnergy(-20);
+                updateStoryText("Iroh's forgiveness is given freely, but you still struggle internally to fully accept it.");
+                updateEnergy(10);
             }
             break;
         case 2:
-            updateStoryText("You opt for last-minute training...");
-            updateSkill('combat', 2);
-            updateSkill('bending.fire', 1);
-            updateStoryText("The intense training session hones your skills, but leaves little time for mental preparation.");
-            updateEnergy(-30);
+            updateStoryText("Together with the Order of the White Lotus, you strategize for the upcoming liberation of Ba Sing Se...");
+            if (skillCheck('strategy', 20)) {
+                updateStoryText("Your strategic insights prove invaluable, shaping the plan of attack.");
+                updateReputation('earthKingdom', 2);
+                addToInventory(items.warMap);
+            } else {
+                updateStoryText("While your contributions are earnest, the complexities of the battle plan are daunting.");
+                updateEnergy(-10);
+            }
             break;
         case 3:
-            updateStoryText("You attempt to influence the play's narrative...");
-            updateSkill('diplomacy', 2);
-            if (skillCheck('diplomacy', 18)) {
-                updateStoryText("Your subtle influence shifts the play's tone, inspiring hope in the audience and boosting morale.");
-                updateReputation('earthKingdom', 2);
-                updateReputation('fireNation', -2);
+            updateStoryText("You take a moment to reflect on the long path that has led you here...");
+            if (skillCheck('wisdom', 18)) {
+                updateStoryText("Your reflections fill you with a sense of peace and purpose.");
+                updateSkill('wisdom', 3);
+                updateEnergy(20);
             } else {
-                updateStoryText("Your attempts to influence the play backfire, drawing unwanted attention to your group.");
-                updateReputation('fireNation', -1);
+                updateStoryText("The reflection is bittersweet, filled with regrets but also a determination to make the future better.");
+                updateEnergy(5);
             }
             break;
         case 4:
-            updateStoryText("You choose to reflect privately and meditate...");
-            updateSkill('spirituality', 3);
-            if (skillCheck('spirituality', 17)) {
-                updateStoryText("Your meditation provides clarity and inner peace, strengthening your resolve for the coming battle.");
-                updateSkill('bending.spirit', 2);
-                addToInventory(items.spiritualFocus);
+            updateStoryText("You focus on preparing yourself mentally and physically for the final battle...");
+            if (skillCheck('bending.fire', 20) && skillCheck('discipline', 18)) {
+                updateStoryText("You feel a surge of confidence in your firebending skills and your ability to lead.");
+                updateSkill('bending.fire', 3);
+                updateEnergy(30);
             } else {
-                updateStoryText("Your attempts at meditation are interrupted by anxious thoughts about the future.");
-                updateEnergy(-15);
+                updateStoryText("Despite your best efforts, nerves and doubt creep in.");
+                updateEnergy(-20);
             }
             break;
     }

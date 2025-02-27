@@ -4,6 +4,7 @@ import { updateSkill, addToInventory, updateHealth, updateEnergy, updateReputati
 import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
+import { startFinalChapter } from './finalChapter.js';
 
 
 export function startChapter15() {
@@ -13,79 +14,74 @@ export function startChapter15() {
 
 function displayChapter15() {
     const chapter15Text = `
-        <h2>Chapter 15: The Phoenix King</h2>
-        <p>Sozin's Comet is mere hours away. You've learned that Fire Lord Ozai plans to harness 
-        its power to deal a final, devastating blow to the Earth Kingdom. Time is running out, 
-        and you must make crucial last-minute decisions.</p>
+        <h2>Chapter 15: The Comet</h2>
+        <p>Sozin's Comet is here, enhancing the firebending of all who wield it. As Zuko, you face Azula in a decisive 
+        battle for the future of the Fire Nation. The stakes have never been higher, not just for the throne, but for 
+        the soul of your nation. It's a battle that will determine the course of the Fire Nation and your own destiny as its leader.</p>
     `;
     updateStoryText(chapter15Text);
     updateChoices([
-        { text: "Launch a preemptive strike on the Fire Nation capital", action: () => handleChapter15Choice(1) },
-        { text: "Set up defensive positions to protect key Earth Kingdom locations", action: () => handleChapter15Choice(2) },
-        { text: "Attempt to intercept Ozai's airship fleet before they take off", action: () => handleChapter15Choice(3) },
-        { text: "Seek out a spiritual solution to negate the comet's power", action: () => handleChapter15Choice(4) }
+        { text: "Confront Azula, focusing on your firebending", action: () => handleChapter15Choice(1) },
+        { text: "Use the environment to your advantage", action: () => handleChapter15Choice(2) },
+        { text: "Rely on your inner calm and tactics over raw power", action: () => handleChapter15Choice(3) },
+        { text: "Call upon the support of your friends if needed", action: () => handleChapter15Choice(4) }
     ]);
 }
 
 function handleChapter15Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You launch a preemptive strike on the Fire Nation capital...");
-            updateSkill('strategy', 3);
-            updateSkill('combat', 2);
-            if (skillCheck('strategy', 19) && skillCheck('combat', 18)) {
-                updateStoryText("Your bold strike catches the Fire Nation off guard, significantly disrupting their plans.");
-                updateReputation('fireNation', -4);
-                addToInventory(items.royalWarPlans);
+            updateStoryText("You engage Azula directly, your firebending enhanced by the comet...");
+            if (skillCheck('bending.fire', 22)) {
+                updateStoryText("Your mastery of firebending prevails, overcoming Azula's aggression with precision and power.");
+                updateEnergy(30);
+                updateReputation('fireNation', 5);
+                gameState.isFireLord = true;
             } else {
-                updateStoryText("The Fire Nation's defenses prove too strong. You're forced to retreat, having lost valuable time and resources.");
-                updateHealth(-40);
-                updateEnergy(-50);
+                updateStoryText("Azula's ferocity is daunting, pushing you to the edge. The battle is fierce, testing every bit of your skill and resolve.");
+                updateHealth(-20);
             }
             break;
         case 2:
-            updateStoryText("You set up defensive positions in the Earth Kingdom...");
-            updateSkill('defense', 3);
-            if (skillCheck('defense', 18)) {
-                updateStoryText("Your defensive strategy is solid. Key locations are fortified, giving hope to Earth Kingdom citizens.");
-                updateReputation('earthKingdom', 4);
-                addToInventory(items.earthKingdomShield);
+            updateStoryText("You cleverly use the environment to level the playing field against Azula...");
+            if (skillCheck('strategy', 18)) {
+                updateStoryText("Your strategic use of the surroundings catches Azula off guard, tipping the scales in your favor.");
+                updateEnergy(20);
+                updateReputation('fireNation', 3);
+                gameState.isFireLord = true;
             } else {
-                updateStoryText("Your defenses are spread too thin. Some locations remain vulnerable to attack.");
-                updateEnergy(-30);
-                updateReputation('earthKingdom', -1);
+                updateStoryText("Azula anticipates your moves, countering your strategies. The battle remains evenly matched.");
+                updateHealth(-15);
             }
             break;
         case 3:
-            updateStoryText("You attempt to intercept Ozai's airship fleet...");
-            updateSkill('stealth', 2);
-            updateSkill('sabotage', 2);
-            if (skillCheck('stealth', 17) && skillCheck('sabotage', 18)) {
-                updateStoryText("Your team successfully infiltrates and sabotages several key airships, crippling Ozai's fleet.");
-                addToInventory(items.airshipSchematics);
-                updateReputation('fireNation', -3);
+            updateStoryText("You focus on maintaining your inner calm, using tactics over brute strength...");
+            if (skillCheck('wisdom', 20) && skillCheck('bending.fire', 20)) {
+                updateStoryText("This approach disorients Azula, allowing you to subdue her with superior tactics and control.");
+                updateEnergy(25);
+                updateReputation('fireNation', 4);
+                gameState.isFireLord = true;
             } else {
-                updateStoryText("The airship base is too well-guarded. Your sabotage attempt fails, and you barely escape capture.");
+                updateStoryText("While you manage to maintain your calm, Azula's relentless assault puts you on the defensive.");
                 updateHealth(-25);
-                updateEnergy(-40);
             }
             break;
         case 4:
-            updateStoryText("You seek a spiritual solution to negate the comet's power...");
-            updateSkill('spirituality', 3);
-            if (skillCheck('spirituality', 20)) {
-                updateStoryText("Through deep meditation, you discover an ancient technique to temporarily dampen the comet's effect on firebending.");
-                updateSkill('bending.spirit', 3);
-                addToInventory(items.spiritWaterVial);
+            updateStoryText("Feeling the weight of the battle, you signal for the support of your friends...");
+            if (gameState.allies.includes('teamAvatar')) {
+                updateStoryText("With the timely intervention of your friends, the tide turns. Together, you overpower Azula.");
+                updateEnergy(20);
+                updateReputation('fireNation', 2);
+                gameState.isFireLord = true;
             } else {
-                updateStoryText("Despite your best efforts, you're unable to find a way to counteract the comet's power through spiritual means.");
-                updateEnergy(-45);
+                updateStoryText("Your call for help goes unanswered in the heat of the battle, leaving you to face Azula alone.");
+                updateHealth(-30);
             }
             break;
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter16 }
+            { text: "Continue", action: startFinalChapter }
         ]);
     }, 300);
 }

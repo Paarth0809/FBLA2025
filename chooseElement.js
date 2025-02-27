@@ -14,7 +14,7 @@ function displayChooseElement() {
         { text: "Air", action: () =>  handleElementChoice(4) }
     ]);
 }
-
+// we still have to make the prologues for other elements. Its will be almost the same code, but different scenerios. For Now each element goes to Fire Prolouge.
 function  handleElementChoice(choice) {
     switch (choice) {
         case 1:

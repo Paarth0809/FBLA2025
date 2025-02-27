@@ -53,12 +53,14 @@ export function endGame(ending) {
                        - Water Tribe: ${gameState.reputation.waterTribe}<br>
                        - Air Nomads: ${gameState.reputation.airNomads}</p>`;
     endingText += "<p>Thank you for playing Avatar: The Last Airbender - Journey of Destiny!</p>";
-    endingText += "<button onclick='restartGame()'>Play Again</button>";
+    
 
     updateStoryText(endingText);
     // Hide choices as the game has ended
     document.getElementById('choices').style.display = 'none';
-}
+} 
+
+
 
 export function restartGame() {
     // Reset game state

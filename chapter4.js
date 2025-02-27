@@ -14,19 +14,17 @@ export function startChapter4() {
 }
 
 function displayChapter4() {
-    logGameState("Displaying Chapter 4");
+    logGameState("displayChapter4");
     const chapter4Text = `
-        <h2>Chapter 4: The Fire Nation Prison Escape</h2>
-        <p>Ren, Katara, Sokka, and Toph cross paths in a high-security Fire Nation prison. 
-        The Avatar, now fully aware of his mission, infiltrates the prison to free them. 
-        The escape plan is risky and requires careful coordination.</p>
+        <h2>Chapter 4: The Storm</h2>
+        <p>As a fierce storm approaches, you find yourself reflecting on the events that led to your banishment. The confrontation at the war meeting, your refusal to participate in a plan that would sacrifice innocent lives, and the Agni Kai that followed... all culminating in your father's decree of banishment until you capture the Avatar. This storm stirs within you a turmoil as powerful as the one raging in the skies.</p>
     `;
     updateStoryText(chapter4Text);
     updateChoices([
-        { text: "Attempt a full-scale breakout, rallying all prisoners", action: () => handleChapter4Choice(1) },
-        { text: "Execute a stealth operation, sneaking out unnoticed", action: () => handleChapter4Choice(2) },
-        { text: "Try to deceive the guards into letting you go", action: () => handleChapter4Choice(3) },
-        { text: "Create a diversion to split the guards' attention", action: () => handleChapter4Choice(4) }
+        { text: "Reflect on your past mistakes", action: () => handleChapter4Choice(1) },
+        { text: "Focus on the lessons learned from Uncle Iroh", action: () => handleChapter4Choice(2) },
+        { text: "Reaffirm your vow to capture the Avatar", action: () => handleChapter4Choice(3) },
+        { text: "Contemplate the nature of honor and redemption", action: () => handleChapter4Choice(4) }
     ]);
 }
 
@@ -34,54 +32,47 @@ function displayChapter4() {
 function handleChapter4Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to attempt a full-scale breakout...");
-            updateSkill('combat', 3);
-            updateSkill('diplomacy', 1);
-            if (skillCheck('combat', 18)) {
-                updateStoryText("The prison erupts into chaos. Amidst the confusion, you and many others manage to escape.");
-                updateReputation('fireNation', -4);
-                addAlly(characters.suki);
+            updateStoryText("You take a moment to reflect on the mistakes you've made, understanding that acknowledging them is the first step towards not repeating them.");
+            updateSkill('introspection', 2);
+            if (skillCheck('introspection', 10)) {
+                updateHealth(5);  // Successful introspection improves mental resilience.
+                updateStoryText("This moment of introspection not only strengthens your resolve but also brings a sense of peace, slightly healing your wounds.");
             } else {
-                updateStoryText("The breakout attempt fails. Guards quickly suppress the uprising, and security tightens.");
-                updateHealth(-40);
-                updateReputation('fireNation', -2);
+                updateHealth(-5);  // Unsuccessful introspection leads to frustration and stress.
+                updateStoryText("Despite your efforts, the reflection brings more turmoil than clarity, slightly exacerbating your existing wounds.");
             }
             break;
         case 2:
-            updateStoryText("You opt for a stealth operation...");
-            updateSkill('stealth', 3);
-            if (skillCheck('stealth', 16)) {
-                updateStoryText("Under the cover of night, you and your allies slip past the guards undetected.");
-                addToInventory(items.prisonMap);
+            updateStoryText("You recall the lessons Uncle Iroh has taught you about patience, wisdom, and the true meaning of strength.");
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 12)) {
+                updateHealth(10);  // Wisdom brings not only clarity but also a significant sense of well-being.
+                updateStoryText("Iroh's lessons resonate deeply, providing comfort and guidance that bolster your spirit and heal your body.");
             } else {
-                updateStoryText("Your stealth attempt is discovered. You manage to escape, but not without injury.");
-                updateHealth(-20);
-                updateReputation('fireNation', -1);
+                updateHealth(-5);  // Struggling to fully grasp Iroh's teachings results in a sense of loss.
+                updateStoryText("While you strive to grasp the depth of Iroh's teachings, the full understanding eludes you, causing a momentary lapse in your resolve.");
             }
             break;
         case 3:
-            updateStoryText("You try to deceive the guards...");
-            updateSkill('diplomacy', 3);
-            if (skillCheck('diplomacy', 17)) {
-                updateStoryText("Your clever ruse works. The guards unwittingly allow you and your allies to walk free.");
-                addToInventory(items.guardUniform);
+            updateStoryText("Amidst the storm, you reaffirm your vow to capture the Avatar, believing that it is the only way to regain your honor and return home.");
+            updateSkill('determination', 2);
+            if (skillCheck('determination', 15)) {
+                updateHealth(-5);  // Reaffirming your vow strengthens your resolve but the path remains perilous.
+                updateStoryText("Your determination is unwavering, yet the path you've chosen wears on you, hinting at the challenges ahead.");
             } else {
-                updateStoryText("The guards see through your deception. Your punishment is severe, but you're alive.");
-                updateHealth(-30);
-                updateEnergy(-30);
+                updateHealth(-10);  // Doubt creeps in, weakening your resolve and causing distress.
+                updateStoryText("As you attempt to reaffirm your vow, doubts cloud your mind, sapping your strength and resolve.");
             }
             break;
         case 4:
-            updateStoryText("You create a diversion to split the guards' attention...");
-            updateSkill('stealth', 2);
-            updateSkill('combat', 1);
-            if (skillCheck('stealth', 15) && skillCheck('combat', 14)) {
-                updateStoryText("Your diversion works perfectly. In the chaos, you and your allies make your escape.");
-                addToInventory(items.smokeGrenade);
+            updateStoryText("You ponder the true nature of honor and whether redemption can be found in the path you have chosen.");
+            updateSkill('philosophy', 2);
+            if (skillCheck('philosophy', 13)) {
+                updateHealth(5);  // Philosophical insight brings a sense of enlightenment and peace.
+                updateStoryText("Your contemplation leads to a significant realization about your journey, offering a glimmer of hope and a slight healing of your spirit.");
             } else {
-                updateStoryText("The diversion partially succeeds. You escape, but not all of your allies make it out.");
-                updateHealth(-15);
-                updateReputation('fireNation', -2);
+                updateHealth(-5);  // The philosophical struggle deepens your turmoil.
+                updateStoryText("While you seek answers, the philosophical dilemmas only deepen your inner conflict, reflecting the turmoil in your spirit.");
             }
             break;
     }

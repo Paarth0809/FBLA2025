@@ -13,64 +13,62 @@ export function startChapter12() {
 
 function displayChapter12() {
     const chapter12Text = `
-        <h2>Chapter 12: The Southern Air Temple Revisited</h2>
-        <p>As Sozin's Comet approaches, Aang is plagued by doubts about facing the Fire Lord. 
-        He suggests revisiting the Southern Air Temple to connect with his past and seek guidance. 
-        Time is short, but this spiritual journey could be crucial.</p>
+        <h2>Chapter 12: The Ember Island Players</h2>
+        <p>Seeking a brief respite from the intensity of your quest, you and your friends discover that a popular theater troupe is performing a play 
+        based on your adventures. As Zuko, you watch your past actions portrayed on stage, offering a unique perspective on your journey. The experience 
+        forces you to confront your past decisions, the perceptions of those around you, and perhaps even question your future path.</p>
     `;
     updateStoryText(chapter12Text);
     updateChoices([
-        { text: "Support Aang's journey to the temple", action: () => handleChapter12Choice(1) },
-        { text: "Urge the group to continue practical preparations instead", action: () => handleChapter12Choice(2) },
-        { text: "Split the group: some go to the temple, others prepare", action: () => handleChapter12Choice(3) },
-        { text: "Suggest an alternative spiritual location for quicker guidance", action: () => handleChapter12Choice(4) }
+        { text: "Reflect on how the play portrays your quest for honor", action: () => handleChapter12Choice(1) },
+        { text: "Confront the reality of your actions and their impact on others", action: () => handleChapter12Choice(2) },
+        { text: "Discuss the play's portrayal with Aang and the others", action: () => handleChapter12Choice(3) },
+        { text: "Use the play's inaccuracies as a learning tool for personal growth", action: () => handleChapter12Choice(4) }
     ]);
 }
 
 function handleChapter12Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You support Aang's journey to the Southern Air Temple...");
-            updateSkill('spirituality', 3);
-            if (skillCheck('spirituality', 18)) {
-                updateStoryText("At the temple, Aang connects with the spirits of past Avatars, gaining crucial wisdom and resolve.");
-                updateSkill('bending.air', 2);
-                addToInventory(items.avatarRelicStaff);
+            updateStoryText("Watching the dramatized version of your quest for honor, you ponder the depth of your transformation...");
+            updateSkill('introspection', 2);
+            if (skillCheck('introspection', 16)) {
+                updateStoryText("This reflection deepens your understanding of your journey, acknowledging the mistakes and growth along the way.");
+                updateReputation('fireNation', 1);
             } else {
-                updateStoryText("The journey provides some comfort to Aang, but no breakthrough insights. Valuable time has been used.");
-                updateEnergy(-30);
+                updateStoryText("The portrayal stirs mixed feelings, leaving you to grapple with parts of your past you're still coming to terms with.");
             }
             break;
         case 2:
-            updateStoryText("You urge the group to continue practical preparations...");
-            updateSkill('strategy', 2);
-            updateSkill('combat', 2);
-            updateStoryText("The group's combat skills and strategies improve, but Aang's spiritual uncertainty remains a concern.");
-            updateReputation('earthKingdom', 1);
-            updateEnergy(-20);
+            updateStoryText("The play's depiction of your actions and their repercussions on others prompts a stark self-examination...");
+            updateSkill('empathy', 2);
+            if (skillCheck('empathy', 15)) {
+                updateStoryText("You gain a new appreciation for the perspectives of those you've affected, strengthening your resolve to make amends.");
+                updateReputation('waterTribe', 1);
+                updateReputation('earthKingdom', 1);
+            } else {
+                updateStoryText("The realization is uncomfortable, highlighting the long road ahead in your quest for redemption.");
+            }
             break;
         case 3:
-            updateStoryText("You decide to split the group...");
-            updateSkill('leadership', 2);
-            if (skillCheck('leadership', 17) && randomInt(1, 10) > 5) {
-                updateStoryText("The split approach works well. Aang finds spiritual guidance while the rest of the group makes solid preparations.");
-                updateSkill('bending.air', 1);
-                addToInventory(items.enhancedBattlePlans);
+            updateStoryText("You engage in discussions with Aang and the others about their thoughts on the play's portrayal...");
+            updateSkill('communication', 2);
+            if (skillCheck('communication', 17)) {
+                updateStoryText("These conversations bring laughter, shared memories, and a stronger bond among you all.");
+                updateReputation('teamAvatar', 2);
             } else {
-                updateStoryText("The split group struggles with their respective tasks. You regroup, having made little progress on either front.");
-                updateEnergy(-40);
+                updateStoryText("Some discussions turn tense, revealing unresolved issues that still need addressing.");
             }
             break;
         case 4:
-            updateStoryText("You suggest an alternative spiritual location...");
-            updateSkill('knowledge', 2);
-            if (skillCheck('knowledge', 16)) {
-                updateStoryText("Your suggestion leads the group to a nearby ancient meditation site. Aang receives valuable guidance in a shorter time.");
-                updateSkill('spirituality', 2);
-                addToInventory(items.spiritMedallion);
+            updateStoryText("You decide to use the play's inaccuracies not just to critique but to reflect on your personal growth...");
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 18)) {
+                updateStoryText("This approach yields insights into how you've changed and how you wish to grow, reinforcing your commitment to your new path.");
+                updateReputation('fireNation', 1);
+                updateReputation('teamAvatar', 1);
             } else {
-                updateStoryText("The alternative location doesn't provide the connection Aang needs. The detour costs time without much benefit.");
-                updateEnergy(-25);
+                updateStoryText("While the attempt is noble, finding actionable insights in the play's exaggerated fiction proves challenging.");
             }
             break;
     }

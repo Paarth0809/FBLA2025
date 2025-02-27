@@ -13,65 +13,60 @@ export function startChapter13() {
 
 function displayChapter13() {
     const chapter13Text = `
-        <h2>Chapter 13: The Order of the White Lotus</h2>
-        <p>As the day of Sozin's Comet draws near, you receive a message from Iroh. The Order 
-        of the White Lotus is gathering to liberate Ba Sing Se. Their aid could be crucial, but 
-        joining them might delay your confrontation with the Fire Lord.</p>
+        <h2>Chapter 13: The Phoenix King</h2>
+        <p>As the day of Sozin's Comet approaches, tension rises. Zuko, now fully committed to his new path, 
+        confronts not only the imminent battle but also the personal challenge of facing his father, Fire Lord Ozai. 
+        This confrontation is more than a battle of firebending; it's a clash of ideals, marking the final step in Zuko's 
+        journey of redemption and transformation.</p>
     `;
     updateStoryText(chapter13Text);
     updateChoices([
-        { text: "Join forces with the Order of the White Lotus", action: () => handleChapter13Choice(1) },
-        { text: "Decline their offer and focus on confronting the Fire Lord", action: () => handleChapter13Choice(2) },
-        { text: "Send part of your group to aid the Order while others prepare", action: () => handleChapter13Choice(3) },
-        { text: "Request the Order's assistance in your plan instead", action: () => handleChapter13Choice(4) }
+        { text: "Prepare for the confrontation with Ozai", action: () => handleChapter13Choice(1) },
+        { text: "Reflect on your journey and the choices that led you here", action: () => handleChapter13Choice(2) },
+        { text: "Rally your friends and allies for the battle ahead", action: () => handleChapter13Choice(3) },
+        { text: "Seek advice and wisdom from Uncle Iroh", action: () => handleChapter13Choice(4) }
     ]);
 }
 
 function handleChapter13Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to join forces with the Order of the White Lotus...");
+            updateStoryText("You spend your time strategizing and honing your firebending, ensuring you're prepared for the battle against Ozai...");
             updateSkill('strategy', 3);
-            updateReputation('earthKingdom', 3);
-            if (skillCheck('strategy', 18)) {
-                updateStoryText("The combined forces successfully liberate Ba Sing Se. This victory significantly weakens the Fire Nation's hold.");
-                addAlly(characters.iroh);
-                updateReputation('fireNation', -3);
+            updateSkill('bending.fire', 2);
+            if (skillCheck('strategy', 20) && skillCheck('bending.fire', 20)) {
+                updateStoryText("Your intense preparation pays off, leaving you feeling ready and capable to face your father, both in skill and resolve.");
             } else {
-                updateStoryText("The battle for Ba Sing Se is hard-fought. You succeed, but at a great cost of time and resources.");
-                updateHealth(-30);
-                updateEnergy(-40);
+                updateStoryText("Despite your efforts, doubts linger. Have you prepared enough? The question haunts you as the confrontation draws near.");
             }
             break;
         case 2:
-            updateStoryText("You decline their offer and focus on confronting the Fire Lord...");
-            updateSkill('determination', 2);
-            updateStoryText("Your group remains focused on the primary mission, but you wonder about the fate of Ba Sing Se.");
-            updateReputation('whiteLotusSociety', -2);
+            updateStoryText("In quiet moments, you reflect on the winding path that led you to this point, recognizing the growth and change within you...");
+            updateSkill('wisdom', 3);
+            if (skillCheck('wisdom', 18)) {
+                updateStoryText("Your reflections strengthen your resolve and clarity of purpose, reinforcing your commitment to your new path and the battle ahead.");
+            } else {
+                updateStoryText("Reflection brings up as many questions as answers, but you find solace in knowing you've chosen to stand for what's right.");
+            }
             break;
         case 3:
-            updateStoryText("You send part of your group to aid the Order...");
-            updateSkill('leadership', 2);
-            if (skillCheck('leadership', 17) && randomInt(1, 10) > 6) {
-                updateStoryText("The split strategy works well. Ba Sing Se is liberated, and your main group makes good preparations.");
-                addAlly(characters.pakku);
-                updateReputation('earthKingdom', 2);
+            updateStoryText("Understanding the importance of unity, you rally your friends and allies, emphasizing the strength found in togetherness...");
+            updateSkill('leadership', 3);
+            if (skillCheck('leadership', 19)) {
+                updateStoryText("Your leadership inspires confidence and unity among your allies, bolstering the group's morale as you prepare for the final showdown.");
+                updateReputation('teamAvatar', 2);
             } else {
-                updateStoryText("The split forces struggle. Ba Sing Se's liberation is partial, and your main group's preparation suffers.");
-                updateEnergy(-35);
-                updateReputation('earthKingdom', 1);
+                updateStoryText("While your intentions are clear, rallying everyone proves more challenging than expected. Still, you manage to instill a sense of shared purpose.");
             }
             break;
         case 4:
-            updateStoryText("You request the Order's assistance in your plan...");
-            updateSkill('diplomacy', 3);
-            if (skillCheck('diplomacy', 19)) {
-                updateStoryText("The Order agrees to alter their plans. Their support significantly strengthens your position against the Fire Lord.");
-                addAlly(characters.jeongJeong);
-                addToInventory(items.whiteLotusTalisman);
+            updateStoryText("Seeking guidance, you turn to Uncle Iroh, whose wisdom has always served as a beacon in your darkest times...");
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 20)) {
+                updateStoryText("Iroh's advice resonates deeply, offering clarity and courage as you prepare to face what may be your greatest challenge.");
+                updateSkill('bending.fire', 1); // Reflecting the emotional and mental preparation for the confrontation
             } else {
-                updateStoryText("The Order is reluctant to change their plans. You receive minimal support, straining relations.");
-                updateReputation('whiteLotusSociety', -1);
+                updateStoryText("While always comforting, Iroh's words leave you with more questions about your path and the future. You wonder if you're truly ready.");
             }
             break;
     }

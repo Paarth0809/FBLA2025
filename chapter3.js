@@ -14,68 +14,57 @@ export function startChapter3() {
 
 function displayChapter3() {
     const chapter3Text = `
-        <h2>Chapter 3: The Earth Kingdom's Secret Weapon</h2>
-        <p>In Ba Sing Se, Toph, a blind girl from a noble family, hones her skills as an earthbender. 
-        Despite her disability, she has unmatched perception and strength. When she overhears a secret 
-        about Fire Lord Ozai's plans, she must decide her course of action.</p>
+        <h2>Chapter 3: The Avatar Escapes</h2>
+        <p>Despite your best efforts, the Avatar has eluded your grasp at the Southern Water Tribe. The chase leads you closer to the heart of the Earth Kingdom, where rumors of the Avatar's presence grow stronger. As you navigate the complexities of your mission, you must decide how to proceed, knowing that each choice could bring you closer to your goal or further from your honor.</p>
     `;
     updateStoryText(chapter3Text);
     updateChoices([
-        { text: "Inform the Earth Kingdom generals", action: () => handleChapter3Choice(1) },
-        { text: "Find the underground resistance and join them", action: () => handleChapter3Choice(2) },
-        { text: "Travel alone, seeking the Avatar's aid", action: () => handleChapter3Choice(3) },
-        { text: "Confront the Dai Li about their corruption", action: () => handleChapter3Choice(4) }
+        { text: "Intensify the search with your crew", action: () => handleChapter3Choice(1) },
+        { text: "Consult Uncle Iroh for advice", action: () => handleChapter3Choice(2) },
+        { text: "Set a trap using false information", action: () => handleChapter3Choice(3) },
+        { text: "Seek aid from local Earth Kingdom contacts", action: () => handleChapter3Choice(4) }
     ]);
 }
 
 function handleChapter3Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to inform the Earth Kingdom generals...");
-            updateSkill('diplomacy', 2);
-            if (skillCheck('diplomacy', 16)) {
-                updateStoryText("The generals listen to your information and begin preparing defenses against the Fire Nation's plans.");
-                updateReputation('earthKingdom', 3);
+            updateStoryText("Determined not to fail again, you rally your crew, intensifying the search for the Avatar across the Earth Kingdom.");
+            updateSkill('leadership', 2);
+            if (skillCheck('leadership', 12)) {
+                updateStoryText("Your efforts lead to a crucial sighting of the Avatar. The chase is on, reigniting your hope of capturing him.");
             } else {
-                updateStoryText("The generals dismiss your claims, believing them to be unfounded rumors.");
-                updateReputation('earthKingdom', -1);
+                updateStoryText("Despite your determination, the Avatar remains elusive, a reminder of the challenges that lie ahead.");
+                updateHealth(-5);
             }
             break;
         case 2:
-            updateStoryText("You seek out the underground resistance...");
-            updateSkill('stealth', 2);
-            if (skillCheck('stealth', 14)) {
-                updateStoryText("You successfully make contact with the resistance and join their ranks.");
-                addAlly(characters.jet);
-                addToInventory(items.earthGloves);
+            updateStoryText("Seeking wisdom, you consult Uncle Iroh, hoping his experience and insight will guide you to a successful strategy.");
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 12)) {
+                updateStoryText("Iroh's advice enlightens you, offering a new perspective on your quest and how to approach the Avatar's capture strategically.");
             } else {
-                updateStoryText("Your attempts to find the resistance attract unwanted attention. You must lay low for a while.");
-                updateEnergy(-20);
+                updateStoryText("While comforting, Iroh's words don't seem to bring you closer to capturing the Avatar, leaving you to ponder your next move.");
             }
             break;
         case 3:
-            updateStoryText("You set out alone to find the Avatar...");
-            updateSkill('combat', 1);
-            updateSkill('stealth', 1);
-            if (randomInt(1, 10) > 6) {
-                updateStoryText("Your journey is perilous, but you eventually cross paths with Aang and his friends.");
-                addAlly(characters.aang);
+            updateStoryText("You decide to spread false information about your whereabouts, hoping to lure the Avatar into a trap.");
+            updateSkill('cunning', 2);
+            if (skillCheck('cunning', 13)) {
+                updateStoryText("The ruse works better than expected, leading to an unexpected encounter with the Avatar's allies. Though the Avatar escapes, you gain valuable intelligence.");
             } else {
-                updateStoryText("Your search for the Avatar is unsuccessful, but you gain valuable survival skills.");
-                addToInventory(items.survivalKit);
+                updateStoryText("The Avatar does not take the bait, and you're left questioning the effectiveness of your tactics.");
+                updateHealth(-10);
             }
             break;
         case 4:
-            updateStoryText("You decide to confront the Dai Li about their corruption...");
-            updateSkill('combat', 2);
-            if (skillCheck('combat', 17)) {
-                updateStoryText("Your confrontation exposes some of the Dai Li's secrets, causing a stir in Ba Sing Se.");
-                updateReputation('earthKingdom', 4);
-                updateReputation('fireNation', -2);
+            updateStoryText("Believing in the power of alliances, you seek aid from your contacts within the Earth Kingdom, hoping they can offer leads.");
+            updateSkill('diplomacy', 2);
+            if (skillCheck('diplomacy', 14)) {
+                updateStoryText("Your contacts prove useful, providing information that narrows down the Avatar's possible locations.");
             } else {
-                updateStoryText("The Dai Li overpower you and throw you in prison. You must plan your escape.");
-                updateHealth(-30);
-                addQuest(quests.escapePrison);
+                updateStoryText("Your attempts to gather information from the Earth Kingdom contacts yield little, as trust proves difficult to earn.");
+                updateReputation('earthKingdom', -1);
             }
             break;
     }
