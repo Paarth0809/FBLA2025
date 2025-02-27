@@ -13,8 +13,8 @@ export function startChapter1() {
 function displayChapter1() {
     const chapter1Text = `
         <h2>Chapter 1: Shadows of the Past</h2>
-        <p>Ren, the son of the banished warrior, embarks on a journey that will determine his destiny. 
-        One fateful day, while Ren is on a mission for the Fire Nation, he encounters a young dragon, 
+        <p>You are Ren, the son of the banished warrior, who embarks on a journey that will determine your destiny. 
+        One fateful day, while you're on a mission for the Fire Nation, you encounter a young dragon, 
         wounded and defenseless.</p>
     `;
     updateStoryText(chapter1Text);
