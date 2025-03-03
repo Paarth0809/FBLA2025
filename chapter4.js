@@ -1,84 +1,60 @@
-import { startChapter5 } from './chapter5.js';
+import { startOpt1Chapter5, startOpt2Chapter5 } from './chapter5.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from './utilityFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt, logGameState, addQuest } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { characters } from './characters.js';
 import { gameState } from './gameState.js';
-
+import { quests } from './quests.js';
 
 export function startChapter4() {
-    logGameState("Inside startChapter4");
     gameState.currentChapter = 4;
     displayChapter4();
 }
 
 function displayChapter4() {
-    logGameState("displayChapter4");
     const chapter4Text = `
-        <h2>Chapter 4: The Storm</h2>
-        <p>As a fierce storm approaches, you find yourself reflecting on the events that led to your banishment. The confrontation at the war meeting, your refusal to participate in a plan that would sacrifice innocent lives, and the Agni Kai that followed... all culminating in your father's decree of banishment until you capture the Avatar. This storm stirs within you a turmoil as powerful as the one raging in the skies.</p>
+        <h2>Chapter 4: The Sword's Tale</h2>
+        <p>Commander Zhao's interest peaks as he notices a familiar sword among your belongings. "Isn't this the weapon of the Blue Spirit?" he asks, the pieces coming together in his mind. With Zhao's newly acquired authority and his desire to use your crew for the North Pole mission, how you handle this discovery could drastically affect your journey.</p>
     `;
     updateStoryText(chapter4Text);
     updateChoices([
-        { text: "Reflect on your past mistakes", action: () => handleChapter4Choice(1) },
-        { text: "Focus on the lessons learned from Uncle Iroh", action: () => handleChapter4Choice(2) },
-        { text: "Reaffirm your vow to capture the Avatar", action: () => handleChapter4Choice(3) },
-        { text: "Contemplate the nature of honor and redemption", action: () => handleChapter4Choice(4) }
+        { text: "Confess and bargain for your crew's autonomy", action: () => handleChapter4Choice(1) },
+        { text: "Deny the connection and redirect Zhao's focus", action: () => handleChapter4Choice(2) }
     ]);
 }
 
-
 function handleChapter4Choice(choice) {
     switch (choice) {
-        case 1:
-            updateStoryText("You take a moment to reflect on the mistakes you've made, understanding that acknowledging them is the first step towards not repeating them.");
-            updateSkill('introspection', 2);
-            if (skillCheck('introspection', 10)) {
-                updateHealth(5);  // Successful introspection improves mental resilience.
-                updateStoryText("This moment of introspection not only strengthens your resolve but also brings a sense of peace, slightly healing your wounds.");
-            } else {
-                updateHealth(-5);  // Unsuccessful introspection leads to frustration and stress.
-                updateStoryText("Despite your efforts, the reflection brings more turmoil than clarity, slightly exacerbating your existing wounds.");
-            }
-            break;
-        case 2:
-            updateStoryText("You recall the lessons Uncle Iroh has taught you about patience, wisdom, and the true meaning of strength.");
-            updateSkill('wisdom', 2);
+        case 1: // Confess and bargain
+            updateStoryText("You admit your connection to the Blue Spirit, hoping to use this revelation as leverage to maintain control over your crew.");
             if (skillCheck('wisdom', 12)) {
-                updateHealth(10);  // Wisdom brings not only clarity but also a significant sense of well-being.
-                updateStoryText("Iroh's lessons resonate deeply, providing comfort and guidance that bolster your spirit and heal your body.");
+                updateStoryText("Zhao, seeing value in your skills and daring, agrees to your terms but insists on your cooperation for the mission to the North Pole. Your crew remains under your command, for now.");
+                updateReputation('fireNation', 2);
+                updateChoices([{ text: "Continue", action: startOpt1Chapter5 }]); // Option to continue after reading
             } else {
-                updateHealth(-5);  // Struggling to fully grasp Iroh's teachings results in a sense of loss.
-                updateStoryText("While you strive to grasp the depth of Iroh's teachings, the full understanding eludes you, causing a momentary lapse in your resolve.");
+                updateStoryText("Zhao is unimpressed by your attempt to negotiate. He takes a significant portion of your crew, leaving you understaffed for your mission. Zhao has other plans for you...");
+                updateHealth(-10);
+                updateReputation('fireNation', -2);
+                updateChoices([{ text: "Continue", action: startOpt2Chapter5 }]); // Option to continue after reading
             }
             break;
-        case 3:
-            updateStoryText("Amidst the storm, you reaffirm your vow to capture the Avatar, believing that it is the only way to regain your honor and return home.");
-            updateSkill('determination', 2);
-            if (skillCheck('determination', 15)) {
-                updateHealth(-5);  // Reaffirming your vow strengthens your resolve but the path remains perilous.
-                updateStoryText("Your determination is unwavering, yet the path you've chosen wears on you, hinting at the challenges ahead.");
+        case 2: // Deny the connection
+            updateStoryText("You deny any connection to the Blue Spirit, dismissing the sword as a mere collector's item.");
+            if (skillCheck('cunning', 12)) {
+                updateStoryText("Zhao, though suspicious, cannot prove your lie. He decides to leave your crew be but warns you of the consequences of deception.");
+                updateReputation('fireNation', 1);
+                updateChoices([{ text: "Continue", action: startOpt1Chapter5 }]); // Option to continue after reading
             } else {
-                updateHealth(-10);  // Doubt creeps in, weakening your resolve and causing distress.
-                updateStoryText("As you attempt to reaffirm your vow, doubts cloud your mind, sapping your strength and resolve.");
-            }
-            break;
-        case 4:
-            updateStoryText("You ponder the true nature of honor and whether redemption can be found in the path you have chosen.");
-            updateSkill('philosophy', 2);
-            if (skillCheck('philosophy', 13)) {
-                updateHealth(5);  // Philosophical insight brings a sense of enlightenment and peace.
-                updateStoryText("Your contemplation leads to a significant realization about your journey, offering a glimmer of hope and a slight healing of your spirit.");
-            } else {
-                updateHealth(-5);  // The philosophical struggle deepens your turmoil.
-                updateStoryText("While you seek answers, the philosophical dilemmas only deepen your inner conflict, reflecting the turmoil in your spirit.");
+                updateStoryText("Zhao sees through your lies. Disappointed in your deceit, he commandeers part of your crew for his mission as a penalty.");
+                updateHealth(-5);
+                updateReputation('fireNation', -1);
+                updateChoices([{ text: "Continue", action: startOpt2Chapter5 }]); // Option to continue after reading
             }
             break;
     }
-    setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startChapter5 }
-        ]);
-    }, 300);
+    // Log the gameState at the end of Chapter 4 decisions.
+    logGameState("End of Chapter 4: Zhao's Discovery.");
 }
+// Note: The `startOpt1Chapter5` and `startOpt2Chapter5` functions will need to be
+// implemented to reflect the different paths the story can take based on the choices here.     

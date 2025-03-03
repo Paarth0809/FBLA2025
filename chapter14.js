@@ -13,7 +13,7 @@ export function startChapter14() {
 function displayChapter14() {
     const chapter14Text = `
         <h2>Chapter 14: The Old Masters</h2>
-        <p>After years of struggle and growth, you, as Zuko, finally reunite with Uncle Iroh. The moment is fraught with emotion as you seek forgiveness 
+        <p>After months of struggle and growth, you, as Zuko, finally reunite with Uncle Iroh. The moment is fraught with emotion as you seek forgiveness 
         for your past actions. Iroh's acceptance and unwavering love symbolize your full redemption. Together with the Order of the White Lotus, you 
         begin preparations for the final battle to liberate Ba Sing Se and restore balance to the world.</p>
     `;

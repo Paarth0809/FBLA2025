@@ -91,5 +91,19 @@ export const characters = {
             }
         },
         backstory: "Once known as the Dragon of the West, Iroh has turned his back on the war and now seeks to guide his nephew Zuko down a better path."
+    },
+
+    dragon: {
+        name: "Dragon",
+        description: "A legendary creature of the Fire Nation",
+        skills: {
+            combat: 4,
+            stealth: 5,
+            diplomacy: 2,
+            bending: {
+                fire: 5
+            }
+        },
+        backstory: "A legendary creature of the Fire Nation, the Dragon is a formidable foe to face."
     }
 };

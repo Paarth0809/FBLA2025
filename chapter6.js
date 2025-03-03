@@ -14,7 +14,7 @@ export function startChapter6() {
 function displayChapter6() {
     const chapter6Text = `
         <h2>Chapter 6: The Northern Water Tribe</h2>
-        <p>After a relentless pursuit, you finally reach the Northern Water Tribe, where the Avatar seeks to master Waterbending. The tribe's formidable defenses and the natural barriers of ice and snow make your mission more difficult than ever. Yet, your resolve does not waver. As the Fire Nation prepares to lay siege, you plan your own covert operation to capture the Avatar, knowing this might be your last chance to regain your honor.</p>
+        <p>After you recover you decide to get back on track. You finally reach the Northern Water Tribe, where the Avatar seeks to master Waterbending. The tribe's formidable defenses and the natural barriers of ice and snow make your mission more difficult than ever. Yet, your resolve does not waver. As the Fire Nation prepares to lay siege, you plan your own covert operation to capture the Avatar, knowing this might be your last chance to regain your honor.</p>
     `;
     updateStoryText(chapter6Text);
     updateChoices([

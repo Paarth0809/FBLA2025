@@ -26,14 +26,7 @@ export function displayAirPrologue() {
 // Displays the Fire Prologue
 export function displayFirePrologue() {
     const prologueText = ` <h2>Prologue: A Kingdom in Flames</h2>
-        <p>Fire Lord Azulon is nearing the end of his reign, and uncertainty grips the Fire Nation. 
-        He believes his son, Ozai, is not yet ready to lead. In his will, he names his strongest 
-        warrior, General Kaidan, as his successor. But Ozai, ruthless and ambitious, orchestrates 
-        a sinister plot. He falsely accuses Kaidan of treason, leading to his banishment.</p>
-        <p>With Azulon's death under mysterious circumstances, Ozai seizes power. Kaidan, now an 
-        outcast, retreats to a quiet life as a farmer with his son, Ren. As war erupts, the Avatar, 
-        a young airbender named Aang, is told of his destiny early. The Fire Nation's conquest 
-        spreads rapidly, and the world's fate teeters on the edge of destruction.</p>
+        <p> You are Zuko the banished prince of the Fire Nation. Son of Ozai. One day you are very eager to prove yourself, attend a war council meeting with your uncle, Iroh, where you speaks out against a general's plan to sacrifice young soldiers, seeing it as dishonorable. This act of defiance enrages Ozai, who demands an Agni Kai duel. When you refuses to fight his father, Ozai brands you with fire and banishes you, stripping you of his title and honor. You are told you can only return if you capture the Avatar, a task believed impossible. Accompanied by Iroh, you embark on a quest that will lead you to question your father's ideals and your own destiny, setting the stage for a profound transformation from a bitter, exiled prince to a key ally in the fight to restore balance to the world..</p>
     `;
     updateStoryText(prologueText);
     updateChoices([
