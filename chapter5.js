@@ -1,77 +1,99 @@
 import { startChapter6 } from './chapter6.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly } from './utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from './utilityFunctions.js';
+import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { characters } from './characters.js';
 import { gameState } from './gameState.js';
-import { skillCheck } from './gameMechanics.js';
 
-export function startChapter5() {
+export function startOpt1Chapter5() {
+    logGameState("Inside startChapter5");
     gameState.currentChapter = 5;
-    displayChapter5();
+    displayOpt1Chapter5();
 }
 
-function displayChapter5() {
+export function startOpt2Chapter5() {
+    logGameState("Inside startChapter5");
+    gameState.currentChapter = 5;
+    displayOpt2Chapter5();
+}
+
+function displayOpt1Chapter5() {
+    logGameState("displayChapter5");
     const chapter5Text = `
-        <h2>Chapter 5: The Blue Spirit</h2>
-        <p>News reaches you that the Avatar has been captured and is being held in a heavily fortified Fire Nation outpost. Recognizing this as both a threat and an opportunity, you don the mask of the Blue Spirit. This dual identity allows you to move with anonymity, striking against your own nation to achieve your goals. The mission is clear: rescue the Avatar to ensure that your quest for honor remains yours alone to fulfill.</p>
+        <h2>Chapter 5: The Storm</h2>
+        <p>As a fierce storm approaches, you find yourself reflecting on the events that led to your banishment. The confrontation at the war meeting, your refusal to participate in a plan that would sacrifice innocent lives, and the Agni Kai that followed... all culminating in your father's decree of banishment until you capture the Avatar. This storm stirs within you a turmoil as powerful as the one raging in the skies.</p>
     `;
     updateStoryText(chapter5Text);
     updateChoices([
-        { text: "Sneak into the fortress undetected", action: () => handleChapter5Choice(1) },
-        { text: "Confront the guards head-on as the Blue Spirit", action: () => handleChapter5Choice(2) },
-        { text: "Create a diversion to draw the guards away", action: () => handleChapter5Choice(3) },
-        { text: "Use the environment to your advantage", action: () => handleChapter5Choice(4) }
+        { text: "Reflect on your past mistakes", action: () => handleChapter5Choice(1) },
+        { text: "Reaffirm your vow to capture the Avatar", action: () => handleChapter5Choice(2) },
+    ]);
+}
+
+function displayOpt2Chapter5() {
+    logGameState("displayChapter5");
+    const chapter5Text = `
+        <h2>Chapter 5: Aftermath and Reflection</h2>
+        <p> One night you here some noises while you were sleeping in your ship. You get up to investigate and you see a parrot. In th e past you had a banter with pirates. You see the bomb and realize the pirates has planted it. You only figure oout later that Zhao had ordered them to. The bomb explodes and you barley survive. Your ship in ruins and your health has tazem a serious toll.</p>
+    `;
+    updateStoryText(chapter5Text);
+    updateChoices([
+        { text: "Salvage what remains of the ship", action: () => handleChapter5Choice(1) },
+        { text: "Rally your crew and seek shelter", action: () => handleChapter5Choice(2) },
+        { text: "Pursue the pirates in retaliation", action: () => handleChapter5Choice(3) },
+        { text: "Reflect on seeking the Avatar’s help", action: () => handleChapter5Choice(4) }
     ]);
 }
 
 function handleChapter5Choice(choice) {
     switch (choice) {
-        case 1:
-            updateStoryText("Using the shadows to your advantage, you infiltrate the fortress, avoiding detection with your agility and stealth. You reach the Avatar's cell undetected, freeing him and escaping without alerting the entire fortress to your presence.");
-            updateSkill('stealth', 3);
-            updateReputation('fireNation', -2);
-            if (skillCheck('stealth', 10)) {
-                updateHealth(10);  // Success in stealth increases health.
+        case 1: // Salvage the ship
+            updateStoryText("You and your crew work tirelessly to salvage what remains, hoping to make the ship seaworthy again.");
+            if (skillCheck('leadership', 10)) {
+                updateHealth(5);  // Successful leadership boosts morale and health.
+                updateStoryText("Your leadership inspires the crew, and together, you manage to make significant repairs. The ship isn't as it was, but it will sail again.");
             } else {
-                updateHealth(-5);  // Failure or partial success results in minor health loss.
+                updateHealth(-5);  // Failure leads to further morale and health loss.
+                updateStoryText("Despite your efforts, the damage is too extensive. The ship remains adrift, and morale sinks further.");
             }
             break;
-        case 2:
-            updateStoryText("Embracing the persona of the Blue Spirit, you engage the guards directly, using your superior combat skills to overcome them. Though the approach is risky, you manage to defeat the guards and free the Avatar, proving your prowess as a warrior.");
+        case 2: // Rally crew and seek shelter
+            updateStoryText("Understanding the need for safety, you lead your crew to a nearby island for refuge.");
+            if (skillCheck('survival', 8)) {
+                updateSkill('leadership', 1);  // Successful survival and leadership.
+                updateStoryText("On the island, you find resources to sustain you and begin planning your next move. The crew's spirits are lifted slightly by your effective leadership.");
+            } else {
+                updateHealth(-5);  // Failure to find adequate shelter or resources.
+                updateStoryText("The island offers little respite, and the struggle to find shelter and food takes a toll on everyone.");
+            }
+            break;
+        case 3: // Pursue the pirates
+            updateStoryText("Driven by vengeance, you lead a contingent to track down the pirates.");
             updateSkill('combat', 3);
-            updateReputation('fireNation', -5);
             if (skillCheck('combat', 12)) {
-                updateHealth(-10);  // Successful combat reduces health due to the fight.
+                updateReputation('fireNation', 2);  // Success in retaliation enhances reputation.
+                updateStoryText("Your pursuit is successful. You catch the pirates off guard, reclaiming some of your stolen goods and restoring a portion of your crew's morale.");
             } else {
-                updateHealth(-20);  // Less successful attempt costs more health.
+                updateHealth(-10);  // Failed retaliation worsens the situation.
+                updateStoryText("The pirates are better prepared than anticipated. Your forces are repelled, and you suffer further losses.");
             }
             break;
-        case 3:
-            updateStoryText("You craft a clever diversion, setting off a series of explosions that draw the guards away from the Avatar's cell. With the guards distracted, you swiftly move to free the Avatar, showcasing your tactical acumen.");
-            updateSkill('strategy', 2);
-            updateReputation('fireNation', -3);
-            addToInventory('smoke bombs');
-            if (skillCheck('strategy', 11)) {
-                updateHealth(5);  // Successful strategy improves situation with minimal risk.
+        case 4: // Reflect on seeking the Avatar’s help
+            updateStoryText("Realizing that the pursuit under Zhao's influence has only led to ruin, you decide it's time for a strategic shift. You need to reclaim your honor and power, but on your own terms. The path forward is uncertain, but the resolve to forge a new path is clear.");
+            if (skillCheck('wisdom', 14)) {
+                updateReputation('fireNation', -1);  // A controversial decision within your ranks.
+                updateHealth(10);  // Emotional and physical rejuvenation from a newfound purpose.
+                updateStoryText("Your decision to seek new allies and knowledge feels right. It's a first step towards not just reclaiming what was lost, but discovering a strength you hadn't realized was possible.");
             } else {
-                updateHealth(-5);  // Less effective strategy leads to minor setbacks.
-            }
-            break;
-        case 4:
-            updateStoryText("Observing the fortress's layout and natural features, you use the environment to create obstacles and barriers, confusing and slowing down the guards. This approach allows you to reach the Avatar with minimal confrontation, highlighting your ability to adapt and use resources creatively.");
-            updateSkill('strategy', 2);
-            updateReputation('fireNation', -1);
-            if (skillCheck('environmental awareness', 10)) {
-                updateHealth(5);  // Successfully using the environment to advantage.
-            } else {
-                updateHealth(-5);  // Failing to effectively use the environment.
+                updateHealth(-5);  // The idea is met with internal conflict and doubt.
+                updateStoryText("Though the thought of allying with the Avatar lingers in your mind, you struggle with the implications and the potential backlash from your father and the Fire Nation.");
             }
             break;
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter6 }
+            { text: "Continue", action: startChapter6 } 
         ]);
     }, 300);
 }

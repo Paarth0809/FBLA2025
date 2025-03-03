@@ -6,12 +6,18 @@ import { items } from './items.js';
 import { gameState } from './gameState.js';
   
 
-export function startChapter12() {
+export function startOpt1Chapter12() {
     gameState.currentChapter = 12;
-    displayChapter12();
+    displayOpt1Chapter12();
 }
 
-function displayChapter12() {
+export function startOpt2Chapter12() {
+    gameState.currentChapter = 12;
+    displayOpt2Chapter12();
+}
+
+
+function displayOpt1Chapter12() {
     const chapter12Text = `
         <h2>Chapter 12: The Ember Island Players</h2>
         <p>Seeking a brief respite from the intensity of your quest, you and your friends discover that a popular theater troupe is performing a play 
@@ -26,6 +32,8 @@ function displayChapter12() {
         { text: "Use the play's inaccuracies as a learning tool for personal growth", action: () => handleChapter12Choice(4) }
     ]);
 }
+
+
 
 function handleChapter12Choice(choice) {
     switch (choice) {

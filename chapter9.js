@@ -6,15 +6,21 @@ import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory
 import { skillCheck } from './gameMechanics.js';
 
 
-export function startChapter9() {
+export function startOpt1Chapter9() {
     gameState.currentChapter = 9;
-    displayChapter9();
+    displayOpt1Chapter9();
 }
 
-function displayChapter9() {
+
+export function startOpt2Chapter9() {
+    gameState.currentChapter = 9; 
+    displayOpt2Chapter9();
+}
+
+function displayOpt1Chapter9() {
     const chapter9Text = `
         <h2>Chapter 9: The Sun Warriors</h2>
-        <p>You and Aang embark on a quest to seek the wisdom of the Sun Warriors, the original firebenders, 
+        <p> Now that you have joined the avatars team, You and Aang embark on a quest to seek the wisdom of the Sun Warriors, the original firebenders, 
         to learn the true essence of firebending. This journey is not just about mastering an element; it's about understanding 
         its life-giving warmth and its potential for destruction.</p>
     `;
@@ -26,6 +32,23 @@ function displayChapter9() {
         { text: "Meet the ancient dragons guarded by the Sun Warriors", action: () => handleChapter9Choice(4) }
     ]);
 }
+
+function displayChapter9() {
+    const chapter9Text = `
+        <h2>Chapter 9: The Sun Warriors</h2>
+        <p> Now that you have joined the avatars team, You and Aang embark on a quest to seek the wisdom of the Sun Warriors, the original firebenders, 
+        to learn the true essence of firebending. This journey is not just about mastering an element; it's about understanding 
+        its life-giving warmth and its potential for destruction.</p>
+    `;
+    updateStoryText(chapter9Text);
+    updateChoices([
+        { text: "Explore the ancient ruins of the Sun Warriors", action: () => handleChapter9Choice(1) },
+        { text: "Participate in the Sun Warriors' firebending ritual", action: () => handleChapter9Choice(2) },
+        { text: "Uncover the history of firebending with Aang", action: () => handleChapter9Choice(3) },
+        { text: "Meet the ancient dragons guarded by the Sun Warriors", action: () => handleChapter9Choice(4) }
+    ]);
+}
+
 
 
 function handleChapter9Choice(choice) {

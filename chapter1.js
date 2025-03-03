@@ -1,9 +1,10 @@
 import { startChapter2 } from './chapter2.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from './utilityFunctions.js';
+import { updateSkill, updateReputation, addToInventory, addAlly } from './utilityFunctions.js';
 import {skillCheck} from './gameMechanics.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
+import { characters } from './characters.js';
 
 export function startChapter1() {
     gameState.currentChapter = 1;
@@ -19,7 +20,7 @@ function displayChapter1() {
     `;
     updateStoryText(chapter1Text);
     updateChoices([
-        { text: "Help the dragon, nursing it back to health", action: () => handleChapter1Choice(1) },
+        { text: "Help the dragon, nursing it back to health, and befriend it!", action: () => handleChapter1Choice(1) },
         { text: "Ignore the dragon and continue your mission", action: () => handleChapter1Choice(2) },
         { text: "Report the dragon's location to the Fire Nation", action: () => handleChapter1Choice(3) },
         { text: "Attempt to communicate with the dragon", action: () => handleChapter1Choice(4) }
@@ -29,10 +30,11 @@ function displayChapter1() {
 function handleChapter1Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You decide to help the dragon...");
+            updateStoryText("You decide to help the dragon...You wait...It seems eager to be your companion!");
             updateSkill('diplomacy', 1);
             updateReputation('fireNation', -1);
             addToInventory(items.fireWhip);
+            addAlly(characters.dragon);
             break;
         case 2:
             updateStoryText("You ignore the dragon and continue your mission...");
