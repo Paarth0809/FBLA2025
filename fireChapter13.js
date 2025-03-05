@@ -1,4 +1,4 @@
-import { startChapter14 } from './chapter14.js';
+import { startFireChapter14 } from './fireChapter14.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
@@ -6,12 +6,13 @@ import { items } from './items.js';
 import { gameState } from './gameState.js';
 import { characters } from './characters.js';
 
-export function startChapter13() {
+//Fire code start
+export function startFireChapter13() {
     gameState.currentChapter = 13;
-    displayChapter13();
+    displayFireChapter13();
 }
 
-function displayChapter13() {
+function displayFireChapter13() {
     const chapter13Text = `
         <h2>Chapter 13: The Phoenix King</h2>
         <p>As the day of Sozin's Comet approaches, tension rises. Zuko, now fully committed to his new path, 
@@ -21,14 +22,14 @@ function displayChapter13() {
     `;
     updateStoryText(chapter13Text);
     updateChoices([
-        { text: "Prepare for the confrontation with Ozai", action: () => handleChapter13Choice(1) },
-        { text: "Reflect on your journey and the choices that led you here", action: () => handleChapter13Choice(2) },
-        { text: "Rally your friends and allies for the battle ahead", action: () => handleChapter13Choice(3) },
-        { text: "Seek advice and wisdom from Uncle Iroh", action: () => handleChapter13Choice(4) }
+        { text: "Prepare for the confrontation with Ozai", action: () => handleFireChapter13Choice(1) },
+        { text: "Reflect on your journey and the choices that led you here", action: () => handleFireChapter13Choice(2) },
+        { text: "Rally your friends and allies for the battle ahead", action: () => handleFireChapter13Choice(3) },
+        { text: "Seek advice and wisdom from Uncle Iroh", action: () => handleFireChapter13Choice(4) }
     ]);
 }
 
-function handleChapter13Choice(choice) {
+function handleFireChapter13Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You spend your time strategizing and honing your firebending, ensuring you're prepared for the battle against Ozai...");
@@ -72,7 +73,8 @@ function handleChapter13Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter14 }
+            { text: "Continue", action: startFireChapter14 }
         ]);
     }, 300);
 }
+//Fire code end

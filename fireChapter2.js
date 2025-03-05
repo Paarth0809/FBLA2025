@@ -1,4 +1,4 @@
-import { startChapter3 } from './chapter3.js';
+import { startFireChapter3 } from './fireChapter3.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
@@ -7,28 +7,29 @@ import { characters } from './characters.js';
 import { gameState } from './gameState.js';
 import { randomInt } from './utilityFunctions.js';
 
-export function startChapter2() {
+//Fire code start
+export function startFireChapter2() {
     gameState.currentChapter = 2;
-    displayChapter2();
+    displayFireChapter2();
 }
 
-function displayChapter2() {
+function displayFireChapter2() {
     const chapter2Text = `
       <h2>Chapter 2: The Southern Water Tribe</h2>
         <p>You are driven by your quest to regain your honor, arrives at the fringes of the Southern Water Tribe. The Avatar, you learn, has been seen in the area. With your loyal uncle and crew by your side, you face a crucial decision on how to approach your search. The choices you makes could change you destiny forever.</p>
     `;
     updateStoryText(chapter2Text);
     updateChoices([
-        { text: "Sneak into the Village at Night", action: () => handleChapter2Choice(1) },
-        { text: "Pose as a Traveler Seeking Shelter", action: () => handleChapter2Choice(2) },
-        { text: "Direct Attack on the Village", action: () => handleChapter2Choice(3) },
-        { text: "Seek Guidance from the Spirits", action: () => handleChapter2Choice(4) }
+        { text: "Sneak into the Village at Night", action: () => handleFireChapter2Choice(1) },
+        { text: "Pose as a Traveler Seeking Shelter", action: () => handleFireChapter2Choice(2) },
+        { text: "Direct Attack on the Village", action: () => handleFireChapter2Choice(3) },
+        { text: "Seek Guidance from the Spirits", action: () => handleFireChapter2Choice(4) }
     ]);
 } 
 
 
 
-function handleChapter2Choice(choice) {
+function handleFireChapter2Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to use the cover of night to your advantage, hoping to learn more about the Avatar's whereabouts without alerting the entire village.");
@@ -72,7 +73,8 @@ function handleChapter2Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter3 }
+            { text: "Continue", action: startFireChapter3 }
         ]);
     }, 300);
 }
+//Fire code end

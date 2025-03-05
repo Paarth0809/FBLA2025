@@ -1,5 +1,5 @@
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
-import { startChapter1 } from './chapter1.js';
+import { startFireChapter1 } from './fireChapter1.js';
 
 // Displays the Earth Prologue
 export function displayEarthPrologue() {
@@ -8,7 +8,7 @@ export function displayEarthPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startChapter1 }
+        { text: "Continue", action: startFireChapter1 }
     ]);
 }
 
@@ -19,7 +19,7 @@ export function displayAirPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startChapter1 }
+        { text: "Continue", action: startFireChapter1 }
     ]);
 }
 
@@ -30,7 +30,7 @@ export function displayFirePrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startChapter1 }
+        { text: "Continue", action: startFireChapter1 }
     ]);
 }
 
@@ -41,6 +41,6 @@ export function displayWaterPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startChapter1 }
+        { text: "Continue", action: startFireChapter1 }
     ]);
 }

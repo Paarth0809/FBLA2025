@@ -1,18 +1,17 @@
-import { startChapter16 } from './chapter16.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateHealth, updateEnergy, updateReputation } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
-import { startFinalChapter } from './finalChapter.js';
+import { startFinalChapter } from './fireFinalChapter.js';
 
-
-export function startChapter15() {
+//Fire code start
+export function startFireChapter15() {
     gameState.currentChapter = 15;
-    displayChapter15();
+    displayFireChapter15();
 }
 
-function displayChapter15() {
+function displayFireChapter15() {
     const chapter15Text = `
         <h2>Chapter 15: The Comet</h2>
         <p>Sozin's Comet is here, enhancing the firebending of all who wield it. As Zuko, you face Azula in a decisive 
@@ -21,14 +20,14 @@ function displayChapter15() {
     `;
     updateStoryText(chapter15Text);
     updateChoices([
-        { text: "Confront Azula, focusing on your firebending", action: () => handleChapter15Choice(1) },
-        { text: "Use the environment to your advantage", action: () => handleChapter15Choice(2) },
-        { text: "Rely on your inner calm and tactics over raw power", action: () => handleChapter15Choice(3) },
-        { text: "Call upon the support of your friends if needed", action: () => handleChapter15Choice(4) }
+        { text: "Confront Azula, focusing on your firebending", action: () => handleFireChapter15Choice(1) },
+        { text: "Use the environment to your advantage", action: () => handleFireChapter15Choice(2) },
+        { text: "Rely on your inner calm and tactics over raw power", action: () => handleFireChapter15Choice(3) },
+        { text: "Call upon the support of your friends if needed", action: () => handleFireChapter15Choice(4) }
     ]);
 }
 
-function handleChapter15Choice(choice) {
+function handleFireChapter15Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You engage Azula directly, your firebending enhanced by the comet...");
@@ -85,3 +84,4 @@ function handleChapter15Choice(choice) {
         ]);
     }, 300);
 }
+//Fire code end
