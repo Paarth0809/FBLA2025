@@ -3,7 +3,7 @@ import { gameState } from './gameState.js';
 import { endGame } from './game.js';
 import { skillCheck } from './gameMechanics.js'; 
 
-
+//Fire code start
 export function startFinalChapter() {
     gameState.currentChapter = 17;
     displayFinalChapter();
@@ -39,3 +39,4 @@ function handleFinalChapterChoice(choice) {
     }
     // This could trigger the end of the game sequence or an epilogue.
 }
+//Fire code end

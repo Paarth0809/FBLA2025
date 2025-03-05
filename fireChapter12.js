@@ -1,17 +1,17 @@
-import { startChapter13 } from './chapter13.js';
+import { startFireChapter13 } from './fireChapter13.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateEnergy, updateReputation, randomInt } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
   
-
-export function startOpt1Chapter12() {
+//Fire code start
+export function startOpt1FireChapter12() {
     gameState.currentChapter = 12;
     displayOpt1Chapter12();
 }
 
-export function startOpt2Chapter12() {
+export function startOpt2FireChapter12() {
     gameState.currentChapter = 12;
     displayOpt2Chapter12();
 }
@@ -26,16 +26,16 @@ function displayOpt1Chapter12() {
     `;
     updateStoryText(chapter12Text);
     updateChoices([
-        { text: "Reflect on how the play portrays your quest for honor", action: () => handleChapter12Choice(1) },
-        { text: "Confront the reality of your actions and their impact on others", action: () => handleChapter12Choice(2) },
-        { text: "Discuss the play's portrayal with Aang and the others", action: () => handleChapter12Choice(3) },
-        { text: "Use the play's inaccuracies as a learning tool for personal growth", action: () => handleChapter12Choice(4) }
+        { text: "Reflect on how the play portrays your quest for honor", action: () => handleFireChapter12Choice(1) },
+        { text: "Confront the reality of your actions and their impact on others", action: () => handleFireChapter12Choice(2) },
+        { text: "Discuss the play's portrayal with Aang and the others", action: () => handleFireChapter12Choice(3) },
+        { text: "Use the play's inaccuracies as a learning tool for personal growth", action: () => handleFireChapter12Choice(4) }
     ]);
 }
 
 
 
-function handleChapter12Choice(choice) {
+function handleFireChapter12Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Watching the dramatized version of your quest for honor, you ponder the depth of your transformation...");
@@ -82,7 +82,8 @@ function handleChapter12Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter13 }
+            { text: "Continue", action: startFireChapter13 }
         ]);
     }, 300);
 }
+//Fire code end

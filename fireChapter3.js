@@ -1,7 +1,7 @@
 
 
 
-import { startChapter4 } from './chapter4.js';
+import { startFireChapter4 } from './fireChapter4.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly } from './utilityFunctions.js';
 import { items } from './items.js';
@@ -9,28 +9,28 @@ import { characters } from './characters.js';
 import { gameState } from './gameState.js';
 import { skillCheck } from './gameMechanics.js';
 
-
-export function startChapter3() {
+//Fire code start
+export function startFireChapter3() {
     gameState.currentChapter = 3;
-    displayChapter3();
+    displayFireChapter3();
 }
 
-function displayChapter3() {
+function displayFireChapter3() {
     const chapter3Text = `
         <h2>Chapter 3: The Blue Spirit</h2>
         <p>News reaches you that the Avatar has been captured and is being held in a heavily fortified Fire Nation outpost. Recognizing this as both a threat and an opportunity, you don the mask of the Blue Spirit. This dual identity allows you to move with anonymity, striking against your own nation to achieve your goals. The mission is clear: rescue the Avatar to ensure that your quest for honor remains yours alone to fulfill.</p>
     `;
     updateStoryText(chapter3Text);
     updateChoices([
-        { text: "Sneak into the fortress undetected", action: () => handleChapter3Choice(1) },
-        { text: "Confront the guards head-on as the Blue Spirit", action: () => handleChapter3Choice(2) },
-        { text: "Create a diversion to draw the guards away", action: () => handleChapter3Choice(3) },
-        { text: "Use the environment to your advantage", action: () => handleChapter3Choice(4) }
+        { text: "Sneak into the fortress undetected", action: () => handleFireChapter3Choice(1) },
+        { text: "Confront the guards head-on as the Blue Spirit", action: () => handleFireChapter3Choice(2) },
+        { text: "Create a diversion to draw the guards away", action: () => handleFireChapter3Choice(3) },
+        { text: "Use the environment to your advantage", action: () => handleFireChapter3Choice(4) }
     ]);
 }
 
 
-function handleChapter3Choice(choice) {
+function handleFireChapter3Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Using the shadows to your advantage, you infiltrate the fortress, avoiding detection with your agility and stealth. You reach the Avatar's cell undetected, freeing him and escaping without alerting the entire fortress to your presence.");
@@ -76,7 +76,8 @@ function handleChapter3Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter4 }
+            { text: "Continue", action: startFireChapter4 }
         ]);
     }, 300);
 }
+//Fire code end

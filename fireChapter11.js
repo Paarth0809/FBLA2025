@@ -1,4 +1,4 @@
-import { startOpt1Chapter12, startOpt2Chapter12} from './chapter12.js';
+import { startOpt1FireChapter12, startOpt2FireChapter12} from './fireChapter12.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
@@ -6,13 +6,14 @@ import { characters } from './characters.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
 
-export function startChapter11() {
+//Fire code start
+export function startFireChapter11() {
     gameState.currentChapter = 11;
-    displayChapter11();
+    displayFireChapter11();
 }
 
 
-function displayChapter11() {
+function displayFireChapter11() {
     const chapter11Text = `
         <h2>Chapter 11: The Boiling Rock</h2>
         <p>Sokka learns that his father might be imprisoned at the Boiling Rock, the Fire Nation's 
@@ -21,12 +22,12 @@ function displayChapter11() {
     `;
     updateStoryText(chapter11Text);
     updateChoices([
-        { text: "Infiltrate the prison disguised as guards with Sokka", action: () => handleChapter11Choice(1) },
-        { text: "Ask Sokka to continue the mission discretely and confront Azula at the prison", action: () => handleChapter11Choice(2) },
+        { text: "Infiltrate the prison disguised as guards with Sokka", action: () => handleFireChapter11Choice(1) },
+        { text: "Ask Sokka to continue the mission discretely and confront Azula at the prison", action: () => handleFireChapter11Choice(2) },
     ]);
 }
 
-function handleChapter11Choice(choice) {
+function handleFireChapter11Choice(choice) {
     switch (choice) {
         case 1: // Infiltrate the prison as guards
             updateStoryText("You decide to infiltrate the prison disguised as guards. The disguise provides initial cover...");
@@ -43,7 +44,7 @@ function handleChapter11Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt1Chapter12 } 
+                    { text: "Continue", action: startOpt1FireChapter12 } 
                 ]);
             }, 300);
             break;
@@ -52,7 +53,7 @@ function handleChapter11Choice(choice) {
             updateStoryText("You stood up for the prisoners from the Warden in the past. You hope that will play a key role. Choosing to confront Azula directly, you step forward, drawing her attention and allowing your team to continue with the mission.");
             updateSkill('combat', 3);
             if (skillCheck('combat', 20)) {
-                updateStoryText("The battle is fierce, andyou end up hiding from you prodigy sister. Your sister can't seem to locate your whereabouts and leaves. You gain control over the prison, a strategic asset. You decide to stay behind to ensure its security, planning to rejoin your team later.");
+                updateStoryText("The battle is fierce, and you end up hiding from your prodigy sister. Your sister can't seem to locate your whereabouts and leaves. You gain control over the prison, a strategic asset. You decide to stay behind to ensure its security, planning to rejoin your team later.");
                 updateReputation('fireNation', 5); 
             } else {
                 updateStoryText("Azula gets caught between the thousands of prisons in a riot and her ability to battle you is hindered. She can't fight all of them off, so she calls her escorts. You gain control over the prison, a strategic asset. You decide to stay behind to ensure its security, planning to rejoin your team later.");
@@ -60,10 +61,11 @@ function handleChapter11Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt2Chapter12 } 
+                    { text: "Continue", action: startOpt2FireChapter12 } 
                 ]);
             }, 300);
             break;
     }
    
 }
+//Fire code end

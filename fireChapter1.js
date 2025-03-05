@@ -1,4 +1,4 @@
-import { startChapter2 } from './chapter2.js';
+import { startFireChapter2 } from './fireChapter2.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addToInventory, addAlly } from './utilityFunctions.js';
 import {skillCheck} from './gameMechanics.js';
@@ -6,12 +6,14 @@ import { items } from './items.js';
 import { gameState } from './gameState.js';
 import { characters } from './characters.js';
 
-export function startChapter1() {
+
+//Fire code start
+export function startFireChapter1() {
     gameState.currentChapter = 1;
-    displayChapter1();
+    displayFireChapter1();
 }
 
-function displayChapter1() {
+function displayFireChapter1() {
     const chapter1Text = `
         <h2>Chapter 1: Shadows of the Past</h2>
         <p>You are Zuko, the son of the banished warrior, who embarks on a journey that will determine your destiny. 
@@ -20,14 +22,14 @@ function displayChapter1() {
     `;
     updateStoryText(chapter1Text);
     updateChoices([
-        { text: "Help the dragon, nursing it back to health, and befriend it!", action: () => handleChapter1Choice(1) },
-        { text: "Ignore the dragon and continue your mission", action: () => handleChapter1Choice(2) },
-        { text: "Report the dragon's location to the Fire Nation", action: () => handleChapter1Choice(3) },
-        { text: "Attempt to communicate with the dragon", action: () => handleChapter1Choice(4) }
+        { text: "Help the dragon, nursing it back to health, and befriend it!", action: () => handleFireChapter1Choice(1) },
+        { text: "Ignore the dragon and continue your mission", action: () => handleFireChapter1Choice(2) },
+        { text: "Report the dragon's location to the Fire Nation", action: () => handleFireChapter1Choice(3) },
+        { text: "Attempt to communicate with the dragon", action: () => handleFireChapter1Choice(4) }
     ]);
 }
 
-function handleChapter1Choice(choice) {
+function handleFireChapter1Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to help the dragon...You wait...It seems eager to be your companion!");
@@ -59,7 +61,14 @@ function handleChapter1Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter2 }
+            { text: "Continue", action: startFireChapter2 }
         ]);
     }, 300);
 }
+//Fire code end
+
+//Water code start
+
+//Water code end
+
+

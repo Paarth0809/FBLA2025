@@ -8,12 +8,12 @@ import { characters } from './characters.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
 
-export function startChapter16() {
+export function startAirChapter16() {
     gameState.currentChapter = 16;
-    displayChapter16();
+    displayAirChapter16();
 }
 
-function displayChapter16() {
+function displayAirChapter16() {
     const chapter16Text = `
         <h2>Chapter 16: Sozin's Comet</h2>
         <p>The day of reckoning has arrived. Sozin's Comet blazes across the sky, empowering all 
@@ -22,14 +22,14 @@ function displayChapter16() {
     `;
     updateStoryText(chapter16Text);
     updateChoices([
-        { text: "Confront Ozai directly in an epic duel", action: () => handleChapter16Choice(1) },
-        { text: "Focus on taking down the airship fleet to prevent widespread destruction", action: () => handleChapter16Choice(2) },
-        { text: "Attempt to turn Ozai's own forces against him", action: () => handleChapter16Choice(3) },
-        { text: "Use the spirit technique to try and sever Ozai's connection to the comet", action: () => handleChapter16Choice(4) }
+        { text: "Confront Ozai directly in an epic duel", action: () => handleAirChapter16Choice(1) },
+        { text: "Focus on taking down the airship fleet to prevent widespread destruction", action: () => handleAirChapter16Choice(2) },
+        { text: "Attempt to turn Ozai's own forces against him", action: () => handleAirChapter16Choice(3) },
+        { text: "Use the spirit technique to try and sever Ozai's connection to the comet", action: () => handleAirChapter16Choice(4) }
     ]);
 }
 
-function handleChapter16Choice(choice) {
+function handleAirChapter16Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You confront Ozai directly in an epic duel...");

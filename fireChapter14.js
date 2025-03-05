@@ -1,16 +1,17 @@
-import { startChapter15 } from './chapter15.js';
+import { startFireChapter15 } from './fireChapter15.js';
 import { updateStoryText, updateChoices  } from './uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateEnergy, updateReputation, } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
 import { items } from './items.js';
 import { gameState } from './gameState.js';
 
-export function startChapter14() {
+//Fire code start
+export function startFireChapter14() {
     gameState.currentChapter = 14;
-    displayChapter14();
+    displayFireChapter14();
 }
 
-function displayChapter14() {
+function displayFireChapter14() {
     const chapter14Text = `
         <h2>Chapter 14: The Old Masters</h2>
         <p>After months of struggle and growth, you, as Zuko, finally reunite with Uncle Iroh. The moment is fraught with emotion as you seek forgiveness 
@@ -19,14 +20,14 @@ function displayChapter14() {
     `;
     updateStoryText(chapter14Text);
     updateChoices([
-        { text: "Seek forgiveness from Uncle Iroh", action: () => handleChapter14Choice(1) },
-        { text: "Strategize with the Order of the White Lotus", action: () => handleChapter14Choice(2) },
-        { text: "Reflect on your journey and the lessons learned", action: () => handleChapter14Choice(3) },
-        { text: "Prepare yourself for the final battle", action: () => handleChapter14Choice(4) }
+        { text: "Seek forgiveness from Uncle Iroh", action: () => handleFireChapter14Choice(1) },
+        { text: "Strategize with the Order of the White Lotus", action: () => handleFireChapter14Choice(2) },
+        { text: "Reflect on your journey and the lessons learned", action: () => handleFireChapter14Choice(3) },
+        { text: "Prepare yourself for the final battle", action: () => handleFireChapter14Choice(4) }
     ]);
 }
 
-function handleChapter14Choice(choice) {
+function handleFireChapter14Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You approach Uncle Iroh, heavy with the weight of your past, seeking his forgiveness...");
@@ -76,7 +77,8 @@ function handleChapter14Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startChapter15 }
+            { text: "Continue", action: startFireChapter15 }
         ]);
     }, 300);
 }
+//Fire code end

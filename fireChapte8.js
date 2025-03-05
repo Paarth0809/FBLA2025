@@ -1,4 +1,4 @@
-import { startOpt1Chapter9, startOpt2Chapter9 } from './chapter9.js';
+import { startOpt1FireChapter9, startOpt2FireChapter9 } from './fireChapter9.js';
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from './utilityFunctions.js';
 import { skillCheck } from './gameMechanics.js';
@@ -6,28 +6,28 @@ import { items } from './items.js';
 import { characters } from './characters.js';
 import { gameState } from './gameState.js';
 
-
-export function startChapter8() {
-    logGameState("Inside startChapter8");
+//Fire code start
+export function startFireChapter8() {
+    logGameState("Inside startFireChapter8");
     gameState.currentChapter = 8;
-    displayChapter8();
+    displayFireChapter8();
 }
  
-function displayChapter8() {
-    logGameState("displayChapter8");
+function displayFireChapter8() {
+    logGameState("displayFireChapter8");
     const chapter4Text = `
         <h2>Chapter 8: The Storm</h2>
         <p>As a fierce storm approaches, you find yourself reflecting on the events that led to your banishment. The confrontation at the war meeting, your refusal to participate in a plan that would sacrifice innocent lives, and the Agni Kai that followed... all culminating in your father's decree of banishment until you capture the Avatar. This storm stirs within you a turmoil as powerful as the one raging in the skies.</p>
     `;
     updateStoryText(chapter4Text);
     updateChoices([
-        { text: "Reflect on your past mistakes and understand uncle Iroh's advice", action: () => handleChapter8Choice(1) },
-        { text: "Reaffirm your vow to capture the Avatar", action: () => handleChapter8Choice(2) },
+        { text: "Reflect on your past mistakes and understand uncle Iroh's advice", action: () => handleFireChapter8Choice(1) },
+        { text: "Reaffirm your vow to capture the Avatar", action: () => handleFireChapter8Choice(2) },
     ]);
 }
 
 
-function handleChapter8Choice(choice) {
+function handleFireChapter8Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText(" One night, you reflect on the events that led you to your banishment. Suddenly you have a vison of restoring balance with the avatar, and realize, that you can choose your own destiny");
@@ -41,7 +41,7 @@ function handleChapter8Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt1Chapter9 }
+                    { text: "Continue", action: startOpt1FireChapter9 }
                 ]);
             }, 300);
             break;
@@ -58,7 +58,7 @@ function handleChapter8Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt2Chapter9 }
+                    { text: "Continue", action: startOpt2FireChapter9 }
                 ]);
             }, 300);
             break;
@@ -66,3 +66,4 @@ function handleChapter8Choice(choice) {
     }
     
 }
+//Fire code end
