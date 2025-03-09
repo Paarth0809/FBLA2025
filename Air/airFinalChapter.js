@@ -1,7 +1,7 @@
-import { updateStoryText, updateChoices, } from './uiUpdateFunctions.js';
-import { gameState } from './gameState.js';
-import { endGame } from './game.js';
-import { skillCheck } from './gameMechanics.js'; 
+import { updateStoryText, updateChoices, } from '../uiUpdateFunctions.js';
+import { gameState } from '../gameState.js';
+import { endGame } from '../game.js';
+import { skillCheck } from '../gameMechanics.js'; 
 
 
 export function startFinalChapter() {
@@ -69,3 +69,4 @@ function handleFinalChoice(choice) {
             break;
     }
 }
+
