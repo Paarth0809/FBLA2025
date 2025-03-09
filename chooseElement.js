@@ -41,16 +41,6 @@ export function startChooseElement() {
     displayChooseElement();
 }
 
-export function chooseElement() {
-    const elementText = `
-        <h2>Choose your element!</h2>
-        
-    `;
-    updateStoryText(elementText);
-    updateChoices([
-        { text: "Fire", action: displayFirePrologue }
-    ]);
-}
 
 
 

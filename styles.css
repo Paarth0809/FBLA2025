@@ -43,3 +43,8 @@ button:hover {
     background-color: #ecf0f1;
     border-radius: 3px;
 }
+
+#storyInput::placeholder {
+    color: #aaa; /* Faint color */
+    opacity: 1; /* Full opacity */
+  }
