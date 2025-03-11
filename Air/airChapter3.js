@@ -2,7 +2,7 @@ import { startAirChapter4 } from './airChapter4.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -33,7 +33,7 @@ function handleAirChapter3Choice(choice) {
         case 1:
             updateStoryText("You decide to fly straight to the Northern Water Tribe, but strong winds and exhaustion slow you down.");
             updateSkill('stamina', 1);
-            if (skillCheck('stamina', 12)) {
+            if (skillCheck('stamina', 3)) {
                 updateStoryText("You push through the harsh conditions, making excellent time to your destination.");
                 updateSkill('stamina', 2);
             }
@@ -42,26 +42,30 @@ function handleAirChapter3Choice(choice) {
             updateStoryText("You stop at Kyoshi Island, where the warriors of Kyoshi welcome you.");
             updateReputation('kyoshiWarriors', 2);
             addAlly(characters.suki);
-            if (skillCheck('diplomacy', 10)) {
+            if (skillCheck('diplomacy', 2)) {
                 updateStoryText("You gain the trust of the Kyoshi Warriors, learning valuable combat techniques.");
-                updateSkill('combat', 1);
+                updateSkill('combat', 2);
+                updateSkill('leadership', 1);
             }
             break;
         case 3:
             updateStoryText("You stay hidden, taking a slower but safer route to avoid Fire Nation patrols.");
             updateSkill('stealth', 1);
-            if (skillCheck('stealth', 12)) {
+            updateSkill('diplomacy', 1);
+            if (skillCheck('stealth', 3)) {
+                updateSkill('diplomacy', 1);
                 updateStoryText("Your careful planning allows you to completely avoid detection, ensuring a safe journey.");
                 updateSkill('wisdom', 1);
+                updateSkill('stealth', 2);
             }
             break;
         case 4:
             updateStoryText("You stop at an abandoned Air Temple, uncovering relics of your past and lost Air Nomad culture.");
-            addToInventory(items.airbenderScroll);
             updateSkill('wisdom', 1);
-            if (skillCheck('wisdom', 10)) {
+            updateSkill('spirituality', 1);
+            if (skillCheck('wisdom', 4)) {
                 updateStoryText("You meditate at the temple, unlocking deeper connections to your past and the Avatar Spirit.");
-                updateSkill('spirituality', 2);
+                updateSkill('wisdom', 2);
             }
             break;
     }

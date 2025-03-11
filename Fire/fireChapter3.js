@@ -4,7 +4,7 @@
 import { startFireChapter4 } from './fireChapter4.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -56,7 +56,6 @@ function handleFireChapter3Choice(choice) {
             updateStoryText("You craft a clever diversion, setting off a series of explosions that draw the guards away from the Avatar's cell. With the guards distracted, you swiftly move to free the Avatar, showcasing your tactical acumen.");
             updateSkill('strategy', 2);
             updateReputation('fireNation', -3);
-            addToInventory('smoke bombs');
             if (skillCheck('strategy', 11)) {
                 updateHealth(5);  // Successful strategy improves situation with minimal risk.
             } else {
@@ -67,7 +66,7 @@ function handleFireChapter3Choice(choice) {
             updateStoryText("Observing the fortress's layout and natural features, you use the environment to create obstacles and barriers, confusing and slowing down the guards. This approach allows you to reach the Avatar with minimal confrontation, highlighting your ability to adapt and use resources creatively.");
             updateSkill('strategy', 2);
             updateReputation('fireNation', -1);
-            if (skillCheck('environmental awareness', 10)) {
+            if (skillCheck('spirituality', 10)) {
                 updateHealth(5);  // Successfully using the environment to advantage.
             } else {
                 updateHealth(-5);  // Failing to effectively use the environment.

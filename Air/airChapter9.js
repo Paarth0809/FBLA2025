@@ -1,6 +1,6 @@
 import { startAirChapter10 } from './airChapter10.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -52,10 +52,9 @@ function handleOpt1AirChapter9Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to seek out your old friend King Bumi, believing his eccentric wisdom will guide your earthbending training. The journey to Omashu is long, but your spiritual strength helps you navigate challenges along the way.");
-            updateSkill('friendship', 2);
+            uupdateSkill('wisdom', 2);
             
             if (skillCheck('diplomacy', 10)) {
-                addAlly(characters.earthKingdomGuide);
                 updateStoryText("Along the way, you befriend an Earth Kingdom merchant who offers to guide you through Fire Nation blockades. His knowledge of secret mountain passes proves invaluable, and you reach the outskirts of Omashu safely, only to discover the city has fallen to the Fire Nation.");
             } else {
                 updateHealth(-10);
@@ -68,7 +67,6 @@ function handleOpt1AirChapter9Choice(choice) {
             updateSkill('spirituality', 2);
             
             if (skillCheck('spirituality', 12)) {
-                addToInventory(items.spiritMapToGaoling);
                 updateStoryText("Your spiritual sensitivity allows you to interpret your vision with remarkable clarity. You sketch a map leading to a town called Gaoling, where you sense your earthbending master awaits. The spirits have blessed your path forward.");
             } else {
                 updateEnergy(-10);
@@ -78,9 +76,9 @@ function handleOpt1AirChapter9Choice(choice) {
             
         case 3:
             updateStoryText("You decide to seek guidance directly from Avatar Roku. Finding a quiet meditation spot, you focus on connecting with your past life, hoping his centuries of wisdom will guide your search.");
-            updateSkill('avatarCommunion', 3);
+            updateSkill('diplomacy', 2)
             
-            if (skillCheck('avatarCommunion', 15)) {
+            if (skillCheck('wisdom', 15)) {
                 updateEnergy(10);
                 updateStoryText("Roku appears before you with unexpected clarity. 'To master earth, you must understand its opposing element,' he advises. 'Find a teacher who has learned to wait and listen before striking.' His guidance reinvigorates your spirit and gives you a clear direction.");
             } else {
@@ -91,10 +89,9 @@ function handleOpt1AirChapter9Choice(choice) {
             
         case 4:
             updateStoryText("You decide that a systematic approach is best. Landing at the Earth Kingdom coast, you begin visiting villages and towns, listening for rumors of exceptional earthbenders who might teach the Avatar.");
-            updateSkill('investigation', 2);
+            updateSkill('leadership', 2);
             
-            if (skillCheck('investigation', 12)) {
-                addToInventory(items.earthRumbleFlyer);
+            if (skillCheck('leadership', 12)) {
                 updateStoryText("Your persistent questioning leads to valuable information. Several sources mention an underground earthbending tournament called 'Earth Rumble' in a town called Gaoling. The best earthbenders supposedly compete there, making it an ideal place to find a master.");
             } else {
                 updateReputation(-5);
@@ -113,10 +110,9 @@ function handleOpt2AirChapter9Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Despite your concerns about the Avatar State, you decide to focus on the original plan of seeking King Bumi in Omashu. His unconventional wisdom might help with both earthbending and controlling your power.");
-            updateSkill('determination', 2);
+            updateSkill('leadership', 2);
             
-            if (skillCheck('stealth', 10)) {
-                addToInventory(items.omashuCityMap);
+            if (skillCheck('stealth', 11)) {
                 updateStoryText("Your group skillfully navigates Fire Nation patrols, reaching Omashu's outskirts undetected. However, what you discover is shocking - the entire city is under Fire Nation occupation, red banners hanging from its walls. Bumi must be found, but infiltration will be dangerous.");
             } else {
                 updateHealth(-15);
@@ -127,10 +123,9 @@ function handleOpt2AirChapter9Choice(choice) {
             
         case 2:
             updateStoryText("The power and loss of control you experienced with the Ocean Spirit has left you shaken. You decide that learning to master the Avatar State must take priority before you continue your bending training.");
-            updateSkill('self-control', 3);
+            updateSkill('spirituality', 3);
             
-            if (skillCheck('meditation', 14)) {
-                addToInventory(items.avatarStateScroll);
+            if (skillCheck('spirituality', 14)) {
                 updateStoryText("During deep meditation, you experience a vision of a guru meditating atop a mountain. You sketch his features and the location, which Sokka identifies as the Eastern Air Temple. This guru may hold the key to controlling the Avatar State.");
             } else {
                 updateEnergy(-20);
@@ -154,10 +149,9 @@ function handleOpt2AirChapter9Choice(choice) {
             
         case 4:
             updateStoryText("You recall hearing about underground earthbending tournaments where the best fighters compete. Such a tournament could be the perfect place to find a skilled and unconventional teacher who could help you with your unique challenges.");
-            updateSkill('streetwise', 2);
+            updateSkill('diplomacy', 2);
             
-            if (skillCheck('streetwise', 10)) {
-                addToInventory(items.blindBanditPoster);
+            if (skillCheck('diplomacy', 10)) {
                 updateStoryText("Your inquiries in portside taverns yield results. You obtain a poster for 'Earth Rumble VI' in Gaoling, featuring the reigning champion, a mysterious figure called 'The Blind Bandit.' Something about this fighter intrigues you - perhaps this is the teacher you seek.");
             } else {
                 updateHealth(-5);

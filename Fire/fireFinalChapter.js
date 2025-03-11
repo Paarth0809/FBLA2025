@@ -33,10 +33,9 @@ function handleFinalChapterChoice(choice) {
             updateChoices([
                 { text: "See Results!", action: () => { gameState.currentChapter = 0; endGame(); } }, // Restarts the game from the beginning action: startFinalChapter }
             ]);
-            // Concluding the game, no further choices are provided here.
-            // Ideally, this would lead to an epilogue or a closing ceremony in the game.
+            
             break;
     }
-    // This could trigger the end of the game sequence or an epilogue.
+   
 }
 //Fire code end

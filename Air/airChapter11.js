@@ -1,6 +1,6 @@
 import { startAirChapter12 } from './airChapter12.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -54,7 +54,6 @@ function handleOpt1AirChapter11Choice(choice) {
             updateSkill('survival', 2);
             
             if (skillCheck('survival', 12)) {
-                addToInventory(items.desertMap);
                 updateStoryText("After days of searching, you finally find the library, hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses, including their vulnerability to solar eclipses.");
             } else {
                 updateHealth(-10);
@@ -67,7 +66,6 @@ function handleOpt1AirChapter11Choice(choice) {
             updateSkill('spirituality', 2);
             
             if (skillCheck('spirituality', 14)) {
-                addToInventory(items.oasisMap);
                 updateStoryText("Your spiritual sensitivity allows you to interpret your vision with remarkable clarity. You lead your group to the oasis, where you find the library hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
                 updateEnergy(-10);
@@ -115,7 +113,6 @@ function handleOpt2AirChapter11Choice(choice) {
             updateSkill('survival', 2);
             
             if (skillCheck('survival', 12)) {
-                addToInventory(items.desertMap);
                 updateStoryText("After days of searching, you finally find the library, hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses, including their vulnerability to solar eclipses.");
             } else {
                 updateHealth(-10);
@@ -128,7 +125,6 @@ function handleOpt2AirChapter11Choice(choice) {
             updateSkill('spirituality', 2);
             
             if (skillCheck('spirituality', 14)) {
-                addToInventory(items.oasisMap);
                 updateStoryText("Your spiritual sensitivity allows you to interpret your vision with remarkable clarity. You lead your group to the oasis, where you find the library hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
                 updateEnergy(-10);

@@ -1,8 +1,8 @@
 import { startAirChapter2 } from './airChapter2.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
+import { updateStoryText, updateChoices, updateCharacterInfo } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -11,6 +11,8 @@ export function startAirChapter1() {
     gameState.currentChapter = 1;
     displayAirChapter1();
 }
+
+
 
 function displayAirChapter1() {
     const chapter1Text = `
@@ -34,17 +36,22 @@ function handleAirChapter1Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You joyfully show off your Airbending skills, impressing Katara but drawing Sokka's suspicion.");
-            updateSkill('agility', 1);
+            updateSkill('combat', 1);
             updateReputation('waterTribe', 1);
+            updateSkill('stamina', 1);
+            updateSkill('diplomacy', 2);
+            //unnecessary and useless currently
             if (skillCheck('agility', 10)) {
                 updateStoryText("Your Airbending display amazes the tribe, earning their admiration.");
-                updateReputation('waterTribe', 2);
+                updateReputation('waterTribe', 2); 
             }
             break;
         case 2:
             updateStoryText("You ask about the world and the war, realizing the Air Nomads have been wiped out...");
-            updateSkill('wisdom', 1);
+            updateSkill('wisdom', 2);
             updateReputation('waterTribe', 2);
+            updateSkill('diplomacy', 2);
+            //unnecessary and useless currently
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("You connect the pieces of history quickly, realizing the gravity of your situation.");
                 updateSkill('wisdom', 2);
@@ -53,14 +60,18 @@ function handleAirChapter1Choice(choice) {
         case 3:
             updateStoryText("You decide to keep your Avatar identity secret for now, avoiding unnecessary attention.");
             updateSkill('stealth', 1);
+            updateSkill('wisdom', 1);
+            //unnecessary and useless currently
             if (skillCheck('stealth', 10)) {
                 updateStoryText("You successfully keep a low profile, but Katara remains curious about you.");
             }
             break;
         case 4:
             updateStoryText("You focus on reconnecting with Appa, calming his nerves and regaining your own composure.");
-            addAlly(characters.appa);
-            addToInventory(items.gliderStaff);
+            updateSkill('wisdom', 1);
+            updateSkill('empathy', 3);
+            updateSkill('stamina', 1);
+            //unnecessary and useless currently
             if (skillCheck('animalHandling', 10)) {
                 updateStoryText("Appa fully trusts you, making him more responsive to your commands.");
                 updateSkill('animalHandling', 1);

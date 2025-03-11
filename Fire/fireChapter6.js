@@ -1,7 +1,7 @@
 import { startOpt1FireChapter7, startOpt2FireChapter7 } from './fireChapter7.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -52,8 +52,8 @@ function handleOpt2FireChapter6Choice(choice) {
             break;
         case 3:
             updateStoryText("As the Fire Nation's forces begin their attack, you find a way to use the siege's chaos to your advantage, aiming to capture the Avatar amidst the confusion.");
-            updateSkill('strategy', 2);
-            if (skillCheck('strategy', 13)) {
+            updateSkill('combat', 2);
+            if (skillCheck('combat', 13)) {
                 updateHealth(0);
                 updateStoryText("Your plan is sound, but the Avatar proves elusive once more, slipping away amid the battle's chaos.");
             } else {
@@ -127,8 +127,8 @@ function handleOpt1FireChapter6Choice(choice) {
             break;
         case 3:
             updateStoryText("As the Fire Nation's forces begin their attack, you find a way to use the siege's chaos to your advantage, aiming to capture the Avatar amidst the confusion.");
-            updateSkill('strategy', 2);
-            if (skillCheck('strategy', 13)) {
+            updateSkill('combat', 2);
+            if (skillCheck('commbat', 13)) {
                 updateHealth(0);
                 updateStoryText("Your plan is sound, but the Avatar proves elusive once more, slipping away amid the battle's chaos.");
             } else {

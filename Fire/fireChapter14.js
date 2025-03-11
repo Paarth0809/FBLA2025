@@ -2,7 +2,7 @@ import { startFireChapter15 } from './fireChapter15.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateEnergy, updateReputation, } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 
 //Fire code start
@@ -43,10 +43,9 @@ function handleFireChapter14Choice(choice) {
             break;
         case 2:
             updateStoryText("Together with the Order of the White Lotus, you strategize for the upcoming liberation of Ba Sing Se...");
-            if (skillCheck('strategy', 20)) {
+            if (skillCheck('combat', 20)) {
                 updateStoryText("Your strategic insights prove invaluable, shaping the plan of attack.");
                 updateReputation('earthKingdom', 2);
-                addToInventory(items.warMap);
             } else {
                 updateStoryText("While your contributions are earnest, the complexities of the battle plan are daunting.");
                 updateEnergy(-10);
@@ -65,9 +64,9 @@ function handleFireChapter14Choice(choice) {
             break;
         case 4:
             updateStoryText("You focus on preparing yourself mentally and physically for the final battle...");
-            if (skillCheck('bending.fire', 20) && skillCheck('discipline', 18)) {
+            if (skillCheck('combat', 20) && skillCheck('discipline', 18)) {
                 updateStoryText("You feel a surge of confidence in your firebending skills and your ability to lead.");
-                updateSkill('bending.fire', 3);
+                updateSkill('combat', 3);
                 updateEnergy(30);
             } else {
                 updateStoryText("Despite your best efforts, nerves and doubt creep in.");

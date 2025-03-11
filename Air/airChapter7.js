@@ -1,6 +1,6 @@
 import { startAirChapter8 } from './airChapter8.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt, updateEnergy } from '../utilityFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -51,7 +51,7 @@ function handleOpt1AirChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Aang agrees to help Jet, but remains vigilant to avoid unnecessary harm. Their careful approach minimizes casualties, but the moral dilemma weighs heavily on Aang.");
-            updateSkill('tactics', 2);
+            updateSkill('wisdom', 2);
             break;
         case 2:
             updateStoryText("Aang persuades Jet to consider the consequences of his actions, advocating for a solution that doesn't harm innocents. Jet is reluctantly convinced, showing a new respect for Aang.");
@@ -76,47 +76,47 @@ function handleOpt1AirChapter7Choice(choice) {
 function handleOpt2AirChapter7Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("In solitude, you take a long, hard look at the path you've walked. The pain you've caused, the relentless pursuit of an ideal that seems ever out of reach. Perhaps the honor you seek lies not in the approval of others, but in the integrity of your actions.");
-            updateSkill('introspection', 2);
-            if (skillCheck('introspection', 12)) {
+            updateStoryText("Aang organizes a peaceful demonstration, showing the strength of non-violent resistance and the power of united voices.");
+            updateSkill('diplomacy', 2);
+            if (skillCheck('diplomacy', 12)) {
                 updateHealth(5);
-                updateStoryText("This period of reflection strengthens your resolve and heals old wounds, both physical and emotional.");
+                updateStoryText("The demonstration inspires change, earning respect and support from both allies and some within the Fire Nation.");
             } else {
                 updateHealth(-5);
-                updateStoryText("While you strive for clarity, the answers remain just beyond your grasp, leading to frustration.");
+                updateStoryText("The peaceful protest faces resistance, but Aang's commitment to non-violence prevents escalation.");
             }
             break;
         case 2:
-            updateStoryText("Uncle Iroh has always been a source of wisdom and guidance. You turn to him now, seeking advice on how to proceed. His words, simple yet profound, encourage you to look inward for the honor you seek.");
-            updateSkill('wisdom', 2);
-            if (skillCheck('wisdom', 14)) {
-                updateHealth(10);
-                updateStoryText("Iroh's guidance illuminates a path forward, one that promises true redemption and peace.");
+            updateStoryText("Aang decides to sabotage Fire Nation supplies using stealth, ensuring no harm comes to anyone.");
+            updateSkill('stealth', 2);
+            if (skillCheck('stealth', 14)) {
+                updateHealth(5);
+                updateStoryText("The plan is executed perfectly, causing confusion among the Fire Nation ranks without casualties.");
             } else {
-                updateHealth(-10);
-                updateStoryText("The lessons are difficult to accept, and you struggle to apply them, causing further turmoil.");
+                updateHealth(-5);
+                updateStoryText("The sabotage attracts unwanted attention, yet Aang's quick thinking prevents any harm.");
             }
             break;
         case 3:
-            updateStoryText("The weight of your past actions and the realization that your quest may have been misguided compel you to consider a new path. One that leads away from the shadows of your father's expectations and towards a light of your own making.");
-            updateSkill('determination', 2);
-            if (skillCheck('determination', 13)) {
+            updateStoryText("Aang leads a strategic diversion to free captured villagers, showcasing his leadership and tactical acumen.");
+            updateSkill('leadership', 2);
+            if (skillCheck('leadership', 13)) {
                 updateHealth(5);
-                updateStoryText("With a newfound resolve, you begin to carve out a new destiny, one step at a time.");
+                updateStoryText("The operation is a success, demonstrating Aang's ability to lead and inspire courage in others.");
             } else {
                 updateHealth(-5);
-                updateStoryText("Doubt plagues your decision, making the first steps of this new journey the hardest you've ever taken.");
+                updateStoryText("The diversion almost fails, but Aang's resolve strengthens his team, preventing disaster.");
             }
             break;
         case 4:
-            updateStoryText("Determined to confront the source of your turmoil, you seek out Azula. You demand answers, hoping to understand her betrayals and perhaps find closure.");
-            updateSkill('combat', 2);
-            if (skillCheck('combat', 15)) {
-                updateHealth(-10);
-                updateStoryText("The confrontation is intense, and while it sheds light on Azula's ambitions, it leaves you with more questions about your own path.");
+            updateStoryText("Aang uses a display of airbending to intimidate the Fire Nation soldiers, proving that power can be used to protect without causing harm.");
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 15)) {
+                updateHealth(5);
+                updateStoryText("The soldiers retreat, awed by Aang's power and his choice to use it for peace rather than violence.");
             } else {
-                updateHealth(-20);
-                updateStoryText("Azula's prowess overpowers you, deepening your wounds and forcing you to retreat, your questions unanswered.");
+                updateHealth(-5);
+                updateStoryText("While the attempt does not go as planned, Aang's wisdom ensures no lives are lost.");
             }
             break;
     }
@@ -126,4 +126,3 @@ function handleOpt2AirChapter7Choice(choice) {
         ]);
     }, 300);
 }
-//Fire code end

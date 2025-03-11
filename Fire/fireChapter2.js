@@ -2,7 +2,7 @@ import { startFireChapter3 } from './fireChapter3.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 import { randomInt } from '../utilityFunctions.js';
@@ -43,8 +43,8 @@ function handleFireChapter2Choice(choice) {
             break;
         case 2:
             updateStoryText("Disguising yourself, you attempt to blend in with the villagers, seeking whispers and rumors about the Avatar.");
-            updateSkill('disguise', 2);
-            if (skillCheck('disguise', 12)) {
+            updateSkill('stealth', 2);
+            if (skillCheck('stealth', 12)) {
                 updateStoryText("Your disguise holds, and you learn the Avatar was here but has since moved on. The stories of the Fire Nation's impact weigh heavily on you.");
             } else {
                 updateStoryText("Your disguise fails, and you're forced to retreat as the villagers grow suspicious. The failure is a bitter reminder of your mission's stakes.");

@@ -2,7 +2,7 @@ import { startFireChapter11 } from './fireChapter11.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 
 //Fire code start
@@ -48,7 +48,6 @@ function handleOpt1FireChapter10Choice(choice) {
             if (skillCheck('diplomacy', 19)) {
                 updateStoryText("Your words reach Katara. She realizes revenge won't bring peace and chooses a path of healing instead.");
                 updateReputation('waterTribe', 1);
-                addToInventory(items.spiritWater);
             } else {
                 updateStoryText("Katara rejects your advice, straining your relationship. She embarks on the mission alone, worrying the entire group.");
                 updateReputation('waterTribe', -2);
@@ -61,7 +60,6 @@ function handleOpt1FireChapter10Choice(choice) {
             if (skillCheck('diplomacy', 17) && skillCheck('stealth', 16)) {
                 updateStoryText("You successfully track down the man and confront him. Katara chooses mercy, finding strength in forgiveness.");
                 updateReputation('waterTribe', 3);
-                addToInventory(items.redemptionAmulet);
             } else {
                 updateStoryText("The mission is partially successful, but the outcome leaves Katara conflicted and unsatisfied.");
                 updateEnergy(-20);
@@ -72,7 +70,7 @@ function handleOpt1FireChapter10Choice(choice) {
             updateSkill('strategy', 3);
             updateStoryText("While Katara is initially upset, the group's focus on the larger threat helps put things in perspective.");
             updateReputation('waterTribe', -1);
-            updateSkill('bending.fire', 1);
+            updateSkill('combat', 1);
             break;
     }
     setTimeout(() => {
@@ -124,7 +122,6 @@ function handleOpt2FireChapter10Choice(choice) {
             if (skillCheck('diplomacy', 19)) {
                 updateStoryText("Your words reach Katara. She realizes revenge won't bring peace and chooses a path of healing instead.");
                 updateReputation('waterTribe', 1);
-                addToInventory(items.spiritWater);
             } else {
                 updateStoryText("Katara rejects your advice, straining your relationship. She embarks on the mission alone, worrying the entire group.");
                 updateReputation('waterTribe', -2);
@@ -137,7 +134,6 @@ function handleOpt2FireChapter10Choice(choice) {
             if (skillCheck('diplomacy', 17) && skillCheck('stealth', 16)) {
                 updateStoryText("You successfully track down the man and confront him. Katara chooses mercy, finding strength in forgiveness.");
                 updateReputation('waterTribe', 3);
-                addToInventory(items.redemptionAmulet);
             } else {
                 updateStoryText("The mission is partially successful, but the outcome leaves Katara conflicted and unsatisfied.");
                 updateEnergy(-20);
@@ -145,10 +141,10 @@ function handleOpt2FireChapter10Choice(choice) {
             break;
         case 4:
             updateStoryText("You focus the group on preparing for the comet instead...");
-            updateSkill('strategy', 3);
+            updateSkill('combat', 3);
             updateStoryText("While Katara is initially upset, the group's focus on the larger threat helps put things in perspective.");
             updateReputation('waterTribe', -1);
-            updateSkill('bending.fire', 1);
+            updateSkill('combat', 1);
             break;
     }
     setTimeout(() => {

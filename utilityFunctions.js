@@ -1,4 +1,4 @@
-import { updateCharacterInfo, updateInventoryDisplay, updateQuestLog } from "./uiUpdateFunctions.js";
+import { updateCharacterInfo, updateInventoryDisplay, } from "./uiUpdateFunctions.js";
 import { gameState } from "./gameState.js";
 
 // Utility Functions
@@ -7,16 +7,10 @@ export function randomInt(min, max) {
 }
 
 export function updateSkill(skill, amount) {
-    if (skill.includes('.')) {
-        const [category, subSkill] = skill.split('.');
-        gameState.skills[category][subSkill] += amount;
-        if (gameState.skills[category][subSkill] < 0) gameState.skills[category][subSkill] = 0;
-        if (gameState.skills[category][subSkill] > 10) gameState.skills[category][subSkill] = 10;
-    } else {
-        gameState.skills[skill] += amount;
-        if (gameState.skills[skill] < 0) gameState.skills[skill] = 0;
-        if (gameState.skills[skill] > 10) gameState.skills[skill] = 10;
-    }
+    gameState.skills[skill] = gameState.skills[skill] + amount;
+    if (gameState.skills[skill] < 0)
+            gameState.skills[skill] = 0;
+    
     updateCharacterInfo();
 }
 
@@ -95,13 +89,4 @@ export function changeLocation(newLocation) {
 export function advanceDay(days = 1) {
     gameState.daysPassed += days;
     updateCharacterInfo();
-}
-
-export function logGameState(message) {
-    console.log(message, {
-        chapter: gameState.currentChapter,
-        health: gameState.health,
-        energy: gameState.energy,
-        inventory: gameState.inventory.map(item => item.name)
-    });
 }

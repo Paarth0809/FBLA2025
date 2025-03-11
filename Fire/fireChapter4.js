@@ -1,8 +1,8 @@
 import { startOpt1FireChapter5, startOpt2FireChapter5 } from './fireChapter5.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt, logGameState, addQuest } from '../utilityFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt,  addQuest } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 import { quests } from '../quests.js';
@@ -42,7 +42,7 @@ function handleFireChapter4Choice(choice) {
             break;
         case 2: // Deny the connection
             updateStoryText("You deny any connection to the Blue Spirit, dismissing the sword as a mere collector's item.");
-            if (skillCheck('cunning', 12)) {
+            if (skillCheck('stealth', 12)) {
                 updateStoryText("Zhao, though suspicious, cannot prove your lie. He decides to leave your crew be but warns you of the consequences of deception.");
                 updateReputation('fireNation', 1);
                 updateChoices([{ text: "Continue", action: startOpt1FireChapter5 }]); // Option to continue after reading

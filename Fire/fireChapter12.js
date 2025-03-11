@@ -2,7 +2,7 @@ import { startFireChapter13 } from './fireChapter13.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateEnergy, updateReputation, randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
   
 //Fire code start
@@ -39,8 +39,8 @@ function handleFireChapter12Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Watching the dramatized version of your quest for honor, you ponder the depth of your transformation...");
-            updateSkill('introspection', 2);
-            if (skillCheck('introspection', 16)) {
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 16)) {
                 updateStoryText("This reflection deepens your understanding of your journey, acknowledging the mistakes and growth along the way.");
                 updateReputation('fireNation', 1);
             } else {
@@ -60,8 +60,8 @@ function handleFireChapter12Choice(choice) {
             break;
         case 3:
             updateStoryText("You engage in discussions with Aang and the others about their thoughts on the play's portrayal...");
-            updateSkill('communication', 2);
-            if (skillCheck('communication', 17)) {
+            updateSkill('diplomacy', 2);
+            if (skillCheck('diplomacy', 17)) {
                 updateStoryText("These conversations bring laughter, shared memories, and a stronger bond among you all.");
                 updateReputation('teamAvatar', 2);
             } else {
@@ -74,7 +74,6 @@ function handleFireChapter12Choice(choice) {
             if (skillCheck('wisdom', 18)) {
                 updateStoryText("This approach yields insights into how you've changed and how you wish to grow, reinforcing your commitment to your new path.");
                 updateReputation('fireNation', 1);
-                updateReputation('teamAvatar', 1);
             } else {
                 updateStoryText("While the attempt is noble, finding actionable insights in the play's exaggerated fiction proves challenging.");
             }

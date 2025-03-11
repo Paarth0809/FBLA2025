@@ -1,6 +1,6 @@
 import { startFireChapter8 } from './fireChapter8.js';
 import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt, updateEnergy} from '../utilityFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -103,8 +103,8 @@ function handleOpt2FireChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("In solitude, you take a long, hard look at the path you've walked. The pain you've caused, the relentless pursuit of an ideal that seems ever out of reach. Perhaps the honor you seek lies not in the approval of others, but in the integrity of your actions.");
-            updateSkill('introspection', 2);
-            if (skillCheck('introspection', 12)) {
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 12)) {
                 updateHealth(5);
                 updateStoryText("This period of reflection strengthens your resolve and heals old wounds, both physical and emotional.");
             } else {
@@ -125,8 +125,8 @@ function handleOpt2FireChapter7Choice(choice) {
             break;
         case 3:
             updateStoryText("The weight of your past actions and the realization that your quest may have been misguided compel you to consider a new path. One that leads away from the shadows of your father's expectations and towards a light of your own making.");
-            updateSkill('determination', 2);
-            if (skillCheck('determination', 13)) {
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 13)) {
                 updateHealth(5);
                 updateStoryText("With a newfound resolve, you begin to carve out a new destiny, one step at a time.");
             } else {

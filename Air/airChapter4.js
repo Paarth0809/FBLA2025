@@ -2,7 +2,7 @@ import { startOpt1AirChapter5, startOpt2AirChapter5 } from './airChapter5.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -30,9 +30,9 @@ function handleAirChapter4Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You train with the Kyoshi Warriors, learning valuable combat techniques from Suki.");
-            updateSkill('combat', 1);
+            updateSkill('combat', 2);
             addAlly(characters.suki);
-            if (skillCheck('combat', 12)) {
+            if (skillCheck('combat', 5)) {
                 updateStoryText("Your skills improve rapidly, impressing Suki and earning the respect of the Kyoshi Warriors.");
                 updateReputation('kyoshiWarriors', 2);
             }
@@ -41,9 +41,10 @@ function handleAirChapter4Choice(choice) {
         case 2:
             updateStoryText("You decide to stay hidden, avoiding unnecessary attention from both the villagers and potential threats.");
             updateSkill('stealth', 1);
-            if (skillCheck('stealth', 12)) {
+            if (skillCheck('stealth', 4)) {
                 updateStoryText("Your caution pays off, allowing you to observe the island's defenses and gather useful information.");
                 updateSkill('wisdom', 1);
+                updateSkill('stealth', 1);
             }
             updateChoices([{ text: "Continue", action: startOpt2AirChapter5 }]);
             break;

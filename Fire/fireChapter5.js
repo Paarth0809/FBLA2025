@@ -1,26 +1,26 @@
 import { startOpt1FireChapter6, startOpt2FireChapter6 } from './fireChapter6.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 
 //Fire code start
 export function startOpt1FireChapter5() {
-    logGameState("Inside startFireChapter5");
+    ("Inside startFireChapter5");
     gameState.currentChapter = 5;
     displayOpt1FireChapter5();
 }
 
 export function startOpt2FireChapter5() {
-    logGameState("Inside startFireChapter5");
+    ("Inside startFireChapter5");
     gameState.currentChapter = 5;
     displayOpt2FireChapter5();
 }
 
 function displayOpt1FireChapter5() {
-    logGameState("displayFireChapter5");
+    ("displayFireChapter5");
     const chapter5Text = `
         <h2>Chapter 5: The Storm</h2>
         <p>As a fierce storm approaches, you find yourself reflecting on the events that led to your banishment. The confrontation at the war meeting, your refusal to participate in a plan that would sacrifice innocent lives, and the Agni Kai that followed... all culminating in your father's decree of banishment until you capture the Avatar. This storm stirs within you a turmoil as powerful as the one raging in the skies.</p>
@@ -33,7 +33,7 @@ function displayOpt1FireChapter5() {
 }
 
 function displayOpt2FireChapter5() {
-    logGameState("displayFireChapter5");
+    ("displayFireChapter5");
     const chapter5Text = `
         <h2>Chapter 5: Aftermath and Reflection</h2>
         <p> One night you here some noises while you were sleeping in your ship. You get up to investigate and you see a parrot. In th e past you had a banter with pirates. You see the bomb and realize the pirates has planted it. You only figure oout later that Zhao had ordered them to. The bomb explodes and you barley survive. Your ship in ruins and your health has tazem a serious toll.</p>

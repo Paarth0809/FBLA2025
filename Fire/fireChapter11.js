@@ -3,7 +3,7 @@ import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 import { characters } from '../characters.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 
 //Fire code start
@@ -32,11 +32,9 @@ function handleFireChapter11Choice(choice) {
         case 1: // Infiltrate the prison as guards
             updateStoryText("You decide to infiltrate the prison disguised as guards. The disguise provides initial cover...");
             updateSkill('stealth', 2);
-            updateSkill('deception', 2);
-            if (skillCheck('stealth', 18) && skillCheck('deception', 17)) {
+            if (skillCheck('stealth', 18)) {
                 updateStoryText("Your disguises work perfectly. You move undetected and manage to orchestrate a daring escape for Sokka's father, gaining a crucial ally.");
                 addAlly(characters.hakoda);
-                addToInventory(items.prisonMasterKey);
                 updateReputation('fireNation', -2);
             } else {
                 updateStoryText("Despite your preparations, your cover is blown. You're forced into a hasty retreat, narrowly escaping with your lives but failing the mission.");
