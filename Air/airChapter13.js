@@ -1,8 +1,10 @@
-import { updateStoryText, updateChoices, updateSkill, skillCheck, updateReputation, updateHealth, updateEnergy, addToInventory, addAlly } from '../gameState';
-import { gameState } from '../gameState';
-import { items } from '../items';
-import { characters } from '../characters';
-import { startOpt1AirChapter14, startOpt2AirChapter14  } from './airChapter14.js';
+import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
+import { skillCheck } from '../gameMechanics.js';
+import { gameState } from '../gameState.js';
+
+import { characters } from '../characters.js';
+import { startAirChapter14  } from './airChapter14.js';
 
 
 // Chapter 13: The Invasion and the Betrayal
@@ -64,7 +66,6 @@ function handleOpt1AirChapter13Choice(choice) {
             updateStoryText("You regroup with your allies to reassess the situation and plan a coordinated retreat.");
             updateSkill('leadership', 3);
             if (skillCheck('leadership', 15)) {
-                addAlly(characters.strategistAlly);
                 updateStoryText("Your leadership rallies the group, and together you execute a well-coordinated retreat, minimizing casualties.");
             } else {
                 updateReputation(-5);
@@ -75,7 +76,7 @@ function handleOpt1AirChapter13Choice(choice) {
             updateStoryText("You focus on protecting the civilians and ensuring their safety during the retreat.");
             updateSkill('diplomacy', 2);
             if (skillCheck('diplomacy', 14)) {
-                addToInventory(items.civilianEscapePlan);
+
                 updateStoryText("Your efforts save countless lives, as you lead the civilians to safety while keeping the Fire Nation forces at bay.");
             } else {
                 updateEnergy(-10);
@@ -86,7 +87,6 @@ function handleOpt1AirChapter13Choice(choice) {
             updateStoryText("You set a trap to slow down Azula's forces, using your surroundings to your advantage.");
             updateSkill('strategy', 3);
             if (skillCheck('strategy', 15)) {
-                addToInventory(items.trapBlueprint);
                 updateStoryText("The trap works perfectly, buying your group valuable time to retreat safely while Azula's forces struggle to recover.");
             } else {
                 updateHealth(-10);
@@ -96,7 +96,7 @@ function handleOpt1AirChapter13Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt1AirChapter14 }
+            { text: "Continue", action: startAirChapter14 }
         ]);
     }, 300);
 }
@@ -154,7 +154,7 @@ function handleOpt2AirChapter13Choice(choice) {
     setTimeout(() => {
         updateChoices([
             // Example follow-up action; adjust based on your narrative progression
-            { text: "Continue", action: startOpt2AirChapter14 }
+            { text: "Continue", action: startAirChapter14 }
         ]);
     }, 300);
 }

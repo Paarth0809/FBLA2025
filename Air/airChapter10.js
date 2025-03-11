@@ -1,20 +1,20 @@
 import { startOpt1AirChapter11, startOpt2AirChapter11 } from './airChapter11.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 
 // Air code start
 export function startAirChapter10() {
-  logGameState("Inside startAirChapter10");
+  ("Inside startAirChapter10");
   gameState.currentChapter = 10;
   displayAirChapter10();
 }
 
 function displayAirChapter10() {
-  logGameState("displayAirChapter10");
+  ("displayAirChapter10");
   const chapter10Text = `
     <h2>Chapter 10: The Blind Bandit</h2>
     <p>After arriving in Gaoling, you find yourself at an underground earthbending tournament called Earth Rumble VI. The crowd roars as champion after champion is defeated by a small, unassuming girl who calls herself "The Blind Bandit." Despite her blindness, she moves with incredible precision, sensing vibrations through the earth.</p>
@@ -32,8 +32,8 @@ function handleAirChapter10Choice(choice) {
   switch (choice) {
     case 1:
       updateStoryText("You decide to challenge Toph directly, believing that actions speak louder than words. You return to the Earth Rumble arena and publicly challenge the Blind Bandit, drawing her back for a rematch.");
-      updateSkill('airbending', 2);
-      if (skillCheck('airbending', 12)) {
+      updateSkill('combat', 2);
+      if (skillCheck('combat', 12)) {
         updateReputation(5);  // Successfully impressing Toph increases your standing
         updateStoryText("Using your airbending creatively, you manage to lift yourself off the ground—rendering Toph's earth-sensing abilities useless. Your victory isn't about dominating her but showing that you have something valuable to teach her too. Impressed by your skills and humbled by the experience, Toph agrees to become your earthbending teacher, though not without setting some ground rules.");
         addAlly(characters.toph);

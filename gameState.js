@@ -1,6 +1,6 @@
 // Game State
 export let gameState = {
-    playerName: "",
+    currentCharacter: "",
     currentChapter: 0,
     inventory: [],
     allies: [],
@@ -13,13 +13,11 @@ export let gameState = {
     skills: {
         combat: 0,
         stealth: 0,
+        wisdom: 0,
+        sprituality: 0,
         diplomacy: 0,
-        bending: {
-            fire: 0,
-            water: 0,
-            earth: 0,
-            air: 0
-        }
+        leadership: 0,
+        empathy: 0
     },
     health: 100,
     energy: 100,

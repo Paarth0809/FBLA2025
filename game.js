@@ -8,7 +8,7 @@ import { startChooseElement } from './chooseElement.js';
 
 // Game Logic
 export function startGame() {
-    gameState.playerName = prompt("Enter your name:");
+    
     updateCharacterInfo();
     startChooseElement();
 }

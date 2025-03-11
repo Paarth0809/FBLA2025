@@ -1,20 +1,20 @@
 import { startOpt1AirChapter13, startOpt2AirChapter13 } from './airChapter13.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, logGameState } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 
 // Air code start
 export function startAirChapter12() {
-  logGameState("Inside startAirChapter12");
+  ("Inside startAirChapter12");
   gameState.currentChapter = 12;
   displayAirChapter12();
 }
 
 function displayAirChapter12() {
-  logGameState("displayAirChapter12");
+  ("displayAirChapter12");
   const chapter12Text = `
     <h2>Chapter 12: The Guru and the Crossroads of Destiny</h2>
     <p>Aang trains with Guru Pathik but struggles to let go of his attachment to Katara. The Guru teaches Aang that he must let go of his attachments in order to master the Avatar State.</p>
@@ -58,11 +58,11 @@ function handleAirChapter12Choice(choice) {
         updateStoryText("You decide to choose Katara over mastering the Avatar State. You leave your training with Guru Pathik and return to Katara, prioritizing your love for her over your duty as the Avatar.");
         updateSkill('love', 3);
         if (skillCheck('love', 12)) {
-          updateReputation(10);  // Choosing Katara increases your standing with her
+          updateReputation(10);  // Choosing Katara increases standing with her
           updateStoryText("Katara is overjoyed to see you, and you spend many happy moments together. However, your decision to prioritize your love for her over your duty as the Avatar has consequences, and the world suffers as a result.");
           updateChoices([{ text: "Continue", action: startOpt2AirChapter13 }]);
         } else {
-          updateReputation(-5);  // Choosing Katara decreases your standing with others
+          updateReputation(-5);  // Choosing Katara decreases standing with others
           updateStoryText("Your decision to prioritize your love for Katara over your duty as the Avatar is met with disappointment and anger from others. You must face the consequences of your choice.");
           updateChoices([{ text: "Continue", action: startOpt2AirChapter13 }]);
         }

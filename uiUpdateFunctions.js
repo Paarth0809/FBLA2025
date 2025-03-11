@@ -36,7 +36,7 @@ export function updateInventoryDisplay() {
 export function updateCharacterInfo() {
     const characterStats = document.getElementById('character-stats');
     characterStats.innerHTML = `
-        <p>Name: ${gameState.playerName}</p>
+        <p>Name: ${gameState.currentCharacter}</p>
         <p>Health: ${gameState.health}</p>
         <p>Energy: ${gameState.energy}</p>
         <p>Gold: ${gameState.gold}</p>

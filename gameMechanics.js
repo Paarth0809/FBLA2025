@@ -3,12 +3,9 @@ import { gameState } from './gameState.js';
 import { updateHealth, updateEnergy, updateSkill, removeFromInventory } from './utilityFunctions.js';
 
 // Game Mechanics
-export function skillCheck(skill, difficulty) {
-    const skillValue = skill.includes('.') ?
-        gameState.skills[skill.split('.')[0]][skill.split('.')[1]] :
-        gameState.skills[skill];
-    const roll = randomInt(1, 20);
-    return (roll + skillValue) >= difficulty;
+export function skillCheck(skill, amount) {
+    const skillValue = gameState.skills[skill];
+    return skillValue >= amount;
 }
 
 export function combat(enemy) {

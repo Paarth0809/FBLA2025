@@ -2,7 +2,7 @@ import { startFireChapter14 } from './fireChapter14.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -33,9 +33,9 @@ function handleFireChapter13Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You spend your time strategizing and honing your firebending, ensuring you're prepared for the battle against Ozai...");
-            updateSkill('strategy', 3);
-            updateSkill('bending.fire', 2);
-            if (skillCheck('strategy', 20) && skillCheck('bending.fire', 20)) {
+            updateSkill('wisdom', 3);
+            updateSkill('.combat', 2);
+            if (skillCheck('combat', 20)) {
                 updateStoryText("Your intense preparation pays off, leaving you feeling ready and capable to face your father, both in skill and resolve.");
             } else {
                 updateStoryText("Despite your efforts, doubts linger. Have you prepared enough? The question haunts you as the confrontation draws near.");
@@ -65,7 +65,7 @@ function handleFireChapter13Choice(choice) {
             updateSkill('wisdom', 2);
             if (skillCheck('wisdom', 20)) {
                 updateStoryText("Iroh's advice resonates deeply, offering clarity and courage as you prepare to face what may be your greatest challenge.");
-                updateSkill('bending.fire', 1); // Reflecting the emotional and mental preparation for the confrontation
+                updateSkill('combat', 1); // Reflecting the emotional and mental preparation for the confrontation
             } else {
                 updateStoryText("While always comforting, Iroh's words leave you with more questions about your path and the future. You wonder if you're truly ready.");
             }

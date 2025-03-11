@@ -2,7 +2,7 @@ import { startFireChapter2 } from './fireChapter2.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
 import {skillCheck} from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -35,7 +35,6 @@ function handleFireChapter1Choice(choice) {
             updateStoryText("You decide to help the dragon...You wait...It seems eager to be your companion!");
             updateSkill('diplomacy', 1);
             updateReputation('fireNation', -1);
-            addToInventory(items.fireWhip);
             addAlly(characters.dragon);
             break;
         case 2:
@@ -52,7 +51,6 @@ function handleFireChapter1Choice(choice) {
             if (skillCheck('diplomacy', 12)) {
                 updateStoryText("The dragon seems to understand you and calms down. It allows you to approach and tend to its wounds.");
                 updateSkill('diplomacy', 2);
-                addToInventory(items.dragonScale);
             } else {
                 updateStoryText("The dragon doesn't understand your intentions and becomes agitated. You decide to back away slowly.");
                 updateSkill('stealth', 1);

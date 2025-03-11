@@ -1,6 +1,6 @@
 import { startOpt1FireChapter10, startOpt2FireChapter10 } from './fireChapter10.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -58,17 +58,15 @@ function handleOpt1FireChapter9Choice(choice) {
             updateSkill('exploration', 2);
             if (skillCheck('exploration', 15)) {
                 updateStoryText("Your keen eye reveals a hidden path, leading you to a forgotten chamber filled with ancient wisdom.");
-                addToInventory(items.ancientTome);
             } else {
                 updateStoryText("Despite your efforts, the ruins offer no further secrets, leaving you to wonder what might have been missed.");
             }
             break;
         case 2:
             updateStoryText("Participating in the ritual, you and Aang demonstrate your current understanding of firebending, ready to learn more...");
-            updateSkill('bending.fire', 1);
-            if (skillCheck('bending.fire', 12)) {
+            updateSkill('combat', 1);
+            if (skillCheck('combat', 12)) {
                 updateStoryText("The ritual is a success, and the Sun Warriors reveal deeper knowledge of firebending to you.");
-                addToInventory(items.firebendingScroll);
             } else {
                 updateStoryText("The ritual reveals gaps in your understanding, but the experience provides valuable lessons.");
             }
@@ -78,18 +76,16 @@ function handleOpt1FireChapter9Choice(choice) {
             updateSkill('wisdom', 2);
             if (skillCheck('wisdom', 14)) {
                 updateStoryText("Your study uncovers profound insights, strengthening your connection to firebending.");
-                addToInventory(items.philosophicalScroll);
             } else {
                 updateStoryText("The lore is dense and cryptic, challenging to fully grasp but still offering glimpses of wisdom.");
             }
             break;
         case 4:
             updateStoryText("The meeting with the ancient dragons is transformative, revealing the true essence of firebending through their dance...");
-            updateSkill('bending.fire', 3);
-            if (skillCheck('bending.fire', 18)) {
+            updateSkill('combat', 3);
+            if (skillCheck('combat', 18)) {
                 updateStoryText("The dragons bestow upon you a rare gift: a deeper understanding of fire that ignites within you a powerful new firebending technique.");
-                addToInventory(items.dragonScroll); 
-                updateSkill('bending.fire', 5); 
+                updateSkill('combat', 5); 
             } else {
                 updateStoryText("While awe-inspiring, the dance of the dragons is a level beyond your current mastery, leaving you with much to ponder.");
             }
@@ -108,20 +104,18 @@ function handleOpt2FireChapter9Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You explore the ruins, marveling at the architecture and the remnants of a once-great civilization...");
-            updateSkill('exploration', 2);
-            if (skillCheck('exploration', 15)) {
+            updateSkill('leadership', 2);
+            if (skillCheck('leadership', 15)) {
                 updateStoryText("Your keen eye reveals a hidden path, leading you to a forgotten chamber filled with ancient wisdom.");
-                addToInventory(items.ancientTome);
             } else {
                 updateStoryText("Despite your efforts, the ruins offer no further secrets, leaving you to wonder what might have been missed.");
             }
             break;
         case 2:
             updateStoryText("Participating in the ritual, you and Aang demonstrate your current understanding of firebending, ready to learn more...");
-            updateSkill('bending.fire', 1);
-            if (skillCheck('bending.fire', 12)) {
+            updateSkill('combat', 1);
+            if (skillCheck('combat', 12)) {
                 updateStoryText("The ritual is a success, and the Sun Warriors reveal deeper knowledge of firebending to you.");
-                addToInventory(items.firebendingScroll);
             } else {
                 updateStoryText("The ritual reveals gaps in your understanding, but the experience provides valuable lessons.");
             }
@@ -131,18 +125,16 @@ function handleOpt2FireChapter9Choice(choice) {
             updateSkill('wisdom', 2);
             if (skillCheck('wisdom', 14)) {
                 updateStoryText("Your study uncovers profound insights, strengthening your connection to firebending.");
-                addToInventory(items.philosophicalScroll);
             } else {
                 updateStoryText("The lore is dense and cryptic, challenging to fully grasp but still offering glimpses of wisdom.");
             }
             break;
         case 4:
             updateStoryText("The meeting with the ancient dragons is transformative, revealing the true essence of firebending through their dance...");
-            updateSkill('bending.fire', 3);
-            if (skillCheck('bending.fire', 18)) {
+            updateSkill('combat', 3);
+            if (skillCheck('combat', 18)) {
                 updateStoryText("The dragons bestow upon you a rare gift: a deeper understanding of fire that ignites within you a powerful new firebending technique.");
-                addToInventory(items.dragonScroll); 
-                updateSkill('bending.fire', 5); 
+                updateSkill('combat', 5); 
             } else {
                 updateStoryText("While awe-inspiring, the dance of the dragons is a level beyond your current mastery, leaving you with much to ponder.");
             }

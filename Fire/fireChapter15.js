@@ -1,7 +1,7 @@
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
 import { updateSkill, addToInventory, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { startFinalChapter } from './fireFinalChapter.js';
 
@@ -31,11 +31,11 @@ function handleFireChapter15Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You engage Azula directly, your firebending enhanced by the comet...");
-            if (skillCheck('bending.fire', 22)) {
+            if (skillCheck('combat', 22)) {
                 updateStoryText("Your mastery of firebending prevails, overcoming Azula's aggression with precision and power.");
                 updateEnergy(30);
                 updateReputation('fireNation', 5);
-                gameState.isFireLord = true;
+               
             } else {
                 updateStoryText("Azula's ferocity is daunting, pushing you to the edge. The battle is fierce, testing every bit of your skill and resolve.");
                 updateHealth(-20);
@@ -43,11 +43,11 @@ function handleFireChapter15Choice(choice) {
             break;
         case 2:
             updateStoryText("You cleverly use the environment to level the playing field against Azula...");
-            if (skillCheck('strategy', 18)) {
+            if (skillCheck('combat', 18)) {
                 updateStoryText("Your strategic use of the surroundings catches Azula off guard, tipping the scales in your favor.");
                 updateEnergy(20);
                 updateReputation('fireNation', 3);
-                gameState.isFireLord = true;
+             
             } else {
                 updateStoryText("Azula anticipates your moves, countering your strategies. The battle remains evenly matched.");
                 updateHealth(-15);
@@ -55,11 +55,11 @@ function handleFireChapter15Choice(choice) {
             break;
         case 3:
             updateStoryText("You focus on maintaining your inner calm, using tactics over brute strength...");
-            if (skillCheck('wisdom', 20) && skillCheck('bending.fire', 20)) {
+            if (skillCheck('wisdom', 20) && skillCheck('combat', 20)) {
                 updateStoryText("This approach disorients Azula, allowing you to subdue her with superior tactics and control.");
                 updateEnergy(25);
                 updateReputation('fireNation', 4);
-                gameState.isFireLord = true;
+              
             } else {
                 updateStoryText("While you manage to maintain your calm, Azula's relentless assault puts you on the defensive.");
                 updateHealth(-25);
@@ -71,7 +71,7 @@ function handleFireChapter15Choice(choice) {
                 updateStoryText("With the timely intervention of your friends, the tide turns. Together, you overpower Azula.");
                 updateEnergy(20);
                 updateReputation('fireNation', 2);
-                gameState.isFireLord = true;
+             
             } else {
                 updateStoryText("Your call for help goes unanswered in the heat of the battle, leaving you to face Azula alone.");
                 updateHealth(-30);

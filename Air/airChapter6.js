@@ -1,7 +1,7 @@
 import { startOpt1AirChapter7, startOpt2AirChapter7 } from './airChapter7.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
-import { items } from '../items.js';
+
 import { gameState } from '../gameState.js';
 import { randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -49,48 +49,52 @@ function handleOpt1AirChapter6Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Aang seeks out Roku, hoping for insights into his destiny and the balance between the worlds.");
-            updateSkill('spiritual', 2);
-            if (skillCheck('spiritual', 10)) {
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 10)) {
                 updateEnergy(5);
                 updateStoryText("Roku imparts wisdom that strengthens Aang's resolve and spiritual connection.");
+                updateSkill('spirituality', 2);
             } else {
                 updateEnergy(-5);
                 updateStoryText("Though the meeting is enlightening, Aang struggles to grasp the full depth of Roku's teachings.");
+                updateSkill('spirituality', 1);
             }
             break;
         case 2:
             updateStoryText("Aang reaches out to the spirits of nature, seeking allies in the coming battle.");
-            updateSkill('communication', 2);
-            if (skillCheck('communication', 12)) {
+            updateSkill('diplomacy', 2);
+            if (skillCheck('wisdom', 12)) {
                 updateReputation(5);
                 updateStoryText("His genuine plea earns him the favor of powerful spirits.");
+                updateSkill('spirituality', 2);
             } else {
                 updateReputation(-5);
                 updateStoryText("The spirits remain distant, wary of Aang's unsettled spirit.");
+                updateSkill('spirituality', 1);
             }
             break;
-        case 3:
-            updateStoryText("Understanding the importance of his mission, Aang focuses on mastering his spiritual presence.");
-            updateSkill('focus', 2);
-            if (skillCheck('focus', 11)) {
-                updateEnergy(5);
-                updateStoryText("His efforts pay off, granting him greater control and understanding of the Spirit World.");
-            } else {
-                updateEnergy(-10);
-                updateStoryText("The effort is draining, and Aang finds it difficult to maintain his focus.");
-            }
-            break;
-        case 4:
-            updateStoryText("Feeling the urgency of his mission, Aang seeks a pathway back to his friends and the physical world.");
-            updateSkill('determination', 2);
-            if (skillCheck('determination', 10)) {
-                updateEnergy(0);
-                updateStoryText("His determination reveals a path back, but the journey has taken its toll.");
-            } else {
-                updateEnergy(-5);
-                updateStoryText("The way remains hidden, and Aang's spirit grows weary from the search.");
-            }
-            break;
+            case 3:
+                updateStoryText("Understanding the importance of his mission, Aang focuses on mastering his spiritual presence.");
+                updateSkill('spirituality', 2); // Emphasizing spirituality for its direct relevance
+                if (skillCheck('spirituality', 11)) {
+                    updateEnergy(5);
+                    updateStoryText("His efforts deepen his connection to the Spirit World, granting him insights that were previously beyond his reach.");
+                } else {
+                    updateEnergy(-5);
+                    updateStoryText("The path to mastering spirituality is fraught with challenges, and Aang finds it difficult to progress as hoped.");
+                }
+                break;
+            case 4:
+                updateStoryText("Feeling the urgency of his mission, Aang seeks a pathway back to his friends and the physical world.");
+                updateSkill('wisdom', 2); // Using wisdom to reflect Aang's understanding and decision-making
+                if (skillCheck('wisdom', 10)) {
+                    updateEnergy(5);
+                    updateStoryText("His wisdom guides him to a hidden path back to the physical world, ready to face the challenges ahead with new strength.");
+                } else {
+                    updateEnergy(-5);
+                    updateStoryText("Despite his best efforts, the way back remains elusive, testing his resolve.");
+                }
+                break;
     }
     setTimeout(() => {
         updateChoices([
@@ -103,8 +107,8 @@ function handleOpt2AirChapter6Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Aang bravely confronts Koh, hoping to understand the imbalance affecting the world.");
-            updateSkill('courage', 2);
-            if (skillCheck('courage', 12)) {
+            updateSkill('leadership', 2);
+            if (skillCheck('leadership', 12)) {
                 updateEnergy(5);
                 updateStoryText("Koh reveals valuable secrets, but Aang barely escapes with his face intact.");
             } else {
@@ -115,20 +119,23 @@ function handleOpt2AirChapter6Choice(choice) {
         case 2:
             updateStoryText("Aang seeks out the Moon and Ocean Spirits for guidance on his path and the balance of the world.");
             updateSkill('wisdom', 2);
-            if (skillCheck('wisdom', 11)) {
+            if (skillCheck('wisdom', 11) || skillCheck('spirtuality', 7)) {
                 updateReputation(5);
                 updateStoryText("The spirits grant Aang their blessing, enhancing his waterbending for the coming conflict.");
+                updateSkill('spirituality', 2);
             } else {
                 updateReputation(-5);
                 updateStoryText("Though they offer wisdom, Aang finds the answers more cryptic than helpful.");
+                updateSkill('spirituality', 1);
             }
             break;
         case 3:
             updateStoryText("Curious and eager, Aang explores the Spirit World, uncovering secrets hidden from the physical realm.");
-            updateSkill('curiosity', 2);
-            if (skillCheck('curiosity', 10)) {
+            updateSkill('spirituality', 1);
+            if (skillCheck('spirituality', 10)) {
                 addToInventory(items.spiritualInsight);
                 updateStoryText("His exploration rewards him with ancient knowledge that could turn the tide of battle.");
+                updateSkill('spirituality', 1);
             } else {
                 updateEnergy(-5);
                 updateStoryText("Though fascinating, his journey is exhausting and yields few practical results.");
@@ -136,10 +143,11 @@ function handleOpt2AirChapter6Choice(choice) {
             break;
         case 4:
             updateStoryText("Aang negotiates with the spirit of an ancient guardian, seeking its aid in protecting the Northern Water Tribe.");
-            updateSkill('negotiation', 2);
-            if (skillCheck('negotiation', 12)) {
+            
+            if (skillCheck('spirituality', 10)) {
                 updateReputation(5);
                 updateStoryText("The guardian agrees to help, offering Aang a powerful ally in the physical world.");
+                updateSkill('spirituality', 1);
             } else {
                 updateReputation(-10);
                 updateStoryText("The guardian refuses, warning Aang of the consequences of disturbing the spirits.");

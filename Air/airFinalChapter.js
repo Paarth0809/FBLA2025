@@ -4,28 +4,29 @@ import { endGame } from '../game.js';
 import { skillCheck } from '../gameMechanics.js'; 
 
 
-export function startFinalChapter() {
+
+export function startAirFinalChapter() {
     gameState.currentChapter = 17;
-    displayFinalChapter();
+    displayAirFinalChapter();
 }
 
-function displayFinalChapter() {
-    const finalChapterText = `
+function displayAirFinalChapter() {
+    const finalAirChapterText = `
         <h2>Final Chapter: The World's Fate</h2>
         <p>The final moments of the conflict are upon you. The choices you've made and the allies 
         you've gathered have led to this crucial point. The fate of the entire world hangs in the 
         balance. How will you bring an end to this century-long war?</p>
     `;
-    updateStoryText(finalChapterText);
+    updateStoryText(finalAirChapterText);
     updateChoices([
-        { text: "Defeat Ozai through combat, ending his threat once and for all", action: () => handleFinalChoice(1) },
-        { text: "Use energybending to remove Ozai's bending abilities permanently", action: () => handleFinalChoice(2) },
-        { text: "Attempt to redeem Ozai, appealing to his humanity", action: () => handleFinalChoice(3) },
-        { text: "Sacrifice your own bending to create a world without bending powers", action: () => handleFinalChoice(4) }
+        { text: "Defeat Ozai through combat, ending his threat once and for all", action: () => handleFinalAirChoice(1) },
+        { text: "Use energybending to remove Ozai's bending abilities permanently", action: () => handleFinalAirChoice(2) },
+        { text: "Attempt to redeem Ozai, appealing to his humanity", action: () => handleFinalAirChoice(3) },
+        { text: "Sacrifice your own bending to create a world without bending powers", action: () => handleFinalAirChoice(4) }
     ]);
 }
 
-function handleFinalChoice(choice) {
+function handleFinalAirChoice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You choose to defeat Ozai through combat...");
@@ -39,7 +40,7 @@ function handleFinalChoice(choice) {
             break;
         case 2:
             updateStoryText("You attempt to use energybending on Ozai...");
-            if (skillCheck('spirituality', 24) && gameState.skills.bending.spirit > 8) {
+            if (skillCheck('spirituality', 24)) {
                 updateStoryText("In a breathtaking display of spiritual power, you strip Ozai of his bending. The war ends, ushering in a new era of balance.");
                 endGame("A New Harmony");
             } else {
@@ -59,7 +60,7 @@ function handleFinalChoice(choice) {
             break;
         case 4:
             updateStoryText("You decide to sacrifice all bending to create a world without these powers...");
-            if (skillCheck('spirituality', 27) && gameState.skills.bending.spirit > 9) {
+            if (skillCheck('spirituality', 27)) {
                 updateStoryText("In a monumental act of sacrifice, you reshape the very fabric of the world. Bending ceases to exist, ushering in an era of true equality.");
                 endGame("A World Reborn");
             } else {
