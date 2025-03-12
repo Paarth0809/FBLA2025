@@ -21,7 +21,8 @@ export function updateReputation(faction, amount) {
     updateCharacterInfo();
 }
 
-export function addToInventory(item) {
+//Not Used
+export function addToInventory (item) {
     gameState.inventory.push(item);
     updateInventoryDisplay();
 }

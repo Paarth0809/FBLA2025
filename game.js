@@ -47,6 +47,14 @@ export function endGame(ending) {
     endingText += `<p>Final Stats:<br>
                        Health: ${gameState.health}<br>
                        Energy: ${gameState.energy}<br>
+                       Wisdom: ${gameState.skills.wisdom}<br>
+                       Spirituality: ${gameState.skills.sprituality}<br>
+                       Combat: ${gameState.skills.combat}<br>
+                       Stealth: ${gameState.skills.stealth}<br>
+                       Diplomacy: ${gameState.skills.diplomacy}<br>
+                       Leadership: ${gameState.skills.leadership}<br>
+                       Empathy: ${gameState.skills.empathy}<br>
+                       
                        Reputation:<br>
                        - Fire Nation: ${gameState.reputation.fireNation}<br>
                        - Earth Kingdom: ${gameState.reputation.earthKingdom}<br>

@@ -2,7 +2,7 @@ import { startAirChapter12 } from './airChapter12.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 
 import { gameState } from '../gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill, addAlly } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 import { characters } from '../characters.js';
 
@@ -51,9 +51,9 @@ function handleOpt1AirChapter11Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to search for the library, using your knowledge of the desert and Toph's earthbending skills to navigate the treacherous terrain.");
-            updateSkill('survival', 2);
+            updateSkill('wisdom', 2);
             
-            if (skillCheck('survival', 12)) {
+            if (skillCheck('wisdom', 12)) {
                 updateStoryText("After days of searching, you finally find the library, hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses, including their vulnerability to solar eclipses.");
             } else {
                 updateHealth(-10);

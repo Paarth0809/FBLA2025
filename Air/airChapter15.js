@@ -1,6 +1,6 @@
 import { startOpt1AirChapter13, startOpt2AirChapter13 } from './airChapter13.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { characters } from '../characters.js';

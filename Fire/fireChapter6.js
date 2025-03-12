@@ -1,6 +1,6 @@
 import { startOpt1FireChapter7, startOpt2FireChapter7 } from './fireChapter7.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../utilityFunctions.js';
 
 import { gameState } from '../gameState.js';
 import { randomInt } from '../utilityFunctions.js';
@@ -27,7 +27,7 @@ function displayOpt2FireChapter6() {
 }
 
 function handleOpt2FireChapter6Choice(choice) {
-    switch (choice) {
+    switch (choice) {   
         case 1:
             updateStoryText("Using the chaos of the ongoing siege, you slip into the city unnoticed. The icy labyrinth of the Northern Water Tribe's capital challenges you, but your determination guides your steps.");
             updateSkill('stealth', 2);

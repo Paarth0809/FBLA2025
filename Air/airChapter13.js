@@ -1,5 +1,5 @@
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 import { gameState } from '../gameState.js';
 

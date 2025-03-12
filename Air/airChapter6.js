@@ -1,6 +1,6 @@
 import { startOpt1AirChapter7, startOpt2AirChapter7 } from './airChapter7.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../utilityFunctions.js';
 
 import { gameState } from '../gameState.js';
 import { randomInt } from '../utilityFunctions.js';
@@ -133,7 +133,7 @@ function handleOpt2AirChapter6Choice(choice) {
             updateStoryText("Curious and eager, Aang explores the Spirit World, uncovering secrets hidden from the physical realm.");
             updateSkill('spirituality', 1);
             if (skillCheck('spirituality', 10)) {
-                addToInventory(items.spiritualInsight);
+                (items.spiritualInsight);
                 updateStoryText("His exploration rewards him with ancient knowledge that could turn the tide of battle.");
                 updateSkill('spirituality', 1);
             } else {

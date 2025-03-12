@@ -1,5 +1,5 @@
 import { startFireChapter8 } from './fireChapter8.js';
-import { updateHealth, updateSkill, updateReputation, addToInventory, addAlly, randomInt, updateEnergy} from '../utilityFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addAlly, randomInt, updateEnergy} from '../utilityFunctions.js';
 
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';

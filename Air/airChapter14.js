@@ -57,8 +57,8 @@ function handleAirChapter14Choice(choice) {
             break;
         case 3:
             updateStoryText("You decide to test Zuko's loyalty by assigning him a task to prove his intentions.");
-            updateSkill('strategy', 2);
-            if (skillCheck('strategy', 14)) {
+            updateSkill('wisdom', 2);
+            if (skillCheck('wisdom', 14)) {
                 addAlly(characters.zuko);
                 updateStoryText("Zuko completes the task with unwavering resolve, earning your trust and that of some team members.");
             } else {

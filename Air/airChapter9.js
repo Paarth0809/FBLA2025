@@ -2,7 +2,7 @@ import { startAirChapter10 } from './airChapter10.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 
 import { gameState } from '../gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill, addAlly } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 import { characters } from '../characters.js';
 
