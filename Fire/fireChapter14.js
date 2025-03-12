@@ -1,6 +1,6 @@
 import { startFireChapter15 } from './fireChapter15.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
-import { updateSkill, addToInventory, updateEnergy, updateReputation, } from '../utilityFunctions.js';
+import { updateSkill, updateEnergy, updateReputation, } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { gameState } from '../gameState.js';
@@ -35,7 +35,7 @@ function handleFireChapter14Choice(choice) {
                 updateStoryText("Iroh embraces you, his forgiveness immediate and unconditional, reinforcing the bond between you.");
                 updateSkill('wisdom', 2);
                 updateEnergy(20);
-                addToInventory(items.teaSet);
+                (items.teaSet);
             } else {
                 updateStoryText("Iroh's forgiveness is given freely, but you still struggle internally to fully accept it.");
                 updateEnergy(10);

@@ -1,6 +1,6 @@
 import { startOpt1FireChapter9, startOpt2FireChapter9 } from './fireChapter9.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly, } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly, } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { characters } from '../characters.js';

@@ -1,6 +1,6 @@
 import { startOpt1AirChapter6, startOpt2AirChapter6 } from './airChapter6.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { characters } from '../characters.js';
@@ -57,7 +57,7 @@ function handleOpt1AirChapter5Choice(choice) {
                 updateSkill('combat', 1);
                 updateStoryText("Your enthusiasm serves you well! You navigate through Bumi's trials with creative airbending, solving each puzzle with a mixture of skill and ingenuity. Bumi watches with an approving smile, though he doesn't make it easy for you.");
                 addAlly(characters.bumi);
-                addToInventory(items.earthKingdomToken);
+                (items.earthKingdomToken);
             } else {
                 updateHealth(-5);
                 updateStoryText("Despite your enthusiasm, Bumi's trials prove more difficult than anticipated. You struggle through several challenges, sustaining minor injuries but learning valuable lessons about patience and adaptability.");

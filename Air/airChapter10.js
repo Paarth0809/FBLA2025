@@ -1,6 +1,6 @@
 import { startOpt1AirChapter11, startOpt2AirChapter11 } from './airChapter11.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { characters } from '../characters.js';
@@ -48,12 +48,12 @@ function handleAirChapter10Choice(choice) {
    
     case 2:
       updateStoryText("Rather than challenging Toph's prowess, you decide to speak to what she truly wants: freedom from her overprotective parents and the chance to see the world beyond Gaoling. You sneak into the Beifong estate to speak with her privately.");
-      updateSkill('persuasion', 2);
-      if (skillCheck('persuasion', 11)) {
+      updateSkill('empathy', 2);
+      if (skillCheck('empathy', 11)) {
         updateEnergy(-5);  // The emotional appeal is draining
         updateStoryText("Your words resonate deeply with Toph. You describe the open skies, distant lands, and the independence of traveling with your group. When her parents discover you, a confrontation ensues where Toph finally stands up to them, revealing her true skills and desires. Though it breaks her heart to leave against their wishes, Toph packs her bags and joins your group, ready to teach you earthbending and experience the freedom she's always craved.");
         addAlly(characters.toph);
-        updateSkill('earthbending', 1);  // Beginning to learn earthbending
+        updateSkill('combat', 1);  // Beginning to learn earthbending
         updateChoices([{ text: "Continue", action: startOpt1AirChapter11 }]);
       } else {
         updateReputation(-5);  // Failure to convince Toph or her parents damages your standing

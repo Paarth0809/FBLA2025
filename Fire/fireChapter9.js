@@ -2,7 +2,7 @@ import { startOpt1FireChapter10, startOpt2FireChapter10 } from './fireChapter10.
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 
 import { gameState } from '../gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, addToInventory, updateSkill } from '../utilityFunctions.js';
+import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 //Fire code start

@@ -13,9 +13,15 @@ document.getElementById('storyInput').addEventListener('input', function(e) {
     document.getElementById('pauseMenu').style.display = 'block'; // Show the pause menu
   }
   
+
+ 
+  document.getElementById('resumeBtn').addEventListener('click', function() {
+    resumeGame();
+});
+
   function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none'; // Hide the pause menu
-    // Add any additional logic needed to resume the game
+    
   }
   
   function saveGame() {

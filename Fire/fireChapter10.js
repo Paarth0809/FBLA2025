@@ -1,6 +1,6 @@
 import { startFireChapter11 } from './fireChapter11.js';
 import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
-import { updateSkill, addToInventory, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
+import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 import { gameState } from '../gameState.js';

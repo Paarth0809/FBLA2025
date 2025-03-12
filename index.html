@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatar: The Last Airbender - Journey of Destiny</title>
+    <title>Avatar: The Last Airbender</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
     <div id="game-container">
-        <h1>Avatar: The Last Airbender - Journey of Destiny</h1>
+        <h1>Avatar: The Last Airbender</h1>
         <div id="story-text"></div>
         <div id="choices"></div>
         <div id="inventory">
@@ -31,7 +31,7 @@
       <!-- Pause Menu Overlay -->
 <div id="pauseMenu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); color: white; text-align: center; z-index: 1000;">
     <h2>Paused</h2>
-    <button onclick="resumeGame()">Resume</button>
+    <button id="resumeBtn" onclick="resumeGame()">Resume</button>
     <button onclick="saveGame()">Save Game</button>
     <button onclick="quitToMainMenu()">Quit to Main Menu</button>
   </div>
