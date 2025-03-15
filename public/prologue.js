@@ -4,7 +4,7 @@ import { startFireChapter1 } from './Fire/fireChapter1.js';
 import { startAirChapter1 } from './Air/airChapter1.js';
 //import { startWaterChapter1 } from './Water/waterChapter1.js';
 import { startWaterChapter1 } from './Water/waterChapter1.js';
-
+import { playVideo } from './cutscenes.js';
 import { startEarthChapter1 } from './Earth/earthChapter1.js';
 
 // Displays the Earth Prologue
@@ -25,8 +25,9 @@ export function displayAirPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startAirChapter1 }
+        { text: "Continue", action: () => { startAirChapter1(); playVideo('airCutscene1.mp4'); } }
     ]);
+
 }
 
 // Displays the Fire Prologue

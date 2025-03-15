@@ -2,7 +2,7 @@ import { startOpt1AirChapter5, startOpt2AirChapter5 } from './airChapter5.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-
+import { playVideo } from '../cutscenes.js';
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -17,7 +17,7 @@ function displayAirChapter4() {
         <h2>Chapter 4: Kyoshi Island</h2>
         <p>You and your friends arrive at Kyoshi Island, a peaceful village with skilled warriors led by Suki. 
         The villagers are initially wary of you, but they soon recognize you as the Avatar. 
-        However, your presence draws unwanted attention from the Fire Nation.</p>
+        However, your presence draws unwanted attention from the Fire Nation. Luckily, you have trained with the Kyoshi Warriors and are well-versed in combat, and you drive them away.</p>
     `;
     updateStoryText(chapter4Text);
     updateChoices([
@@ -36,7 +36,7 @@ function handleAirChapter4Choice(choice) {
                 updateStoryText("Your skills improve rapidly, impressing Suki and earning the respect of the Kyoshi Warriors.");
                 updateReputation('kyoshiWarriors', 2);
             }
-            updateChoices([{ text: "Continue", action: startOpt1AirChapter5 }]);
+            updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter5(); playVideo('airCutscene5.mp4'); } }]);
             break;
         case 2:
             updateStoryText("You decide to stay hidden, avoiding unnecessary attention from both the villagers and potential threats.");
@@ -46,7 +46,7 @@ function handleAirChapter4Choice(choice) {
                 updateSkill('wisdom', 1);
                 updateSkill('stealth', 1);
             }
-            updateChoices([{ text: "Continue", action: startOpt2AirChapter5 }]);
+            updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter5(); playVideo('airCutscene5.mp4'); } }]);
             break;
     }
 }

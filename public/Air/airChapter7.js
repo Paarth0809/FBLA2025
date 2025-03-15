@@ -1,6 +1,6 @@
 import { startAirChapter8 } from './airChapter8.js';
 import { updateHealth, updateSkill, updateReputation, addAlly, randomInt, updateEnergy } from '../utilityFunctions.js';
-
+import { playVideo } from '../cutscenes.js';
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 import { skillCheck } from '../gameMechanics.js';
@@ -21,7 +21,7 @@ export function startOpt2AirChapter7() {
 function displayOpt1AirChapter7() {
     const chapter7Text = `
         <h2>Chapter 7: Jet and the Freedom Fighters</h2>
-        <p>Aang and his friends encounter Jet, who proposes a daring plan to strike at a Fire Nation encampment. While Aang appreciates Jet's fervor for freedom, he worries about the safety of innocents. The choice Aang makes here could define his approach to the challenges ahead.</p>
+        <p>You and your friends encounter Jet, who proposes a daring plan to strike at a Fire Nation encampment. While you appreciate Jet's fervor for freedom, you worry about the safety of innocents. The choice you make here could define your approach to the challenges ahead.</p>
     `;
     updateStoryText(chapter7Text);
     updateChoices([

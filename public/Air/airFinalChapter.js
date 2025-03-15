@@ -2,7 +2,7 @@ import { updateStoryText, updateChoices, } from '../uiUpdateFunctions.js';
 import { gameState } from '../gameState.js';
 import { endGame } from '../game.js';
 import { skillCheck } from '../gameMechanics.js'; 
-
+import { playVideo } from '../cutscenes.js';
 
 
 export function startAirFinalChapter() {

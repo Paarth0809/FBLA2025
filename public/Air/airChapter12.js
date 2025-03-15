@@ -2,7 +2,7 @@ import { startOpt1AirChapter13, startOpt2AirChapter13 } from './airChapter13.js'
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-
+import { playVideo } from '../cutscenes.js';
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 

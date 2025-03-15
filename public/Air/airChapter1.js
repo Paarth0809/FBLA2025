@@ -2,7 +2,7 @@ import { startAirChapter2 } from './airChapter2.js';
 import { updateStoryText, updateChoices, updateCharacterInfo } from '../uiUpdateFunctions.js';
 import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
-
+import { playVideo } from '../cutscenes.js';
 import { gameState } from '../gameState.js';
 import { characters } from '../characters.js';
 
@@ -10,6 +10,8 @@ import { characters } from '../characters.js';
 export function startAirChapter1() {
     gameState.currentChapter = 1;
     displayAirChapter1();
+    
+    
 }
 
 
@@ -80,7 +82,7 @@ function handleAirChapter1Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startAirChapter2 }
+            { text: "Continue", action: () => { startAirChapter2(); playVideo('airCutscene2.mp4'); } }
         ]);
     }, 300);
 }

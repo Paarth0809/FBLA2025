@@ -4,7 +4,7 @@ import { skillCheck } from '../gameMechanics.js';
 import { characters } from '../characters.js';
 import { gameState } from '../gameState.js';
 import { startAirChapter15 } from './airChapter15.js';
-
+import { playVideo } from '../cutscenes.js';
 
 // Chapter 14: The Choice to Accept Zuko
 export function startAirChapter14() {

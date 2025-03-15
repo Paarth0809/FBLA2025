@@ -1,1 +1,0 @@
-We still have to make the prologues for other elements. Its will be almost the same code, but different scenerios. For Now each element goes to Fire Prolouge. 

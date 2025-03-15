@@ -1,9 +1,8 @@
 import { startOpt1AirChapter7, startOpt2AirChapter7 } from './airChapter7.js';
 import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../utilityFunctions.js';
-
+import { playVideo } from '../cutscenes.js';
 import { gameState } from '../gameState.js';
-import { randomInt } from '../utilityFunctions.js';
 import { skillCheck } from '../gameMechanics.js';
 
 // Aang's story start
