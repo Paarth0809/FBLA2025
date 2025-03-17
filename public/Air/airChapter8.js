@@ -35,11 +35,11 @@ function handleAirChapter8Choice(choice) {
       if (skillCheck('spirituality', 10)) {
         updateEnergy(5);  // Successful spiritual journey provides inner strength
         updateStoryText("With careful focus, you maintain a perfectly neutral expression while speaking with Koh. The ancient spirit rewards your composure by revealing that only the Moon Spirit's sacrifice can be countered by another sacrifice of equal measure. You return to the physical world with this crucial knowledge.");
-         updateChoices([{ text: "Continue", action: startOpt1AirChapter9 }]); // Option to continue after reading
+        updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       } else {
         updateHealth(-5);  // Unsuccessful spirit world navigation is draining
         updateStoryText("You struggle to navigate the bewildering paths of the Spirit World, nearly losing your face to Koh before escaping. The journey takes longer than expected, and you return to find the situation has worsened in your absence, but with vital information about restoring balance.");
-        updateChoices([{ text: "Continue", action: startOpt2AirChapter9 }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       }
      
       break;
@@ -50,11 +50,11 @@ function handleAirChapter8Choice(choice) {
       if (skillCheck('combat', 12)) {
         updateReputation(10);  // Successfully defending the tribe increases your standing
         updateStoryText("In your merged form with La, the Ocean Spirit, you maintain enough control to target only the Fire Nation forces while sparing civilians. Your awesome display of power drives back the invasion and establishes you as a formidable Avatar in the eyes of both nations.");
-        updateChoices([{ text: "Continue", action: startOpt1AirChapter9 }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       } else {
         updateReputation(-5);  // Loss of control damages your reputation
         updateStoryText("The raw power of the Ocean Spirit overwhelms your consciousness. The Northern Water Tribe falls, your lack of control results in widespread destruction that affects even some allies. When you finally separate from the spirit, you're left with troubling questions about the nature of the Avatar State.");
-        updateChoices([{ text: "Continue", action: startOpt2AirChapter9 }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       }
      
       break;

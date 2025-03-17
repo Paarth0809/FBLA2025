@@ -95,9 +95,7 @@ function handleOpt1AirChapter13Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startAirChapter14 }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startAirChapter14(); playVideo('airCutscene14.mp4'); } }]); // Option to continue after reading
     }, 300);
 }
 
@@ -152,9 +150,6 @@ function handleOpt2AirChapter13Choice(choice) {
     }
 
     setTimeout(() => {
-        updateChoices([
-            // Example follow-up action; adjust based on your narrative progression
-            { text: "Continue", action: startAirChapter14 }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startAirChapter14(); playVideo('airCutscene14.mp4'); } }]); // Option to continue after reading
     }, 300);
 }

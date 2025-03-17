@@ -73,9 +73,9 @@ function handleAirChapter14Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue on your journey", action: startAirChapter15 }
-        ]);
+       
+            updateChoices([{ text: "Continue", action: () => { startAirChapter15(); playVideo('airCutscene15.mp4'); } }]); // Option to continue after reading
+       
     }, 300);
 }
 

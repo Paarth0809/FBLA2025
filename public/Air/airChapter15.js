@@ -78,9 +78,7 @@ function handleAirChapter15Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "continue", action: startAirFinalChapter }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startAirFinalChapter(); playVideo('airCutscene16.mp4'); } }]); // Option to continue after reading
     }, 300);
 }
 

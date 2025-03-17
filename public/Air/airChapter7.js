@@ -119,6 +119,6 @@ function handleOpt2AirChapter7Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([{ text: "Continue", action: () => { startOAirChapter8(); playVideo('airCutscene8.mp4'); } }]);
+        updateChoices([{ text: "Continue", action: () => { startAirChapter8(); playVideo('airCutscene8.mp4'); } }]);
     }, 300);
 }
