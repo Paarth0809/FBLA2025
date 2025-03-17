@@ -96,7 +96,7 @@ function handleOpt1AirChapter6Choice(choice) {
                 break;
     }
     setTimeout(() => {
-        updateChoices([{ text: "Continue", action: () => { startopt1AirChapter7(); playVideo('airCutscene7.mp4'); } }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter7(); playVideo('airCutscene7.mp4'); } }]);
     }, 300);
 }
 
@@ -152,6 +152,6 @@ function handleOpt2AirChapter6Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([{ text: "Continue", action: () => { startopt2AirChapter7(); playVideo('airCutscene7.mp4'); } }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter7(); playVideo('airCutscene7.mp4'); } }]);
     }, 300);
 }
