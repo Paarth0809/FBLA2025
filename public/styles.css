@@ -37,7 +37,7 @@ button:hover {
     display: flex;
     flex-direction: column;
 }
-#inventory, #character-info {
+#inventory, #character-info, #character-stats{
     margin-top: 20px;
     padding: 10px;
     background-color: #ecf0f1;
@@ -48,3 +48,69 @@ button:hover {
     color: #aaa; /* Faint color */
     opacity: 1; /* Full opacity */
   }
+
+
+  /* General section styling */
+#faq-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title styling */
+.faq-title {
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-size: large;
+}
+
+/* FAQ container */
+.faq-item {
+    color: #000000;
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+/* Question styling */
+.faq-question {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/* Answer styling */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+    padding-top: 1rem;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+/* Expanding answer when active */
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+/* Rotating icon when active */
+.faq-item.active svg {
+    transform: rotate(180deg);
+}
+
+/* Smooth transition for icons */
+.faq-icon {
+    transition: transform 0.5s ease-in;
+}

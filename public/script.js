@@ -43,3 +43,14 @@ document.getElementById('storyInput').addEventListener('input', function(e) {
 // Make sure to call startGame() when the page loads to begin the adventure
 window.onload = startGame;
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(item => {
+      item.addEventListener("click", () => {
+          item.classList.toggle("active");
+      });
+  });
+});
+

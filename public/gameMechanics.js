@@ -3,6 +3,7 @@ import { gameState } from './gameState.js';
 import { updateHealth, updateEnergy, updateSkill, removeFromInventory } from './utilityFunctions.js';
 
 // Game Mechanics
+//checks if the skill is greater than or equal to the amount defined in the paramneter
 export function skillCheck(skill, amount) {
     const skillValue = gameState.skills[skill];
     return skillValue >= amount;
