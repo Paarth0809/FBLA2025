@@ -99,9 +99,7 @@ function handleOpt1AirChapter5Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startOpt1AirChapter6 }
-        ]);
+        updateChoicesupdateChoices([{ text: "Continue", action: () => { startAirChapter6(); playVideo('airCutscene6.mp4'); } }]);
     }, 300);
 }
 
@@ -154,9 +152,7 @@ function handleOpt2AirChapter5Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startOpt2AirChapter6 }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startAirChapter6(); playVideo('airCutscene6.mp4'); } }]);
     }, 300);
 }
 // Air code end

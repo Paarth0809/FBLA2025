@@ -67,9 +67,7 @@ function handleOpt1AirChapter7Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startAirChapter8 }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startopt1AirChapter8(); playVideo('airCutscene8.mp4'); } }]);
     }, 300);
 }
 
@@ -121,8 +119,6 @@ function handleOpt2AirChapter7Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startAirChapter8 }
-        ]);
+        updateChoices([{ text: "Continue", action: () => { startopt2AirChapter8(); playVideo('airCutscene8.mp4'); } }]);
     }, 300);
 }
