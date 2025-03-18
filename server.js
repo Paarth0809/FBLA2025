@@ -60,8 +60,8 @@ app.post('/api/ask', async (req, res) => {
         { role: 'system', content: fileContent },
         { role: 'user', content: question },
       ],
-      max_tokens: 1000,
-      temperature: 0.8
+      max_tokens: 800,
+      temperature: 0.6
     });
 
     res.json(gptResponse);

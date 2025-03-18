@@ -1,7 +1,7 @@
 export function playVideo(fileName) {
     const videoContainer = document.getElementById('videoContainer');
     const rootPath = window.location.origin; // Get the root path of your website
-    const videoPath = `/cutscenesAir/${fileName}`;
+    const videoPath = `/cutscenes/${fileName}`;
 
     videoContainer.innerHTML = `
       <video width="756" height="400" controls autoplay muted onerror="handleVideoError(this)">

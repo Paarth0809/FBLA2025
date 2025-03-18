@@ -16,7 +16,7 @@ export function combat(enemy) {
 
     while (playerHealth > 0 && enemyHealth > 0) {
         roundCount++;
-        // Player's turn
+        // Player's turn 
         if (skillCheck('combat', enemy.difficulty)) {
             const damage = randomInt(5, 15);
             enemyHealth -= damage;

@@ -17,22 +17,33 @@ export function startAirChapter1() {
 
 
 function displayAirChapter1() {
+    // Chapter 1 text introducing the scenario
     const chapter1Text = `
         <h2>Chapter 1: The Awakening</h2>
         <p>You are Aang, the last Airbender, awakening from a century-long slumber in an iceberg. 
         You find yourself rescued by Katara and Sokka, two Southern Water Tribe siblings. 
         The world you knew is gone, and the Fire Nation's war has left its mark.</p>
     `;
+    
+    // Update the story text on the screen
     updateStoryText(chapter1Text);
+
+    // Provide choices for the player with corresponding actions
     updateChoices([
         { text: "Excitedly show off your Airbending skills", action: () => handleAirChapter1Choice(1) },
         { text: "Ask about what has happened in the last 100 years", action: () => handleAirChapter1Choice(2) },
         { text: "Try to hide your identity as the Avatar", action: () => handleAirChapter1Choice(3) },
         { text: "Focus on befriending Appa and regaining your strength", action: () => handleAirChapter1Choice(4) }
     ]);
-    addAlly(characters.katara)
-    addAlly(characters.sokka)
+
+    // Add Katara as an ally to the game state
+    addAlly(characters.katara);
+
+    // Add Sokka as an ally to the game state
+    addAlly(characters.sokka);
 }
+
+
 
 function handleAirChapter1Choice(choice) {
     switch (choice) {

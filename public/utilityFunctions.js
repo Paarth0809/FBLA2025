@@ -15,11 +15,41 @@ export function updateSkill(skill, amount) {
 }
 
 export function updateReputation(faction, amount) {
+    // Adjust the reputation of a given faction by the specified amount
     gameState.reputation[faction] += amount;
+
+    // Ensure reputation does not go below the minimum limit of -10
     if (gameState.reputation[faction] < -10) gameState.reputation[faction] = -10;
+
+    // Ensure reputation does not exceed the maximum limit of 10
     if (gameState.reputation[faction] > 10) gameState.reputation[faction] = 10;
+
+    // Update the character info UI after modifying reputation
     updateCharacterInfo();
 }
+
+export function addAlly(character) {
+    // Add a new ally to the player's allies list
+    gameState.allies.push(character);
+
+    // Update the character info UI after adding an ally
+    updateCharacterInfo();
+}
+
+export function updateHealth(amount) {
+    // Modify the player's health by the specified amount
+    gameState.health += amount;
+
+    // Ensure health does not drop below 0
+    if (gameState.health < 0) gameState.health = 0;
+
+    // Ensure health does not exceed the maximum limit of 100
+    if (gameState.health > 100) gameState.health = 100;
+
+    // Update the character info UI after modifying health
+    updateCharacterInfo();
+}
+
 
 //Not Used
 export function addToInventory (item) {
@@ -35,10 +65,7 @@ export function removeFromInventory(item) {
     }
 }
 
-export function addAlly(character) {
-    gameState.allies.push(character);
-    updateCharacterInfo();
-}
+
 
 export function removeAlly(character) {
     const index = gameState.allies.findIndex(a => a.name === character.name);
@@ -54,12 +81,7 @@ export function updateGold(amount) {
     updateCharacterInfo();
 }
 
-export function updateHealth(amount) {
-    gameState.health += amount;
-    if (gameState.health < 0) gameState.health = 0;
-    if (gameState.health > 100) gameState.health = 100;
-    updateCharacterInfo();
-}
+
 
 export function updateEnergy(amount) {
     gameState.energy += amount;

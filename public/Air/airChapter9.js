@@ -105,14 +105,21 @@ function handleOpt1AirChapter9Choice(choice) {
 }
 
 function handleOpt2AirChapter9Choice(choice) {
+    // Handle different choices for Chapter 9 based on the player's decision
     switch (choice) {
         case 1:
+            // Update the story text based on the decision to focus on finding King Bumi in Omashu
             updateStoryText("Despite your concerns about the Avatar State, you decide to focus on the original plan of seeking King Bumi in Omashu. His unconventional wisdom might help with both earthbending and controlling your power.");
+            
+            // Increase the leadership skill as a result of the choice
             updateSkill('leadership', 2);
             
+            // If the player succeeds in the stealth skill check
             if (skillCheck('stealth', 11)) {
+                // Update the story text for a successful stealth approach
                 updateStoryText("Your group skillfully navigates Fire Nation patrols, reaching Omashu's outskirts undetected. However, what you discover is shocking - the entire city is under Fire Nation occupation, red banners hanging from its walls. Bumi must be found, but infiltration will be dangerous.");
             } else {
+                // If stealth fails, update health and reputation, and display the story for a failed approach
                 updateHealth(-15);
                 updateReputation(-5);
                 updateStoryText("Your approach to Omashu is spotted by Fire Nation scouts. After a harrowing chase that leaves everyone exhausted, you finally reach a vantage point overlooking the city - only to find it conquered, renamed 'New Ozai,' with King Bumi nowhere to be seen.");
