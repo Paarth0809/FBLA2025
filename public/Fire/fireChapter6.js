@@ -1,10 +1,10 @@
 import { startOpt1FireChapter7, startOpt2FireChapter7 } from './fireChapter7.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../utilityFunctions.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../gameFunctions/utilityFunctions.js';
 
-import { gameState } from '../gameState.js';
-import { randomInt } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { randomInt } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 //Fire code start
 export function startOpt2FireChapter6() {

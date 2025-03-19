@@ -1,4 +1,5 @@
 import { startGame } from './game.js';
+import {generateReport } from './game.js';
 
 // Stop or pause function.
 document.getElementById('storyInput').addEventListener('input', function(e) {
@@ -9,6 +10,12 @@ document.getElementById('storyInput').addEventListener('input', function(e) {
     }
   });
   
+  document.getElementById('reportButton').addEventListener('click', () => {
+    const reportText = generateReport();
+    // Assuming you have a specific element to display the report
+    document.getElementById('reportContainer').innerHTML = reportText;
+});
+
   function showPauseMenu() {
     document.getElementById('pauseMenu').style.display = 'block'; // Show the pause menu
   }

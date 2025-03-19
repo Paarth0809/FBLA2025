@@ -1,4 +1,4 @@
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 
 
 export function startEarthChapter15() {

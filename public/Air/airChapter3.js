@@ -1,10 +1,10 @@
 import { startAirChapter4 } from './airChapter4.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { characters } from '../characters.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startAirChapter3() {
@@ -32,15 +32,15 @@ function handleAirChapter3Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to fly straight to the Northern Water Tribe, but strong winds and exhaustion slow you down.");
-            updateSkill('stamina', 1);
-            if (skillCheck('stamina', 3)) {
+            updateSkill('combat', 1);
+            if (skillCheck('combat', 3)) {
                 updateStoryText("You push through the harsh conditions, making excellent time to your destination.");
-                updateSkill('stamina', 2);
+                updateSkill('combat', 2);
             }
             break;
         case 2:
             updateStoryText("You stop at Kyoshi Island, where the warriors of Kyoshi welcome you.");
-            updateReputation('kyoshiWarriors', 2);
+            
             addAlly(characters.suki);
             if (skillCheck('diplomacy', 2)) {
                 updateStoryText("You gain the trust of the Kyoshi Warriors, learning valuable combat techniques.");

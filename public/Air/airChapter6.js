@@ -1,9 +1,9 @@
 import { startOpt1AirChapter7, startOpt2AirChapter7 } from './airChapter7.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../utilityFunctions.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { skillCheck } from '../gameMechanics.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../gameFunctions/utilityFunctions.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 // Aang's story start
 export function startOpt1AirChapter6() {

@@ -1,10 +1,10 @@
 import { startOpt1WaterChapter5, startOpt2WaterChapter5 } from './waterChapter5.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addAlly, addQuest } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
-import { quests } from '../quests.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addAlly, addQuest } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { quests } from '../gameFunctions/quests.js';
 
 export function startWaterChapter4() {
     gameState.currentChapter = 4;

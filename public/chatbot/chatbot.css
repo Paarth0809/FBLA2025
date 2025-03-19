@@ -53,7 +53,7 @@
 }
 
 .bot-message {
-    background-color: #8ae8ff;
+    background-color: #f4f4f4;
     align-self: flex-start;
     text-align: left;
 }
@@ -89,7 +89,7 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: linear-gradient(to right, #092069, #00defb);
+    background: #007Bff;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }

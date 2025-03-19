@@ -1,8 +1,8 @@
 import { startWaterChapter16 } from './waterChapter16.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js'; // Fixed import path
-import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js'; // Fixed import path
-import { skillCheck } from '../gameMechanics.js'; // Fixed import path
-import { gameState } from '../gameState.js'; // Fixed import path
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js'; // Fixed import path
+import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js'; // Fixed import path
+import { skillCheck } from '../gameFunctions/gameMechanics.js'; // Fixed import path
+import { gameState } from '../gameFunctions/gameState.js'; // Fixed import path
 
 // Water code start
 export function startWaterChapter15() {

@@ -1,3 +1,4 @@
+console.log('chatbot.js loaded');
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
@@ -37,6 +38,7 @@ function toggleChatbot() { //Toggles the chatbot button
         x.style.display = "none";
     }
 }
+window.toggleChatbot = toggleChatbot;
 
 async function askGpt(question) {
     try {

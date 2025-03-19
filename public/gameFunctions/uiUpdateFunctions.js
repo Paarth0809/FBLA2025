@@ -39,15 +39,14 @@ export function updateCharacterInfo() {
 
     // Update the inner HTML of the characterStats element with the current gameState values
     characterStats.innerHTML = `
-        // Display the character's basic information
+        <!-- Display the character's basic information -->
         <p>Name: ${gameState.currentCharacter}</p>
         <p>Health: ${gameState.health}</p>
         <p>Energy: ${gameState.energy}</p>
         <p>Gold: ${gameState.gold}</p>
-        <p>Location: ${gameState.currentLocation}</p>
-        <p>Days Passed: ${gameState.daysPassed}</p>
+        
 
-        // Display the character's skills
+        <!--Display the character's skills-->
         <h3>Skills:</h3>
         <ul>
             ${Object.entries(gameState.skills).map(([skill, value]) =>
@@ -59,7 +58,7 @@ export function updateCharacterInfo() {
             ).join('')}
         </ul>
 
-        // Display the character's reputation with factions
+        <!-- Display the character's reputation with factions -->
         <h3>Reputation:</h3>
         <ul>
             ${Object.entries(gameState.reputation).map(([faction, value]) =>
@@ -67,7 +66,7 @@ export function updateCharacterInfo() {
             ).join('')}
         </ul>
 
-        // Display the character's allies
+        <!--Display the character's allies -->
         <h3>Allies:</h3>
         <ul>
             ${gameState.allies.map(ally => 

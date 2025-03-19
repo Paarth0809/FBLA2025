@@ -14,7 +14,49 @@ export function startGame() {
 }
 
 
+export function generateReport() {
+   
+    const includeHealth = document.getElementById('includeHealth').checked;
+    const includeEnergy = document.getElementById('includeEnergy').checked;
+    const includeSkills = document.getElementById('includeSkills').checked;
+    const includeReputation = document.getElementById('includeReputation').checked;
 
+    let reportText = ` <button id="reportButton">Generate Report</button>
+
+            <label><input type="checkbox" id="includeHealth" > Include Health</label>
+            <label><input type="checkbox" id="includeEnergy" > Include Energy</label>
+            <label><input type="checkbox" id="includeSkills" > Include Skills</label>
+            <label><input type="checkbox" id="includeReputation" > Include Reputation</label>`;
+   
+     reportText += `<p>Final Stats:<br>`;
+
+    if (includeHealth) {
+        reportText += `Health: ${gameState.health}<br>`;
+    }
+    if (includeEnergy) {
+        reportText += `Energy: ${gameState.energy}<br>`;
+    }
+    if (includeSkills) {
+        reportText += `Wisdom: ${gameState.skills.wisdom}<br>
+                       Spirituality: ${gameState.skills.spirituality}<br>
+                       Combat: ${gameState.skills.combat}<br>
+                       Stealth: ${gameState.skills.stealth}<br>
+                       Diplomacy: ${gameState.skills.diplomacy}<br>
+                       Leadership: ${gameState.skills.leadership}<br>
+                       Empathy: ${gameState.skills.empathy}<br>`;
+    }
+    if (includeReputation) {
+        reportText += `Reputation:<br>
+                       - Fire Nation: ${gameState.reputation.fireNation}<br>
+                       - Earth Kingdom: ${gameState.reputation.earthKingdom}<br>
+                       - Water Tribe: ${gameState.reputation.waterTribe}<br>
+                       - Air Nomads: ${gameState.reputation.airNomads}</p>`;
+    }
+
+    reportText += "<p>Thank you for playing Avatar: The Last Airbender - Journey of Destiny!</p>";
+
+    return reportText;
+}
 
 export function endGame(ending) {
     let endingText = "<h2>The End</h2>";
@@ -44,29 +86,21 @@ export function endGame(ending) {
             endingText += "<p>Your ambitious attempt to reshape the world has failed, leaving you powerless. Ozai's reign continues unchallenged, and the dream of a world without bending fades into legend.</p>";
             break;
     }
-    endingText += `<p>Final Stats:<br>
-                       Health: ${gameState.health}<br>
-                       Energy: ${gameState.energy}<br>
-                       Wisdom: ${gameState.skills.wisdom}<br>
-                       Spirituality: ${gameState.skills.sprituality}<br>
-                       Combat: ${gameState.skills.combat}<br>
-                       Stealth: ${gameState.skills.stealth}<br>
-                       Diplomacy: ${gameState.skills.diplomacy}<br>
-                       Leadership: ${gameState.skills.leadership}<br>
-                       Empathy: ${gameState.skills.empathy}<br>
-                       
-                       Reputation:<br>
-                       - Fire Nation: ${gameState.reputation.fireNation}<br>
-                       - Earth Kingdom: ${gameState.reputation.earthKingdom}<br>
-                       - Water Tribe: ${gameState.reputation.waterTribe}<br>
-                       - Air Nomads: ${gameState.reputation.airNomads}</p>`;
-    endingText += "<p>Thank you for playing Avatar: The Last Airbender - Journey of Destiny!</p>";
     
-
-    updateStoryText(endingText);
-    // Hide choices as the game has ended
+    //Sets choices to none (end of game)
     document.getElementById('choices').style.display = 'none';
-} 
+ 
+    const reportContainer = document.getElementById('reportContainer');
+reportContainer.style.display = 'block';  // Make the report container visible.
+const reportButton = document.getElementById('reportButton');
+reportButton.style.display = 'block';  // Make the reportButton visible.
+
+updateStoryText(endingText);
+   
+   
+}
+
+
 
 
 

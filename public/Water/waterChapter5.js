@@ -1,9 +1,9 @@
 import { startOpt1WaterChapter6, startOpt2WaterChapter6 } from './waterChapter6.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInventory, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 // Water code start
 export function startOpt1WaterChapter5() {

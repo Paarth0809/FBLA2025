@@ -1,9 +1,9 @@
 //Get imports
 
 import { startEarthChapter5 } from './earthChapter5.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 export function startEarthChapter4() {
     gameState.currentChapter = 4;

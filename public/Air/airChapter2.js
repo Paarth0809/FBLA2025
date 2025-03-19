@@ -1,10 +1,10 @@
 import { startAirChapter3 } from './airChapter3.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { characters } from '../characters.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startAirChapter2() {
@@ -34,7 +34,7 @@ function handleAirChapter2Choice(choice) {
             updateStoryText("You charge forward with Airbending, pushing back the raiders but revealing your Avatar identity.");
             updateSkill('combat', 2);
             updateReputation('fireNation', -2);
-            updateSkill('stamina', 1);
+            updateSkill('combat', 1);
             if (skillCheck('combat', 3)) {
                 updateStoryText("Your Airbending mastery overwhelms the raiders, forcing them to retreat!");
                 updateReputation('waterTribe', 2);
@@ -66,7 +66,7 @@ function handleAirChapter2Choice(choice) {
             updateStoryText("You work alongside Katara and Sokka, setting up defenses and fighting back strategically.");
             updateSkill('tactics', 1);
             updateSkill('combat', 2);
-            updateSkill('stamina', 1);
+        
             addAlly(characters.katara);
             addAlly(characters.sokka);
             if (skillCheck('tactics', 2)) {

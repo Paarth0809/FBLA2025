@@ -1,4 +1,4 @@
-import { items } from "./items.js";
+import { items } from '../gameFunctions/items.js';
 
 // Quests
 export const quests = {

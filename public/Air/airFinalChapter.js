@@ -1,8 +1,8 @@
-import { updateStoryText, updateChoices, } from '../uiUpdateFunctions.js';
-import { gameState } from '../gameState.js';
-import { endGame } from '../game.js';
-import { skillCheck } from '../gameMechanics.js'; 
-import { playVideo } from '../cutscenes.js';
+import { updateStoryText, updateChoices, } from '../gameFunctions/uiUpdateFunctions.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { endGame } from '../gameFunctions/game.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js'; 
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 
 export function startAirFinalChapter() {

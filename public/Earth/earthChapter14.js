@@ -1,9 +1,9 @@
 // earthChapter14.js
 
 // Get imports
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation } from '../utilityFunctions.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation } from '../gameFunctions/utilityFunctions.js';
+import { gameState } from '../gameFunctions/gameState.js';
 import { startEarthChapter15 } from './earthChapter15.js'; // Import from the new file
 
 export function startOpt1EarthChapter14() {

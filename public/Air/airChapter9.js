@@ -1,10 +1,10 @@
 import { startAirChapter10 } from './airChapter10.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill, addAlly } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { characters } from '../characters.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startOpt1AirChapter9() {

@@ -1,10 +1,10 @@
 import { startOpt1AirChapter13, startOpt2AirChapter13 } from './airChapter13.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 import { startAirFinalChapter } from './airFinalChapter.js';
 
 // Chapter 15: The Sun Warriors and Firebending Mastery
@@ -45,8 +45,8 @@ function handleAirChapter15Choice(choice) {
             break;
         case 2:
             updateStoryText("Together with Zuko, you perform the ancient Sun Warrior fire-honoring ritual, showing respect to the dragons and firebending itself.");
-            updateSkill('ritual', 2);
-            if (skillCheck('ritual', 14)) {
+            updateSkill('spirituality', 2);
+            if (skillCheck('spirituality', 14)) {
                 addSkill('firebending', 1);
                 updateStoryText("The ritual deepens your understanding of firebending’s sacred origins. You feel its power flow through you, allowing you to create and control fire for the first time.");
             } else {

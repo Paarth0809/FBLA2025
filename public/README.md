@@ -34,8 +34,8 @@ Elemental Journey is an interactive, choice-driven game inspired by *Avatar: The
 ## 📥 Installation & Setup  
 ### 1️: Clone the Repository  
 
-git clone https://github.com/your-repo/elemental-journey.git
-cd elemental-journey
+git clone https://github.com/Paarth0809/FBLA2025.git
+cd FBLA2025
 
 
 ### 2: npm install

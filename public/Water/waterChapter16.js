@@ -1,9 +1,9 @@
 import { startWaterFinalChapter } from './waterFinalChapter.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, addAlly, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, addAlly, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 // Water code start
 export function startWaterChapter16() {

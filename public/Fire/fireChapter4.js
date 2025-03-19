@@ -1,11 +1,11 @@
 import { startOpt1FireChapter5, startOpt2FireChapter5 } from './fireChapter5.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addAlly, randomInt,  addQuest } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addAlly, randomInt,  addQuest } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
-import { quests } from '../quests.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { quests } from '../gameFunctions/quests.js';
 
 //Fire code start
 export function startFireChapter4() {

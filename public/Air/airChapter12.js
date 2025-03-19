@@ -1,10 +1,10 @@
 import { startOpt1AirChapter13, startOpt2AirChapter13 } from './airChapter13.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 // Air code start
 export function startAirChapter12() {
@@ -31,8 +31,8 @@ function handleAirChapter12Choice(choice) {
     switch (choice) {
       case 1:
         updateStoryText("You decide to let go of your attachment to Katara, focusing on your duty as the Avatar. You continue your training with Guru Pathik, learning to master the Avatar State.");
-        updateSkill('avatarState', 3);
-        if (skillCheck('avatarState', 16)) {
+        updateSkill('spirituality', 3);
+        if (skillCheck('spirituality', 16)) {
           updateEnergy(10);  // Successful mastery of the Avatar State provides inner strength
           // Check if Toph is not an ally
           if (!gameState.allies.includes('toph')) {

@@ -1,10 +1,10 @@
 import { startOpt1AirChapter5, startOpt2AirChapter5 } from './airChapter5.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { characters } from '../characters.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startAirChapter4() {
@@ -34,7 +34,7 @@ function handleAirChapter4Choice(choice) {
             addAlly(characters.suki);
             if (skillCheck('combat', 5)) {
                 updateStoryText("Your skills improve rapidly, impressing Suki and earning the respect of the Kyoshi Warriors.");
-                updateReputation('kyoshiWarriors', 2);
+                
             }
             updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter5(); playVideo('airCutscene5.mp4'); } }]);
             break;

@@ -1,10 +1,10 @@
 import { startAirChapter2 } from './airChapter2.js';
-import { updateStoryText, updateChoices, updateCharacterInfo } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
-import { playVideo } from '../cutscenes.js';
-import { gameState } from '../gameState.js';
-import { characters } from '../characters.js';
+import { updateStoryText, updateChoices, updateCharacterInfo } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startAirChapter1() {
@@ -16,18 +16,20 @@ export function startAirChapter1() {
 
 
 
+//Displays chapter 1
 function displayAirChapter1() {
     // Chapter 1 text introducing the scenario
     const chapter1Text = `
         <h2>Chapter 1: The Awakening</h2>
-        <p>You are Aang, the last Airbender, awakening from a century-long slumber in an iceberg. 
-        You find yourself rescued by Katara and Sokka, two Southern Water Tribe siblings. 
-        The world you knew is gone, and the Fire Nation's war has left its mark.</p>
+        <p>You are Aang, the last Airbender, 
+        awakening from a century-long slumber in an iceberg. 
+        You find yourself rescued by Katara and Sokka,
+         two Southern Water Tribe siblings. 
+        The world you knew is gone, 
+        and the Fire Nation's war has left its mark.</p>
     `;
-    
     // Update the story text on the screen
     updateStoryText(chapter1Text);
-
     // Provide choices for the player with corresponding actions
     updateChoices([
         { text: "Excitedly show off your Airbending skills", action: () => handleAirChapter1Choice(1) },
@@ -51,7 +53,7 @@ function handleAirChapter1Choice(choice) {
             updateStoryText("You joyfully show off your Airbending skills, impressing Katara but drawing Sokka's suspicion.");
             updateSkill('combat', 1);
             updateReputation('waterTribe', 1);
-            updateSkill('stamina', 1);
+
             updateSkill('diplomacy', 2);
             //unnecessary and useless currently
             if (skillCheck('agility', 10)) {
@@ -83,7 +85,6 @@ function handleAirChapter1Choice(choice) {
             updateStoryText("You focus on reconnecting with Appa, calming his nerves and regaining your own composure.");
             updateSkill('wisdom', 1);
             updateSkill('empathy', 3);
-            updateSkill('stamina', 1);
             //unnecessary and useless currently
             if (skillCheck('animalHandling', 10)) {
                 updateStoryText("Appa fully trusts you, making him more responsive to your commands.");

@@ -1,6 +1,6 @@
 import { updateStoryText, updateChoices, updateCharacterInfo } from './uiUpdateFunctions.js';
 import { gameState } from './gameState.js';
-import { displayWaterPrologue, displayEarthPrologue, displayAirPrologue, displayFirePrologue} from './prologue.js';
+import { displayWaterPrologue, displayEarthPrologue, displayAirPrologue, displayFirePrologue} from '../gameFunctions/prologue.js';
 import { characters } from './characters.js';
 
 

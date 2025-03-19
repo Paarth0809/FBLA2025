@@ -18,7 +18,7 @@ h1, h2 {
     color: #2c3e50;
 }
 button {
-    background-color: #3498db;
+    background-color: #007Bff;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -28,7 +28,7 @@ button {
     transition: background-color 0.3s;
 }
 button:hover {
-    background-color: #2980b9;
+    background-color: #016fb9;
 }
 #story-text {
     margin-bottom: 20px;
@@ -113,4 +113,12 @@ button:hover {
 /* Smooth transition for icons */
 .faq-icon {
     transition: transform 0.5s ease-in;
+}
+
+#reportContainer {
+    display: none;
+}
+
+#reportButton {
+    display: none;
 }

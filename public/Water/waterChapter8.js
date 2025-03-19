@@ -1,10 +1,10 @@
 import { startOpt1WaterChapter9, startOpt2WaterChapter9 } from './waterChapter9.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly, } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly, } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 export function startWaterChapter8() {
     logGameState("Inside startWaterChapter8");

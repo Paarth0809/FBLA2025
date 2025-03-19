@@ -1,10 +1,10 @@
 //Get imports
 
 import { startEarthChapter4 } from './earthChapter4.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../utilityFunctions.js';
-import { skillCheck, combat } from '../gameMechanics.js';
-import { gameState } from '../gameState.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck, combat } from '../gameFunctions/gameMechanics.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 
 

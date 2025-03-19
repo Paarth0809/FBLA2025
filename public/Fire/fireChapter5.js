@@ -1,10 +1,10 @@
 import { startOpt1FireChapter6, startOpt2FireChapter6 } from './fireChapter6.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
 
 //Fire code start
 export function startOpt1FireChapter5() {
@@ -61,7 +61,7 @@ function handleOpt2FireChapter5Choice(choice) {
             break;
         case 2: // Rally crew and seek shelter
             updateStoryText("Understanding the need for safety, you lead your crew to a nearby island for refuge.");
-            if (skillCheck('survival', 8)) {
+            if (skillCheck('leadership', 8)) {
                 updateSkill('leadership', 1);  // Successful survival and leadership.
                 updateStoryText("On the island, you find resources to sustain you and begin planning your next move. The crew's spirits are lifted slightly by your effective leadership.");
             } else {
@@ -114,7 +114,7 @@ function handleOpt1FireChapter5Choice(choice) {
             break;
         case 2: // Rally crew and seek shelter
             updateStoryText("Understanding the need for safety, you lead your crew to a nearby island for refuge.");
-            if (skillCheck('survival', 8)) {
+            if (skillCheck('leadership', 8)) {
                 updateSkill('leadership', 1);  // Successful survival and leadership.
                 updateStoryText("On the island, you find resources to sustain you and begin planning your next move. The crew's spirits are lifted slightly by your effective leadership.");
             } else {

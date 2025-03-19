@@ -1,8 +1,8 @@
-import { updateStoryText, updateChoices  } from '../uiUpdateFunctions.js';
-import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../utilityFunctions.js';
-import { skillCheck } from '../gameMechanics.js';
+import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
-import { gameState } from '../gameState.js';
+import { gameState } from '../gameFunctions/gameState.js';
 import { startFinalChapter } from './fireFinalChapter.js';
 
 //Fire code start

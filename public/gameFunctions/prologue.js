@@ -1,11 +1,11 @@
 import { updateStoryText, updateChoices } from './uiUpdateFunctions.js';
-import { startFireChapter1 } from './Fire/fireChapter1.js';
+import { startFireChapter1 } from '../Fire/fireChapter1.js';
 //import { startEarthChapter1 } from './Earth/earthChapter1.js';
-import { startAirChapter1 } from './Air/airChapter1.js';
+import { startAirChapter1 } from '../Air/airChapter1.js';
 //import { startWaterChapter1 } from './Water/waterChapter1.js';
-import { startWaterChapter1 } from './Water/waterChapter1.js';
+import { startWaterChapter1 } from '../Water/waterChapter1.js';
 import { playVideo } from './cutscenes.js';
-import { startEarthChapter1 } from './Earth/earthChapter1.js';
+import { startEarthChapter1 } from '../Earth/earthChapter1.js';
 
 // Displays the Earth Prologue
 export function displayEarthPrologue() {

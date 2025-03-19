@@ -2,12 +2,12 @@
 
 
 import { startFireChapter4 } from './fireChapter4.js';
-import { updateStoryText, updateChoices } from '../uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addAlly } from '../utilityFunctions.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateHealth, updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
 
-import { characters } from '../characters.js';
-import { gameState } from '../gameState.js';
-import { skillCheck } from '../gameMechanics.js';
+import { characters } from '../gameFunctions/characters.js';
+import { gameState } from '../gameFunctions/gameState.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 //Fire code start
 export function startFireChapter3() {

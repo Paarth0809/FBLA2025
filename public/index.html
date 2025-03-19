@@ -1,103 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar: The Last Airbender</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="chatbot.css" />
-    
+    <link rel="stylesheet" href="../chatbot/chatbot.css" />
+
 
 </head>
+
 <body>
     <div id="game-container">
-        <h1>Avatar: The Last Airbender</h1>
+        <h1>Elemental Journey</h1>
         <div id="story-text"></div>
+        <button id="reportButton">Generate Report</button>
+        <!-- Hidden by default; visibility toggled in JavaScript -->
+        <div id="reportContainer">
+            
+
+
+            <label><input type="checkbox" id="includeHealth"> Include Health</label>
+            <label><input type="checkbox" id="includeEnergy"> Include Energy</label>
+            <label><input type="checkbox" id="includeSkills"> Include Skills</label>
+            <label><input type="checkbox" id="includeReputation"> Include Reputation</label>
+
+        </div>
+
         <div id="videoContainer"></div>
         <div id="choices"></div>
         <div id="character-info">
             <h2>Character Info</h2>
             <div id="character-stats"></div>
-            
+
         </div>
     </div>
 
     <div id="inputBoxContainer" style="position: relative; margin-top: 20px;">
-        <input type="text" id="storyInput" placeholder="Type stop to stop the story..." style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #f0f0f0; border: 1px solid #dcdcdc; color: #333; font-size: 16px;">
-      </div>
-
-      
-
-
-      <!-- Pause Menu Overlay -->
-<div id="pauseMenu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); color: white; text-align: center; z-index: 1000;">
-    <h2>Paused</h2>
-    <button id="resumeBtn" onclick="resumeGame()">Resume</button>
-    <button onclick="saveGame()">Save Game</button>
-    <button onclick="quitToMainMenu()">Quit to Main Menu</button>
-  </div>
-
-  <section id="faq-section">
-    <h2 class="faq-title">FAQs</h2>
-
-    <div class="faq-item">
-        <div class="faq-question">
-            <h4>What inspired your game?</h4>
-            <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
-                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="faq-answer">
-            <p>Our curiosity for coding, and our love for our favorite childhood show, Avatar the Last Airbender, inspired this project!</p>
-        </div>
+        <input type="text" id="storyInput" placeholder="Type stop to stop the story..."
+            style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #f0f0f0; border: 1px solid #dcdcdc; color: #333; font-size: 16px;">
     </div>
 
-    <div class="faq-item">
-        <div class="faq-question">
-            <h4>How does your code work?</h4>
-            <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
-                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="faq-answer">
-            <p>Our code mainly uses functions, which are pieces of code that can be re-used. We used these as starting blocks for our code.</p>
-        </div>
+
+
+
+    <!-- Pause Menu Overlay -->
+    <div id="pauseMenu"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); color: white; text-align: center; z-index: 1000;">
+        <h2>Paused</h2>
+        <button id="resumeBtn" onclick="resumeGame()">Resume</button>
+        <button onclick="saveGame()">Save Game</button>
+        <button onclick="quitToMainMenu()">Quit to Main Menu</button>
     </div>
 
-    <div class="faq-item">
-        <div class="faq-question">
-            <h4>What element should I choose to play?</h4>
-            <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
-                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-            </svg>
+    <section id="faq-section">
+        <h2 class="faq-title">FAQs</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>What inspired your game?</h4>
+                <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="faq-answer">
+                <p>Our curiosity for coding, and our love for our favorite childhood show, Avatar the Last Airbender,
+                    inspired this project!</p>
+            </div>
         </div>
-        <div class="faq-answer">
-            <p>You should choose an element based on your playstyle. If you want a character with deep development, choose Fire. If you want to be the main boss of your own story, choose Earth. For a calmer sidekick-style gameplay, go with Water. And if you want the full experience of the show, choose Air to play as the Avatar.</p>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>How does your code work?</h4>
+                <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="faq-answer">
+                <p>Our code mainly uses functions, which are pieces of code that can be re-used. We used these as
+                    starting blocks for our code.</p>
+            </div>
         </div>
-    </div>
-</section>
-    
-    </body>
-    </html>
-    
-   
-    
-   
-    
 
-  <!-- Chatbot -->
-  <div id="chat-container">
-    <div id="chat-box"></div>
-    <div id="input-container">
-      <input type="text" id="user-input" placeholder="Enter your question here...">
-      <button id="send-btn">Send</button>
-    </div>
-  </div>
-
-  <script type="module" src="script.js"></script>
-  <script src="chatbot.js"></script>
-
-  <button id="chat-toggle" class="chat-toggle" onclick="toggleChatbot()">💬</button>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>What element should I choose to play?</h4>
+                <svg class="faq-icon" width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="faq-answer">
+                <p>You should choose an element based on your playstyle. If you want a character with deep development,
+                    choose Fire. If you want to be the main boss of your own story, choose Earth. For a calmer
+                    sidekick-style gameplay, go with Water. And if you want the full experience of the show, choose Air
+                    to play as the Avatar.</p>
+            </div>
+        </div>
+    </section>
 
 </body>
+
+</html>
+
+
+
+
+
+
+<!-- Chatbot -->
+<div id="chat-container">
+    <div id="chat-box"></div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Enter your question here...">
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+
+<script type="module" src="../gameFunctions/script.js"></script>
+<script type="module" src="../chatbot/chatbot.js"></script>
+
+<button id="chat-toggle" class="chat-toggle" onclick="toggleChatbot()">💬</button>
+
+</body>
+
 </html>
