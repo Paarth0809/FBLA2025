@@ -32,11 +32,6 @@ app.use(session({
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve the main HTML file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
@@ -71,6 +66,7 @@ app.post('/signup', async (req, res) => {
   res.status(201).send('User created');
 });
 
+// login endpoint
 app.post('/login', async function (req, res) {
   const { username, password } = req.body;
   const users = getUsers();
@@ -87,6 +83,7 @@ app.post('/login', async function (req, res) {
 
 // Route to check session status
 app.get('/session-status', (req, res) => {
+  console.log("session status:", req.session.user);
   if (req.session.user) {
     res.json({ isLoggedIn: true });
   } else {

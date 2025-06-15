@@ -7,18 +7,30 @@
     <title>Avatar: The Last Airbender</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="../chatbot/chatbot.css" />
+    <link rel="stylesheet" href="navbar.css">
 
 
 </head>
 
 <body>
+    <!-- desktop version of the navigation bar -->
+    <div class="navbar">
+        <a class="links" href="index.html">Home</a>
+        <a class="links" href="../login.html">Log In</a>
+        <a class="links" id="Contactmargin" href="../signup.html">Sign Up</a>
+        
+        <a class="links" href="dashboard.html">Account</a>
+        <a class="links" href="/logout">Log Out</a>
+    </div>
+    <hr id="nav-bar-split" />
+
     <div id="game-container">
         <h1>Elemental Journey</h1>
         <div id="story-text"></div>
         <button id="reportButton">Generate Report</button>
         <!-- Hidden by default; visibility toggled in JavaScript -->
         <div id="reportContainer">
-            
+
 
 
             <label><input type="checkbox" id="includeHealth"> Include Health</label>
@@ -119,6 +131,7 @@
 
 <script type="module" src="../gameFunctions/script.js"></script>
 <script type="module" src="../chatbot/chatbot.js"></script>
+<script type="module" src="navbar.js"></script>
 
 <button id="chat-toggle" class="chat-toggle" onclick="toggleChatbot()">💬</button>
 
