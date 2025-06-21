@@ -18,41 +18,52 @@
         <a class="links" href="index.html">Home</a>
         <a class="links" href="../login.html">Log In</a>
         <a class="links" id="Contactmargin" href="../signup.html">Sign Up</a>
-        
+
         <a class="links" href="dashboard.html">Account</a>
         <a class="links" href="/logout">Log Out</a>
     </div>
     <hr id="nav-bar-split" />
 
     <div id="game-container">
-        <h1>Elemental Journey</h1>
-        <div id="story-text"></div>
-        <button id="reportButton">Generate Report</button>
-        <!-- Hidden by default; visibility toggled in JavaScript -->
-        <div id="reportContainer">
+        <aside id="left-sidebar">
+            <button id="reportButton">Generate Report</button>
+            <!-- Hidden by default; visibility toggled in JavaScript -->
+            <div id="reportContainer">
+
+                <label><input type="checkbox" id="includeHealth"> Include Health</label>
+                <label><input type="checkbox" id="includeEnergy"> Include Energy</label>
+                <label><input type="checkbox" id="includeSkills"> Include Skills</label>
+                <label><input type="checkbox" id="includeReputation"> Include Reputation</label>
+
+            </div>
+            <div id="character-info">
+                <h2>Character Info</h2>
+                <div id="character-stats"></div>
+                <div id="inputBoxContainer" style="position: relative; margin-top: 20px;">
+                    <input type="text" id="storyInput" placeholder="Type stop to stop the story...">
+                </div>
+        </aside>
+        <main id="center-content">
+            <h1>Elemental Journey</h1>
+            <div id="story-text"></div>
+            <div id="videoContainer"></div>
+            <div id="choices"></div>
+            <div id="imageChoices"></div>
+
+            <div id="imageChoices2"></div>
+            <div id="teamAvatarContainer">
+                <img id="teamAvatarImage" src="ElementLogos/team.png" alt="Team Avatar">
+            </div>
+
+        </main>
 
 
 
-            <label><input type="checkbox" id="includeHealth"> Include Health</label>
-            <label><input type="checkbox" id="includeEnergy"> Include Energy</label>
-            <label><input type="checkbox" id="includeSkills"> Include Skills</label>
-            <label><input type="checkbox" id="includeReputation"> Include Reputation</label>
 
-        </div>
 
-        <div id="videoContainer"></div>
-        <div id="choices"></div>
-        <div id="character-info">
-            <h2>Character Info</h2>
-            <div id="character-stats"></div>
-
-        </div>
     </div>
 
-    <div id="inputBoxContainer" style="position: relative; margin-top: 20px;">
-        <input type="text" id="storyInput" placeholder="Type stop to stop the story..."
-            style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #f0f0f0; border: 1px solid #dcdcdc; color: #333; font-size: 16px;">
-    </div>
+
 
 
 

@@ -7,13 +7,46 @@ export function updateStoryText(text) {
 }
 
 export function updateChoices(choices) {
+    const imageChoicesContainer = document.getElementById('imageChoices');
+    imageChoicesContainer.innerHTML = '';
+    const imageChoicesContainer2 = document.getElementById('imageChoices2');
+    imageChoicesContainer2.innerHTML = '';
     const choicesContainer = document.getElementById('choices');
     choicesContainer.innerHTML = '';
+    const teamContainer = document.getElementById('teamAvatarContainer');
+
     choices.forEach((choice, index) => {
-        const button = document.createElement('button');
-        button.textContent = choice.text;
-        button.onclick = () => choice.action();
-        choicesContainer.appendChild(button);
+
+        if (choice.image) {
+            
+            const img = document.createElement('img');
+            img.src = choice.image;
+            img.width = 250;
+            img.classList.add('individual-image');
+            img.onclick = () => {
+                choice.action();
+
+            }
+            if (index === 0 || index === 1) {
+                 imageChoicesContainer.appendChild(img);
+            }
+            else if (index === 2 || index === 3) {
+                imageChoicesContainer2.appendChild(img);
+            }
+
+            teamContainer.style.visibility = 'visible';
+            imageChoicesContainer.style.visibility = 'visible';
+            imageChoicesContainer2.style.visibility = 'visible';
+        }
+        if (choice.text) {
+            // Create a button for each choice
+            const button = document.createElement('button');
+            button.textContent = choice.text;
+            button.onclick = () => choice.action();
+            choicesContainer.appendChild(button);
+            choicesContainer.style.visibility = 'visible';
+            teamContainer.style.visibility = 'hidden';
+        }
     });
 }
 
@@ -50,29 +83,29 @@ export function updateCharacterInfo() {
         <h3>Skills:</h3>
         <ul>
             ${Object.entries(gameState.skills).map(([skill, value]) =>
-                // Check if the skill has sub-skills (value is an object)
-                typeof value === 'object' ? 
-                    `<li>${skill}: ${Object.entries(value).map(([subSkill, subValue]) =>
-                        `${subSkill}: ${subValue}`).join(', ')}</li>` : 
-                    `<li>${skill}: ${value}</li>`
-            ).join('')}
+        // Check if the skill has sub-skills (value is an object)
+        typeof value === 'object' ?
+            `<li>${skill}: ${Object.entries(value).map(([subSkill, subValue]) =>
+                `${subSkill}: ${subValue}`).join(', ')}</li>` :
+            `<li>${skill}: ${value}</li>`
+    ).join('')}
         </ul>
 
         <!-- Display the character's reputation with factions -->
         <h3>Reputation:</h3>
         <ul>
             ${Object.entries(gameState.reputation).map(([faction, value]) =>
-                `<li>${faction}: ${value}</li>`
-            ).join('')}
+        `<li>${faction}: ${value}</li>`
+    ).join('')}
         </ul>
 
         <!--Display the character's allies -->
         <h3>Allies:</h3>
         <ul>
-            ${gameState.allies.map(ally => 
-                // Check if the ally has a name and display it
-                ally && ally.name ? `<li>${ally.name}</li>` : ''
-            ).join('')}
+            ${gameState.allies.map(ally =>
+        // Check if the ally has a name and display it
+        ally && ally.name ? `<li>${ally.name}</li>` : ''
+    ).join('')}
         </ul>
     `;
 }
