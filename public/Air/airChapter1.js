@@ -8,6 +8,8 @@ import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
 export function startAirChapter1() {
+    // log the gamestate to console for debugging
+    console.log("Starting Air Chapter 1 with gameState:", gameState);
     gameState.currentChapter = 1;
     displayAirChapter1();
     
@@ -43,6 +45,9 @@ function displayAirChapter1() {
 
     // Add Sokka as an ally to the game state
     addAlly(characters.sokka);
+
+    // log the gamestate to console for debugging
+    console.log("Starting Air Chapter 1 with gameState:", gameState);
 }
 
 

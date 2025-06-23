@@ -81,6 +81,29 @@ app.post('/login', async function (req, res) {
   res.status(200).send('Login successful');
 });
 
+// save progress endpoint
+// This endpoint will save the game state for a user
+app.post('/save-progress', (req, res) => {
+    console.log("Saving progress for user");
+    const { gameState } = req.body;
+    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+    console.log("Saving progress for user:", req.session.user, "with progress:", gameState);
+    // log the users array to see its contents
+    console.log("Current users:", users);
+    const user = users.find(u => u.signupEmail.toLowerCase() == req.session.user.username.toLowerCase());
+    if (user) {
+        user.gameState = gameState; // Save the entire gameState
+        fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
+        res.json({ success: true });
+    } else {
+        res.status(404).json({ success: false, message: "User not found" });
+    }
+    
+});
+
+
+
+
 // Route to check session status
 app.get('/session-status', (req, res) => {
   console.log("session status:", req.session.user);
@@ -129,3 +152,5 @@ app.post('/api/ask', async (req, res) => {
     res.status(500).json({ error: 'Error with OpenAI API request' });
   }
 });
+
+

@@ -1,1 +1,58 @@
-[{"signupEmail":"paarth0809@gmail.com","password":"$2b$10$P9kJi/EzlvPTv2O1dBzss.3KlDWqsxeLH7Bh3CwRh2Ity5hZ1v84S","fullName":"Paarth Rathod","age":"21","phoneNumber":"9197143139"}]
+[
+  {
+    "signupEmail": "paarth0809@gmail.com",
+    "password": "$2b$10$YKfprY6Uug.yRGcBqVfpIeFfb.sG3/aJMii19fdShprwEnEPpR/ai",
+    "fullName": "Paarth Rathod",
+    "age": "21",
+    "phoneNumber": "9197143139",
+    "gameState": {
+      "currentCharacter": "Aang",
+      "currentChapter": 1,
+      "allies": [
+        {
+          "name": "Katara",
+          "description": "Waterbender from the Southern Water Tribe",
+          "skills": {
+            "combat": 0,
+            "stealth": 0,
+            "wisdom": 0,
+            "diplomacy": 0,
+            "leadership": 0,
+            "empathy": 0
+          },
+          "backstory": "Katara is the last waterbender of the Southern Water Tribe. She dreams of mastering her abilities and helping to end the war."
+        },
+        {
+          "name": "Sokka",
+          "description": "Warrior from the Southern Water Tribe",
+          "skills": {
+            "combat": 0,
+            "stealth": 0,
+            "wisdom": 0,
+            "diplomacy": 0,
+            "leadership": 0,
+            "empathy": 0
+          },
+          "backstory": "Sokka is a skilled warrior and strategist. Though he can't bend, he makes up for it with his quick wit and boomerang skills."
+        }
+      ],
+      "reputation": {
+        "fireNation": 0,
+        "earthKingdom": 0,
+        "waterTribe": 0,
+        "airNomads": 0
+      },
+      "skills": {
+        "combat": 0,
+        "stealth": 0,
+        "wisdom": 0,
+        "sprituality": 0,
+        "diplomacy": 0,
+        "leadership": 0,
+        "empathy": 0
+      },
+      "health": 100,
+      "energy": 100
+    }
+  }
+]

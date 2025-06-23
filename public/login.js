@@ -10,13 +10,14 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         },
         body: JSON.stringify({ username, password })
     });
-
+    // Get the message div to display login messages
     const messageDiv = document.getElementById('message');
 
     if (response.ok) {
         const message = await response.text();
         if (message === "Login successful") {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
+            console.log("Redirecting to index.html");
         } else {
             messageDiv.innerText = message;
         }
