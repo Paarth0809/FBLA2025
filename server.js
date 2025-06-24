@@ -101,7 +101,19 @@ app.post('/save-progress', (req, res) => {
     
 });
 
-
+// Endpoint to get the current user's progress (gameState)
+app.get('/get-progress', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ success: false, message: "Not logged in" });
+    }
+    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+    const user = users.find(u => u.signupEmail.toLowerCase() === req.session.user.username.toLowerCase());
+    if (user && user.gameState) {
+        res.json({ success: true, gameState: user.gameState });
+    } else {
+        res.status(404).json({ success: false, message: "Progress not found" });
+    }
+});
 
 
 // Route to check session status

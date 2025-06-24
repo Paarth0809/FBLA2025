@@ -7,7 +7,7 @@
     "phoneNumber": "9197143139",
     "gameState": {
       "currentCharacter": "Aang",
-      "currentChapter": 1,
+      "currentChapter": 8,
       "allies": [
         {
           "name": "Katara",
@@ -34,24 +34,27 @@
             "empathy": 0
           },
           "backstory": "Sokka is a skilled warrior and strategist. Though he can't bend, he makes up for it with his quick wit and boomerang skills."
-        }
+        },
+        null
       ],
       "reputation": {
         "fireNation": 0,
-        "earthKingdom": 0,
-        "waterTribe": 0,
-        "airNomads": 0
+        "earthKingdom": 2,
+        "waterTribe": 2,
+        "airNomads": 0,
+        "-5": null
       },
       "skills": {
         "combat": 0,
-        "stealth": 0,
-        "wisdom": 0,
+        "stealth": 3,
+        "wisdom": 8,
         "sprituality": 0,
-        "diplomacy": 0,
+        "diplomacy": 5,
         "leadership": 0,
-        "empathy": 0
+        "empathy": 0,
+        "spirituality": null
       },
-      "health": 100,
+      "health": 95,
       "energy": 100
     }
   }
