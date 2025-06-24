@@ -1,4 +1,5 @@
 import { gameState } from './gameFunctions/gameState.js';
+import { updateCharacterInfo } from './gameFunctions/uiUpdateFunctions.js';
 
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -28,8 +29,8 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
                         console.log("Game state loaded successfully:", gameState);
                     }
                 });
+                
             window.location.href = 'index.html';
-
             console.log("Redirecting to index.html");
         } else {
             messageDiv.innerText = message;

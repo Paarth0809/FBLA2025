@@ -8,7 +8,7 @@ export const characters = {
             combat: 0,
             stealth: 0,
             wisdom: 0,
-            sprituality: 0,
+            spirituality: 0,
             diplomacy: 0,
             leadership: 0,
             empathy: 0,
@@ -94,5 +94,31 @@ export const characters = {
         },
         backstory: "Once known as the Dragon of the West, Iroh has turned his back on the war and now seeks to guide his nephew Zuko down a better path."
     },
+    bumi: {
+        name: "Bumi",
+        description: "Aang's old friend and king of Omashu",
+        skills: {
+            combat: 0,
+            stealth: 0,
+            wisdom: 0,
+            diplomacy: 0,
+            leadership: 0,
+            empathy: 0,
+        },
+        backstory: "Bumi is a powerful earthbender and one of Aang's oldest friends. Known for his eccentric personality, he rules the city of Omashu with wisdom and strength."
+    },
+    suki: {
+        name: "Suki",
+        description: "Leader of the Kyoshi Warriors",
+        skills: {
+            combat: 0,
+            stealth: 0,
+            wisdom: 0,
+            diplomacy: 0,
+            leadership: 0,
+            empathy: 0,
+        },
+        backstory: "Suki is a skilled fighter and the leader of the Kyoshi Warriors. She is brave, resourceful, and fiercely protective of her friends and allies."
+    }
 
 };

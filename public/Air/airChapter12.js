@@ -56,13 +56,13 @@ function handleAirChapter12Choice(choice) {
      
       case 2:
         updateStoryText("You decide to choose Katara over mastering the Avatar State. You leave your training with Guru Pathik and return to Katara, prioritizing your love for her over your duty as the Avatar.");
-        updateSkill('love', 3);
-        if (skillCheck('love', 12)) {
-          updateReputation(10);  // Choosing Katara increases standing with her
+        updateSkill('wisdom', 3);
+        if (skillCheck('wisdom', 12)) {
+          updateReputation('airNomads', 10);  // Choosing Katara increases standing with her
           updateStoryText("Katara is overjoyed to see you, and you spend many happy moments together. However, your decision to prioritize your love for her over your duty as the Avatar has consequences, and the world suffers as a result.");
           updateChoices([{ text: "Continue", action: startOpt2AirChapter13 }]);
         } else {
-          updateReputation(-5);  // Choosing Katara decreases standing with others
+          updateReputation('airNomads', -5);  // Choosing Katara decreases standing with others
           updateStoryText("Your decision to prioritize your love for Katara over your duty as the Avatar is met with disappointment and anger from others. You must face the consequences of your choice.");
           updateChoices([{ text: "Continue", action: startOpt2AirChapter13 }]);
         }

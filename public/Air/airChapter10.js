@@ -34,7 +34,7 @@ function handleAirChapter10Choice(choice) {
       updateStoryText("You decide to challenge Toph directly, believing that actions speak louder than words. You return to the Earth Rumble arena and publicly challenge the Blind Bandit, drawing her back for a rematch.");
       updateSkill('combat', 2);
       if (skillCheck('combat', 12)) {
-        updateReputation(5);  // Successfully impressing Toph increases your standing
+        updateReputation('airNomads', 5);  // Successfully impressing Toph increases your standing
         updateStoryText("Using your airbending creatively, you manage to lift yourself off the ground—rendering Toph's earth-sensing abilities useless. Your victory isn't about dominating her but showing that you have something valuable to teach her too. Impressed by your skills and humbled by the experience, Toph agrees to become your earthbending teacher, though not without setting some ground rules.");
         addAlly(characters.toph);
         updateSkill('earthbending', 1);  // Beginning to learn earthbending
@@ -56,7 +56,7 @@ function handleAirChapter10Choice(choice) {
         updateSkill('combat', 1);  // Beginning to learn earthbending
         updateChoices([{ text: "Continue", action: startOpt1AirChapter11 }]);
       } else {
-        updateReputation(-5);  // Failure to convince Toph or her parents damages your standing
+        updateReputation('airNomads', -5);  // Failure to convince Toph or her parents damages your standing
         updateStoryText("Your appeal falls flat as Toph's parents discover you on their property. They call the guards, forcing you to flee. Toph is placed under even stricter supervision, with guards watching her every move. You'll need to find another earthbending teacher or develop a more elaborate plan to free Toph from her gilded cage.");
         updateChoices([{ text: "Continue", action: startOpt2AirChapter11 }]);
       }

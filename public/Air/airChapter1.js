@@ -57,19 +57,19 @@ function handleAirChapter1Choice(choice) {
         case 1:
             updateStoryText("You joyfully show off your Airbending skills, impressing Katara but drawing Sokka's suspicion.");
             updateSkill('combat', 1);
-            updateReputation('waterTribe', 1);
+            updateReputation('airNomads', 1);
 
             updateSkill('diplomacy', 2);
             //unnecessary and useless currently
             if (skillCheck('agility', 10)) {
                 updateStoryText("Your Airbending display amazes the tribe, earning their admiration.");
-                updateReputation('waterTribe', 2); 
+                updateReputation('airNomads', 2); 
             }
             break;
         case 2:
             updateStoryText("You ask about the world and the war, realizing the Air Nomads have been wiped out...");
             updateSkill('wisdom', 2);
-            updateReputation('waterTribe', 2);
+            updateReputation('airNomads', -1);
             updateSkill('diplomacy', 2);
             //unnecessary and useless currently
             if (skillCheck('wisdom', 12)) {

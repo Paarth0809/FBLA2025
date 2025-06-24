@@ -55,7 +55,7 @@ function handleOpt1AirChapter13Choice(choice) {
             updateStoryText("You decide to confront Azula, creating a diversion to buy time for your allies to regroup.");
             updateSkill('combat', 3);
             if (skillCheck('combat', 16)) {
-                updateReputation(10);
+                updateReputation('airNomads', 10);
                 updateStoryText("You successfully hold off Azula, matching her cunning with your own skill. This allows your allies valuable time to retreat safely.");
             } else {
                 updateHealth(-15);
@@ -68,7 +68,7 @@ function handleOpt1AirChapter13Choice(choice) {
             if (skillCheck('leadership', 15)) {
                 updateStoryText("Your leadership rallies the group, and together you execute a well-coordinated retreat, minimizing casualties.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Despite your efforts, panic spreads among the group, making the retreat chaotic and costly.");
             }
             break;
@@ -104,20 +104,20 @@ function handleOpt2AirChapter13Choice(choice) {
         case 1:
             updateStoryText("After a difficult discussion, you decide that the best chance of continuing the fight against the Fire Nation lies with you and your closest team. You plan to flee on Appa, leaving the rest of the army to face imprisonment.");
             if (skillCheck('leadership', 10)) {
-                updateReputation(-10); // A difficult decision that might tarnish your reputation
+                updateReputation('airNomads', -10); // A difficult decision that might tarnish your reputation
                 updateStoryText("The team escapes, but the decision weighs heavily on your conscience. The army is left behind, captured by the Fire Nation.");
             } else {
-                updateReputation(-20); // Failure to lead effectively
+                updateReputation('airNomads', -20); // Failure to lead effectively
                 updateStoryText("Your attempt to flee is noticed, leading to chaos among the ranks. The retreat fails, and many are captured.");
             }
             break;
         case 2:
             updateStoryText("You decide to regroup with your allies and strategize a safe retreat through seizing the Fire Nation's submarines. This risky plan could secure a large-scale escape without leaving anyone behind.");
             if (skillCheck('strategy', 14)) {
-                updateReputation(10); // Successfully leading a large-scale retreat boosts your reputation
+                updateReputation('airNomads', 10); // Successfully leading a large-scale retreat boosts your reputation
                 updateStoryText("Your plan succeeds brilliantly. You manage to seize several submarines, allowing a significant portion of the army to escape undetected.");
             } else {
-                updateReputation(-5); // The plan's failure leads to negative consequences
+                updateReputation('airNomads', -5); // The plan's failure leads to negative consequences
                 updateStoryText("The attempt to seize the submarines is thwarted by the Fire Nation's defenses, resulting in a frantic and disorganized retreat.");
             }
             break;
@@ -125,7 +125,7 @@ function handleOpt2AirChapter13Choice(choice) {
                 updateStoryText("To keep the Fire Nation forces at bay, you decide to hide the army underground, utilizing the Earthbenders among your ranks. This defensive stance could provide the cover needed for a stealthy retreat.");
                 // Check if Toph is an ally
                 if (gameState.allies.includes('Toph') || skillCheck('earthbending', 12)) {
-                    updateReputation(5); // Successfully using bending to protect the army enhances your reputation
+                    updateReputation('airNomads', 5); // Successfully using bending to protect the army enhances your reputation
                     let successText = "With Toph's unparalleled earthbending skills, ";
                     if (!gameState.allies.includes('Toph')) {
                         successText = "The Earthbenders, inspired by your leadership, ";
@@ -133,17 +133,18 @@ function handleOpt2AirChapter13Choice(choice) {
                     successText += "create a vast network of tunnels, hiding the army and allowing for a strategic withdrawal. The Fire Nation's forces are effectively kept at bay.";
                     updateStoryText(successText);
                 } else {
-                    updateReputation(-10); // Failure to effectively use bending skills results in negative outcomes
+                    updateReputation('airNomads', -10); // Failure to effectively use bending skills results in negative outcomes
                     updateStoryText("The attempt to hide underground is partially successful, but Fire Nation troops manage to breach several tunnels, causing panic and casualties.");
                 }
                 break;
         case 4:
             updateStoryText("In a bid to cover your retreat, you decide to set a trap for the Fire Nation forces. A well-executed trap could slow them down significantly, giving your forces more time to escape.");
-            if (skillCheck('tactics', 13)) {
-                updateReputation(5); // Successfully delaying enemy forces boosts your reputation
+            updateSkill('stealth', 3);
+            if (skillCheck('stealth', 13)) {
+                updateReputation('airNomads', 5); // Successfully delaying enemy forces boosts your reputation
                 updateStoryText("Your trap works perfectly, causing confusion and disarray among the Fire Nation ranks. This buys your forces precious time to retreat.");
             } else {
-                updateReputation(-5); // A failed trap can lead to dire consequences
+                updateReputation('airNomads', -5); // A failed trap can lead to dire consequences
                 updateStoryText("The trap is discovered and disarmed by the Fire Nation, who then press their attack with renewed vigor, hastening your forces' retreat.");
             }
             break;

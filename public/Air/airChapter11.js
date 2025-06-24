@@ -75,9 +75,9 @@ function handleOpt1AirChapter11Choice(choice) {
             
         case 3:
             updateStoryText("You decide to seek guidance directly from Avatar Roku. Finding a quiet meditation spot, you focus on connecting with your past life, hoping his centuries of wisdom will guide your search.");
-            updateSkill('avatarCommunion', 3);
+            updateSkill('spirituality', 3);
             
-            if (skillCheck('avatarCommunion', 16)) {
+            if (skillCheck('spirituality', 16)) {
                 updateEnergy(10);
                 updateStoryText("Roku appears before you with unexpected clarity. 'The library you seek is hidden behind a secret entrance,' he advises. 'Find the entrance, and you will find the knowledge you need to defeat the Fire Nation.' His guidance reinvigorates your spirit and gives you a clear direction.");
             } else {
@@ -91,10 +91,9 @@ function handleOpt1AirChapter11Choice(choice) {
             updateSkill('leadership', 2);
             
             if (skillCheck('leadership', 12)) {
-                addAlly(characters.desertGuide);
                 updateStoryText("Your group splits up, and you each search for the library. After days of searching, one of your group members returns with a map leading to the library. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Your group becomes lost in the desert, and you must search for each other. Eventually, you reunite, but not without scars. You continue your search for the library, but the experience has left you shaken.");
             }
             break;
@@ -132,9 +131,9 @@ function handleOpt2AirChapter11Choice(choice) {
             
         case 3:
             updateStoryText("You decide to seek guidance directly from Avatar Roku. Finding a quiet meditation spot, you focus on connecting with your past life, hoping his centuries of wisdom will guide your search.");
-            updateSkill('avatarCommunion', 3);
+            updateSkill('spirituality', 3);
             
-            if (skillCheck('avatarCommunion', 16)) {
+            if (skillCheck('spirituality', 16)) {
                 updateEnergy(10);
                 updateStoryText("Roku appears before you with unexpected clarity. 'The library you seek is hidden behind a secret entrance,' he advises. 'Find the entrance, and you will find the knowledge you need to defeat the Fire Nation.' His guidance reinvigorates your spirit and gives you a clear direction.");
             } else {
@@ -148,10 +147,9 @@ function handleOpt2AirChapter11Choice(choice) {
             updateSkill('leadership', 2);
             
             if (skillCheck('leadership', 12)) {
-                addAlly(characters.desertGuide);
                 updateStoryText("Your group splits up, and you each search for the library. After days of searching, one of your group members returns with a map leading to the library. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Your group becomes lost in the desert, and you must search for each other. Eventually, you reunite, but not without scars. You continue your search for the library, but the experience has left you shaken.");
             }
             break;

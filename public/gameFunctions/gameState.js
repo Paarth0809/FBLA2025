@@ -29,7 +29,7 @@ export let gameState = {
         // Wisdom skill level (default value is 0)
         wisdom: 0,
         // Spirituality skill level (default value is 0)
-        sprituality: 0,
+        spirituality: 0,
         // Diplomacy skill level (default value is 0)
         diplomacy: 0,
         // Leadership skill level (default value is 0)

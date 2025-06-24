@@ -94,7 +94,7 @@ function handleOpt1AirChapter9Choice(choice) {
             if (skillCheck('leadership', 12)) {
                 updateStoryText("Your persistent questioning leads to valuable information. Several sources mention an underground earthbending tournament called 'Earth Rumble' in a town called Gaoling. The best earthbenders supposedly compete there, making it an ideal place to find a master.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Your questions attract unwanted attention. Fire Nation spies catch wind of the Avatar's search, forcing you to move quickly between villages. The scattered information you gather points vaguely toward the southern Earth Kingdom, but you'll need to be more discreet going forward.");
             }
             break;
@@ -121,7 +121,7 @@ function handleOpt2AirChapter9Choice(choice) {
             } else {
                 // If stealth fails, update health and reputation, and display the story for a failed approach
                 updateHealth(-15);
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Your approach to Omashu is spotted by Fire Nation scouts. After a harrowing chase that leaves everyone exhausted, you finally reach a vantage point overlooking the city - only to find it conquered, renamed 'New Ozai,' with King Bumi nowhere to be seen.");
             }
             break;
@@ -143,11 +143,10 @@ function handleOpt2AirChapter9Choice(choice) {
             updateSkill('wisdom', 2);
             
             if (skillCheck('diplomacy', 12)) {
-                addAlly(characters.earthKingdomOfficial);
                 updateStoryText("Your diplomatic approach secures you safe passage with an Earth Kingdom convoy headed to Ba Sing Se. The captain shares rumors of a great library in the Si Wong Desert that contains all knowledge in the world - including, perhaps, secrets of the Avatar State.");
             } else {
                 updateEnergy(-10);
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Your attempts to arrange passage to Ba Sing Se are complicated by rumors of the 'water monster' at the North Pole. Some Earth Kingdom officials seem wary of the Avatar's power, forcing you to take a longer, less direct route toward the capital.");
             }
             break;

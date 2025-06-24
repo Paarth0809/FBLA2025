@@ -1,13 +1,13 @@
 [
   {
     "signupEmail": "paarth0809@gmail.com",
-    "password": "$2b$10$YKfprY6Uug.yRGcBqVfpIeFfb.sG3/aJMii19fdShprwEnEPpR/ai",
+    "password": "$2b$10$vvwpQ0PV8PK91aqMIba4OuFOcGctBSnalnEjmoJaDnZkAY80o1H5.",
     "fullName": "Paarth Rathod",
-    "age": "21",
+    "age": "19",
     "phoneNumber": "9197143139",
     "gameState": {
       "currentCharacter": "Aang",
-      "currentChapter": 8,
+      "currentChapter": 13,
       "allies": [
         {
           "name": "Katara",
@@ -35,27 +35,50 @@
           },
           "backstory": "Sokka is a skilled warrior and strategist. Though he can't bend, he makes up for it with his quick wit and boomerang skills."
         },
-        null
+        {
+          "name": "Katara",
+          "description": "Waterbender from the Southern Water Tribe",
+          "skills": {
+            "combat": 0,
+            "stealth": 0,
+            "wisdom": 0,
+            "diplomacy": 0,
+            "leadership": 0,
+            "empathy": 0
+          },
+          "backstory": "Katara is the last waterbender of the Southern Water Tribe. She dreams of mastering her abilities and helping to end the war."
+        },
+        {
+          "name": "Sokka",
+          "description": "Warrior from the Southern Water Tribe",
+          "skills": {
+            "combat": 0,
+            "stealth": 0,
+            "wisdom": 0,
+            "diplomacy": 0,
+            "leadership": 0,
+            "empathy": 0
+          },
+          "backstory": "Sokka is a skilled warrior and strategist. Though he can't bend, he makes up for it with his quick wit and boomerang skills."
+        }
       ],
       "reputation": {
         "fireNation": 0,
-        "earthKingdom": 2,
+        "earthKingdom": 0,
         "waterTribe": 2,
-        "airNomads": 0,
-        "-5": null
+        "airNomads": -10
       },
       "skills": {
-        "combat": 0,
-        "stealth": 3,
-        "wisdom": 8,
-        "sprituality": 0,
-        "diplomacy": 5,
+        "combat": 2,
+        "stealth": 8,
+        "wisdom": 9,
+        "spirituality": 9,
+        "diplomacy": 2,
         "leadership": 0,
-        "empathy": 0,
-        "spirituality": null
+        "empathy": 2
       },
-      "health": 95,
-      "energy": 100
+      "health": 80,
+      "energy": 90
     }
   }
 ]

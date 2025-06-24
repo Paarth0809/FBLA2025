@@ -34,7 +34,6 @@ function handleFireChapter11Choice(choice) {
             updateSkill('stealth', 2);
             if (skillCheck('stealth', 18)) {
                 updateStoryText("Your disguises work perfectly. You move undetected and manage to orchestrate a daring escape for Sokka's father, gaining a crucial ally.");
-                addAlly(characters.hakoda);
                 updateReputation('fireNation', -2);
             } else {
                 updateStoryText("Despite your preparations, your cover is blown. You're forced into a hasty retreat, narrowly escaping with your lives but failing the mission.");

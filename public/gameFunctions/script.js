@@ -1,6 +1,7 @@
 import { startGame } from './game.js';
 import { generateReport } from './game.js';
 import {gameState} from './gameState.js';
+import { updateCharacterInfo } from './uiUpdateFunctions.js'; 
 
 
 // Stop or pause function.
@@ -66,6 +67,8 @@ window.onload = startGame;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  updateCharacterInfo();
+  console.log("Character info updated");
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach(item => {

@@ -63,11 +63,11 @@ function handleOpt1AirChapter6Choice(choice) {
             updateStoryText("Aang reaches out to the spirits of nature, seeking allies in the coming battle.");
             updateSkill('diplomacy', 2);
             if (skillCheck('wisdom', 12)) {
-                updateReputation(5);
+                updateReputation('airNomads', 5);
                 updateStoryText("His genuine plea earns him the favor of powerful spirits.");
                 updateSkill('spirituality', 2);
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("The spirits remain distant, wary of Aang's unsettled spirit.");
                 updateSkill('spirituality', 1);
             }
@@ -117,11 +117,11 @@ function handleOpt2AirChapter6Choice(choice) {
             updateStoryText("Aang seeks out the Moon and Ocean Spirits for guidance on his path and the balance of the world.");
             updateSkill('wisdom', 2);
             if (skillCheck('wisdom', 11) || skillCheck('spirtuality', 7)) {
-                updateReputation(5);
+                updateReputation('airNomads', 5);
                 updateStoryText("The spirits grant Aang their blessing, enhancing his waterbending for the coming conflict.");
                 updateSkill('spirituality', 2);
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Though they offer wisdom, Aang finds the answers more cryptic than helpful.");
                 updateSkill('spirituality', 1);
             }
@@ -142,11 +142,11 @@ function handleOpt2AirChapter6Choice(choice) {
             updateStoryText("Aang negotiates with the spirit of an ancient guardian, seeking its aid in protecting the Northern Water Tribe.");
             
             if (skillCheck('spirituality', 10)) {
-                updateReputation(5);
+                updateReputation('airNomads', 5);
                 updateStoryText("The guardian agrees to help, offering Aang a powerful ally in the physical world.");
                 updateSkill('spirituality', 1);
             } else {
-                updateReputation(-10);
+                updateReputation('airNomads', -10);
                 updateStoryText("The guardian refuses, warning Aang of the consequences of disturbing the spirits.");
             }
             break;

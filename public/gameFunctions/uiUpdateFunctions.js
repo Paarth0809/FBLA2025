@@ -18,7 +18,7 @@ export function updateChoices(choices) {
     choices.forEach((choice, index) => {
 
         if (choice.image) {
-            
+
             const img = document.createElement('img');
             img.src = choice.image;
             img.style.width = "30%";
@@ -28,7 +28,7 @@ export function updateChoices(choices) {
 
             }
             if (index === 0 || index === 1) {
-                 imageChoicesContainer.appendChild(img);
+                imageChoicesContainer.appendChild(img);
             }
             else if (index === 2 || index === 3) {
                 imageChoicesContainer2.appendChild(img);
@@ -70,6 +70,9 @@ export function updateInventoryDisplay() {
 export function updateCharacterInfo() {
     // Get the DOM element where the character information will be displayed
     const characterStats = document.getElementById('character-stats');
+    console.log("Updating character info with gameState:", gameState);
+    if (!characterStats) {
+        console.error("Character stats element not found in the DOM.");}
 
     // Update the inner HTML of the characterStats element with the current gameState values
     characterStats.innerHTML = `
@@ -77,17 +80,13 @@ export function updateCharacterInfo() {
         <p>Name: ${gameState.currentCharacter}</p>
         <p>Health: ${gameState.health}</p>
         <p>Energy: ${gameState.energy}</p>
-        <p>Gold: ${gameState.gold}</p>
+       
         
 
         <!--Display the character's skills-->
         <h3>Skills:</h3>
         <ul>
             ${Object.entries(gameState.skills).map(([skill, value]) =>
-        // Check if the skill has sub-skills (value is an object)
-        typeof value === 'object' ?
-            `<li>${skill}: ${Object.entries(value).map(([subSkill, subValue]) =>
-                `${subSkill}: ${subValue}`).join(', ')}</li>` :
             `<li>${skill}: ${value}</li>`
     ).join('')}
         </ul>

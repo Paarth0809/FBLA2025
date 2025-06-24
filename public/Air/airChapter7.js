@@ -55,7 +55,7 @@ function handleOpt1AirChapter7Choice(choice) {
             break;
         case 2:
             updateStoryText("Aang persuades Jet to consider the consequences of his actions, advocating for a solution that doesn't harm innocents. Jet is reluctantly convinced, showing a new respect for Aang.");
-            updateReputation(5);
+            updateReputation('airNomads', 5);
             break;
         case 3:
             updateStoryText("Choosing to be cautious, Aang and his friends scout the encampment, discovering that civilians are present. They manage to thwart Jet's plan, saving innocent lives.");
@@ -63,7 +63,7 @@ function handleOpt1AirChapter7Choice(choice) {
             break;
         case 4:
             updateStoryText("Aang decides Jet's aggressive tactics are too risky and chooses to leave, focusing on their mission to master the elements. Jet is disappointed, but Aang knows it's the right decision.");
-            updateReputation(-5);
+            updateReputation('airNomads', -5);
             break;
     }
     setTimeout(() => {

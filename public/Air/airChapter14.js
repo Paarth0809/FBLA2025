@@ -40,7 +40,7 @@ function handleAirChapter14Choice(choice) {
                 addAlly(characters.zuko);
                 updateStoryText("Zuko's story is heartfelt, and his regret for his actions feels genuine. You decide to give him a chance, hoping he can prove himself.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Though Zuko's words are moving, doubt lingers in your group. Accepting him will not be easy for everyone.");
             }
             break;
@@ -51,7 +51,7 @@ function handleAirChapter14Choice(choice) {
                 addAlly(characters.zuko);
                 updateStoryText("Your team's trust in your leadership prevails. The group agrees to accept Zuko, though some remain wary.");
             } else {
-                updateReputation(-10);
+                updateReputation('airNomads', -10);
                 updateStoryText("The discussion becomes heated, and the group is divided. Accepting Zuko risks further tension among your allies.");
             }
             break;
@@ -62,13 +62,13 @@ function handleAirChapter14Choice(choice) {
                 addAlly(characters.zuko);
                 updateStoryText("Zuko completes the task with unwavering resolve, earning your trust and that of some team members.");
             } else {
-                updateReputation(-5);
+                updateReputation('airNomads', -5);
                 updateStoryText("Zuko struggles to complete the task, leaving your group skeptical about his true intentions.");
             }
             break;
         case 4:
             updateStoryText("You cannot overlook Zuko's past actions and decide to send him away, rejecting his offer.");
-            updateReputation(-5);
+            updateReputation('airNomads', -5);
             updateStoryText("Zuko leaves, defeated and disheartened. Your team feels safer for now, but questions linger about whether rejecting him was the right choice.");
             break;
     }

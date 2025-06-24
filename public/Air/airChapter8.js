@@ -48,11 +48,11 @@ function handleAirChapter8Choice(choice) {
       updateStoryText("As Zhao kills the Moon Spirit, you feel a powerful pull from the Ocean Spirit. In your desperation to save the tribe, you surrender your consciousness and merge with the Ocean Spirit, becoming a massive, glowing water entity that towers over the battlefield.");
       updateSkill('combat', 3);
       if (skillCheck('combat', 12)) {
-        updateReputation(10);  // Successfully defending the tribe increases your standing
+        updateReputation('airNomads', 10);  // Successfully defending the tribe increases your standing
         updateStoryText("In your merged form with La, the Ocean Spirit, you maintain enough control to target only the Fire Nation forces while sparing civilians. Your awesome display of power drives back the invasion and establishes you as a formidable Avatar in the eyes of both nations.");
         updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       } else {
-        updateReputation(-5);  // Loss of control damages your reputation
+        updateReputation('airNomads', -5);  // Loss of control damages your reputation
         updateStoryText("The raw power of the Ocean Spirit overwhelms your consciousness. The Northern Water Tribe falls, your lack of control results in widespread destruction that affects even some allies. When you finally separate from the spirit, you're left with troubling questions about the nature of the Avatar State.");
         updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       }

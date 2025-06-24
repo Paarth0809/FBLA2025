@@ -65,10 +65,10 @@ function handleOpt1WaterChapter7Choice(choice) {
             updateStoryText("Before the Water Tribe's leaders, you make a stand—tradition has its place, but change is necessary for survival.");
             updateSkill('persuasion', 2);
             if (skillCheck('persuasion', 15)) {
-                updateReputation(10);
+                updateReputation('waterTribe', 10);
                 updateStoryText("Your words spark discussions of reform, inspiring hope for a future where the Water Tribe can thrive alongside the other nations.");
             } else {
-                updateReputation(-10);
+                updateReputation('waterTribe', -10);
                 updateStoryText("Many elders dismiss your ideas, unwilling to break from centuries-old customs.");
             }
             break;
@@ -105,10 +105,10 @@ function handleOpt2WaterChapter7Choice(choice) {
             updateStoryText("You argue for unity between the nations, knowing the Fire Nation's strength can only be matched if the world stands together.");
             updateSkill('diplomacy', 2);
             if (skillCheck('diplomacy', 14)) {
-                updateReputation(15);
+                updateReputation('waterTribe', 15);
                 updateStoryText("Your efforts lead to envoys being sent to the Earth Kingdom and surviving Air Nomads, forging the first steps of a united resistance.");
             } else {
-                updateReputation(-5);
+                updateReputation('waterTribe', -5);
                 updateStoryText("Despite your pleas, skepticism remains, and few are willing to commit to an alliance.");
             }
             break;
@@ -137,7 +137,6 @@ function handleOpt2WaterChapter7Choice(choice) {
             updateStoryText("You train young waterbenders, ensuring they are ready for the battles ahead.");
             updateSkill('teaching', 2);
             if (skillCheck('teaching', 12)) {
-                addAlly(characters.youngWaterbender);
                 updateStoryText("Your students flourish, and a particularly gifted student shows immense potential.");
             } else {
                 updateHealth(-5);

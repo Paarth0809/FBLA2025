@@ -64,12 +64,12 @@ function handleAirChapter2Choice(choice) {
             break;
         case 4:
             updateStoryText("You work alongside Katara and Sokka, setting up defenses and fighting back strategically.");
-            updateSkill('tactics', 1);
+            updateSkill('stealth', 1);
             updateSkill('combat', 2);
         
             addAlly(characters.katara);
             addAlly(characters.sokka);
-            if (skillCheck('tactics', 2)) {
+            if (skillCheck('stealth', 2)) {
                 updateStoryText("Your strategic planning gives the tribe an advantage, repelling the raiders with minimal losses.");
                 updateReputation('waterTribe', 2);
             }

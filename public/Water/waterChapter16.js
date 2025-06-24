@@ -94,7 +94,6 @@ function handleWaterChapter16Choice(choice) {
                 updateReputation('fireNation', 3);
                 updateSkill('diplomacy', 4); // Diplomacy increases
                 updateSkill('empathy', 2); // Empathy increases
-                addAlly(characters.fireNationDefectors);
             } else {
                 updateStoryText("The Fire Nation remains loyal to their leaders, dismissing your attempts to persuade them. As the battle rages on, Zhao's forces close in on the Spirit Oasis.");
                 updateEnergy(-40);
