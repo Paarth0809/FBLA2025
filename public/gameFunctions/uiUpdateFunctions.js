@@ -21,7 +21,7 @@ export function updateChoices(choices) {
             
             const img = document.createElement('img');
             img.src = choice.image;
-            img.style.width = "35%";
+            img.style.width = "30%";
             img.classList.add('individual-image');
             img.onclick = () => {
                 choice.action();

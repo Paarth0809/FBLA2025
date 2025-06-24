@@ -11,7 +11,8 @@ body {
 /* === Game Container === */
 #game-container {
     display: flex;
-    width: 80%;
+    width: 50%;
+
     margin: 30px auto;
     background-color: #ffffff;
     border-radius: 12px;
@@ -42,6 +43,7 @@ body {
     flex: 1;
     padding: 40px;
     text-align: center;
+ 
 }
 
 /* Headings */
@@ -108,7 +110,7 @@ button:hover {
 }
 
 #teamAvatarImage {
-    width: 70%;
+    width: 50%;
 }
 
 /* === Inventory and Stats === */
