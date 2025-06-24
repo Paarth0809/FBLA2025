@@ -4,6 +4,7 @@ import { updateSkill, addAlly, updateHealth, updateEnergy, updateReputation } fr
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
 export function startWaterChapter16() {
@@ -105,7 +106,7 @@ function handleWaterChapter16Choice(choice) {
     
     setTimeout(() => {
         updateChoices([
-            { text: "Continue to the Final Battle", action: startWaterFinalChapter }
+            { text: "Continue", action: () => { startWaterFinalChapter(); playVideo('waterCutscene17.mp4'); } }
         ]);
     }, 300);
 }

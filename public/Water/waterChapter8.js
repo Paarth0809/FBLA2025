@@ -2,12 +2,12 @@ import { startOpt1WaterChapter9, startOpt2WaterChapter9 } from './waterChapter9.
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly, } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
 
 export function startWaterChapter8() {
-    logGameState("Inside startWaterChapter8");
+  
     gameState.currentChapter = 8;
     displayWaterChapter8();
 }
@@ -41,7 +41,7 @@ function handleWaterChapter8Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt1WaterChapter9 }
+                    { text: "Continue", action: () => { startOpt1WaterChapter9(); playVideo('waterCutscene9.mp4'); } }
                 ]);
             }, 300);
             break;
@@ -61,7 +61,7 @@ function handleWaterChapter8Choice(choice) {
             }
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt2WaterChapter9 }
+                    { text: "Continue", action: () => { startOpt2WaterChapter9(); playVideo('waterCutscene9.mp4'); } }
                 ]);
             }, 300);
             break;

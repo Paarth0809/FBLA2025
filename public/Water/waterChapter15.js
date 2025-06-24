@@ -3,6 +3,7 @@ import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctio
 import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js'; // Fixed import path
 import { skillCheck } from '../gameFunctions/gameMechanics.js'; // Fixed import path
 import { gameState } from '../gameFunctions/gameState.js'; // Fixed import path
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
 export function startWaterChapter15() {
@@ -95,7 +96,7 @@ function handleWaterChapter15Choice(choice) {
     
     setTimeout(() => {
         updateChoices([
-            { text: "Continue to the Final Battle", action: startWaterChapter16 }
+            { text: "Start the Final Battle!", action: () => { startWaterChapter16(); playVideo('waterCutscene16.mp4'); } }
         ]);
     }, 300);
 }

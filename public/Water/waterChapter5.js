@@ -4,22 +4,23 @@ import { updateHealth, updateEnergy, updateSkill, updateReputation, addToInvento
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
 export function startOpt1WaterChapter5() {
-    logGameState("Inside startWaterChapter5");
+   
     gameState.currentChapter = 5;
     displayOpt1WaterChapter5();
 }
 
 export function startOpt2WaterChapter5() {
-    logGameState("Inside startWaterChapter5");
+  
     gameState.currentChapter = 5;
     displayOpt2WaterChapter5();
 }
 
 function displayOpt1WaterChapter5() {
-    logGameState("displayWaterChapter5");
+ 
     const chapter5Text = `
         <h2>Chapter 5: Wisdom of the Ancestors</h2>
         <p>With the discovery of the ancient waterbending artifacts, a renewed sense of hope fills our village. As I study the scrolls by moonlight, I can feel a connection to the waterbenders who came before me. The elders gather around, sharing stories of our tribe's glory days when waterbending masters protected our people.</p>
@@ -36,7 +37,7 @@ function displayOpt1WaterChapter5() {
 }
 
 function displayOpt2WaterChapter5() {
-    logGameState("displayWaterChapter5");
+   
     const chapter5Text = `
         <h2>Chapter 5: Shadows on the Ice</h2>
         <p>As I watch the village sleep, my waterbending training continues, but without the ancient knowledge, I feel like I'm fumbling in the dark. My brother Sokka has doubled the night watch, convinced that the Fire Nation scouts were only the beginning.</p>
@@ -105,7 +106,7 @@ function handleOpt2WaterChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt2WaterChapter6 }
+            { text: "Continue", action: () => { startOpt2WaterChapter6(); playVideo('waterCutscene6.mp4'); } }
         ]);
     }, 300);
 }
@@ -166,7 +167,7 @@ function handleOpt1WaterChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt1WaterChapter6 }
+            { text: "Continue", action: () => { startOpt1WaterChapter6(); playVideo('waterCutscene6.mp4'); } }
         ]);
     }, 300);
 }

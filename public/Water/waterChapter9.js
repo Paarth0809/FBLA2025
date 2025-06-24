@@ -3,6 +3,7 @@ import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctio
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
 export function startOpt1WaterChapter9() {
@@ -91,7 +92,7 @@ function handleOpt1WaterChapter9Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([{ text: "Continue", action: startOpt1WaterChapter10 }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt1WaterChapter10(); playVideo('waterCutscene10.mp4'); } }]);
     }, 300);
 }
 
@@ -138,6 +139,6 @@ function handleOpt2WaterChapter9Choice(choice) {
             break;
     }
     setTimeout(() => {
-        updateChoices([{ text: "Continue", action: startOpt2WaterChapter10 }]);
+        updateChoices([{ text: "Continue", action: () => { startOpt2WaterChapter10(); playVideo('waterCutscene10.mp4'); } }]);
     }, 300);
 }

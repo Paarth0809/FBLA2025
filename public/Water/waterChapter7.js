@@ -4,6 +4,7 @@ import { gameState } from '../gameFunctions/gameState.js';
 import { characters } from '../gameFunctions/characters.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js'; 
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
 export function startOpt1WaterChapter7() {
@@ -74,7 +75,7 @@ function handleOpt1WaterChapter7Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startWaterChapter8 }
+            { text: "Continue", action: () => { startWaterChapter8(); playVideo('waterCutscene8.mp4'); } }
         ]);
     }, 300);
 }
@@ -146,7 +147,7 @@ function handleOpt2WaterChapter7Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startWaterChapter8 }
+            { text: "Continue", action: () => { startWaterChapter8(); playVideo('waterCutscene8.mp4'); } }
         ]);
     }, 300);
 }

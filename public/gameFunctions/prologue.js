@@ -48,6 +48,6 @@ export function displayWaterPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startWaterChapter1 }
+        { text: "Continue", action: () => { startWaterChapter1(); playVideo('waterCutscene1.mp4'); } }
     ]);
 }

@@ -4,6 +4,7 @@ import { updateHealth, updateSkill, updateReputation } from '../gameFunctions/ut
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startWaterChapter1() {
     gameState.currentChapter = 1;
@@ -61,7 +62,7 @@ function displayWaterChapter1() {
     
         setTimeout(() => {
             updateChoices([
-                { text: "Continue", action: startWaterChapter2 }
+                { text: "Continue", action: () => { startWaterChapter2(); playVideo('waterCutscene2.mp4'); } }
             ]);
         }, 300);
     }

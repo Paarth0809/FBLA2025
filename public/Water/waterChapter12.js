@@ -3,6 +3,7 @@ import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctio
 import { updateSkill, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startWaterChapter12() {
     gameState.currentChapter = 12;
@@ -92,7 +93,7 @@ function handleWaterChapter12Choice(choice) {
         updateStoryText(document.getElementById('story-text').innerHTML + continuationText);
         
         updateChoices([
-            { text: "Continue", action: startWaterChapter13 }
+            { text: "Continue", action: () => { startWaterChapter13(); playVideo('waterCutscene13.mp4'); } }
         ]);
     }, 300);
 }

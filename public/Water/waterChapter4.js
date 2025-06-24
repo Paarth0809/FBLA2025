@@ -4,7 +4,7 @@ import { updateHealth, updateSkill, updateReputation, addAlly, addQuest } from '
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
-import { quests } from '../gameFunctions/quests.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startWaterChapter4() {
     gameState.currentChapter = 4;
@@ -35,13 +35,13 @@ function handleWaterChapter4Choice(choice) {
                 updateStoryText("The elders, seeing your respect for tradition and progress, agree to study the artifacts together. The tribe gains valuable insight into lost waterbending techniques.");
                 updateSkill('empathy', 2); // Bridging generations
                 updateReputation('southernWaterTribe', 2);
-                updateChoices([{ text: "Continue", action: startOpt1WaterChapter5 }]);
+                updateChoices([{ text: "Continue", action: () => { startOpt1WaterChapter5(); playVideo('waterCutscene5.mp4'); } }]);
             } else {
                 updateStoryText("Some elders fear that tampering with the past invites danger, they convinced you not to tamper with it. While the artifacts hold great wisdom, unrest stirs within the village.");
                 updateSkill('leadership', -1); // Caused division
                 updateHealth(-5);
                 updateReputation('southernWaterTribe', -2);
-                updateChoices([{ text: "Continue", action: startOpt2WaterChapter5 }]);
+                updateChoices([{ text: "Continue", action: () => { startOpt2WaterChapter5(); playVideo('waterCutscene5.mp4'); } }]);
             }
             break;
             
@@ -52,13 +52,13 @@ function handleWaterChapter4Choice(choice) {
             if (skillCheck('leadership', 14)) { // Changed from cunning
                 updateStoryText("The elders praise your restraint and offer to teach you traditional waterbending forms as a sign of trust.");
                 updateReputation('southernWaterTribe', 1);
-                updateChoices([{ text: "Continue", action: startOpt1WaterChapter5 }]);
+                updateChoices([{ text: "Continue", action: () => { startOpt1WaterChapter5(); playVideo('waterCutscene5.mp4'); } }]);
             } else {
                 updateStoryText("Some younger villagers question the decision, wondering if their ancestors' wisdom could have helped prepare for future threats. A quiet divide lingers in the tribe.");
                 updateSkill('leadership', -2); // Lost credibility
                 updateHealth(-5);
                 updateReputation('southernWaterTribe', -1);
-                updateChoices([{ text: "Continue", action: startOpt2WaterChapter5 }]);
+                updateChoices([{ text: "Continue", action: () => { startOpt2WaterChapter5(); playVideo('waterCutscene5.mp4'); } }]);
             }
             break;
     }

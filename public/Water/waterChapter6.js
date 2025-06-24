@@ -2,25 +2,25 @@ import { startOpt1WaterChapter7, startOpt2WaterChapter7 } from './waterChapter7.
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
 
 // Water code start
 export function startOpt1WaterChapter6() {
-    logGameState("Inside startWaterChapter6");
+   
     gameState.currentChapter = 6;
     displayOpt1WaterChapter6();
 }
 
 export function startOpt2WaterChapter6() {
-    logGameState("Inside startWaterChapter6");
+  
     gameState.currentChapter = 6;
     displayOpt2WaterChapter6();
 }
 
 function displayOpt1WaterChapter6() {
-    logGameState("displayWaterChapter6");
+  
     const chapter6Text = `
         <h2>Chapter 6: The Spirit's Test</h2>
         <p>As your small vessel glides over the moonlit waves, the glow of the Northern Lights flickers above. The spirits have been restless, and you feel their presence guiding you forward. The pull of an unseen force tugs at your very soul, urging you toward an island veiled in mist. What lies ahead is more than just a test of strength—it is a test of your very essence.</p>
@@ -33,7 +33,7 @@ function displayOpt1WaterChapter6() {
 }
 
 function displayOpt2WaterChapter6() {
-    logGameState("displayWaterChapter6");
+  
     const chapter6Text = `
         <h2>Chapter 6: The Fire Nation's Shadow</h2>
         <p>The night is unnervingly quiet as you awaken to the scent of smoke carried by the wind. The Fire Nation has left its mark nearby, and the embers of destruction glow ominously in the distance. There is no time to hesitate—their forces may still be lurking in the shadows, waiting to strike again.</p>
@@ -92,7 +92,7 @@ function handleOpt2WaterChapter6Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt2WaterChapter7 }
+            { text: "Continue", action: () => { startOpt2WaterChapter7(); playVideo('waterCutscene7.mp4'); } }
         ]);
     }, 300);
 }
@@ -122,7 +122,7 @@ function handleOpt1WaterChapter6Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt1WaterChapter7 }
+            { text: "Continue", action: () => { startOpt1WaterChapter7(); playVideo('waterCutscene7.mp4'); } }
         ]);
     }, 300);
 }

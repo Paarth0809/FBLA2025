@@ -21,7 +21,7 @@ export function updateChoices(choices) {
             
             const img = document.createElement('img');
             img.src = choice.image;
-            img.width = 250;
+            img.style.width = "35%";
             img.classList.add('individual-image');
             img.onclick = () => {
                 choice.action();
@@ -46,6 +46,7 @@ export function updateChoices(choices) {
             choicesContainer.appendChild(button);
             choicesContainer.style.visibility = 'visible';
             teamContainer.style.visibility = 'hidden';
+            teamContainer.style.width = '0px';
         }
     });
 }
