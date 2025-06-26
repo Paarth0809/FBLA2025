@@ -132,7 +132,7 @@ app.get('/logout', (req, res) => {
     if (err) {
       return res.status(500).send('Logout failed');
     }
-    res.redirect('/');
+    
   });
 });
 

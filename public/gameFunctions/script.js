@@ -145,3 +145,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.getElementById('logoutButton').addEventListener('click', function() {
+  console.log("Logout button clicked");
+  // Perform logout logic here, such as clearing session data and redirecting
+  // This is a placeholder function, replace with actual logout logic
+  // Clear the game state and redirect to the main menu or login page
+  fetch('/logout')
+    .then(response => {
+      if (response.ok) {
+        console.log("Logout successful");
+        localStorage.removeItem('gameState');
+        window.location.href = '/'; // Redirect to the main page or login page
+      } else {
+        console.error("Logout failed");
+      }
+    })
+    .catch(error => {
+      console.error("Error during logout:", error);
+    });
+  
+  startChooseElement();
+});

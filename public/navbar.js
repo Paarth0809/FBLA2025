@@ -26,7 +26,7 @@ async function updateNavbar() {
         
           <a class="links" href="../index.html">Home</a>
           <a class="links" href="dashboard.html">Account</a>
-          <a class="links" id="LogoutButton" href="/logout" >Log Out</a>
+          <a class="links"  id="logoutButton" href="#" >Log Out</a>
       `;
   } else {
     navbar.innerHTML = `
