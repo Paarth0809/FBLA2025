@@ -90,19 +90,15 @@ export function restartGame() {
 
     // Optionally, update UI to show the start screen
      localStorage.removeItem('gameState');
-     const video = document.getElementById('cutsceneVideo');
+     
 
     startGame();
 
-        if (video) {
-        video.pause();
-        video.currentTime = 0;
-        video.style.display = 'none'; // or video.remove() to remove from DOM
-    }
     updateCharacterInfo(); // Update character info display
     saveGame(); // Save the initial game state
     alert('Game restarted successfully.'); // Notify the user
     
+       
 }
 
 

@@ -1,8 +1,9 @@
 import { startWaterChapter13 } from './waterChapter13.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startWaterChapter12() {
@@ -34,52 +35,52 @@ function handleWaterChapter12Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You listen intently as the storyteller describes how you guided others during the battle. The weight of being seen as a leader—not just Aang's waterbending teacher—settles on your shoulders...");
-            updateSkill('leadership', 2); // Leadership reflection
+            updateSkillWithDifficulty('leadership', 2); // Leadership reflection
             if (skillCheck('wisdom', 16)) { // Changed from introspection
                 updateStoryText("In quiet meditation by the festival lanterns, you come to terms with your growing role. Your journey has transformed you from a girl seeking a teacher to a master others look to for guidance. This realization brings both clarity and resolve.");
-                updateReputation('waterTribe', 1);
-                updateSkill('diplomacy', 1); // Earned trust
+                updateReputationWithDifficulty('waterTribe', 1);
+                updateSkillWithDifficulty('diplomacy', 1); // Earned trust
             } else {
                 updateStoryText("The portrayal stirs conflicted feelings. Are you truly the leader they describe? The burden of others' expectations weighs heavily, and you wonder if you're ready to bear it.");
-                updateSkill('empathy', -1); // Self-doubt
+                updateSkillWithDifficulty('empathy', -1); // Self-doubt
             }
             break;
         case 2:
             updateStoryText("As the festival progresses, your mind returns to the critical moments during the siege—the lives you saved, and those you couldn't. The choices you made when facing both your personal demons and Admiral Zhao's forces...");
-            updateSkill('empathy', 3); // Emotional processing
+            updateSkillWithDifficulty('empathy', 3); // Emotional processing
             if (skillCheck('wisdom', 15)) {
                 updateStoryText("Through ceremonial water meditation, you find peace with your decisions. You understand now that protecting the Moon Spirit wasn't just about preserving waterbending, but about maintaining balance for all people—even those in the Fire Nation.");
-                updateReputation('earthKingdom', 1);
-                updateReputation('waterTribe', 1);
-                updateSkill('diplomacy', 2); // Balanced perspective
+                updateReputationWithDifficulty('earthKingdom', 1);
+                updateReputationWithDifficulty('waterTribe', 1);
+                updateSkillWithDifficulty('diplomacy', 2); // Balanced perspective
             } else {
                 updateStoryText("The weight of your choices remains heavy. Could you have saved Princess Yue? Could you have stopped Zhao sooner? Though unsettling, these questions strengthen your determination to face the challenges ahead with greater wisdom.");
-                updateSkill('combat', 1); // Resolve hardening
+                updateSkillWithDifficulty('combat', 1); // Resolve hardening
             }
             break;
         case 3:
             updateStoryText("After the storytelling, you gather with Aang, Sokka, and the others around a blue-flamed festival fire. You share your thoughts on how the tales portrayed your journey...");
-            updateSkill('diplomacy', 2); // Team communication
+            updateSkillWithDifficulty('diplomacy', 2); // Team communication
             if (skillCheck('leadership', 17)) { // Changed from communication
                 updateStoryText("The conversation becomes a healing experience. Sokka adds humor to balance the serious moments, while Aang shares his perspective on bearing the weight of others' expectations. By the fire's end, your bond as Team Avatar feels stronger than ever.");
-                updateReputation('teamAvatar', 2);
-                updateSkill('empathy', 1); // Strengthened bonds
+                updateReputationWithDifficulty('teamAvatar', 2);
+                updateSkillWithDifficulty('empathy', 1); // Strengthened bonds
             } else {
                 updateStoryText("Sokka's joking about the 'dramatic embellishments' in your portrayal leads to a tense moment when you snap back about his role. The conversation reveals lingering stress from the siege and the emotional toll it took on all of you.");
-                updateSkill('leadership', -1); // Team tension
+                updateSkillWithDifficulty('leadership', -1); // Team tension
             }
             break;
         case 4:
             updateStoryText("You participate in the Ice Flow Ritual, where participants channel their regrets and hopes into small ice sculptures that are set adrift under the moon's light...");
-            updateSkill('wisdom', 3); // Spiritual connection
+            updateSkillWithDifficulty('wisdom', 3); // Spiritual connection
             if (skillCheck('empathy', 18)) { // Changed from wisdom
                 updateStoryText("As you bend a small sculpture representing both your mother and Princess Yue, you feel a profound connection to water's dual nature—both destroyer and healer, both memory and renewal. This understanding deepens your bending in ways no combat training could provide.");
-                updateReputation('waterTribe', 1);
-                updateReputation('teamAvatar', 1);
-                updateSkill('combat', 1); // Enhanced control
+                updateReputationWithDifficulty('waterTribe', 1);
+                updateReputationWithDifficulty('teamAvatar', 1);
+                updateSkillWithDifficulty('combat', 1); // Enhanced control
             } else {
                 updateStoryText("Your ice sculpture repeatedly cracks as conflicting emotions—grief for your mother, concern for Aang's future, pride in your growing abilities—make it difficult to focus. Though frustrated, you recognize that mastering your inner tides is as important as mastering the water around you.");
-                updateSkill('wisdom', -1); // Inner conflict
+                updateSkillWithDifficulty('wisdom', -1); // Inner conflict
             }
             break;
     }

@@ -6,6 +6,7 @@ import { startAirChapter1 } from '../Air/airChapter1.js';
 import { startWaterChapter1 } from '../Water/waterChapter1.js';
 import { playVideo } from './cutscenes.js';
 import { startEarthChapter1 } from '../Earth/earthChapter1.js';
+import { gameState } from './gameState.js';
 
 // Displays the Earth Prologue
 export function displayEarthPrologue() {
@@ -22,13 +23,24 @@ export function displayEarthPrologue() {
 export function displayAirPrologue() {
     const prologueText = ` <h2>Prologue: Air</h2>
         <p>You are Aang, the last Airbender and the Avatar, destined to maintain balance in the world. After discovering your true identity as the Avatar, you flee from the pressure of your responsibilities, only to be caught in a storm and frozen in an iceberg for 100 years. When you awaken, the world has changed—the Air Nomads are gone, and the Fire Nation has plunged the world into war. Guided by your new friends, Katara and Sokka, you embark on a journey to master the elements, confront the Fire Nation, and restore peace, all while grappling with the weight of being the last hope for a broken world.</p>
+
+        Now, Choose your difficulty level!
     `;
+
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: () => { startAirChapter1(); playVideo('airCutscene1.mp4'); } }
+        { text: "Easy", action: () => { selectDifficulty("easy"); startAirChapter1(); playVideo('airCutscene1.mp4'); } },
+        { text: "Normal", action: () => { selectDifficulty("normal"); startAirChapter1(); playVideo('airCutscene1.mp4'); } },
+        { text: "Hard", action: () => { selectDifficulty("hard"); startAirChapter1(); playVideo('airCutscene1.mp4'); } },
     ]);
 
 }
+
+function selectDifficulty(level) {
+   gameState.difficulty = level;
+   updateStoryText(`Difficulty set to ${level}.`);
+}
+
 
 // Displays the Fire Prologue
 export function displayFirePrologue() {

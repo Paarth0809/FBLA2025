@@ -1,9 +1,10 @@
 import { startOpt1AirChapter5, startOpt2AirChapter5 } from './airChapter5.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { addAlly } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 
 // Air code start
@@ -30,7 +31,7 @@ function handleAirChapter4Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You train with the Kyoshi Warriors, learning valuable combat techniques from Suki.");
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('combat', 2);
             addAlly(characters.suki);
             if (skillCheck('combat', 5)) {
                 updateStoryText("Your skills improve rapidly, impressing Suki and earning the respect of the Kyoshi Warriors.");
@@ -40,11 +41,11 @@ function handleAirChapter4Choice(choice) {
             break;
         case 2:
             updateStoryText("You decide to stay hidden, avoiding unnecessary attention from both the villagers and potential threats.");
-            updateSkill('stealth', 1);
+            updateSkillWithDifficulty('stealth', 1);
             if (skillCheck('stealth', 4)) {
                 updateStoryText("Your caution pays off, allowing you to observe the island's defenses and gather useful information.");
-                updateSkill('wisdom', 1);
-                updateSkill('stealth', 1);
+                updateSkillWithDifficulty('wisdom', 1);
+                updateSkillWithDifficulty('stealth', 1);
             }
             updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter5(); playVideo('airCutscene5.mp4'); } }]);
             break;

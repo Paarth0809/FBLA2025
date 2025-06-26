@@ -1,9 +1,9 @@
 import { startFireChapter15 } from './fireChapter15.js';
 import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateEnergy, updateReputation, } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 //Fire code start
 export function startFireChapter14() {
@@ -33,44 +33,44 @@ function handleFireChapter14Choice(choice) {
             updateStoryText("You approach Uncle Iroh, heavy with the weight of your past, seeking his forgiveness...");
             if (skillCheck('empathy', 18)) {
                 updateStoryText("Iroh embraces you, his forgiveness immediate and unconditional, reinforcing the bond between you.");
-                updateSkill('wisdom', 2);
-                updateEnergy(20);
+                updateSkillWithDifficulty('wisdom', 2);
+                updateEnergyWithDifficulty(20);
                 (items.teaSet);
             } else {
                 updateStoryText("Iroh's forgiveness is given freely, but you still struggle internally to fully accept it.");
-                updateEnergy(10);
+                updateEnergyWithDifficulty(10);
             }
             break;
         case 2:
             updateStoryText("Together with the Order of the White Lotus, you strategize for the upcoming liberation of Ba Sing Se...");
             if (skillCheck('combat', 20)) {
                 updateStoryText("Your strategic insights prove invaluable, shaping the plan of attack.");
-                updateReputation('earthKingdom', 2);
+                updateReputationWithDifficulty('earthKingdom', 2);
             } else {
                 updateStoryText("While your contributions are earnest, the complexities of the battle plan are daunting.");
-                updateEnergy(-10);
+                updateEnergyWithDifficulty(-10);
             }
             break;
         case 3:
             updateStoryText("You take a moment to reflect on the long path that has led you here...");
             if (skillCheck('wisdom', 18)) {
                 updateStoryText("Your reflections fill you with a sense of peace and purpose.");
-                updateSkill('wisdom', 3);
-                updateEnergy(20);
+                updateSkillWithDifficulty('wisdom', 3);
+                updateEnergyWithDifficulty(20);
             } else {
                 updateStoryText("The reflection is bittersweet, filled with regrets but also a determination to make the future better.");
-                updateEnergy(5);
+                updateEnergyWithDifficulty(5);
             }
             break;
         case 4:
             updateStoryText("You focus on preparing yourself mentally and physically for the final battle...");
             if (skillCheck('combat', 20) && skillCheck('discipline', 18)) {
                 updateStoryText("You feel a surge of confidence in your firebending skills and your ability to lead.");
-                updateSkill('combat', 3);
-                updateEnergy(30);
+                updateSkillWithDifficulty('combat', 3);
+                updateEnergyWithDifficulty(30);
             } else {
                 updateStoryText("Despite your best efforts, nerves and doubt creep in.");
-                updateEnergy(-20);
+                updateEnergyWithDifficulty(-20);
             }
             break;
     }

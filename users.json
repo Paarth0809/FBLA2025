@@ -26,7 +26,8 @@
         "empathy": 0
       },
       "health": 100,
-      "energy": 100
+      "energy": 100,
+      "difficulty": "easy"
     }
   }
 ]

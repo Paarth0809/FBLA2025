@@ -1,8 +1,9 @@
 import { startWaterChapter14 } from './waterChapter14.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 
@@ -33,51 +34,51 @@ function handleWaterChapter13Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You channel the emotions stirred by the festival into your waterbending, refining your movements with newfound clarity...");
-            updateSkill('combat', 3); // Waterbending mastery
-            updateSkill('leadership', 1); // Discipline
+            updateSkillWithDifficulty('combat', 3); // Waterbending mastery
+            updateSkillWithDifficulty('leadership', 1); // Discipline
             if (skillCheck('wisdom', 18)) { // Changed from bending.water
                 updateStoryText("Your bending feels more fluid and precise, as if the stories of the past now guide your every motion.");
-                updateSkill('wisdom', 1); // Insightful growth
+                updateSkillWithDifficulty('wisdom', 1); // Insightful growth
             } else {
                 updateStoryText("Despite your efforts, lingering doubts cloud your focus, reminding you that true mastery takes time.");
-                updateSkill('empathy', -1); // Frustration
+                updateSkillWithDifficulty('empathy', -1); // Frustration
             }
             break;
         case 2:
             updateStoryText("You return to the village elders, hoping their wisdom will help you reconcile the burden of leadership with your personal struggles...");
-            updateSkill('wisdom', 3); // Seeking guidance
-            updateSkill('empathy', 2); // Emotional understanding
+            updateSkillWithDifficulty('wisdom', 3); // Seeking guidance
+            updateSkillWithDifficulty('empathy', 2); // Emotional understanding
             if (skillCheck('diplomacy', 18)) { // Changed from wisdom
                 updateStoryText("Their guidance reminds you that leadership is not about certainty but about carrying responsibility with humility and strength.");
-                updateSkill('leadership', 2); // Earned trust
+                updateSkillWithDifficulty('leadership', 2); // Earned trust
             } else {
                 updateStoryText("While their words are insightful, your path remains clouded by unanswered questions.");
-                updateSkill('wisdom', -1); // Uncertainty
+                updateSkillWithDifficulty('wisdom', -1); // Uncertainty
             }
             break;
         case 3:
             updateStoryText("Sitting by the dimming festival lanterns, you speak with your companions about the emotions stirred by the stories...");
-            updateSkill('diplomacy', 3); // Team communication
-            updateSkill('empathy', 2); // Emotional bonding
+            updateSkillWithDifficulty('diplomacy', 3); // Team communication
+            updateSkillWithDifficulty('empathy', 2); // Emotional bonding
             if (skillCheck('leadership', 17)) { // Changed from communication
                 updateStoryText("The night deepens as laughter and heartfelt confessions strengthen the bonds of your group, preparing you for what lies ahead.");
-                updateReputation('teamAvatar', 2);
-                updateSkill('leadership', 1); // Strengthened bonds
+                updateReputationWithDifficulty('teamAvatar', 2);
+                updateSkillWithDifficulty('leadership', 1); // Strengthened bonds
             } else {
                 updateStoryText("Though the conversation is meaningful, you sense unresolved tensions lingering beneath the surface.");
-                updateSkill('diplomacy', -1); // Team tension
+                updateSkillWithDifficulty('diplomacy', -1); // Team tension
             }
             break;
         case 4:
             updateStoryText("Drawn to the Spirit Oasis, you seek guidance on the path ahead, hoping for a vision that will bring clarity...");
-            updateSkill('wisdom', 2); // Spiritual insight
-            updateSkill('empathy', 1); // Emotional connection
+            updateSkillWithDifficulty('wisdom', 2); // Spiritual insight
+            updateSkillWithDifficulty('empathy', 1); // Emotional connection
             if (skillCheck('wisdom', 20)) { // Changed from spirituality
                 updateStoryText("The spirits grant you a vision—hazy yet profound—hinting at both dangers and unexpected allies in the battles to come.");
-                updateSkill('combat', 1); // Enhanced bending
+                updateSkillWithDifficulty('combat', 1); // Enhanced bending
             } else {
                 updateStoryText("The spirits remain silent, leaving you with only your own resolve to shape the future.");
-                updateSkill('wisdom', -1); // Missed insight
+                updateSkillWithDifficulty('wisdom', -1); // Missed insight
             }
             break;
     }

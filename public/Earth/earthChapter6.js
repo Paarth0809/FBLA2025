@@ -2,8 +2,9 @@
 
 import { startOpt1EarthChapter7,startOpt2EarthChapter7 } from './earthChapter7.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 export function startOpt1EarthChapter6() {
     gameState.currentChapter = 6;
@@ -54,8 +55,8 @@ function handleOpt1EarthChapter6Choice(choice) {
                 <p>You use your Earthbending skills to create massive sinkholes beneath the airship landing sites, crippling the fleet before it can take off. The Fire Nation is caught off guard, and the group celebrates your quick thinking.</p>
                 <p>However, the Fire Nation quickly repairs the damage, and the fleet is back in action within days.</p>
             `);
-            updateSkill('combat', 2); // Improves Earthbending skills
-            updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('combat', 2); // Improves Earthbending skills
+            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
             break;
 
         case 2:
@@ -63,8 +64,8 @@ function handleOpt1EarthChapter6Choice(choice) {
                 <p>You agree to support Sokka's plan to infiltrate the fleet. Together, you sneak aboard one of the airships and sabotage its engines, causing it to crash into the ocean.</p>
                 <p>The mission is a success, but the Fire Nation tightens security, making future attacks more difficult.</p>
             `);
-            updateSkill('stealth', 2); // Improves stealth for infiltration
-            updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('stealth', 2); // Improves stealth for infiltration
+            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
             break;
 
         case 3:
@@ -72,7 +73,7 @@ function handleOpt1EarthChapter6Choice(choice) {
                 <p>You create a diversion by causing a massive landslide near the fleet's base. The Fire Nation sends troops to investigate, leaving the airships vulnerable.</p>
                 <p>While the diversion works, the Fire Nation quickly realizes it's a trick and reinforces their defenses.</p>
             `);
-            updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
             break;
 
         case 4:
@@ -80,8 +81,8 @@ function handleOpt1EarthChapter6Choice(choice) {
                 <p>You scout the fleet for weaknesses, using your Earthbending to remain hidden. You discover that the airships are vulnerable to attacks on their fuel lines.</p>
                 <p>With this knowledge, the group plans a more effective attack.</p>
             `);
-            updateSkill('wisdom', 2); // Improves perception for scouting
-            updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('wisdom', 2); // Improves perception for scouting
+            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
             break;
     }
 
@@ -100,32 +101,32 @@ function handleOpt2EarthChapter6Choice(choice) {
                  <p>You travel to Ba Sing Se to meet the Earth King. However, you quickly realize that the city is under the control of the Dai Li, who are hiding the truth about the war from the Earth King.</p>
                 <p>You must navigate the city's politics to gain an audience with the Earth King.</p>
             `);
-            updateSkill('diplomacy', 2); 
-            updateReputation('earth.kingdom', 1); 
+            updateSkillWithDifficulty('diplomacy', 2); 
+            updateReputationWithDifficulty('earth.kingdom', 1); 
             break;
 
         case 2:
             updateStoryText(`
                  <p>You rally the scattered Earth Kingdom forces, traveling from village to village to unite them under a common cause. The people are inspired by your leadership and join the fight against the Fire Nation.</p>
             `);
-            updateSkill('leadership', 2); // Improves stealth for infiltration
-            updateReputation('earth.kingdom', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('leadership', 2); // Improves stealth for infiltration
+            updateReputationWithDifficulty('earth.kingdom', 1); // Increases reputation with Team Avatar
             break;
 
         case 3:
             updateStoryText(`
                <p>You seek out the Kyoshi Warriors, a group of skilled fighters who have defended their island for generations. They agree to join your cause, bringing their unique combat skills to the fight.</p>
             `);
-            updateSkill('combat', 2 ); // Increases reputation with Team Avatar
-            updateReputation('earth.kingdom', 1)
+            updateSkillWithDifficulty('combat', 2 ); // Increases reputation with Team Avatar
+            updateReputationWithDifficulty('earth.kingdom', 1)
             break;
 
         case 4:
             updateStoryText(`
                 <p>You train local villagers to defend themselves, teaching them basic Earthbending techniques and self-defense. While they are not as skilled as you, their confidence grows, and they are better prepared to protect their homes.</p>
             `);
-            updateSkill('leadership', 2); // Improves perception for scouting
-            updateReputation('earth.kingdom', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('leadership', 2); // Improves perception for scouting
+            updateReputationWithDifficulty('earth.kingdom', 1); // Increases reputation with Team Avatar
             break;
     }
 

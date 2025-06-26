@@ -2,8 +2,9 @@
 
 
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { startOpt1EarthChapter13, startOpt2EarthChapter13 } from './earthChapter13.js';
 
 export function startOpt1EarthChapter12() {
@@ -53,32 +54,32 @@ function handleOpt1EarthChapter12Choice(choice) {
             updateStoryText(`
                 <p>You lead the charge head-on, inspiring the team with your bravery. The Fire Nation forces are caught off guard, and the team gains an early advantage.</p>
             `);
-            updateSkill('leadership', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('leadership', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 2:
             updateStoryText(`
                 <p>You use stealth to infiltrate the Fire Nation, avoiding direct confrontation. The team successfully sabotages key Fire Nation assets.</p>
             `);
-            updateSkill('stealth', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('stealth', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 3:
             updateStoryText(`
                 <p>You coordinate a strategic retreat, ensuring the team survives to fight another day. The Fire Nation is left confused and disorganized.</p>
             `);
-            updateSkill('wisdom', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('wisdom', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 4:
             updateStoryText(`
                 <p>You focus on protecting the team, ensuring everyone makes it through the battle safely. The team's morale remains high despite the challenges.</p>
             `);
-            updateSkill('wisdom', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('wisdom', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
     }
 
@@ -97,24 +98,24 @@ function handleOpt2EarthChapter12Choice(choice) {
             updateStoryText(`
                 <p>You and Sokka negotiate with the Water Tribe, securing their support. The Water Tribe's warriors join the fight against the Fire Nation, bringing their powerful Waterbending skills to the team</p>
             `);
-            updateSkill('diplomacy', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('diplomacy', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 2:
             updateStoryText(`
                 <p>You rally additional Earth Kingdom troops, reinforcing your ranks with skilled Earthbenders and soldiers. The Earth Kingdom's commitment to the cause grows stronger.</p>
             `);
-            updateSkill('diplomacy', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('diplomacy', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 3:
             updateStoryText(`
                 <p>You reach out to Fire Nation defectors, convincing them to join your cause. Their insider knowledge and combat experience prove invaluable in the fight ahead.</p>
             `);
-            updateSkill('diplomacy', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('diplomacy', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
           
     }
     setTimeout(() => {

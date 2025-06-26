@@ -1,8 +1,9 @@
 import { startWaterChapter16 } from './waterChapter16.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js'; // Fixed import path
-import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js'; // Fixed import path
+ // Fixed import path
 import { skillCheck } from '../gameFunctions/gameMechanics.js'; // Fixed import path
-import { gameState } from '../gameFunctions/gameState.js'; // Fixed import path
+import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty} from '../gameFunctions/gameMechanics.js'; // Fixed import path
 import { playVideo } from '../gameFunctions/cutscenes.js';
 
 // Water code start
@@ -34,33 +35,33 @@ function handleWaterChapter15Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You channel the power of the full moon, unleashing a massive tidal wave against the Fire Nation fleet...");
-            if (skillCheck('bending.water', 22)) {
+            if (skillCheck('combat', 22)) {
                 updateStoryText("The sheer force of your attack devastates the enemy fleet, scattering their warships and turning the tide of battle.");
-                updateReputation('waterTribe', 5);
-                updateEnergy(30);
-                updateSkill('combat', 3); // Combat increases due to aggressive action
-                updateSkill('leadership', -2); // Leadership decreases as you act alone
+                updateReputationWithDifficulty('waterTribe', 5);
+                updateEnergyWithDifficulty(30);
+                updateSkillWithDifficulty('combat', 3); // Combat increases due to aggressive action
+                updateSkillWithDifficulty('leadership', -2); // Leadership decreases as you act alone
             } else {
                 updateStoryText("Despite your efforts, the Fire Nation's war machines hold firm, resisting the ocean's fury.");
-                updateHealth(-20);
-                updateSkill('combat', 1); // Combat still increases slightly
-                updateSkill('wisdom', -1); // Wisdom decreases as the plan fails
+                updateHealthWithDifficulty(-20);
+                updateSkillWithDifficulty('combat', 1); // Combat still increases slightly
+                updateSkillWithDifficulty('wisdom', -1); // Wisdom decreases as the plan fails
             }
             break;
             
         case 2:
             updateStoryText("You execute precise waterbending techniques, freezing and disrupting enemy formations with strategic strikes...");
-            if (skillCheck('strategy', 20) && skillCheck('bending.water', 20)) {
+            if (skillCheck('combat', 20) ) {
                 updateStoryText("Your mastery of waterbending allows you to immobilize entire sections of the enemy fleet, shifting the battle in your favor.");
-                updateEnergy(25);
-                updateReputation('waterTribe', 4);
-                updateSkill('combat', 2); // Combat increases
-                updateSkill('wisdom', 2); // Wisdom increases due to strategic thinking
+                updateEnergyWithDifficulty(25);
+                updateReputationWithDifficulty('waterTribe', 4);
+                updateSkillWithDifficulty('combat', 2); // Combat increases
+                updateSkillWithDifficulty('wisdom', 2); // Wisdom increases due to strategic thinking
             } else {
                 updateStoryText("Your attacks slow the enemy advance, but their overwhelming numbers continue to press forward.");
-                updateHealth(-25);
-                updateSkill('combat', 1); // Combat increases slightly
-                updateSkill('wisdom', -1); // Wisdom decreases as the plan fails
+                updateHealthWithDifficulty(-25);
+                updateSkillWithDifficulty('combat', 1); // Combat increases slightly
+                updateSkillWithDifficulty('wisdom', -1); // Wisdom decreases as the plan fails
             }
             break;
 
@@ -68,14 +69,14 @@ function handleWaterChapter15Choice(choice) {
             updateStoryText("You rally the warriors of the Water Tribe, organizing them for a coordinated counterattack...");
             if (skillCheck('leadership', 18)) {
                 updateStoryText("Your leadership inspires the warriors, and together, you mount a fierce defense, pushing back the Fire Nation's assault.");
-                updateReputation('waterTribe', 5);
-                updateSkill('leadership', 5); // Leadership increases significantly
-                updateSkill('diplomacy', 2); // Diplomacy increases as you unite the tribe
+                updateReputationWithDifficulty('waterTribe', 5);
+                updateSkillWithDifficulty('leadership', 5); // Leadership increases significantly
+                updateSkillWithDifficulty('diplomacy', 2); // Diplomacy increases as you unite the tribe
             } else {
                 updateStoryText("The Water Tribe fights bravely, but the Fire Nation's overwhelming force begins to take its toll.");
-                updateHealth(-30);
-                updateSkill('leadership', -2); // Leadership decreases as the plan fails
-                updateSkill('wisdom', -1); // Wisdom decreases
+                updateHealthWithDifficulty(-30);
+                updateSkillWithDifficulty('leadership', -2); // Leadership decreases as the plan fails
+                updateSkillWithDifficulty('wisdom', -1); // Wisdom decreases
             }
             break;
 
@@ -83,13 +84,13 @@ function handleWaterChapter15Choice(choice) {
             updateStoryText("You kneel in meditation, seeking guidance from the Moon Spirit as battle rages around you...");
             if (skillCheck('spirituality', 23)) {
                 updateStoryText("The Moon Spirit answers your call, filling you with a sacred power that enhances your waterbending beyond its natural limits.");
-                updateSkill('bending.spirit', 3);
-                updateSkill('wisdom', 4); // Wisdom increases due to spiritual insight
-                updateSkill('empathy', 3); // Empathy increases as you connect with the spirit
+                updateSkillWithDifficulty('bending.spirit', 3);
+                updateSkillWithDifficulty('wisdom', 4); // Wisdom increases due to spiritual insight
+                updateSkillWithDifficulty('empathy', 3); // Empathy increases as you connect with the spirit
             } else {
                 updateStoryText("The connection remains just out of reach, and while the moon enhances your bending, no divine intervention comes to aid the battle.");
-                updateEnergy(-15);
-                updateSkill('wisdom', -1); // Wisdom decreases as the plan fails
+                updateEnergyWithDifficulty(-15);
+                updateSkillWithDifficulty('wisdom', -1); // Wisdom decreases as the plan fails
             }
             break;
     }

@@ -1,8 +1,9 @@
 //Get imports
 
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { startEarthChapter11 } from './earthChapter11.js';
 
 export function startEarthChapter10() {
@@ -31,33 +32,33 @@ function handleEarthChapter10Choice(choice) {
             updateStoryText(`
                 <p>You decide to plan a direct assault on the Fire Nation. The team prepares for a risky but potentially decisive battle.</p>
             `);
-            updateSkill('leadership', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('leadership', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
             break;
 
         case 2:
             updateStoryText(`
                 <p>You decide to seek allies from other nations. The team embarks on a diplomatic mission to gather support.</p>
             `);
-            updateSkill('diplomacy', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('diplomacy', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
             break;
 
         case 3:
             updateStoryText(`
                 <p>You focus on gathering resources and supplies. The team ensures they are well-prepared for the upcoming battle.</p>
             `);
-            updateSkill('leadership', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('leadership', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
             break;
 
         case 4:
             updateStoryText(`
                 <p>You decide to train the team further in earthbending. The group hones their skills, preparing for the final confrontation.</p>
             `);
-            updateSkill('wisdom', 2);
-            updateSkill('combat', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('wisdom', 2);
+            updateSkillWithDifficulty('combat', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
             break;
     }
 

@@ -1,10 +1,11 @@
 import { startOpt1FireChapter5, startOpt2FireChapter5 } from './fireChapter5.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateHealth, updateSkill, updateReputation, addAlly, randomInt,  addQuest } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { quests } from '../gameFunctions/quests.js';
 
 //Fire code start
@@ -31,12 +32,12 @@ function handleFireChapter4Choice(choice) {
             updateStoryText("You admit your connection to the Blue Spirit, hoping to use this revelation as leverage to maintain control over your crew.");
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("Zhao, seeing value in your skills and daring, agrees to your terms but insists on your cooperation for the mission to the North Pole. Your crew remains under your command, for now.");
-                updateReputation('fireNation', 2);
+                updateReputationWithDifficulty('fireNation', 2);
                 updateChoices([{ text: "Continue", action: startOpt1FireChapter5 }]); // Option to continue after reading
             } else {
                 updateStoryText("Zhao is unimpressed by your attempt to negotiate. He takes a significant portion of your crew, leaving you understaffed for your mission. Zhao has other plans for you...");
-                updateHealth(-10);
-                updateReputation('fireNation', -2);
+                updateHealthWithDifficulty(-10);
+                updateReputationWithDifficulty('fireNation', -2);
                 updateChoices([{ text: "Continue", action: startOpt2FireChapter5 }]); // Option to continue after reading
             }
             break;
@@ -44,12 +45,12 @@ function handleFireChapter4Choice(choice) {
             updateStoryText("You deny any connection to the Blue Spirit, dismissing the sword as a mere collector's item.");
             if (skillCheck('stealth', 12)) {
                 updateStoryText("Zhao, though suspicious, cannot prove your lie. He decides to leave your crew be but warns you of the consequences of deception.");
-                updateReputation('fireNation', 1);
+                updateReputationWithDifficulty('fireNation', 1);
                 updateChoices([{ text: "Continue", action: startOpt1FireChapter5 }]); // Option to continue after reading
             } else {
                 updateStoryText("Zhao sees through your lies. Disappointed in your deceit, he commandeers part of your crew for his mission as a penalty.");
-                updateHealth(-5);
-                updateReputation('fireNation', -1);
+                updateHealthWithDifficulty(-5);
+                updateReputationWithDifficulty('fireNation', -1);
                 updateChoices([{ text: "Continue", action: startOpt2FireChapter5 }]); // Option to continue after reading
             }
             break;

@@ -1,10 +1,12 @@
 import { startAirChapter2 } from './airChapter2.js';
 import { updateStoryText, updateChoices, updateCharacterInfo } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import {  addAlly } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
+
 import { characters } from '../gameFunctions/characters.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 // Air code start
 export function startAirChapter1() {
@@ -56,31 +58,31 @@ function handleAirChapter1Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You joyfully show off your Airbending skills, impressing Katara but drawing Sokka's suspicion.");
-            updateSkill('combat', 1);
-            updateReputation('waterTribe', 1);
+            updateSkillWithDifficulty('combat', 1);
+            updateReputationWithDifficulty('waterTribe', 1);
 
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             //unnecessary and useless currently
             if (skillCheck('agility', 10)) {
                 updateStoryText("Your Airbending display amazes the tribe, earning their admiration.");
-                updateReputation('waterTribe', 2); 
+                updateReputationWithDifficulty('waterTribe', 2); 
             }
             break;
         case 2:
             updateStoryText("You ask about the world and the war, realizing the Air Nomads have been wiped out...");
-            updateSkill('wisdom', 2);
-            updateReputation('waterTribe', 2);
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('wisdom', 2);
+            updateReputationWithDifficulty('waterTribe', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             //unnecessary and useless currently
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("You connect the pieces of history quickly, realizing the gravity of your situation.");
-                updateSkill('wisdom', 2);
+                updateSkillWithDifficulty('wisdom', 2);
             }
             break;
         case 3:
             updateStoryText("You decide to keep your Avatar identity secret for now, avoiding unnecessary attention.");
-            updateSkill('stealth', 1);
-            updateSkill('wisdom', 1);
+            updateSkillWithDifficulty('stealth', 1);
+            updateSkillWithDifficulty('wisdom', 1);
             //unnecessary and useless currently
             if (skillCheck('stealth', 10)) {
                 updateStoryText("You successfully keep a low profile, but Katara remains curious about you.");
@@ -88,12 +90,12 @@ function handleAirChapter1Choice(choice) {
             break;
         case 4:
             updateStoryText("You focus on reconnecting with Appa, calming his nerves and regaining your own composure.");
-            updateSkill('wisdom', 1);
-            updateSkill('empathy', 3);
+            updateSkillWithDifficulty('wisdom', 1);
+            updateSkillWithDifficulty('empathy', 3);
             //unnecessary and useless currently
             if (skillCheck('animalHandling', 10)) {
                 updateStoryText("Appa fully trusts you, making him more responsive to your commands.");
-                updateSkill('animalHandling', 1);
+                updateSkillWithDifficulty('animalHandling', 1);
             }
             break;
     }

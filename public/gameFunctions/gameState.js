@@ -46,4 +46,6 @@ export let gameState = {
 
     // The current energy of the character (default value is 100)
     energy: 100,
+
+     difficulty: "normal",
 };

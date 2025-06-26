@@ -2,9 +2,10 @@
 
 import { startEarthChapter4 } from './earthChapter4.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck, combat } from '../gameFunctions/gameMechanics.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 
 
@@ -35,7 +36,7 @@ function handleEarthChapter3Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You spend a couple days at the village teaching them basic Earthbending moves. Thankful for your kindness, Mei Ling gifts you a healing herb!");
-            updateSkill('diplomacy', 1);
+            updateSkillWithDifficulty('diplomacy', 1);
             addToInventory('healingHerb');
             break;
 
@@ -53,12 +54,12 @@ function handleEarthChapter3Choice(choice) {
                     <p>You defeat Kang and his bandits! The village celebrates and crowns you their hero!</p>
                     <p>Your win against Kang sounds throughout the kingdom! Your reputation grows!</p>
                 `);
-                updateSkill('combat', 2);
-                updateReputation('Earth Kingdom', 2);
+                updateSkillWithDifficulty('combat', 2);
+                updateReputationWithDifficulty('Earth Kingdom', 2);
             } else {
                 updateStoryText("Despite your loss, the villagers are proud of your incredible bravery and are grateful you tried to stand up for them.");
-                updateSkill('combat', -1);
-                updateReputation('Earth Kingdom', -1); // Losing should decrease reputation
+                updateSkillWithDifficulty('combat', -1);
+                updateReputationWithDifficulty('Earth Kingdom', -1); // Losing should decrease reputation
             }
             break;
 
@@ -66,10 +67,10 @@ function handleEarthChapter3Choice(choice) {
             const negotiationSuccess = skillCheck('diplomacy', 10); // Add a skill check for negotiation
             if (negotiationSuccess) {
                 updateStoryText("After a tense negotiation, Kang agrees to leave the village alone if they promise to pay a yearly tax.");
-                updateSkill('diplomacy', 2);
+                updateSkillWithDifficulty('diplomacy', 2);
             } else {
                 updateStoryText("Your attempt to negotiate with Kang fails. He sees your diplomacy as a sign of weakness and attacks the village.");
-                updateSkill('diplomacy', -1);
+                updateSkillWithDifficulty('diplomacy', -1);
             }
             break;
     }

@@ -1,5 +1,6 @@
 import { updateStoryText, updateChoices, } from '../gameFunctions/uiUpdateFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { endGame } from '../gameFunctions/game.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js'; 
 

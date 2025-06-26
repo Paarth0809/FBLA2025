@@ -2,8 +2,9 @@
 
 // Get imports
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { startEarthChapter15 } from './earthChapter15.js'; // Import from the new file
 
 export function startOpt1EarthChapter14() {
@@ -52,29 +53,29 @@ function handleOpt1EarthChapter14Choice(choice) {
             updateStoryText(
                 "You decide to hold the line, inspiring the team with your determination. The Fire Nation's forces are relentless, but the team fights bravely. Your courage turns the tide, and the Fire Nation begins to retreat."
             );
-            updateSkill('combat', 3);
+            updateSkillWithDifficulty('combat', 3);
             break;
 
         case 2:
             updateStoryText(
                 "You lead a daring charge to break through the enemy lines. The team manages to create an opening, forcing the Fire Nation to fall back. The path to victory is now clear."
             );
-            updateSkill('combat', 1);
-            updateSkill('leadership', 3);
+            updateSkillWithDifficulty('combat', 1);
+            updateSkillWithDifficulty('leadership', 3);
             break;
 
         case 3:
             updateStoryText(
                 "You negotiate a temporary truce with the Fire Nation, buying the team time to regroup. The ceasefire allows you to plan a decisive counterattack, which catches the enemy off guard."
             );
-            updateSkill('diplomacy', 3);
+            updateSkillWithDifficulty('diplomacy', 3);
             break;
 
         case 4:
             updateStoryText(
                 "You send a message for help, and reinforcements arrive just in time. With fresh troops, the team pushes back the Fire Nation's forces, securing a hard-fought victory."
             );
-            updateSkill('wisdom', 3);
+            updateSkillWithDifficulty('wisdom', 3);
             break;
     }
 
@@ -91,16 +92,16 @@ function handleOpt2EarthChapter14Choice(choice) {
             updateStoryText(
                 "You lead a full-scale assault, overwhelming the Fire Nation's forces with the combined strength of your allies. The enemy begins to retreat."
             );
-            updateSkill('diplomacy', 3);
-            updateReputation('Team Avatar', 2);
+            updateSkillWithDifficulty('diplomacy', 3);
+            updateReputationWithDifficulty('Team Avatar', 2);
             break;
 
         case 2:
             updateStoryText(
                 "You focus on disrupting the Fire Nation's supply lines, cutting off their resources. The enemy is weakened, and their morale begins to falter."
             );
-            updateSkill('stealth', 3);
-            updateReputation('Team Avatar',)}
+            updateSkillWithDifficulty('stealth', 3);
+            updateReputationWithDifficulty('Team Avatar',)}
             setTimeout(() => {
                 updateChoices([
                     { text: "Continue", action: startEarthChapter15 }

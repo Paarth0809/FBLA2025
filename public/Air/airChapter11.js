@@ -2,7 +2,8 @@ import { startAirChapter12 } from './airChapter12.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 
@@ -53,49 +54,49 @@ function handleOpt1AirChapter11Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to search for the library, using your knowledge of the desert and Toph's earthbending skills to navigate the treacherous terrain.");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("After days of searching, you finally find the library, hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses, including their vulnerability to solar eclipses.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("The desert proves to be a formidable foe, and you become lost in the endless dunes. Sand worms attack, and you must fight to survive. Eventually, you stumble upon the library, but not without scars.");
             }
             break;
             
         case 2:
             updateStoryText("The spiritual connection you forged in the Spirit World guides your decision. Meditation reveals visions of a hidden oasis, where the library might be located.");
-            updateSkill('spirituality', 2);
+            updateSkillWithDifficulty('spirituality', 2);
             
             if (skillCheck('spirituality', 14)) {
                 updateStoryText("Your spiritual sensitivity allows you to interpret your vision with remarkable clarity. You lead your group to the oasis, where you find the library hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateEnergy(-10);
+                updateEnergyWithDifficulty(-10);
                 updateStoryText("The visions are cryptic and fragmented, leaving you to piece together their meaning through exhausting meditation sessions. You determine that the oasis is located somewhere in the desert, but the exact location remains unclear.");
             }
             break;
             
         case 3:
             updateStoryText("You decide to seek guidance directly from Avatar Roku. Finding a quiet meditation spot, you focus on connecting with your past life, hoping his centuries of wisdom will guide your search.");
-            updateSkill('spirituality', 3);
+            updateSkillWithDifficulty('spirituality', 3);
             
             if (skillCheck('spirituality', 16)) {
-                updateEnergy(10);
+                updateEnergyWithDifficulty(10);
                 updateStoryText("Roku appears before you with unexpected clarity. 'The library you seek is hidden behind a secret entrance,' he advises. 'Find the entrance, and you will find the knowledge you need to defeat the Fire Nation.' His guidance reinvigorates your spirit and gives you a clear direction.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Your connection with Roku is tenuous. Brief glimpses and fragmented wisdom are all you receive, taxing your energy. From what you gather, the library is located somewhere in the desert, but the exact location remains unclear.");
             }
             break;
             
         case 4:
             updateStoryText("You decide to split up to cover more ground, hoping to find the library more quickly.");
-            updateSkill('leadership', 2);
+            updateSkillWithDifficulty('leadership', 2);
             
             if (skillCheck('leadership', 12)) {
                 updateStoryText("Your group splits up, and you each search for the library. After days of searching, one of your group members returns with a map leading to the library. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateReputation('airNomads', -5);
+                updateReputationWithDifficulty('airNomads', -5);
                 updateStoryText("Your group becomes lost in the desert, and you must search for each other. Eventually, you reunite, but not without scars. You continue your search for the library, but the experience has left you shaken.");
             }
             break;
@@ -109,49 +110,49 @@ function handleOpt2AirChapter11Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to search for the library, using your knowledge of the desert and your friends' skills to navigate the treacherous terrain.");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("After days of searching, you finally find the library, hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses, including their vulnerability to solar eclipses.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("The desert proves to be a formidable foe, and you become lost in the endless dunes. Sand worms attack, and you must fight to survive. Eventually, you stumble upon the library, but not without scars.");
             }
             break;
             
         case 2:
             updateStoryText("The spiritual connection you forged in the Spirit World guides your decision. Meditation reveals visions of a hidden oasis, where the library might be located.");
-            updateSkill('spirituality', 2);
+            updateSkillWithDifficulty('spirituality', 2);
             
             if (skillCheck('spirituality', 14)) {
                 updateStoryText("Your spiritual sensitivity allows you to interpret your vision with remarkable clarity. You lead your group to the oasis, where you find the library hidden behind a secret entrance. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateEnergy(-10);
+                updateEnergyWithDifficulty(-10);
                 updateStoryText("The visions are cryptic and fragmented, leaving you to piece together their meaning through exhausting meditation sessions. You determine that the oasis is located somewhere in the desert, but the exact location remains unclear.");
             }
             break;
             
         case 3:
             updateStoryText("You decide to seek guidance directly from Avatar Roku. Finding a quiet meditation spot, you focus on connecting with your past life, hoping his centuries of wisdom will guide your search.");
-            updateSkill('spirituality', 3);
+            updateSkillWithDifficulty('spirituality', 3);
             
             if (skillCheck('spirituality', 16)) {
-                updateEnergy(10);
+                updateEnergyWithDifficulty(10);
                 updateStoryText("Roku appears before you with unexpected clarity. 'The library you seek is hidden behind a secret entrance,' he advises. 'Find the entrance, and you will find the knowledge you need to defeat the Fire Nation.' His guidance reinvigorates your spirit and gives you a clear direction.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Your connection with Roku is tenuous. Brief glimpses and fragmented wisdom are all you receive, taxing your energy. From what you gather, the library is located somewhere in the desert, but the exact location remains unclear.");
             }
             break;
             
         case 4:
             updateStoryText("You decide to split up to cover more ground, hoping to find the library more quickly.");
-            updateSkill('leadership', 2);
+            updateSkillWithDifficulty('leadership', 2);
             
             if (skillCheck('leadership', 12)) {
                 updateStoryText("Your group splits up, and you each search for the library. After days of searching, one of your group members returns with a map leading to the library. The ancient texts within hold the secrets of the Fire Nation's weaknesses.");
             } else {
-                updateReputation('airNomads', -5);
+                updateReputationWithDifficulty('airNomads', -5);
                 updateStoryText("Your group becomes lost in the desert, and you must search for each other. Eventually, you reunite, but not without scars. You continue your search for the library, but the experience has left you shaken.");
             }
             break;

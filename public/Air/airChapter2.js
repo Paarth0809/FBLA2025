@@ -1,10 +1,13 @@
 import { startAirChapter3 } from './airChapter3.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { addAlly } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
+
 import { characters } from '../gameFunctions/characters.js';
+
 
 // Air code start
 export function startAirChapter2() {
@@ -32,46 +35,46 @@ function handleAirChapter2Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You charge forward with Airbending, pushing back the raiders but revealing your Avatar identity.");
-            updateSkill('combat', 2);
-            updateReputation('fireNation', -2);
-            updateSkill('combat', 1);
+            updateSkillWithDifficulty('combat', 2);
+            updateReputationWithDifficulty('fireNation', -2);
+            updateSkillWithDifficulty('combat', 1);
             if (skillCheck('combat', 3)) {
                 updateStoryText("Your Airbending mastery overwhelms the raiders, forcing them to retreat!");
-                updateReputation('waterTribe', 2);
+                updateReputationWithDifficulty('waterTribe', 2);
             }
             break;
         case 2:
             updateStoryText("You prioritize the villagers' safety, guiding them away from danger while the battle rages on.");
-            updateSkill('leadership', 1);
-            updateSkill('wisdom', 1);
-            updateSkill('empathy', 1);
-            updateReputation('waterTribe', 2);
+            updateSkillWithDifficulty('leadership', 1);
+            updateSkillWithDifficulty('wisdom', 1);
+            updateSkillWithDifficulty('empathy', 1);
+            updateReputationWithDifficulty('waterTribe', 2);
             if (skillCheck('leadership', 10)) {
                 updateStoryText("Your leadership keeps everyone calm and orderly, ensuring a smooth evacuation.");
-                updateSkill('leadership', 2);
-                updateSkill('empathy', 1);
+                updateSkillWithDifficulty('leadership', 2);
+                updateSkillWithDifficulty('empathy', 1);
             }
             break;
         case 3:
             updateStoryText("You decide to stay hidden, avoiding direct conflict but missing an opportunity to help.");
-            updateSkill('stealth', 2);
-            updateSkill('leadership', -1);
-            updateSkill('diplomacy', 1);
+            updateSkillWithDifficulty('stealth', 2);
+            updateSkillWithDifficulty('leadership', -1);
+            updateSkillWithDifficulty('diplomacy', 1);
             if (skillCheck('stealth', 1)) {
                 updateStoryText("You remain completely undetected, gathering valuable intel about the raiders' plans.");
-                updateSkill('wisdom', 1);
+                updateSkillWithDifficulty('wisdom', 1);
             }
             break;
         case 4:
             updateStoryText("You work alongside Katara and Sokka, setting up defenses and fighting back strategically.");
-            updateSkill('stealth', 1);
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('stealth', 1);
+            updateSkillWithDifficulty('combat', 2);
         
             addAlly(characters.katara);
             addAlly(characters.sokka);
             if (skillCheck('stealth', 2)) {
                 updateStoryText("Your strategic planning gives the tribe an advantage, repelling the raiders with minimal losses.");
-                updateReputation('waterTribe', 2);
+                updateReputationWithDifficulty('waterTribe', 2);
             }
             break;
     }

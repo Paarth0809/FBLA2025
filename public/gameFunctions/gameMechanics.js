@@ -1,6 +1,7 @@
 import { randomInt } from './utilityFunctions.js';
 import { gameState } from './gameState.js';
-import { updateHealth, updateEnergy, updateSkill, removeFromInventory } from './utilityFunctions.js';
+import { updateSkill, updateReputation, updateHealth, updateEnergy } from './utilityFunctions.js';
+
 
 // Game Mechanics
 //checks if the skill is greater than or equal to the amount defined in the paramneter
@@ -41,11 +42,11 @@ export function combat(enemy) {
 
     if (playerHealth > 0) {
         console.log(`You defeated ${enemy.name}!`);
-        updateHealth(playerHealth - gameState.health);
+        updateHealthWithDifficulty(playerHealth - gameState.health);
         return true;
     } else {
         console.log(`You were defeated by ${enemy.name}.`);
-        updateHealth(5 - gameState.health); // Restore some health after defeat
+        updateHealthWithDifficulty(5 - gameState.health); // Restore some health after defeat
         return false;
     }
 }
@@ -53,23 +54,74 @@ export function combat(enemy) {
 export function useItem(item) {
     switch (item.name) {
         case "Healing Potion":
-            updateHealth(50);
+            updateHealthWithDifficulty(50);
             break;
         case "Energy Elixir":
-            updateEnergy(50);
+            updateEnergyWithDifficulty(50);
             break;
         case "Scroll of Wisdom":
             Object.keys(gameState.skills).forEach(skill => {
                 if (typeof gameState.skills[skill] === 'object') {
                     Object.keys(gameState.skills[skill]).forEach(subSkill => {
-                        updateSkill(`${skill}.${subSkill}`, 1);
+                        updateSkillWithDifficulty(`${skill}.${subSkill}`, 1);
                     });
                 } else {
-                    updateSkill(skill, 1);
+                    updateSkillWithDifficulty(skill, 1);
                 }
             });
             break;
         // Add more item effects here
     }
     removeFromInventory(item);
+}
+
+
+// ========== NEW FUNCTIONS FOR DIFFICULTY ==========
+
+
+// Changes the amount depending on difficulty
+// Hard mode makes you lose more and gain less
+// Easy mode does the opposite
+export function adjustAmountByDifficulty(amount) {
+   if (gameState.difficulty === "hard") {
+       // Lose 50% more or gain 50% less
+     
+           return Math.floor(amount * 0.5);
+    
+   } else if (gameState.difficulty === "easy") {
+       // Lose 50% less or gain 50% more
+      
+           return Math.floor(amount * 2);
+      
+   }
+   // Normal difficulty: no change
+   return amount;
+}
+
+
+//  updateHealthWithDifficulty w/ difficulty 
+export function updateHealthWithDifficulty(amount) {
+   const adjustedAmount = adjustAmountByDifficulty(amount);
+   updateHealth(adjustedAmount);
+}
+
+
+//  energy w/ difficulty
+export function updateEnergyWithDifficulty(amount) {
+   const adjustedAmount = adjustAmountByDifficulty(amount);
+   updateEnergy(adjustedAmount);
+}
+
+
+// skills w/ difficulty
+export function updateSkillWithDifficulty(skill, amount) {
+   const adjustedAmount = adjustAmountByDifficulty(amount);
+   updateSkill(skill, adjustedAmount);
+}
+
+
+// reputation w/ difficulty
+export function updateReputationWithDifficulty(faction, amount) {
+   const adjustedAmount = adjustAmountByDifficulty(amount);
+   updateReputation(faction, adjustedAmount);
 }

@@ -2,8 +2,9 @@
 
 import { startOpt1EarthChapter8, startOpt2EarthChapter8 } from './earthChapter8.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 export function startOpt1EarthChapter7() {
     gameState.currentChapter = 7;
@@ -53,8 +54,8 @@ function handleOpt1EarthChapter7Choice(choice) {
                 <p>You spend weeks perfecting Metalbending, developing new techniques and training Aang and the others. Your skills grow exponentially, and you become a master of this new art.</p>
                 <p>When the time comes to face the Fire Nation, you're ready to unleash your full power.</p>
             `);
-            updateSkill('wisdom', 3); 
-            updateReputation('Team Avatar', 1); 
+            updateSkillWithDifficulty('wisdom', 3); 
+            updateReputationWithDifficulty('Team Avatar', 1); 
             break;
 
         case 2:
@@ -62,24 +63,24 @@ function handleOpt1EarthChapter7Choice(choice) {
                 <p>You immediately use Metalbending to strike back at the Fire Nation, sabotaging their machinery and weapons. The Fire Nation is caught off guard, and your attacks cause significant damage.</p>
                 <p>However, your lack of mastery limits your effectiveness, and the Fire Nation begins developing countermeasures.</p>
             `);
-            updateSkill('combat', 1); 
-            updateReputation('Team Avatar', 1); 
+            updateSkillWithDifficulty('combat', 1); 
+            updateReputationWithDifficulty('Team Avatar', 1); 
             break;
 
         case 3:
             updateStoryText(`
                 <p>You teach Metalbending to Aang and the others, sharing your knowledge and helping them master the technique. The group becomes stronger and more versatile in battle.</p>
             `);
-            updateSkill('leadership', 1); 
-            updateReputation('Team Avatar', 1); 
+            updateSkillWithDifficulty('leadership', 1); 
+            updateReputationWithDifficulty('Team Avatar', 1); 
             break;
 
         case 4:
             updateStoryText(`
                 <p>You experiment with Metalbending, creating new techniques like metal armor and weaponry. Your innovations give the group a significant advantage in battle.</p>
             `);
-            updateSkill('wisdom', 1); 
-            updateReputation('Team Avatar', 1); 
+            updateSkillWithDifficulty('wisdom', 1); 
+            updateReputationWithDifficulty('Team Avatar', 1); 
             break;
            
             
@@ -96,32 +97,32 @@ function handleOpt1EarthChapter7Choice(choice) {
                 updateStoryText(`
                      <p>You gather evidence of the Dai Li's deception, uncovering documents and testimonies that prove their involvement in hiding the war from the Earth King. When presented with the evidence, the Earth King is shocked and agrees to join the fight.</p>
                 `);
-                updateSkill('wisdom', 3); // Improves Metalbending skills
-                updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+                updateSkillWithDifficulty('wisdom', 3); // Improves Metalbending skills
+                updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
                 break;
     
             case 2:
                 updateStoryText(`
                      <p>You confront Long Feng directly, challenging his authority and demanding that he reveal the truth to the Earth King. Long Feng tries to silence you, but your determination forces him to back down.</p>
                 `);
-                updateSkill('combat', 1); 
-                updateReputation('Team Avatar', 1); 
+                updateSkillWithDifficulty('combat', 1); 
+                updateReputationWithDifficulty('Team Avatar', 1); 
                 break;
     
             case 3:
                 updateStoryText(`
                      <p>You seek help from the city's underground resistance, a group of citizens who have been fighting against the Dai Li's oppression. Together, you expose the truth to the Earth King and gain his support.</p>
                 `);
-                updateSkill('leadership', 1); 
-                updateReputation('Team Avatar', 1); 
+                updateSkillWithDifficulty('leadership', 1); 
+                updateReputationWithDifficulty('Team Avatar', 1); 
                 break;
     
             case 4:
                 updateStoryText(`
                    <p>You use your diplomatic skills to sway the Earth King, presenting a compelling argument about the importance of joining the fight. The Earth King is convinced and agrees to support your cause.</p>
                 `);
-                updateSkill('diplomacy', 1); 
-                updateReputation('Team Avatar', 1); 
+                updateSkillWithDifficulty('diplomacy', 1); 
+                updateReputationWithDifficulty('Team Avatar', 1); 
                 break;
               
         }

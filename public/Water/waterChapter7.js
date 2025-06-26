@@ -1,6 +1,7 @@
 import { startWaterChapter8 } from './waterChapter8.js';
-import { updateHealth, updateSkill, updateReputation,addAlly, randomInt, updateEnergy} from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js'; 
@@ -30,45 +31,45 @@ function handleOpt1WaterChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You close your eyes, reaching out to the spirits of the Moon and Ocean. The rhythmic crash of the waves soothes your mind, and you feel a deep connection to the balance they represent.");
-            updateSkill('spirituality', 2);
+            updateSkillWithDifficulty('spirituality', 2);
             if (skillCheck('spirituality', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("A vision of Princess Yue appears before you, her voice a whisper on the wind, guiding you toward inner peace and understanding.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The spirits remain silent, and doubt lingers in your heart as you struggle to find clarity.");
             }
             break;
         case 2:
             updateStoryText("You seek out Master Pakku, hoping his wisdom will illuminate the right path. The elders gather as you present your concerns about the future of the Water Tribe.");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             if (skillCheck('wisdom', 14)) {
-                updateHealth(10);
+                updateHealthWithDifficulty(10);
                 updateStoryText("Pakku nods approvingly, sharing tales of past wars and victories, helping you see the bigger picture.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("Though the elders offer advice, their rigid adherence to tradition leaves you feeling constrained and unsure.");
             }
             break;
         case 3:
             updateStoryText("You decide to break free from tradition, forging your own path. The Water Tribe has rules, but the world demands change.");
-            updateSkill('determination', 2);
+            updateSkillWithDifficulty('determination', 2);
             if (skillCheck('determination', 13)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("With firm resolve, you step beyond the expectations placed upon you, ready to carve out your own future.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Doubt creeps in as the weight of your decisions begins to take its toll.");
             }
             break;
         case 4:
             updateStoryText("Before the Water Tribe's leaders, you make a stand—tradition has its place, but change is necessary for survival.");
-            updateSkill('persuasion', 2);
+            updateSkillWithDifficulty('persuasion', 2);
             if (skillCheck('persuasion', 15)) {
-                updateReputation('waterTribe', 10);
+                updateReputationWithDifficulty('waterTribe', 10);
                 updateStoryText("Your words spark discussions of reform, inspiring hope for a future where the Water Tribe can thrive alongside the other nations.");
             } else {
-                updateReputation('waterTribe', -10);
+                updateReputationWithDifficulty('waterTribe', -10);
                 updateStoryText("Many elders dismiss your ideas, unwilling to break from centuries-old customs.");
             }
             break;
@@ -103,43 +104,43 @@ function handleOpt2WaterChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You argue for unity between the nations, knowing the Fire Nation's strength can only be matched if the world stands together.");
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             if (skillCheck('diplomacy', 14)) {
-                updateReputation('waterTribe', 15);
+                updateReputationWithDifficulty('waterTribe', 15);
                 updateStoryText("Your efforts lead to envoys being sent to the Earth Kingdom and surviving Air Nomads, forging the first steps of a united resistance.");
             } else {
-                updateReputation('waterTribe', -5);
+                updateReputationWithDifficulty('waterTribe', -5);
                 updateStoryText("Despite your pleas, skepticism remains, and few are willing to commit to an alliance.");
             }
             break;
         case 2:
             updateStoryText("You push for increased defenses, recognizing that the Water Tribe must be prepared for the Fire Nation's return.");
-            updateSkill('strategy', 2);
-            if (skillCheck('strategy', 13)) {
-                updateEnergy(10);
+            updateSkillWithDifficulty('wisdom', 2);
+            if (skillCheck('wisdom', 13)) {
+                updateEnergyWithDifficulty(10);
                 updateStoryText("New training programs and defenses are implemented, ensuring the tribe's survival.");
             } else {
-                updateEnergy(-5);
+                updateEnergyWithDifficulty(-5);
                 updateStoryText("Resources are stretched thin, and opposition from traditionalists slows your plans.");
             }
             break;
         case 3:
             updateStoryText("You search for ancient waterbending knowledge, hoping to uncover lost techniques.");
-            updateSkill('waterbending', 3);
+            updateSkillWithDifficulty('waterbending', 3);
             if (skillCheck('waterbending', 15)) {
                 updateStoryText("You uncover forgotten scrolls detailing powerful techniques once lost to time.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("Your search proves dangerous, leaving you empty-handed and wounded.");
             }
             break;
         case 4:
             updateStoryText("You train young waterbenders, ensuring they are ready for the battles ahead.");
-            updateSkill('teaching', 2);
+            updateSkillWithDifficulty('teaching', 2);
             if (skillCheck('teaching', 12)) {
                 updateStoryText("Your students flourish, and a particularly gifted student shows immense potential.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Training proves more difficult than expected, testing your patience.");
             }
             break;

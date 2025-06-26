@@ -1,7 +1,8 @@
 import { startAirChapter8 } from './airChapter8.js';
-import { updateHealth, updateSkill, updateReputation, addAlly, randomInt, updateEnergy } from '../gameFunctions/utilityFunctions.js';
+
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
@@ -53,19 +54,19 @@ function handleOpt1AirChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Aang agrees to help Jet, but remains vigilant to avoid unnecessary harm. Their careful approach minimizes casualties, but the moral dilemma weighs heavily on Aang.");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             break;
         case 2:
             updateStoryText("Aang persuades Jet to consider the consequences of his actions, advocating for a solution that doesn't harm innocents. Jet is reluctantly convinced, showing a new respect for Aang.");
-            updateReputation('airNomads', 5);
+            updateReputationWithDifficulty('airNomads', 5);
             break;
         case 3:
             updateStoryText("Choosing to be cautious, Aang and his friends scout the encampment, discovering that civilians are present. They manage to thwart Jet's plan, saving innocent lives.");
-            updateSkill('stealth', 2);
+            updateSkillWithDifficulty('stealth', 2);
             break;
         case 4:
             updateStoryText("Aang decides Jet's aggressive tactics are too risky and chooses to leave, focusing on their mission to master the elements. Jet is disappointed, but Aang knows it's the right decision.");
-            updateReputation('airNomads', -5);
+            updateReputationWithDifficulty('airNomads', -5);
             break;
     }
     setTimeout(() => {
@@ -77,45 +78,45 @@ function handleOpt2AirChapter7Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Aang organizes a peaceful demonstration, showing the strength of non-violent resistance and the power of united voices.");
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             if (skillCheck('diplomacy', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("The demonstration inspires change, earning respect and support from both allies and some within the Fire Nation.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The peaceful protest faces resistance, but Aang's commitment to non-violence prevents escalation.");
             }
             break;
         case 2:
             updateStoryText("Aang decides to sabotage Fire Nation supplies using stealth, ensuring no harm comes to anyone.");
-            updateSkill('stealth', 2);
+            updateSkillWithDifficulty('stealth', 2);
             if (skillCheck('stealth', 14)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("The plan is executed perfectly, causing confusion among the Fire Nation ranks without casualties.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The sabotage attracts unwanted attention, yet Aang's quick thinking prevents any harm.");
             }
             break;
         case 3:
             updateStoryText("Aang leads a strategic diversion to free captured villagers, showcasing his leadership and tactical acumen.");
-            updateSkill('leadership', 2);
+            updateSkillWithDifficulty('leadership', 2);
             if (skillCheck('leadership', 13)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("The operation is a success, demonstrating Aang's ability to lead and inspire courage in others.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The diversion almost fails, but Aang's resolve strengthens his team, preventing disaster.");
             }
             break;
         case 4:
             updateStoryText("Aang uses a display of airbending to intimidate the Fire Nation soldiers, proving that power can be used to protect without causing harm.");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             if (skillCheck('wisdom', 15)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("The soldiers retreat, awed by Aang's power and his choice to use it for peace rather than violence.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("While the attempt does not go as planned, Aang's wisdom ensures no lives are lost.");
             }
             break;

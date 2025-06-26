@@ -1,8 +1,9 @@
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { endGame } from '../gameFunctions/game.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-import { updateSkill } from '../gameFunctions/utilityFunctions.js'; // Use updateSkill instead of updateSkill
+
 
 // Water code start
 export function startWaterFinalChapter() {
@@ -37,13 +38,13 @@ function handleWaterFinalChapterChoice(choice) {
             "the wisdom of the Water Tribe becomes a beacon of hope for all. The journey ahead is long, but with " +
             "your leadership and compassion, the world begins to heal.");
             
-            // Skill updates for the final choice using updateSkill
-            updateSkill('wisdom', 5); // Wisdom increases as the player reflects on their journey
-            updateSkill('empathy', 4); // Empathy increases as the player focuses on healing
-            updateSkill('leadership', 3); // Leadership increases as the player guides others
-            updateSkill('diplomacy', 3); // Diplomacy increases as the player builds bridges between nations
-            updateSkill('combat', -2); // Combat decreases as the focus shifts from war to peace
-            updateSkill('stealth', -1); // Stealth decreases as the player embraces openness and unity
+            // Skill updates for the final choice using updateSkillWithDifficulty
+            updateSkillWithDifficulty('wisdom', 5); // Wisdom increases as the player reflects on their journey
+            updateSkillWithDifficulty('empathy', 4); // Empathy increases as the player focuses on healing
+            updateSkillWithDifficulty('leadership', 3); // Leadership increases as the player guides others
+            updateSkillWithDifficulty('diplomacy', 3); // Diplomacy increases as the player builds bridges between nations
+            updateSkillWithDifficulty('combat', -2); // Combat decreases as the focus shifts from war to peace
+            updateSkillWithDifficulty('stealth', -1); // Stealth decreases as the player embraces openness and unity
 
             // End the game
             setTimeout(() => {

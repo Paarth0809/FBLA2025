@@ -2,8 +2,9 @@
 
 import { startEarthChapter3 } from './earthChapter3.js'; 
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, addToInventory } from '../gameFunctions/utilityFunctions.js'; 
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 
 
@@ -32,18 +33,18 @@ function handleEarthChapter2Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("The crowd cheers! After a tough fight that lasted a while, you emerge victorious!");
-            updateSkill('combat', 2); 
+            updateSkillWithDifficulty('combat', 2); 
             addToInventory('earthArtifact'); 
             break;
 
         case 2:
             updateStoryText("The crowd laughs as you leave, and taunts fly all around you. Discouraged, you run out quickly.");
-            updateSkill('diplomacy', -1); 
+            updateSkillWithDifficulty('diplomacy', -1); 
             break;
 
         case 3:
             updateStoryText("The plan backfires! Xin Fu gets angry, and his muscles flex. You quickly realize taunting him wasn't the best idea and lose.");
-            updateSkill('diplomacy', -1); 
+            updateSkillWithDifficulty('diplomacy', -1); 
             break;
        
 

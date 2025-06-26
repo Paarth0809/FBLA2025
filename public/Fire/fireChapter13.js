@@ -1,9 +1,10 @@
 import { startFireChapter14 } from './fireChapter14.js';
 import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, addAlly, updateHealth, updateEnergy, updateReputation, randomInt } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 
 //Fire code start
@@ -33,8 +34,8 @@ function handleFireChapter13Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You spend your time strategizing and honing your firebending, ensuring you're prepared for the battle against Ozai...");
-            updateSkill('wisdom', 3);
-            updateSkill('.combat', 2);
+            updateSkillWithDifficulty('wisdom', 3);
+            updateSkillWithDifficulty('.combat', 2);
             if (skillCheck('combat', 20)) {
                 updateStoryText("Your intense preparation pays off, leaving you feeling ready and capable to face your father, both in skill and resolve.");
             } else {
@@ -43,7 +44,7 @@ function handleFireChapter13Choice(choice) {
             break;
         case 2:
             updateStoryText("In quiet moments, you reflect on the winding path that led you to this point, recognizing the growth and change within you...");
-            updateSkill('wisdom', 3);
+            updateSkillWithDifficulty('wisdom', 3);
             if (skillCheck('wisdom', 18)) {
                 updateStoryText("Your reflections strengthen your resolve and clarity of purpose, reinforcing your commitment to your new path and the battle ahead.");
             } else {
@@ -52,20 +53,20 @@ function handleFireChapter13Choice(choice) {
             break;
         case 3:
             updateStoryText("Understanding the importance of unity, you rally your friends and allies, emphasizing the strength found in togetherness...");
-            updateSkill('leadership', 3);
+            updateSkillWithDifficulty('leadership', 3);
             if (skillCheck('leadership', 19)) {
                 updateStoryText("Your leadership inspires confidence and unity among your allies, bolstering the group's morale as you prepare for the final showdown.");
-                updateReputation('teamAvatar', 2);
+                updateReputationWithDifficulty('teamAvatar', 2);
             } else {
                 updateStoryText("While your intentions are clear, rallying everyone proves more challenging than expected. Still, you manage to instill a sense of shared purpose.");
             }
             break;
         case 4:
             updateStoryText("Seeking guidance, you turn to Uncle Iroh, whose wisdom has always served as a beacon in your darkest times...");
-            updateSkill('wisdom', 2);
+            updateSkillWithDifficulty('wisdom', 2);
             if (skillCheck('wisdom', 20)) {
                 updateStoryText("Iroh's advice resonates deeply, offering clarity and courage as you prepare to face what may be your greatest challenge.");
-                updateSkill('combat', 1); // Reflecting the emotional and mental preparation for the confrontation
+                updateSkillWithDifficulty('combat', 1); // Reflecting the emotional and mental preparation for the confrontation
             } else {
                 updateStoryText("While always comforting, Iroh's words leave you with more questions about your path and the future. You wonder if you're truly ready.");
             }

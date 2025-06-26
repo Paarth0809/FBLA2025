@@ -1,10 +1,11 @@
 import { startOpt1WaterChapter7, startOpt2WaterChapter7 } from './waterChapter7.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import {  addAlly  } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 // Water code start
 export function startOpt1WaterChapter6() {
@@ -52,40 +53,40 @@ function handleOpt2WaterChapter6Choice(choice) {
         case 1:
             updateStoryText("You carefully search the charred remains, looking for any signs of life.");
             if (skillCheck('wisdom', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("Among the wreckage, you find a wounded villager who reveals vital information about the Fire Nation's movements.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The search yields little but ashes and despair, deepening the weight on your heart.");
             }
             break;
         case 2:
             updateStoryText("You rally your allies and reinforce your position, determined to stand your ground.");
             if (skillCheck('combat', 14)) {
-                updateReputation('waterTribe', 3);
+                updateReputationWithDifficulty('waterTribe', 3);
                 updateStoryText("Your preparations pay off, and when the Fire Nation strikes, you repel their forces with strategic precision.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("Despite your efforts, the Fire Nation's attack is overwhelming, forcing you into a desperate retreat.");
             }
             break;
         case 3:
             updateStoryText("Fueled by determination, you follow the Fire Nation's tracks, preparing for a confrontation.");
             if (skillCheck('stealth', 10)) {
-                updateSkill('stealth', 1);
+                updateSkillWithDifficulty('stealth', 1);
                 updateStoryText("You remain undetected as you observe their camp, gathering valuable intelligence.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("A misstep gives away your position, and you barely escape with your life.");
             }
             break;
         case 4:
             updateStoryText("You seek counsel from the village elders, hoping to gain insight on the Fire Nation's plans.");
             if (skillCheck('wisdom', 14)) {
-                updateHealth(10);
+                updateHealthWithDifficulty(10);
                 updateStoryText("Their words offer you knowledge of an ancient prophecy, warning of greater dangers ahead.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Their stories are cryptic, leaving you with more questions than answers.");
             }
             break;
@@ -102,20 +103,20 @@ function handleOpt1WaterChapter6Choice(choice) {
         case 1:
             updateStoryText("You step onto the misty island, feeling the spirits' energy surge through you.");
             if (skillCheck('bending', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("A spirit guide emerges, bestowing you with knowledge of an ancient waterbending technique.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The spirits remain silent, their test proving more difficult than expected.");
             }
             break;
         case 2:
             updateStoryText("Fear grips your heart as you turn back, unwilling to face the unknown.");
             if (skillCheck('leadership', 10)) {
-                updateReputation('waterTribe', 2);
+                updateReputationWithDifficulty('waterTribe', 2);
                 updateStoryText("Your choice reassures your allies, who trust your judgment in seeking a safer route.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Doubt festers among your group, as some believe you are running from your destiny.");
             }
             break;

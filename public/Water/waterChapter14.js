@@ -1,8 +1,9 @@
 import { startWaterChapter15 } from './waterChapter15.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startWaterChapter14() {
@@ -31,57 +32,57 @@ function handleWaterChapter14Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You approach Master Pakku, eager to learn from his wisdom and solidify your place as a master waterbender...");
-            updateSkill('wisdom', 2); // Seeking guidance
-            updateSkill('leadership', 1); // Discipline
+            updateSkillWithDifficulty('wisdom', 2); // Seeking guidance
+            updateSkillWithDifficulty('leadership', 1); // Discipline
             if (skillCheck('diplomacy', 18)) { // Changed from wisdom
                 updateStoryText("Pakku acknowledges your growth and imparts invaluable teachings, reinforcing the balance between discipline and intuition in bending.");
-                updateSkill('combat', 1); // Enhanced bending
-                updateEnergy(20);
+                updateSkillWithDifficulty('combat', 1); // Enhanced bending
+                updateEnergyWithDifficulty(20);
             } else {
                 updateStoryText("Though Pakku's teachings are profound, fully grasping them requires deeper self-reflection.");
-                updateEnergy(10);
-                updateSkill('wisdom', -1); // Missed insight
+                updateEnergyWithDifficulty(10);
+                updateSkillWithDifficulty('wisdom', -1); // Missed insight
             }
             break;
         case 2:
             updateStoryText("Determined to push past your limits, you commit to rigorous training under the frozen waterfalls and shifting ice flows...");
-            updateSkill('combat', 3); // Waterbending mastery
-            updateSkill('leadership', 2); // Discipline
+            updateSkillWithDifficulty('combat', 3); // Waterbending mastery
+            updateSkillWithDifficulty('leadership', 2); // Discipline
             if (skillCheck('wisdom', 18)) { // Changed from bending.water
                 updateStoryText("Through relentless practice, your movements become more fluid, and your connection to waterbending reaches new heights.");
-                updateEnergy(30);
-                updateSkill('wisdom', 1); // Insightful growth
+                updateEnergyWithDifficulty(30);
+                updateSkillWithDifficulty('wisdom', 1); // Insightful growth
             } else {
                 updateStoryText("Despite your dedication, the harsh training takes its toll, reminding you that true mastery comes with time.");
-                updateEnergy(-20);
-                updateSkill('empathy', -1); // Frustration
+                updateEnergyWithDifficulty(-20);
+                updateSkillWithDifficulty('empathy', -1); // Frustration
             }
             break;
         case 3:
             updateStoryText("As the cold wind sweeps through the village, you find a quiet place to reflect on how far you've come...");
-            updateSkill('wisdom', 3); // Self-reflection
-            updateSkill('empathy', 2); // Emotional understanding
+            updateSkillWithDifficulty('wisdom', 3); // Self-reflection
+            updateSkillWithDifficulty('empathy', 2); // Emotional understanding
             if (skillCheck('diplomacy', 18)) { // Changed from wisdom
                 updateStoryText("With each memory—every challenge, every victory—you feel a newfound clarity, solidifying your purpose moving forward.");
-                updateEnergy(20);
-                updateSkill('leadership', 1); // Earned trust
+                updateEnergyWithDifficulty(20);
+                updateSkillWithDifficulty('leadership', 1); // Earned trust
             } else {
                 updateStoryText("Though you seek peace, your thoughts remain tangled in the uncertainty of what lies ahead.");
-                updateEnergy(5);
-                updateSkill('wisdom', -1); // Uncertainty
+                updateEnergyWithDifficulty(5);
+                updateSkillWithDifficulty('wisdom', -1); // Uncertainty
             }
             break;
         case 4:
             updateStoryText("Gathering with the Northern Water Tribe's leaders, you engage in discussions on how best to defend the tribe and support the war effort...");
-            updateSkill('leadership', 3); // Strategic planning
-            updateSkill('diplomacy', 2); // Collaborative effort
+            updateSkillWithDifficulty('leadership', 3); // Strategic planning
+            updateSkillWithDifficulty('diplomacy', 2); // Collaborative effort
             if (skillCheck('wisdom', 20)) { // Changed from strategy
                 updateStoryText("Your insights help craft a decisive plan, ensuring the Water Tribe is prepared for whatever challenges may come.");
-                updateReputation('waterTribe', 2);
+                updateReputationWithDifficulty('waterTribe', 2);
             } else {
                 updateStoryText("Though your contributions are valued, the weight of these decisions lingers, a reminder of the stakes at hand.");
-                updateEnergy(-10);
-                updateSkill('leadership', -1); // Missed opportunity
+                updateEnergyWithDifficulty(-10);
+                updateSkillWithDifficulty('leadership', -1); // Missed opportunity
             }
             break;
     }

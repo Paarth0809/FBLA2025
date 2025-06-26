@@ -1,8 +1,9 @@
 //Get imports
 
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { startOpt1EarthChapter12, startOpt2EarthChapter12 } from './earthChapter12.js';
 
 export function startEarthChapter11() {
@@ -29,8 +30,8 @@ function handleEarthChapter11Choice(choice) {
             updateStoryText(`
                 <p>You decide to prepare for a direct confrontation with the Fire Nation. The team begins training for the upcoming battle, focusing on combat strategies and strengthening their bending skills.</p>
             `);
-            updateSkill('leadership', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('leadership', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
            
             setTimeout(() => {
                 updateChoices([
@@ -43,8 +44,8 @@ function handleEarthChapter11Choice(choice) {
             updateStoryText(`
                 <p>You decide to focus on gathering allies and resources. The team embarks on a mission to secure support from other nations and stockpile supplies for the final battle.</p>
             `);
-            updateSkill('diplomacy', 2);
-            updateReputation('Team Avatar', 1);
+            updateSkillWithDifficulty('diplomacy', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
            
             setTimeout(() => {
                 updateChoices([

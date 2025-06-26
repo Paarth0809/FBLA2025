@@ -1,10 +1,11 @@
 import { startOpt1FireChapter6, startOpt2FireChapter6 } from './fireChapter6.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import {  addAlly  } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 //Fire code start
 export function startOpt1FireChapter5() {
@@ -52,42 +53,42 @@ function handleOpt2FireChapter5Choice(choice) {
         case 1: // Salvage the ship
             updateStoryText("You and your crew work tirelessly to salvage what remains, hoping to make the ship seaworthy again.");
             if (skillCheck('leadership', 10)) {
-                updateHealth(5);  // Successful leadership boosts morale and health.
+                updateHealthWithDifficulty(5);  // Successful leadership boosts morale and health.
                 updateStoryText("Your leadership inspires the crew, and together, you manage to make significant repairs. The ship isn't as it was, but it will sail again.");
             } else {
-                updateHealth(-5);  // Failure leads to further morale and health loss.
+                updateHealthWithDifficulty(-5);  // Failure leads to further morale and health loss.
                 updateStoryText("Despite your efforts, the damage is too extensive. The ship remains adrift, and morale sinks further.");
             }
             break;
         case 2: // Rally crew and seek shelter
             updateStoryText("Understanding the need for safety, you lead your crew to a nearby island for refuge.");
             if (skillCheck('leadership', 8)) {
-                updateSkill('leadership', 1);  // Successful survival and leadership.
+                updateSkillWithDifficulty('leadership', 1);  // Successful survival and leadership.
                 updateStoryText("On the island, you find resources to sustain you and begin planning your next move. The crew's spirits are lifted slightly by your effective leadership.");
             } else {
-                updateHealth(-5);  // Failure to find adequate shelter or resources.
+                updateHealthWithDifficulty(-5);  // Failure to find adequate shelter or resources.
                 updateStoryText("The island offers little respite, and the struggle to find shelter and food takes a toll on everyone.");
             }
             break;
         case 3: // Pursue the pirates
             updateStoryText("Driven by vengeance, you lead a contingent to track down the pirates.");
-            updateSkill('combat', 3);
+            updateSkillWithDifficulty('combat', 3);
             if (skillCheck('combat', 12)) {
-                updateReputation('fireNation', 2);  // Success in retaliation enhances reputation.
+                updateReputationWithDifficulty('fireNation', 2);  // Success in retaliation enhances reputation.
                 updateStoryText("Your pursuit is successful. You catch the pirates off guard, reclaiming some of your stolen goods and restoring a portion of your crew's morale.");
             } else {
-                updateHealth(-10);  // Failed retaliation worsens the situation.
+                updateHealthWithDifficulty(-10);  // Failed retaliation worsens the situation.
                 updateStoryText("The pirates are better prepared than anticipated. Your forces are repelled, and you suffer further losses.");
             }
             break;
         case 4: // Reflect on seeking the Avatar’s help
             updateStoryText("Realizing that the pursuit under Zhao's influence has only led to ruin, you decide it's time for a strategic shift. You need to reclaim your honor and power, but on your own terms. The path forward is uncertain, but the resolve to forge a new path is clear.");
             if (skillCheck('wisdom', 14)) {
-                updateReputation('fireNation', -1);  // A controversial decision within your ranks.
-                updateHealth(10);  // Emotional and physical rejuvenation from a newfound purpose.
+                updateReputationWithDifficulty('fireNation', -1);  // A controversial decision within your ranks.
+                updateHealthWithDifficulty(10);  // Emotional and physical rejuvenation from a newfound purpose.
                 updateStoryText("Your decision to seek new allies and knowledge feels right. It's a first step towards not just reclaiming what was lost, but discovering a strength you hadn't realized was possible.");
             } else {
-                updateHealth(-5);  // The idea is met with internal conflict and doubt.
+                updateHealthWithDifficulty(-5);  // The idea is met with internal conflict and doubt.
                 updateStoryText("Though the thought of allying with the Avatar lingers in your mind, you struggle with the implications and the potential backlash from your father and the Fire Nation.");
             }
             break;
@@ -105,42 +106,42 @@ function handleOpt1FireChapter5Choice(choice) {
         case 1: // Salvage the ship
             updateStoryText("You and your crew work tirelessly to salvage what remains, hoping to make the ship seaworthy again.");
             if (skillCheck('leadership', 10)) {
-                updateHealth(5);  // Successful leadership boosts morale and health.
+                updateHealthWithDifficulty(5);  // Successful leadership boosts morale and health.
                 updateStoryText("Your leadership inspires the crew, and together, you manage to make significant repairs. The ship isn't as it was, but it will sail again.");
             } else {
-                updateHealth(-5);  // Failure leads to further morale and health loss.
+                updateHealthWithDifficulty(-5);  // Failure leads to further morale and health loss.
                 updateStoryText("Despite your efforts, the damage is too extensive. The ship remains adrift, and morale sinks further.");
             }
             break;
         case 2: // Rally crew and seek shelter
             updateStoryText("Understanding the need for safety, you lead your crew to a nearby island for refuge.");
             if (skillCheck('leadership', 8)) {
-                updateSkill('leadership', 1);  // Successful survival and leadership.
+                updateSkillWithDifficulty('leadership', 1);  // Successful survival and leadership.
                 updateStoryText("On the island, you find resources to sustain you and begin planning your next move. The crew's spirits are lifted slightly by your effective leadership.");
             } else {
-                updateHealth(-5);  // Failure to find adequate shelter or resources.
+                updateHealthWithDifficulty(-5);  // Failure to find adequate shelter or resources.
                 updateStoryText("The island offers little respite, and the struggle to find shelter and food takes a toll on everyone.");
             }
             break;
         case 3: // Pursue the pirates
             updateStoryText("Driven by vengeance, you lead a contingent to track down the pirates.");
-            updateSkill('combat', 3);
+            updateSkillWithDifficulty('combat', 3);
             if (skillCheck('combat', 12)) {
-                updateReputation('fireNation', 2);  // Success in retaliation enhances reputation.
+                updateReputationWithDifficulty('fireNation', 2);  // Success in retaliation enhances reputation.
                 updateStoryText("Your pursuit is successful. You catch the pirates off guard, reclaiming some of your stolen goods and restoring a portion of your crew's morale.");
             } else {
-                updateHealth(-10);  // Failed retaliation worsens the situation.
+                updateHealthWithDifficulty(-10);  // Failed retaliation worsens the situation.
                 updateStoryText("The pirates are better prepared than anticipated. Your forces are repelled, and you suffer further losses.");
             }
             break;
         case 4: // Reflect on seeking the Avatar’s help
             updateStoryText("Realizing that the pursuit under Zhao's influence has only led to ruin, you decide it's time for a strategic shift. You need to reclaim your honor and power, but on your own terms. The path forward is uncertain, but the resolve to forge a new path is clear.");
             if (skillCheck('wisdom', 14)) {
-                updateReputation('fireNation', -1);  // A controversial decision within your ranks.
-                updateHealth(10);  // Emotional and physical rejuvenation from a newfound purpose.
+                updateReputationWithDifficulty('fireNation', -1);  // A controversial decision within your ranks.
+                updateHealthWithDifficulty(10);  // Emotional and physical rejuvenation from a newfound purpose.
                 updateStoryText("Your decision to seek new allies and knowledge feels right. It's a first step towards not just reclaiming what was lost, but discovering a strength you hadn't realized was possible.");
             } else {
-                updateHealth(-5);  // The idea is met with internal conflict and doubt.
+                updateHealthWithDifficulty(-5);  // The idea is met with internal conflict and doubt.
                 updateStoryText("Though the thought of allying with the Avatar lingers in your mind, you struggle with the implications and the potential backlash from your father and the Fire Nation.");
             }
             break;

@@ -1,7 +1,8 @@
 import { startOpt1WaterChapter10, startOpt2WaterChapter10 } from './waterChapter10.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
-import { updateHealth, updateEnergy, updateReputation, randomInt, updateSkill } from '../gameFunctions/utilityFunctions.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 
@@ -51,43 +52,43 @@ function handleOpt1WaterChapter9Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You struggle under Master Pakku's rigid training...");
-            updateSkill('combat', 2); // Waterbending skill
-            updateSkill('leadership', 1); // Discipline
+            updateSkillWithDifficulty('combat', 2); // Waterbending skill
+            updateSkillWithDifficulty('leadership', 1); // Discipline
             if (skillCheck('wisdom', 15)) {
                 updateStoryText("Your hard work pays off...");
-                updateSkill('wisdom', 1);
+                updateSkillWithDifficulty('wisdom', 1);
             } else {
-                updateSkill('empathy', -1); // Frustration
+                updateSkillWithDifficulty('empathy', -1); // Frustration
             }
             break;
         case 2:
             updateStoryText("You practice waterbending on your own, pushing yourself to new limits...");
-            updateSkill('stealth', 2); // Independent practice
-            updateSkill('empathy', 1); // Self-reflection
+            updateSkillWithDifficulty('stealth', 2); // Independent practice
+            updateSkillWithDifficulty('empathy', 1); // Self-reflection
             if (skillCheck('diplomacy', 14)) {
-                updateSkill('combat', 1);
+                updateSkillWithDifficulty('combat', 1);
             } else {
-                updateSkill('stealth', -1); // Frustration
+                updateSkillWithDifficulty('stealth', -1); // Frustration
             }
             break;
         case 3:
             updateStoryText("You wander into the spirit oasis...");
-            updateSkill('wisdom', 2);
-            updateSkill('empathy', 2);
+            updateSkillWithDifficulty('wisdom', 2);
+            updateSkillWithDifficulty('empathy', 2);
             if (skillCheck('wisdom', 16)) {
-                updateSkill('diplomacy', 1);
+                updateSkillWithDifficulty('diplomacy', 1);
             } else {
-                updateSkill('wisdom', -1);
+                updateSkillWithDifficulty('wisdom', -1);
             }
             break;
         case 4:
             updateStoryText("Princess Yue speaks of the Moon Spirit...");
-            updateSkill('wisdom', 3);
-            updateSkill('empathy', 1);
+            updateSkillWithDifficulty('wisdom', 3);
+            updateSkillWithDifficulty('empathy', 1);
             if (skillCheck('diplomacy', 15)) {
-                updateSkill('leadership', 1);
+                updateSkillWithDifficulty('leadership', 1);
             } else {
-                updateSkill('wisdom', -1);
+                updateSkillWithDifficulty('wisdom', -1);
             }
             break;
     }
@@ -101,40 +102,40 @@ function handleOpt2WaterChapter9Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You struggle under Master Pakku's rigid training...");
-            updateSkill('combat', 1); // Less progress
-            updateSkill('leadership', -1); // Resentment
+            updateSkillWithDifficulty('combat', 1); // Less progress
+            updateSkillWithDifficulty('leadership', -1); // Resentment
             if (skillCheck('empathy', 12)) {
                 updateStoryText("Pakku reluctantly acknowledges your persistence...");
             } else {
-                updateSkill('stealth', 1); // Sneaking out
+                updateSkillWithDifficulty('stealth', 1); // Sneaking out
             }
             break;
         case 2:
             updateStoryText("You practice waterbending with Aang, learning from each other...");
-            updateSkill('stealth', 3); // Greater risk
-            updateSkill('empathy', 2); // Stronger bond
+            updateSkillWithDifficulty('stealth', 3); // Greater risk
+            updateSkillWithDifficulty('empathy', 2); // Stronger bond
             if (skillCheck('diplomacy', 16)) {
-                updateSkill('combat', 2);
+                updateSkillWithDifficulty('combat', 2);
             } else {
-                updateHealth(-5); // Overexertion
+                updateHealthWithDifficulty(-5); // Overexertion
             }
             break;
         case 3:
             updateStoryText("You wander into the spirit oasis...");
-            updateSkill('wisdom', 1);
-            updateSkill('empathy', 3); // Emotional connection
+            updateSkillWithDifficulty('wisdom', 1);
+            updateSkillWithDifficulty('empathy', 3); // Emotional connection
             if (skillCheck('empathy', 18)) {
             } else {
-                updateSkill('stealth', 1); // Avoid detection
+                updateSkillWithDifficulty('stealth', 1); // Avoid detection
             }
             break;
         case 4:
             updateStoryText("Princess Yue speaks of the Moon Spirit...");
-            updateSkill('wisdom', 2);
-            updateSkill('leadership', 2); // Cultural insight
+            updateSkillWithDifficulty('wisdom', 2);
+            updateSkillWithDifficulty('leadership', 2); // Cultural insight
             if (skillCheck('leadership', 14)) {
             } else {
-                updateSkill('diplomacy', -1); // Misunderstanding
+                updateSkillWithDifficulty('diplomacy', -1); // Misunderstanding
             }
             break;
     }

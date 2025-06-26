@@ -1,10 +1,11 @@
 import { startOpt1AirChapter9, startOpt2AirChapter9 } from './airChapter9.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation, addAlly,  } from '../gameFunctions/utilityFunctions.js';
+import {  addAlly  } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 // Air code start
 export function startAirChapter8() {
@@ -32,13 +33,13 @@ function handleAirChapter8Choice(choice) {
   switch (choice) {
     case 1:
       updateStoryText("You meditate at the Spirit Oasis, leaving your physical body behind as your spirit crosses into the other realm. In the Spirit World, you encounter the ancient spirit Koh, the Face Stealer, who holds knowledge that might save the Water Tribe.");
-      updateSkill('spirituality', 2);
+      updateSkillWithDifficulty('spirituality', 2);
       if (skillCheck('spirituality', 10)) {
-        updateEnergy(5);  // Successful spiritual journey provides inner strength
+        updateEnergyWithDifficulty(5);  // Successful spiritual journey provides inner strength
         updateStoryText("With careful focus, you maintain a perfectly neutral expression while speaking with Koh. The ancient spirit rewards your composure by revealing that only the Moon Spirit's sacrifice can be countered by another sacrifice of equal measure. You return to the physical world with this crucial knowledge.");
         updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       } else {
-        updateHealth(-5);  // Unsuccessful spirit world navigation is draining
+        updateHealthWithDifficulty(-5);  // Unsuccessful spirit world navigation is draining
         updateStoryText("You struggle to navigate the bewildering paths of the Spirit World, nearly losing your face to Koh before escaping. The journey takes longer than expected, and you return to find the situation has worsened in your absence, but with vital information about restoring balance.");
         updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       }
@@ -47,13 +48,13 @@ function handleAirChapter8Choice(choice) {
    
     case 2:
       updateStoryText("As Zhao kills the Moon Spirit, you feel a powerful pull from the Ocean Spirit. In your desperation to save the tribe, you surrender your consciousness and merge with the Ocean Spirit, becoming a massive, glowing water entity that towers over the battlefield.");
-      updateSkill('combat', 3);
+      updateSkillWithDifficulty('combat', 3);
       if (skillCheck('combat', 12)) {
-        updateReputation('airNomads', 10);  // Successfully defending the tribe increases your standing
+        updateReputationWithDifficulty('airNomads', 10);  // Successfully defending the tribe increases your standing
         updateStoryText("In your merged form with La, the Ocean Spirit, you maintain enough control to target only the Fire Nation forces while sparing civilians. Your awesome display of power drives back the invasion and establishes you as a formidable Avatar in the eyes of both nations.");
         updateChoices([{ text: "Continue", action: () => { startOpt1AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       } else {
-        updateReputation('airNomads', -5);  // Loss of control damages your reputation
+        updateReputationWithDifficulty('airNomads', -5);  // Loss of control damages your reputation
         updateStoryText("The raw power of the Ocean Spirit overwhelms your consciousness. The Northern Water Tribe falls, your lack of control results in widespread destruction that affects even some allies. When you finally separate from the spirit, you're left with troubling questions about the nature of the Avatar State.");
         updateChoices([{ text: "Continue", action: () => { startOpt2AirChapter9(); playVideo('airCutscene9.mp4'); } }]); // Option to continue after reading
       }

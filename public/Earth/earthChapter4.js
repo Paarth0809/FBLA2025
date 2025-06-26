@@ -2,8 +2,9 @@
 
 import { startEarthChapter5 } from './earthChapter5.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 export function startEarthChapter4() {
     gameState.currentChapter = 4;
@@ -33,8 +34,8 @@ function handleEarthChapter4Choice(choice) {
                 <p>You decide to join Team Avatar and become Aang's Earthbending teacher. Together, you set out on a journey to help Aang master the elements and bring balance to the world.</p>
                 <p>As you travel, you quickly bond with the group, especially Sokka, whose sarcasm matches your own. You also begin to teach Aang the fundamentals of Earthbending, starting with the importance of standing your ground and facing challenges head-on.</p>
             `);
-            updateSkill('leadership', 5);
-            updateReputation('Team Avatar', 2)
+            updateSkillWithDifficulty('leadership', 5);
+            updateReputationWithDifficulty('Team Avatar', 2)
             setTimeout(() => {
                 updateChoices([
                     { text: "Continue", action: startEarthChapter5 }
@@ -46,8 +47,8 @@ function handleEarthChapter4Choice(choice) {
                 <p>You decide to continue on your own, unwilling to tie yourself down to a group. However, as you travel, you begin to realize that the Fire Nation's threat is too great to face alone.</p>
                 <p>After a few days, you change your mind and catch up with Team Avatar, agreeing to join them and teach Aang Earthbending.</p>
             `);
-            updateSkill('stealth', 1); // Improves stealth for traveling alone
-            updateReputation('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateSkillWithDifficulty('stealth', 1); // Improves stealth for traveling alone
+            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
             setTimeout(() => {
                 updateChoices([
                     { text: "Continue", action: startEarthChapter5 }

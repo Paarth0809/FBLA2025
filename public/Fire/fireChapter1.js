@@ -1,9 +1,10 @@
 import { startFireChapter2 } from './fireChapter2.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addAlly } from '../gameFunctions/utilityFunctions.js';
+import { addAlly } from '../gameFunctions/utilityFunctions.js';
 import {skillCheck} from '../gameFunctions/gameMechanics.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
 
 
@@ -33,27 +34,27 @@ function handleFireChapter1Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("You decide to help the dragon...You wait...It seems eager to be your companion!");
-            updateSkill('diplomacy', 1);
-            updateReputation('fireNation', -1);
+            updateSkillWithDifficulty('diplomacy', 1);
+            updateReputationWithDifficulty('fireNation', -1);
             addAlly(characters.dragon);
             break;
         case 2:
             updateStoryText("You ignore the dragon and continue your mission...");
-            updateSkill('stealth', 1);
+            updateSkillWithDifficulty('stealth', 1);
             break;
         case 3:
             updateStoryText("You report the dragon's location to the Fire Nation...");
-            updateReputation('fireNation', 2);
-            updateSkill('diplomacy', -1);
+            updateReputationWithDifficulty('fireNation', 2);
+            updateSkillWithDifficulty('diplomacy', -1);
             break;
         case 4:
             updateStoryText("You attempt to communicate with the dragon...");
             if (skillCheck('diplomacy', 12)) {
                 updateStoryText("The dragon seems to understand you and calms down. It allows you to approach and tend to its wounds.");
-                updateSkill('diplomacy', 2);
+                updateSkillWithDifficulty('diplomacy', 2);
             } else {
                 updateStoryText("The dragon doesn't understand your intentions and becomes agitated. You decide to back away slowly.");
-                updateSkill('stealth', 1);
+                updateSkillWithDifficulty('stealth', 1);
             }
             break;
     }

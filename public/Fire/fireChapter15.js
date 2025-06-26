@@ -1,8 +1,9 @@
 import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../gameFunctions/utilityFunctions.js';
+
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { startFireFinalChapter } from './fireFinalChapter.js';
 
 //Fire code start
@@ -33,48 +34,48 @@ function handleFireChapter15Choice(choice) {
             updateStoryText("You engage Azula directly, your firebending enhanced by the comet...");
             if (skillCheck('combat', 22)) {
                 updateStoryText("Your mastery of firebending prevails, overcoming Azula's aggression with precision and power.");
-                updateEnergy(30);
-                updateReputation('fireNation', 5);
+                updateEnergyWithDifficulty(30);
+                updateReputationWithDifficulty('fireNation', 5);
                
             } else {
                 updateStoryText("Azula's ferocity is daunting, pushing you to the edge. The battle is fierce, testing every bit of your skill and resolve.");
-                updateHealth(-20);
+                updateHealthWithDifficulty(-20);
             }
             break;
         case 2:
             updateStoryText("You cleverly use the environment to level the playing field against Azula...");
             if (skillCheck('combat', 18)) {
                 updateStoryText("Your strategic use of the surroundings catches Azula off guard, tipping the scales in your favor.");
-                updateEnergy(20);
-                updateReputation('fireNation', 3);
+                updateEnergyWithDifficulty(20);
+                updateReputationWithDifficulty('fireNation', 3);
              
             } else {
                 updateStoryText("Azula anticipates your moves, countering your strategies. The battle remains evenly matched.");
-                updateHealth(-15);
+                updateHealthWithDifficulty(-15);
             }
             break;
         case 3:
             updateStoryText("You focus on maintaining your inner calm, using tactics over brute strength...");
             if (skillCheck('wisdom', 20) && skillCheck('combat', 20)) {
                 updateStoryText("This approach disorients Azula, allowing you to subdue her with superior tactics and control.");
-                updateEnergy(25);
-                updateReputation('fireNation', 4);
+                updateEnergyWithDifficulty(25);
+                updateReputationWithDifficulty('fireNation', 4);
               
             } else {
                 updateStoryText("While you manage to maintain your calm, Azula's relentless assault puts you on the defensive.");
-                updateHealth(-25);
+                updateHealthWithDifficulty(-25);
             }
             break;
         case 4:
             updateStoryText("Feeling the weight of the battle, you signal for the support of your friends...");
             if (gameState.allies.includes('teamAvatar')) {
                 updateStoryText("With the timely intervention of your friends, the tide turns. Together, you overpower Azula.");
-                updateEnergy(20);
-                updateReputation('fireNation', 2);
+                updateEnergyWithDifficulty(20);
+                updateReputationWithDifficulty('fireNation', 2);
              
             } else {
                 updateStoryText("Your call for help goes unanswered in the heat of the battle, leaving you to face Azula alone.");
-                updateHealth(-30);
+                updateHealthWithDifficulty(-30);
             }
             break;
     }

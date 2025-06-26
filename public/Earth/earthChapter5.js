@@ -2,8 +2,9 @@
 
 import { startOpt1EarthChapter6, startOpt2EarthChapter6 } from './earthChapter6.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
+
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
 export function startEarthChapter5() {
     gameState.currentChapter = 5;
@@ -37,7 +38,7 @@ function handleEarthChapter5Choice(choice) {
                 However, Wan Shi Tong catches you and becomes enraged, sinking the library into the desert.</p>
                  <p>You barely escape with the map, but the knowledge comes at a cost: the library is lost forever.</p>
             `);
-            updateSkill('stealth', -1);
+            updateSkillWithDifficulty('stealth', -1);
             addToInventory('airshipMap')
             setTimeout(() => {
                 updateChoices([
@@ -51,8 +52,8 @@ function handleEarthChapter5Choice(choice) {
                 <p>You leave the library empty-handed but with your integrity intact.</p>
             
             `);
-            updateSkill('diplomacy', 2); 
-            updateReputation('Team Avatar', 1); 
+            updateSkillWithDifficulty('diplomacy', 2); 
+            updateReputationWithDifficulty('Team Avatar', 1); 
             setTimeout(() => {
                 updateChoices([
                     { text: "Continue", action: startOpt2EarthChapter6 }

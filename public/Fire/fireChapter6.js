@@ -1,8 +1,9 @@
 import { startOpt1FireChapter7, startOpt2FireChapter7 } from './fireChapter7.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-import { updateHealth, updateEnergy, updateSkill, updateReputation,  } from '../gameFunctions/utilityFunctions.js';
+import {  addAlly  } from '../gameFunctions/utilityFunctions.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
+import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { randomInt } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
@@ -30,45 +31,45 @@ function handleOpt2FireChapter6Choice(choice) {
     switch (choice) {   
         case 1:
             updateStoryText("Using the chaos of the ongoing siege, you slip into the city unnoticed. The icy labyrinth of the Northern Water Tribe's capital challenges you, but your determination guides your steps.");
-            updateSkill('stealth', 2);
+            updateSkillWithDifficulty('stealth', 2);
             if (skillCheck('stealth', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("Your stealth allows you to navigate closer to the Avatar's known location without confrontation.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("Despite your best efforts, you encounter unexpected guards, leading to a skirmish that weakens you.");
             }
             break;
         case 2:
             updateStoryText("Fueled by desperation, you issue a challenge to the Avatar, hoping to settle the score once and for all in a duel of honor.");
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('combat', 2);
             if (skillCheck('combat', 14)) {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The duel is fierce, and though you fight valiantly, the Avatar escapes, leaving you to ponder the true meaning of honor.");
             } else {
-                updateHealth(-20);
+                updateHealthWithDifficulty(-20);
                 updateStoryText("Overpowered and outmatched, you barely escape with your life, forcing you to retreat and recover.");
             }
             break;
         case 3:
             updateStoryText("As the Fire Nation's forces begin their attack, you find a way to use the siege's chaos to your advantage, aiming to capture the Avatar amidst the confusion.");
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('combat', 2);
             if (skillCheck('combat', 13)) {
-                updateHealth(0);
+                updateHealthWithDifficulty(0);
                 updateStoryText("Your plan is sound, but the Avatar proves elusive once more, slipping away amid the battle's chaos.");
             } else {
-                updateHealth(-15);
+                updateHealthWithDifficulty(-15);
                 updateStoryText("Your plan backfires, and you find yourself caught between Water Tribe defenders and your own nation's soldiers.");
             }
             break;
         case 4:
             updateStoryText("Understanding the value of allies, you seek to turn the tribe's members against the Avatar, using guile to weave a web of deceit.");
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             if (skillCheck('diplomacy', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("Though you find no allies, your efforts do not go completely wasted, as you gather valuable intelligence on the Avatar's whereabouts.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Your attempts to sow discord only alienate you further, leaving you isolated in enemy territory.");
             }
             break;
@@ -105,45 +106,45 @@ function handleOpt1FireChapter6Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("Using the chaos of the ongoing siege, you slip into the city unnoticed. The icy labyrinth of the Northern Water Tribe's capital challenges you, but your determination guides your steps.");
-            updateSkill('stealth', 2);
+            updateSkillWithDifficulty('stealth', 2);
             if (skillCheck('stealth', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("Your stealth allows you to navigate closer to the Avatar's known location without confrontation.");
             } else {
-                updateHealth(-10);
+                updateHealthWithDifficulty(-10);
                 updateStoryText("Despite your best efforts, you encounter unexpected guards, leading to a skirmish that weakens you.");
             }
             break;
         case 2:
             updateStoryText("Fueled by desperation, you issue a challenge to the Avatar, hoping to settle the score once and for all in a duel of honor.");
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('combat', 2);
             if (skillCheck('combat', 14)) {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("The duel is fierce, and though you fight valiantly, the Avatar escapes, leaving you to ponder the true meaning of honor.");
             } else {
-                updateHealth(-20);
+                updateHealthWithDifficulty(-20);
                 updateStoryText("Overpowered and outmatched, you barely escape with your life, forcing you to retreat and recover.");
             }
             break;
         case 3:
             updateStoryText("As the Fire Nation's forces begin their attack, you find a way to use the siege's chaos to your advantage, aiming to capture the Avatar amidst the confusion.");
-            updateSkill('combat', 2);
+            updateSkillWithDifficulty('combat', 2);
             if (skillCheck('commbat', 13)) {
-                updateHealth(0);
+                updateHealthWithDifficulty(0);
                 updateStoryText("Your plan is sound, but the Avatar proves elusive once more, slipping away amid the battle's chaos.");
             } else {
-                updateHealth(-15);
+                updateHealthWithDifficulty(-15);
                 updateStoryText("Your plan backfires, and you find yourself caught between Water Tribe defenders and your own nation's soldiers.");
             }
             break;
         case 4:
             updateStoryText("Understanding the value of allies, you seek to turn the tribe's members against the Avatar, using guile to weave a web of deceit.");
-            updateSkill('diplomacy', 2);
+            updateSkillWithDifficulty('diplomacy', 2);
             if (skillCheck('diplomacy', 12)) {
-                updateHealth(5);
+                updateHealthWithDifficulty(5);
                 updateStoryText("Though you find no allies, your efforts do not go completely wasted, as you gather valuable intelligence on the Avatar's whereabouts.");
             } else {
-                updateHealth(-5);
+                updateHealthWithDifficulty(-5);
                 updateStoryText("Your attempts to sow discord only alienate you further, leaving you isolated in enemy territory.");
             }
             break;
