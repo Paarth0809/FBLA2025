@@ -5,6 +5,9 @@ export let gameState = {
     // The current chapter of the game the character is in
     currentChapter: 0,
 
+// some chapters have 2 options, so we need to keep track of the current option
+    currentChapterOption: 0,
+
     // List of allies the character has, stored as an array of ally objects
     allies: [],
 

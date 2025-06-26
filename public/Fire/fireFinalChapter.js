@@ -4,12 +4,12 @@ import { endGame } from '../gameFunctions/game.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js'; 
 
 //Fire code start
-export function startFinalChapter() {
+export function startFireFinalChapter() {
     gameState.currentChapter = 17;
-    displayFinalChapter();
+    displayFireFinalChapter();
 }
 
-function displayFinalChapter() {
+function displayFireFinalChapter() {
     const finalChapterText = `
         <h2>Final Chapter: The Last Battle</h2>
         <p>With Sozin's Comet granting unprecedented power, the final battle against Fire Lord Ozai looms. As Zuko, you stand ready with your allies, 
@@ -21,11 +21,11 @@ function displayFinalChapter() {
     `;
     updateStoryText(finalChapterText);
     updateChoices([
-        { text: "Begin the work of rebuilding", action: () => handleFinalChapterChoice(1) }
+        { text: "Begin the work of rebuilding", action: () => handleFireFinalChapterChoice(1) }
     ]);
 }
 
-function handleFinalChapterChoice(choice) {
+function handleFireFinalChapterChoice(choice) {
     switch (choice) {
         case 1:
             updateStoryText("As the new Fire Lord, you initiate efforts to repair the damages of war, negotiate peace treaties, and foster unity among nations. " +

@@ -6,7 +6,8 @@ import { playVideo } from '../gameFunctions/cutscenes.js';
 
 
 export function startAirFinalChapter() {
-    gameState.currentChapter = 17;
+    gameState.currentChapter = 16;
+    gameState.currentChapterOption = 0; // Reset current chapter option
     displayAirFinalChapter();
 }
 

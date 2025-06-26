@@ -3,7 +3,7 @@ import { updateSkill, updateHealth, updateEnergy, updateReputation } from '../ga
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
-import { startFinalChapter } from './fireFinalChapter.js';
+import { startFireFinalChapter } from './fireFinalChapter.js';
 
 //Fire code start
 export function startFireChapter15() {
@@ -80,7 +80,7 @@ function handleFireChapter15Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFinalChapter }
+            { text: "Continue", action: startFireFinalChapter }
         ]);
     }, 300);
 }

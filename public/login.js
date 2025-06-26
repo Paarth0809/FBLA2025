@@ -26,6 +26,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
                 .then(data => {
                     if (data.success && data.gameState) {
                         Object.assign(gameState, data.gameState);
+                        localStorage.setItem('gameState', JSON.stringify(gameState));
                         console.log("Game state loaded successfully:", gameState);
                     }
                 });

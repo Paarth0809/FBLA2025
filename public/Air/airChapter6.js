@@ -8,11 +8,13 @@ import { skillCheck } from '../gameFunctions/gameMechanics.js';
 // Aang's story start
 export function startOpt1AirChapter6() {
     gameState.currentChapter = 6;
+    gameState.currentChapterOption = 1; // Set the current chapter option to 1 for Aang's story
     displayOpt1AirChapter6();
 }
 
 export function startOpt2AirChapter6() {
     gameState.currentChapter = 6;
+    gameState.currentChapterOption = 2; // Set the current chapter option to 2 for Aang's story
     displayOpt2AirChapter6();
 }
 

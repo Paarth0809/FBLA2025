@@ -10,6 +10,7 @@ import { startAirFinalChapter } from './airFinalChapter.js';
 // Chapter 15: The Sun Warriors and Firebending Mastery
 export function startAirChapter15() {
     gameState.currentChapter = 15;
+    gameState.currentChapterOption = 0; // Reset current chapter option
     displayAirChapter15();
 }
 

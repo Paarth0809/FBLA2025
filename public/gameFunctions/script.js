@@ -38,6 +38,8 @@ document.getElementById('saveGameBtn').addEventListener('click', function () {
   saveGame();
 });
 
+
+
 export function saveGame() {
   // Assuming you have a gameState object that keeps track of all relevant game information
   if (typeof gameState !== 'undefined') {
@@ -56,6 +58,67 @@ export function saveGame() {
   }
 }
 
+document.getElementById('restartGameBtn').addEventListener('click', function () {
+  restartGame();
+});
+
+export function restartGame() {
+  // Implement logic to restart the game here
+  gameState.currentCharacter = '';
+    gameState.currentChapter = 0;
+    gameState.currentChapterOption = 0;
+    gameState.health = 100;
+    gameState.energy = 100;
+    gameState.skills = {
+        wisdom: 0,
+        spirituality: 0,
+        combat: 0,
+        stealth: 0,
+        diplomacy: 0,
+        leadership: 0,
+        empathy: 0
+    };
+    gameState.reputation = {
+        fireNation: 0,
+        earthKingdom: 0,
+        waterTribe: 0,
+        airNomads: 0
+    };
+    gameState.allies = []; // Reset allies
+
+    // Add any other properties you use in gameState here
+
+    // Optionally, update UI to show the start screen
+     localStorage.removeItem('gameState');
+     const video = document.getElementById('cutsceneVideo');
+
+    startGame();
+
+        if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.style.display = 'none'; // or video.remove() to remove from DOM
+    }
+    updateCharacterInfo(); // Update character info display
+    saveGame(); // Save the initial game state
+    alert('Game restarted successfully.'); // Notify the user
+    
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+   console.log("Logout button found");
+    const logoutBtn = document.getElementById('logoutButton');
+    if (logoutBtn) {
+      console.log("Logout button found");
+        logoutBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            resetGameState();
+            localStorage.removeItem('gameState');
+            startChooseElement();
+        });
+    }
+});
+
 export function quitToMainMenu() {
   // Implement logic to quit to the main menu here
   alert('Quitting to main menu (implement quit logic)');
@@ -67,8 +130,12 @@ window.onload = startGame;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize the game state and character info
+  Object.assign(gameState, JSON.parse(localStorage.getItem('gameState')));
+  
   updateCharacterInfo();
   console.log("Character info updated");
+
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach(item => {

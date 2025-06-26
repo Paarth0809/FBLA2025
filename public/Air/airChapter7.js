@@ -9,11 +9,13 @@ import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctio
 // Air code start for Option 1
 export function startOpt1AirChapter7() {
     gameState.currentChapter = 7;
+    gameState.currentChapterOption = 1; // Set the current chapter option to 1
     displayOpt1AirChapter7();
 }
 
 export function startOpt2AirChapter7() {
     gameState.currentChapter = 7;
+    gameState.currentChapterOption = 2; // Set the current chapter option to 2
     displayOpt2AirChapter7();
 }
 

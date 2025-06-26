@@ -10,11 +10,13 @@ import { startAirChapter14  } from './airChapter14.js';
 // Chapter 13: The Invasion and the Betrayal
 export function startOpt1AirChapter13() {
     gameState.currentChapter = 13;
+    gameState.currentChapterOption = 1; // Set current chapter option to 1 for Option 1
     displayOpt1AirChapter13();
 }
 
 export function startOpt2AirChapter13() {
     gameState.currentChapter = 13;
+    gameState.currentChapterOption = 2; // Set current chapter option to 2 for Option 2
     displayOpt2AirChapter13();
 }
 

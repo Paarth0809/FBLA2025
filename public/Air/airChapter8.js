@@ -10,6 +10,7 @@ import { gameState } from '../gameFunctions/gameState.js';
 export function startAirChapter8() {
   ("Inside startAirChapter8");
   gameState.currentChapter = 8;
+  gameState.currentChapterOption = 0; // Set the current chapter option to 1
   displayAirChapter8();
 }
 

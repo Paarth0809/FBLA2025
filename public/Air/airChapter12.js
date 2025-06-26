@@ -10,6 +10,7 @@ import { gameState } from '../gameFunctions/gameState.js';
 export function startAirChapter12() {
   ("Inside startAirChapter12");
   gameState.currentChapter = 12;
+  gameState.currentChapterOption = 0; // Reset current chapter option
   displayAirChapter12();
 }
 

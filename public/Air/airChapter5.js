@@ -10,12 +10,14 @@ import { gameState } from '../gameFunctions/gameState.js';
 export function startOpt1AirChapter5() {
     ("Inside startOpt1AirChapter5");
     gameState.currentChapter = 5;
+    gameState.currentChapterOption = 1; // Set the current chapter option to 1
     displayOpt1AirChapter5();
 }
 
 export function startOpt2AirChapter5() {
     ("Inside startOpt2AirChapter5");
     gameState.currentChapter = 5;
+    gameState.currentChapterOption = 2; // Set the current chapter option to 2
     displayOpt2AirChapter5();
 }
 

@@ -9,11 +9,13 @@ import { characters } from '../gameFunctions/characters.js';
 // Air code start
 export function startOpt1AirChapter11() {
     gameState.currentChapter = 11;
+    gameState.currentChapterOption = 1; // Set the current chapter option to 1
     displayOpt1AirChapter11();
 }
 
 export function startOpt2AirChapter11() {
     gameState.currentChapter = 11;
+    gameState.currentChapterOption = 2; // Set the current chapter option to 2
     displayOpt2AirChapter11();
 }
 

@@ -9,6 +9,7 @@ import { playVideo } from '../gameFunctions/cutscenes.js';
 // Chapter 14: The Choice to Accept Zuko
 export function startAirChapter14() {
     gameState.currentChapter = 14;
+    gameState.currentChapterOption = 0; // Reset current chapter option
     displayAirChapter14();
 }
 
