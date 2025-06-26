@@ -1,72 +1,32 @@
 [
   {
     "signupEmail": "paarth0809@gmail.com",
-    "password": "$2b$10$X482dAFrtk0b4K7Vafk0TuBow4NyYtehnq7CAXEr9ChZVYXnM6bLG",
+    "password": "$2b$10$VcCcqB5lvkrQrsS/OqF.e..AUazMctXAJbPyA1o0N53.U9ezbS9Mq",
     "fullName": "Paarth Rathod",
-    "age": "12",
+    "age": "123",
     "phoneNumber": "9197143139",
     "gameState": {
-      "currentCharacter": "Aang",
-      "currentChapter": 7,
-      "currentChapterOption": 1,
-      "allies": [
-        {
-          "name": "Katara",
-          "description": "Waterbender from the Southern Water Tribe",
-          "skills": {
-            "combat": 0,
-            "stealth": 0,
-            "wisdom": 0,
-            "diplomacy": 0,
-            "leadership": 0,
-            "empathy": 0
-          },
-          "backstory": "Katara is the last waterbender of the Southern Water Tribe. She dreams of mastering her abilities and helping to end the war."
-        },
-        {
-          "name": "Sokka",
-          "description": "Warrior from the Southern Water Tribe",
-          "skills": {
-            "combat": 0,
-            "stealth": 0,
-            "wisdom": 0,
-            "diplomacy": 0,
-            "leadership": 0,
-            "empathy": 0
-          },
-          "backstory": "Sokka is a skilled warrior and strategist. Though he can't bend, he makes up for it with his quick wit and boomerang skills."
-        },
-        {
-          "name": "Suki",
-          "description": "Leader of the Kyoshi Warriors",
-          "skills": {
-            "combat": 0,
-            "stealth": 0,
-            "wisdom": 0,
-            "diplomacy": 0,
-            "leadership": 0,
-            "empathy": 0
-          },
-          "backstory": "Suki is a skilled fighter and the leader of the Kyoshi Warriors. She is brave, resourceful, and fiercely protective of her friends and allies."
-        }
-      ],
+      "currentCharacter": "",
+      "currentChapter": 0,
+      "currentChapterOption": 0,
+      "allies": [],
       "reputation": {
         "fireNation": 0,
         "earthKingdom": 0,
-        "waterTribe": 3,
-        "airNomads": -5
+        "waterTribe": 0,
+        "airNomads": 0
       },
       "skills": {
-        "combat": 3,
-        "stealth": 1,
-        "wisdom": 1,
-        "spirituality": 1,
-        "diplomacy": 5,
-        "leadership": 1,
-        "empathy": 1
+        "wisdom": 0,
+        "spirituality": 0,
+        "combat": 0,
+        "stealth": 0,
+        "diplomacy": 0,
+        "leadership": 0,
+        "empathy": 0
       },
       "health": 100,
-      "energy": 80
+      "energy": 100
     }
   }
 ]

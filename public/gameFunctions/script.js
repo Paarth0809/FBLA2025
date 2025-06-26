@@ -105,19 +105,6 @@ export function restartGame() {
     
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-   console.log("Logout button found");
-    const logoutBtn = document.getElementById('logoutButton');
-    if (logoutBtn) {
-      console.log("Logout button found");
-        logoutBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-            resetGameState();
-            localStorage.removeItem('gameState');
-            startChooseElement();
-        });
-    }
-});
 
 export function quitToMainMenu() {
   // Implement logic to quit to the main menu here
@@ -145,24 +132,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.getElementById('logoutButton').addEventListener('click', function() {
-  console.log("Logout button clicked");
-  // Perform logout logic here, such as clearing session data and redirecting
-  // This is a placeholder function, replace with actual logout logic
-  // Clear the game state and redirect to the main menu or login page
-  fetch('/logout')
-    .then(response => {
-      if (response.ok) {
-        console.log("Logout successful");
-        localStorage.removeItem('gameState');
-        window.location.href = '/'; // Redirect to the main page or login page
-      } else {
-        console.error("Logout failed");
-      }
-    })
-    .catch(error => {
-      console.error("Error during logout:", error);
-    });
-  
-  startChooseElement();
-});
