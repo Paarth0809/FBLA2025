@@ -38,7 +38,7 @@ function handleAirChapter15Choice(choice) {
             updateStoryText("You and Zuko approach the dragons, Ran and Shaw, with reverence, observing the vibrant, dancing flames they produce.");
             updateSkillWithDifficulty('spirituality', 3);
             if (skillCheck('spirituality', 15)) {
-                addSkill('firebending', 1);
+               
                 updateStoryText("The dragons' fire illuminates the truth about firebending—it is not anger, but energy and life. Their display inspires you, and you ignite your first flame with confidence.");
             } else {
                 updateReputationWithDifficulty(-5);
@@ -49,7 +49,7 @@ function handleAirChapter15Choice(choice) {
             updateStoryText("Together with Zuko, you perform the ancient Sun Warrior fire-honoring ritual, showing respect to the dragons and firebending itself.");
             updateSkillWithDifficulty('spirituality', 2);
             if (skillCheck('spirituality', 14)) {
-                addSkill('firebending', 1);
+              
                 updateStoryText("The ritual deepens your understanding of firebending’s sacred origins. You feel its power flow through you, allowing you to create and control fire for the first time.");
             } else {
                 updateEnergyWithDifficulty(-10);
@@ -60,7 +60,7 @@ function handleAirChapter15Choice(choice) {
             updateStoryText("Zuko guides you through firebending techniques, focusing on balance and control rather than power or rage.");
             updateSkillWithDifficulty('firebending', 2);
             if (skillCheck('firebending', 15)) {
-                addSkill('firebending', 1);
+         
                 updateStoryText("With Zuko’s help, you ignite your first flame, feeling its warmth and energy. It’s a transformative moment as you overcome your fear of firebending.");
             } else {
                 updateHealthWithDifficulty(-10);
@@ -71,7 +71,7 @@ function handleAirChapter15Choice(choice) {
             updateStoryText("You meditate on your fear of firebending, reflecting on how it has held you back and what it means to embrace it as the Avatar.");
             updateSkillWithDifficulty('insight', 3);
             if (skillCheck('insight', 15)) {
-                addSkill('firebending', 1);
+                
                 updateStoryText("Through meditation, you come to terms with your fear and realize that firebending is as much about creation as destruction. This understanding allows you to ignite your first flame.");
             } else {
                 updateEnergyWithDifficulty(-10);

@@ -1,7 +1,7 @@
 import { startFireChapter15 } from './fireChapter15.js';
-import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
+import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 
@@ -35,7 +35,7 @@ function handleFireChapter14Choice(choice) {
                 updateStoryText("Iroh embraces you, his forgiveness immediate and unconditional, reinforcing the bond between you.");
                 updateSkillWithDifficulty('wisdom', 2);
                 updateEnergyWithDifficulty(20);
-                (items.teaSet);
+
             } else {
                 updateStoryText("Iroh's forgiveness is given freely, but you still struggle internally to fully accept it.");
                 updateEnergyWithDifficulty(10);
@@ -76,8 +76,9 @@ function handleFireChapter14Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter15 }
+            { text: "Continue", action: () => { startFireChapter13(); playVideo('fireCutscene15.mp4'); } }
+
         ]);
     }, 300);
 }
-//Fire code end
+//Fire code endß

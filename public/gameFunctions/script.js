@@ -2,6 +2,9 @@ import { startGame } from './game.js';
 import { generateReport } from './game.js';
 import {gameState} from './gameState.js';
 import { updateCharacterInfo } from './uiUpdateFunctions.js'; 
+import { startAirFinalChapter } from '../Air/airFinalChapter.js';
+import { playVideo } from './cutscenes.js';
+import { startAirChapter8 } from '../Air/airChapter8.js';
 
 
 // Stop or pause function.
@@ -10,6 +13,17 @@ document.getElementById('storyInput').addEventListener('input', function (e) {
   if (inputValue === 'stop') {
     showPauseMenu();
     e.target.value = ''; // Clear the input field
+  }
+  else if (inputValue === 'skip16') {
+    // Implement skip logic here
+   startAirFinalChapter();
+  playVideo('airCutscene16.mp4');
+  }
+
+  else if (inputValue === 'skip8') {
+    // Implement skip logic here
+   startAirChapter8();
+  playVideo('airCutscene8.mp4');
   }
 });
 
@@ -96,7 +110,7 @@ export function restartGame() {
 
     updateCharacterInfo(); // Update character info display
     saveGame(); // Save the initial game state
-    alert('Game restarted successfully.'); // Notify the user
+   
     
        
 }

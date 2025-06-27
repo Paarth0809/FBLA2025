@@ -3,7 +3,7 @@
 
 import { startFireChapter4 } from './fireChapter4.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
@@ -76,7 +76,7 @@ function handleFireChapter3Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter4 }
+            { text: "Continue", action: () => { startFireChapter4(); playVideo('fireCutscene4.mp4'); } }
         ]);
     }, 300);
 }

@@ -2,7 +2,7 @@ import { startOpt1FireChapter6, startOpt2FireChapter6 } from './fireChapter6.js'
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import {  addAlly  } from '../gameFunctions/utilityFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
@@ -95,7 +95,7 @@ function handleOpt2FireChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt2FireChapter6 } 
+            { text: "Continue", action: () => { startOpt2FireChapter6(); playVideo('fireCutscene6.mp4'); } } 
         ]);
     }, 300);
 }
@@ -148,7 +148,7 @@ function handleOpt1FireChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt1FireChapter6 } 
+            { text: "Continue", action: () => { startOpt1FireChapter6(); playVideo('fireCutscene6.mp4'); } }
         ]);
     }, 300);
 }

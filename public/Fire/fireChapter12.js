@@ -1,7 +1,7 @@
 import { startFireChapter13 } from './fireChapter13.js';
 import { updateStoryText, updateChoices  } from '../gameFunctions/uiUpdateFunctions.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
   
@@ -81,7 +81,8 @@ function handleFireChapter12Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter13 }
+                        { text: "Continue", action: () => { startFireChapter13(); playVideo('fireCutscene13.mp4'); } }
+
         ]);
     }, 300);
 }

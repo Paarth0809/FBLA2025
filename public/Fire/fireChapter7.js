@@ -1,5 +1,5 @@
 import { startFireChapter8 } from './fireChapter8.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
@@ -76,7 +76,7 @@ function handleOpt1FireChapter7Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter8 }
+            { text: "Continue", action: () => { startFireChapter8(); playVideo('fireCutscene8.mp4'); } }
         ]);
     }, 300);
 }
@@ -149,7 +149,7 @@ function handleOpt2FireChapter7Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter8 }
+            { text: "Continue", action: () => { startFireChapter8(); playVideo('fireCutscene8.mp4'); } }
         ]);
     }, 300);
 }

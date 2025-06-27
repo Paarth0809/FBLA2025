@@ -185,12 +185,22 @@ button:hover {
 #reportContainer,
 #reportButton {
     display: none;
+    margin: 0 auto;
 }
 
 /* === Input Placeholder === */
 #storyInput::placeholder {
     color: #aaa;
     opacity: 1;
+}
+
+#storyInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 #inputBoxContainer {

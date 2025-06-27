@@ -63,7 +63,7 @@ function handleAirChapter1Choice(choice) {
 
             updateSkillWithDifficulty('diplomacy', 2);
             //unnecessary and useless currently
-            if (skillCheck('agility', 10)) {
+            if (skillCheck('combat', 2)) {
                 updateStoryText("Your Airbending display amazes the tribe, earning their admiration.");
                 updateReputationWithDifficulty('waterTribe', 2); 
             }
@@ -74,7 +74,7 @@ function handleAirChapter1Choice(choice) {
             updateReputationWithDifficulty('waterTribe', 2);
             updateSkillWithDifficulty('diplomacy', 2);
             //unnecessary and useless currently
-            if (skillCheck('wisdom', 12)) {
+            if (skillCheck('wisdom', 4)) {
                 updateStoryText("You connect the pieces of history quickly, realizing the gravity of your situation.");
                 updateSkillWithDifficulty('wisdom', 2);
             }
@@ -84,7 +84,7 @@ function handleAirChapter1Choice(choice) {
             updateSkillWithDifficulty('stealth', 1);
             updateSkillWithDifficulty('wisdom', 1);
             //unnecessary and useless currently
-            if (skillCheck('stealth', 10)) {
+            if (skillCheck('stealth', 2)) {
                 updateStoryText("You successfully keep a low profile, but Katara remains curious about you.");
             }
             break;
@@ -93,9 +93,9 @@ function handleAirChapter1Choice(choice) {
             updateSkillWithDifficulty('wisdom', 1);
             updateSkillWithDifficulty('empathy', 3);
             //unnecessary and useless currently
-            if (skillCheck('animalHandling', 10)) {
+            if (skillCheck('3', 10)) {
                 updateStoryText("Appa fully trusts you, making him more responsive to your commands.");
-                updateSkillWithDifficulty('animalHandling', 1);
+                updateSkillWithDifficulty('empathy', 1);
             }
             break;
     }

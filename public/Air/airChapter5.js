@@ -60,7 +60,7 @@ function handleOpt1AirChapter5Choice(choice) {
                 updateSkillWithDifficulty('combat', 1);
                 updateStoryText("Your enthusiasm serves you well! You navigate through Bumi's trials with creative airbending, solving each puzzle with a mixture of skill and ingenuity. Bumi watches with an approving smile, though he doesn't make it easy for you.");
                 addAlly(characters.bumi);
-                (items.earthKingdomToken);
+              
             } else {
                 updateHealthWithDifficulty(-5);
                 updateStoryText("Despite your enthusiasm, Bumi's trials prove more difficult than anticipated. You struggle through several challenges, sustaining minor injuries but learning valuable lessons about patience and adaptability.");

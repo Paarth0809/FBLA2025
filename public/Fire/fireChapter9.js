@@ -3,7 +3,7 @@ import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctio
 
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
 
 //Fire code start
@@ -94,7 +94,7 @@ function handleOpt1FireChapter9Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt1FireChapter10 }
+            { text: "Continue", action: () => { startOpt1FireChapter10(); playVideo('fireCutscene10.mp4'); } }
         ]);
     }, 300);
 }
@@ -143,7 +143,7 @@ function handleOpt2FireChapter9Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startOpt2FireChapter10 }
+            { text: "Continue", action: () => { startOpt2FireChapter10(); playVideo('fireCutscene10.mp4'); } }
         ]);
     }, 300);
 }

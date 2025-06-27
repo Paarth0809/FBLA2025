@@ -5,7 +5,7 @@ export let gameState = {
     // The current chapter of the game the character is in
     currentChapter: 0,
 
-// some chapters have 2 options, so we need to keep track of the current option
+    // keeps track of the current chapter option selected by the player
     currentChapterOption: 0,
 
     // List of allies the character has, stored as an array of ally objects
@@ -40,12 +40,11 @@ export let gameState = {
         // Empathy skill level (default value is 0)
         empathy: 0
     },
-
     // The current health of the character (default value is 100)
     health: 100,
-
     // The current energy of the character (default value is 100)
     energy: 100,
-
-     difficulty: "normal",
+    // The current difficulty level of the game, which can affect skill
+    //  checks and other mechanics
+    difficulty: "normal",
 };

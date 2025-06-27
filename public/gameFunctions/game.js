@@ -321,6 +321,7 @@ export function startGame() {
             startEarthChapter16();
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirFinalChapter();
+            playVideo('airCutscene16.mp4');
         }
     }
     else {

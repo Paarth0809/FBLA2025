@@ -42,7 +42,7 @@ function handleFinalAirChoice(choice) {
             break;
         case 2:
             updateStoryText("You attempt to use energybending on Ozai...");
-            if (skillCheck('spirituality', 24)) {
+            if (skillCheck('spirituality', 20)) {
                 updateStoryText("In a breathtaking display of spiritual power, you strip Ozai of his bending. The war ends, ushering in a new era of balance.");
                 endGame("A New Harmony");
             } else {
@@ -62,7 +62,7 @@ function handleFinalAirChoice(choice) {
             break;
         case 4:
             updateStoryText("You decide to sacrifice all bending to create a world without these powers...");
-            if (skillCheck('spirituality', 27)) {
+            if (skillCheck('wisdom', 15)) {
                 updateStoryText("In a monumental act of sacrifice, you reshape the very fabric of the world. Bending ceases to exist, ushering in an era of true equality.");
                 endGame("A World Reborn");
             } else {

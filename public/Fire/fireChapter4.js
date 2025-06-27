@@ -2,7 +2,7 @@ import { startOpt1FireChapter5, startOpt2FireChapter5 } from './fireChapter5.js'
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 
 import { skillCheck } from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { characters } from '../gameFunctions/characters.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
@@ -33,12 +33,12 @@ function handleFireChapter4Choice(choice) {
             if (skillCheck('wisdom', 12)) {
                 updateStoryText("Zhao, seeing value in your skills and daring, agrees to your terms but insists on your cooperation for the mission to the North Pole. Your crew remains under your command, for now.");
                 updateReputationWithDifficulty('fireNation', 2);
-                updateChoices([{ text: "Continue", action: startOpt1FireChapter5 }]); // Option to continue after reading
+                updateChoices([{ text: "Continue", action: () => { startOpt1FireChapter5(); playVideo('fireCutscene5.mp4'); } }]); // Option to continue after reading
             } else {
                 updateStoryText("Zhao is unimpressed by your attempt to negotiate. He takes a significant portion of your crew, leaving you understaffed for your mission. Zhao has other plans for you...");
                 updateHealthWithDifficulty(-10);
                 updateReputationWithDifficulty('fireNation', -2);
-                updateChoices([{ text: "Continue", action: startOpt2FireChapter5 }]); // Option to continue after reading
+                updateChoices([{ text: "Continue", action: () => { startOpt2FireChapter5(); playVideo('fireCutscene5.mp4'); } }]); // Option to continue after reading
             }
             break;
         case 2: // Deny the connection
@@ -46,12 +46,12 @@ function handleFireChapter4Choice(choice) {
             if (skillCheck('stealth', 12)) {
                 updateStoryText("Zhao, though suspicious, cannot prove your lie. He decides to leave your crew be but warns you of the consequences of deception.");
                 updateReputationWithDifficulty('fireNation', 1);
-                updateChoices([{ text: "Continue", action: startOpt1FireChapter5 }]); // Option to continue after reading
+                updateChoices([{ text: "Continue", action: () => { startOpt1FireChapter5(); playVideo('fireCutscene5.mp4'); } }]); // Option to continue after reading
             } else {
                 updateStoryText("Zhao sees through your lies. Disappointed in your deceit, he commandeers part of your crew for his mission as a penalty.");
                 updateHealthWithDifficulty(-5);
                 updateReputationWithDifficulty('fireNation', -1);
-                updateChoices([{ text: "Continue", action: startOpt2FireChapter5 }]); // Option to continue after reading
+                updateChoices([{ text: "Continue", action: () => { startOpt2FireChapter5(); playVideo('fireCutscene5.mp4'); } }]); // Option to continue after reading
             }
             break;
     }

@@ -1,10 +1,10 @@
 [
   {
-    "signupEmail": "paarth0809@gmail.com",
-    "password": "$2b$10$VcCcqB5lvkrQrsS/OqF.e..AUazMctXAJbPyA1o0N53.U9ezbS9Mq",
-    "fullName": "Paarth Rathod",
-    "age": "123",
-    "phoneNumber": "9197143139",
+    "signupEmail": "rathod.vivek@gmail.com",
+    "password": "$2b$10$JHaK1U6TAPwTtdrk.AXt6.M.W2o6LHv7lCjWo4ISqSo0Z5a6Sw6yK",
+    "fullName": "Paarth Vivek Rathod",
+    "age": "18",
+    "phoneNumber": "9197133139",
     "gameState": {
       "currentCharacter": "",
       "currentChapter": 0,
@@ -29,5 +29,12 @@
       "energy": 100,
       "difficulty": "easy"
     }
+  },
+  {
+    "signupEmail": "paarth0809@gmail.com",
+    "password": "$2b$10$gdWuiJr1hnVKQhtpQBOwKOyLb.XTcSgy43JNEMh9fZj5jCY9O0ZmO",
+    "fullName": "Paarth",
+    "age": "13",
+    "phoneNumber": "9197133139"
   }
 ]

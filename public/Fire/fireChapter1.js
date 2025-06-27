@@ -2,7 +2,7 @@ import { startFireChapter2 } from './fireChapter2.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
 import { addAlly } from '../gameFunctions/utilityFunctions.js';
 import {skillCheck} from '../gameFunctions/gameMechanics.js';
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
 import { characters } from '../gameFunctions/characters.js';
@@ -60,10 +60,13 @@ function handleFireChapter1Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: startFireChapter2 }
+            { text: "Continue", action: () => { startFireChapter2(); playVideo('fireCutscene2.mp4'); } }
         ]);
     }, 300);
 }
+
+            
+
 //Fire code end
 
 //Water code start
