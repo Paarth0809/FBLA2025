@@ -27,7 +27,7 @@ async function updateNavbar() {
     navbar.innerHTML = `
         
           <a class="links" href="../index.html">Home</a>
-          <a class="links" href="dashboard.html">Account</a>
+           <a class="links" href="tutorial.html">Tutorial</a>
           <a class="links"  id="logoutButton" href="#" >Log Out</a>
       `;
     const logoutBtn = document.getElementById('logoutButton');
@@ -61,7 +61,7 @@ async function updateNavbar() {
     navbar.innerHTML = `
           
           <a class="links" href="../index.html">Home</a>
-         
+          <a class="links" href="tutorial.html">Tutorial</a>
           <a class="links" href="login.html">Log In</a>
           <a class="links" id="Contactmargin" href="signup.html">Sign Up</a>
       `;

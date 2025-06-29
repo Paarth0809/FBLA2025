@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar: The Last Airbender - Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tutorial.css">
+    <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="../chatbot/chatbot.css" />
+</head>
+
+<body>
+    <!-- desktop version of the navigation bar -->
+    <div class="navbar">
+        <a class="links" href="index.html">Home</a>
+        <a class="links" href="../tutorial.html">Tutorial</a>
+        <a class="links" href="../login.html">Log In</a>
+        
+        <a class="links" id="Contactmargin" href="../signup.html">Sign Up</a>
+      
+    </div>
+    <hr id="nav-bar-split" />
+
+    <div id="game-container">
+        <aside id="left-sidebar">
+            <div id="character-info">
+                <h2>Character Info</h2>
+                <div id="character-stats">
+                    <p><strong>Name:</strong> Aang</p>
+                    <p><strong>Health:</strong> 100</p>
+                    <p><strong>Energy:</strong> 100</p>
+                    
+                    <h3>Skills:</h3>
+                    <ul>
+                        <li>combat: 0</li>
+                        <li>stealth: 0</li>
+                        <li>wisdom: 0</li>
+                        <li>spirituality: 0</li>
+                        <li>diplomacy: 0</li>
+                        <li>leadership: 0</li>
+                        <li>empathy: 0</li>
+                    </ul>
+                    
+                    <h3>Reputation:</h3>
+                    <ul>
+                        <li>fireNation: 0</li>
+                        <li>earthKingdom: 0</li>
+                        <li>waterTribe: 0</li>
+                        <li>airNomads: 0</li>
+                    </ul>
+                    
+                    <h3>Allies:</h3>
+                    <ul>
+                        <li>Katara</li>
+                        <li>Sokka</li>
+                    </ul>
+                </div>
+                <div id="inputBoxContainer" style="position: relative; margin-top: 20px;">
+                    <input type="text" id="storyInput" placeholder="Type stop to stop the story...">
+                </div>
+            </div>
+        </aside>
+        
+        <main id="center-content">
+            <h1>Elemental Journey</h1>
+            <h2>Chapter 1: The Awakening</h2>
+            
+            <div id="story-text">
+                You are Aang, the last Airbender, awakening from a century-long slumber in an iceberg. You find yourself rescued by Katara and Sokka, two Southern Water Tribe siblings. The world you once knew is gone, and the Fire Nation's war has left its mark.
+            </div>
+
+            <div id="videoContainer">
+                <video width="100%" height="300" controls>
+                    <source src="../cutscenes/airCutscene1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div id="choices">
+                <button>Excitedly show off your Airbending skills</button>
+                <button>Ask about what has happened in the last 100 years</button>
+                <button>Try to hide your identity as the Avatar</button>
+                <button>Focus on befriending Appa and regaining your strength</button>
+            </div>
+
+            <div id="imageChoices"></div>
+            <div id="imageChoices2"></div>
+            
+            <div id="teamAvatarContainer">
+                <img id="teamAvatarImage" src="ElementLogos/team.png" alt="Team Avatar">
+            </div>
+
+            <button id="reportButton">Generate Report</button>
+            <div id="reportContainer">
+                <label><input type="checkbox" id="includeHealth"> Include Health</label>
+                <label><input type="checkbox" id="includeEnergy"> Include Energy</label>
+                <label><input type="checkbox" id="includeSkills"> Include Skills</label>
+                <label><input type="checkbox" id="includeReputation"> Include Reputation</label>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div id="overlay"></div>
+    <div id="tooltip">
+        <div id="tooltipText"></div>
+        <button id="nxt-btn">Next</button>
+    </div>
+
+    <!-- Chatbot -->
+<div id="chat-container">
+    <div id="chat-box"></div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Enter your question here...">
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+<button id="chat-toggle" class="chat-toggle" onclick="toggleChatbot()">💬</button>
+
+    <script src="tutorial.js"></script>
+    <script type="module" src="../chatbot/chatbot.js"></script>
+    <script type="module" src="navbar.js"></script>
+</body>
+
+</html>

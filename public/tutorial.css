@@ -1,0 +1,107 @@
+/* Tutorial-specific styles */
+
+/* Tutorial Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+}
+
+/* Tutorial Tooltip */
+#tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: none;
+}
+
+#tooltipText {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#nxt-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+    margin: 0;
+}
+
+#nxt-btn:hover {
+    background-color: #218838;
+}
+
+/* Highlight effect for tutorial steps */
+.highlight {
+    position: relative;
+    z-index: 1002;
+   
+    border-radius: 4px;
+}
+
+/* Video container styling for tutorial */
+#videoContainer {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#videoContainer video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Character stats specific styling for tutorial */
+#character-stats ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#character-stats li {
+    padding: 2px 0;
+    font-size: 14px;
+}
+
+#character-stats h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+#character-stats p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* Ensure tutorial elements are properly positioned */
+#game-container {
+    position: relative;
+}
+
+
+/* Make sure chapter title is visible */
+#center-content h2 {
+    color: #2c3e50;
+    margin: 10px 0 20px 0;
+    font-size: 20px;
+}

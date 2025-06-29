@@ -111,7 +111,12 @@ export function restartGame() {
     updateCharacterInfo(); // Update character info display
     saveGame(); // Save the initial game state
    
-    
+    const cutscene = document.getElementById('videoContainer');
+    if (cutscene) {
+        cutscene.pause && cutscene.pause(); // If it's a video
+        cutscene.currentTime && (cutscene.currentTime = 0);
+        cutscene.style.display = 'none';   // Or use cutscene.remove();
+    }
        
 }
 

@@ -60,7 +60,7 @@ async function askGpt(question) {
 }
 
 function startChatbot() {
-    printSlow('Hello, I am ALTABot!', 'bot-message'); //Starts the chatbot with a message
+    printSlow('Hello, I am AVATARBot!', 'bot-message'); //Starts the chatbot with a message
 
     sendBtn.addEventListener('click', () => { // If user clicks send button it will send the message
         sendMessage();
