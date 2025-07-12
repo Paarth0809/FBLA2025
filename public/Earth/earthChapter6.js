@@ -1,10 +1,9 @@
-//Get imports
-
-import { startOpt1EarthChapter7,startOpt2EarthChapter7 } from './earthChapter7.js';
+import { startOpt1EarthChapter7, startOpt2EarthChapter7 } from './earthChapter7.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-
+import { updateSkill } from '../gameFunctions/utilityFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startOpt1EarthChapter6() {
     gameState.currentChapter = 6;
@@ -17,123 +16,85 @@ export function startOpt2EarthChapter6() {
 }
 
 function displayOpt1EarthChapter6() {
-    const chapter6AText = `
-        <h2>Chapter 6: The Airship Fleet Plan</h2>
-        <p>With the map of the Fire Nation's airship fleet in hand, Team Avatar begins planning an attack. Sokka is determined to use the information to strike a decisive blow against the Fire Nation, but the group knows the mission will be dangerous.</p>
-        <p>You suggest using your Earthbending skills to sabotage the airships from the ground, but Sokka argues that infiltrating the fleet directly would be more effective. The group looks to you for the final decision.</p>
-        <p>You must decide: how will you approach the attack on the airship fleet?</p>
+    const chapter6Text = `
+        <h2>Chapter 6: The Desert</h2>
+        <p>The scorching sun beats down as you trudge through the Si Wong Desert. Aang is furious about losing Appa, and Sokka's high on cactus juice.</p>
+        <p>"I hate sand," you grumble. "Can't see jack squat out here!" Katara snaps at everyone to keep moving.</p>
     `;
-    updateStoryText(chapter6AText);
+    updateStoryText(chapter6Text);
     updateChoices([
-        { text: "Sabotage the airships from the ground", action: () => handleOpt1EarthChapter6Choice(1) },
-        { text: "Infiltrate the fleet with Sokka", action: () => handleOpt1EarthChapter6Choice(2) },
-        { text: "Create a diversion to draw the fleet away", action: () => handleOpt1EarthChapter6Choice(3) },
-        { text: "Scout the fleet for weaknesses", action: () => handleOpt1EarthChapter6Choice(4) }
+        { text: "\"Twinkle Toes, chill out!\" (Calm Aang)", action: () => handleOpt1EarthChapter6Choice(1) },
+        { text: "Stomp ground searching for water", action: () => handleOpt1EarthChapter6Choice(2) },
+        { text: "Launch rocks at buzzard-wasps", action: () => handleOpt1EarthChapter6Choice(3) },
+        { text: "\"Quit bossing us, Sugar Queen!\"", action: () => handleOpt1EarthChapter6Choice(4) }
     ]);
 }
 
 function displayOpt2EarthChapter6() {
-    const chapter6AText = `
-        <h2>Chapter 6: The Airship Fleet Plan</h2>
-        <p>With the map of the Fire Nation's airship fleet in hand, Team Avatar begins planning an attack. Sokka is determined to use the information to strike a decisive blow against the Fire Nation, but the group knows the mission will be dangerous.</p>
-        <p>You suggest using your Earthbending skills to sabotage the airships from the ground, but Sokka argues that infiltrating the fleet directly would be more effective. The group looks to you for the final decision.</p>
-        <p>You must decide: how will you approach the attack on the airship fleet?</p>
+    const chapter6Text = `
+        <h2>Chapter 6: Appa's Lost Days</h2>
+        <p>While searching for Appa, you feel distant tremors - a sky bison fighting! "He's northeast!" you shout.</p>
+        <p>Sokka squints. "Are you sure?" You punch a boulder into dust. "MY FEET DON'T LIE!"</p>
     `;
-    updateStoryText(chapter6AText);
+    updateStoryText(chapter6Text);
     updateChoices([
-        { text: "Sabotage the airships from the ground", action: () => handleOpt2EarthChapter6Choice(1) },
-        { text: "Infiltrate the fleet with Sokka", action: () => handleOpt2EarthChapter6Choice(2) },
-        { text: "Create a diversion to draw the fleet away", action: () => handleOpt2EarthChapter6Choice(3) },
-        { text: "Scout the fleet for weaknesses", action: () => handleOpt2EarthChapter6Choice(4) }
+        { text: "Track Appa's chains through vibrations", action: () => handleOpt2EarthChapter6Choice(1) },
+        { text: "Threaten sandbenders for information", action: () => handleOpt2EarthChapter6Choice(2) },
+        { text: "\"We'll find him, Aang\"", action: () => handleOpt2EarthChapter6Choice(3) },
+        { text: "Search for Dai Li clues", action: () => handleOpt2EarthChapter6Choice(4) }
     ]);
 }
 
 function handleOpt1EarthChapter6Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText(`
-                <p>You use your Earthbending skills to create massive sinkholes beneath the airship landing sites, crippling the fleet before it can take off. The Fire Nation is caught off guard, and the group celebrates your quick thinking.</p>
-                <p>However, the Fire Nation quickly repairs the damage, and the fleet is back in action within days.</p>
-            `);
-            updateSkillWithDifficulty('combat', 2); // Improves Earthbending skills
-            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateStoryText(`"Getting mad won't bring Appa back!" You earthbend a badgermole statue. Aang sighs, his rage cooling slightly.`);
+            updateSkillWithDifficulty('empathy', 2);
             break;
-
         case 2:
-            updateStoryText(`
-                <p>You agree to support Sokka's plan to infiltrate the fleet. Together, you sneak aboard one of the airships and sabotage its engines, causing it to crash into the ocean.</p>
-                <p>The mission is a success, but the Fire Nation tightens security, making future attacks more difficult.</p>
-            `);
-            updateSkillWithDifficulty('stealth', 2); // Improves stealth for infiltration
-            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateStoryText(`Your feet detect faint vibrations. "Water's... that way?" Katara finds it first using bending. "Close enough," she admits.`);
+            updateSkillWithDifficulty('wisdom', 1);
             break;
-
         case 3:
-            updateStoryText(`
-                <p>You create a diversion by causing a massive landslide near the fleet's base. The Fire Nation sends troops to investigate, leaving the airships vulnerable.</p>
-                <p>While the diversion works, the Fire Nation quickly realizes it's a trick and reinforces their defenses.</p>
-            `);
-            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateStoryText(`"Back off, feather-face!" Your rocks scare the buzzard-wasps away from Momo. The lemur chitters gratefully.`);
+            updateSkillWithDifficulty('combat', 2);
             break;
-
         case 4:
-            updateStoryText(`
-                <p>You scout the fleet for weaknesses, using your Earthbending to remain hidden. You discover that the airships are vulnerable to attacks on their fuel lines.</p>
-                <p>With this knowledge, the group plans a more effective attack.</p>
-            `);
-            updateSkillWithDifficulty('wisdom', 2); // Improves perception for scouting
-            updateReputationWithDifficulty('Team Avatar', 1); // Increases reputation with Team Avatar
+            updateStoryText(`"Quit being such a mom, Sugar Queen!" Katara glares but Sokka laughs. The tension eases just a little.`);
+            updateSkillWithDifficulty('leadership', 1);
             break;
     }
-
-    // Proceed to the next chapter after a short delay
     setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startOpt1EarthChapter7 }
-        ]);
-    }, 300);
+        updateStoryText(`<p>Aang violently airbends a buzzard-wasp away from Momo, his eyes glowing momentarily.</p>`);
+        updateChoices([{ text: "Continue", action: startOpt1EarthChapter7 }]);
+    }, 1500);
 }
 
 function handleOpt2EarthChapter6Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText(`
-                 <p>You travel to Ba Sing Se to meet the Earth King. However, you quickly realize that the city is under the control of the Dai Li, who are hiding the truth about the war from the Earth King.</p>
-                <p>You must navigate the city's politics to gain an audience with the Earth King.</p>
-            `);
-            updateSkillWithDifficulty('diplomacy', 2); 
-            updateReputationWithDifficulty('earth.kingdom', 1); 
+            updateStoryText(`"They took him to Ba Sing Se!" you announce, sensing Appa's chain vibrations. Sokka nods. "Then that's where we're going."`);
+            updateSkillWithDifficulty('wisdom', 2);
             break;
-
         case 2:
-            updateStoryText(`
-                 <p>You rally the scattered Earth Kingdom forces, traveling from village to village to unite them under a common cause. The people are inspired by your leadership and join the fight against the Fire Nation.</p>
-            `);
-            updateSkillWithDifficulty('leadership', 2); // Improves stealth for infiltration
-            updateReputationWithDifficulty('earth.kingdom', 1); // Increases reputation with Team Avatar
+            updateStoryText(`You trap a sandbender in rock. "TELL ME WHERE APPA IS!" He confesses they sold him to a Ba Sing Se merchant.`);
+            updateSkillWithDifficulty('combat', 1);
             break;
-
         case 3:
-            updateStoryText(`
-               <p>You seek out the Kyoshi Warriors, a group of skilled fighters who have defended their island for generations. They agree to join your cause, bringing their unique combat skills to the fight.</p>
-            `);
-            updateSkillWithDifficulty('combat', 2 ); // Increases reputation with Team Avatar
-            updateReputationWithDifficulty('earth.kingdom', 1)
+            updateStoryText(`You awkwardly pat Aang's shoulder. "We'll find him." Aang gives you a grateful look, his anger fading slightly.`);
+            updateSkillWithDifficulty('empathy', 2);
+            updateReputationWithDifficulty('teamAvatar', 1);
             break;
-
         case 4:
-            updateStoryText(`
-                <p>You train local villagers to defend themselves, teaching them basic Earthbending techniques and self-defense. While they are not as skilled as you, their confidence grows, and they are better prepared to protect their homes.</p>
-            `);
-            updateSkillWithDifficulty('leadership', 2); // Improves perception for scouting
-            updateReputationWithDifficulty('earth.kingdom', 1); // Increases reputation with Team Avatar
+            updateStoryText(`You find distinctive grooves in the sand. "Dai Li earthbenders were here." The trail leads northeast toward Ba Sing Se.`);
+            updateSkillWithDifficulty('wisdom', 1);
             break;
     }
-
-    // Proceed to the next chapter after a short delay
     setTimeout(() => {
+        updateStoryText(`<p>The group prepares to infiltrate Ba Sing Se, where Appa's being held by the Dai Li.</p>`);
         updateChoices([
-            { text: "Continue", action: startOpt2EarthChapter7 }
-        ]);
-    }, 300);
-}
+                           { text: "Continue", action: () => { startOpt1EarthChapter7(); playVideo('earthCutscene7.mp4'); } }
+                       ]);
+                   }, 300);
+               }
+    

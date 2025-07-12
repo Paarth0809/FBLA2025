@@ -31,11 +31,9 @@ import { startOpt1EarthChapter8, startOpt2EarthChapter8 } from '../Earth/earthCh
 import { startOpt1EarthChapter9, startOpt2EarthChapter9 } from '../Earth/earthChapter9.js';
 import { startEarthChapter10 } from '../Earth/earthChapter10.js';
 import { startEarthChapter11 } from '../Earth/earthChapter11.js';
-import { startOpt1EarthChapter12, startOpt2EarthChapter12 } from '../Earth/earthChapter12.js';
-import { startOpt1EarthChapter13, startOpt2EarthChapter13 } from '../Earth/earthChapter13.js';
-import { startOpt1EarthChapter14, startOpt2EarthChapter14 } from '../Earth/earthChapter14.js';
+
+
 import { startEarthChapter15 } from '../Earth/earthChapter15.js';
-import { startChapter16 } from '../Earth/earthFinalChapter.js';
 
 import { startFireChapter1 } from '../Fire/fireChapter1.js';
 import { startFireChapter2 } from '../Fire/fireChapter2.js';
@@ -98,10 +96,13 @@ export function startGame() {
             playVideo('airCutscene1.mp4');
         } else if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter1();
+            playVideo('waterCutscene1.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter1();
+            playVideo('fireCutscene1.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter1();
+            playVideo('earthCutscene1.mp4');
 
         }
 
@@ -109,10 +110,13 @@ export function startGame() {
 
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter2();
+            playVideo('waterCutscene2.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter2();
+            playVideo('fireCutscene2.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter2();
+            playVideo('earthCutscene2.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter2();
             playVideo('airCutscene2.mp4');
@@ -121,10 +125,13 @@ export function startGame() {
     } else if (gameState.currentChapter === 3) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter3();
+            playVideo('waterCutscene3.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter3();
+            playVideo('fireCutscene3.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter3();
+            playVideo('earthCutscene3.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter3();
             playVideo('airCutscene3.mp4');
@@ -133,10 +140,13 @@ export function startGame() {
     } else if (gameState.currentChapter === 4) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter4();
+            playVideo('waterCutscene4.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter4();
+            playVideo('fireCutscene4.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter4();
+            playVideo('earthCutscene4.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter4();
             playVideo('airCutscene4.mp4');
@@ -145,10 +155,13 @@ export function startGame() {
     } else if (gameState.currentChapter === 5) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter5();
+            playVideo('waterCutscene5.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter5();
+            playVideo('fireCutscene5.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter5();
+            playVideo('earthCutscene5.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             
             if (gameState.currentChapterOption === 1) {
@@ -165,10 +178,13 @@ export function startGame() {
     else if (gameState.currentChapter === 6) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter6();
+            playVideo('waterCutscene6.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter6();
+            playVideo('fireCutscene6.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter6();
+            playVideo('earthCutscene6.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             
             if (gameState.currentChapterOption === 1) {
@@ -185,10 +201,13 @@ export function startGame() {
     else if (gameState.currentChapter === 7) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter7();
+            playVideo('waterCutscene7.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter7();
+            playVideo('fireCutscene7.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter7();
+            playVideo('earthCutscene7.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             if (gameState.currentChapterOption === 1) {
                 startOpt1AirChapter7();
@@ -204,10 +223,13 @@ export function startGame() {
     else if (gameState.currentChapter === 8) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter8();
+            playVideo('waterCutscene8.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter8();
+            playVideo('fireCutscene8.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter8();
+            playVideo('earthCutscene8.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter8();
             playVideo('airCutscene8.mp4');
@@ -217,10 +239,13 @@ export function startGame() {
     else if (gameState.currentChapter === 9) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter9();
+            playVideo('waterCutscene9.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter9();
+            playVideo('fireCutscene9.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter9();
+            playVideo('earthCutscene9.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             if (gameState.currentChapterOption === 1) {
                 startOpt1AirChapter9();
@@ -235,20 +260,27 @@ export function startGame() {
     else if (gameState.currentChapter === 10) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter10();
+            playVideo('waterCutscene10.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter10();
+            playVideo('fireCutscene10.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter10();
+            playVideo('earthCutscene10.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter10();
+            playVideo('airCutscene10.mp4');
         }
     } else if (gameState.currentChapter === 11) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter11();
+            playVideo('waterCutscene11.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter11();
+            playVideo('fireCutscene11.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter11();
+            playVideo('earthCutscene11.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
            
             if (gameState.currentChapterOption === 1) {
@@ -264,21 +296,28 @@ export function startGame() {
     else if (gameState.currentChapter === 12) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter12();
+            playVideo('waterCutscene12.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter12();
+            playVideo('fireCutscene12.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter12();
+            playVideo('earthCutscene12.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter12();
+            playVideo('airCutscene12.mp4');
         }
     }
     else if (gameState.currentChapter === 13) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter13();
+            playVideo('waterCutscene13.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter13();
+            playVideo('fireCutscene13.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter13();
+            playVideo('earthCutscene13.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             if (gameState.currentChapterOption === 1) {
                 startOpt1AirChapter13();
@@ -293,32 +332,42 @@ export function startGame() {
     else if (gameState.currentChapter === 14) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter14();
+            playVideo('waterCutscene14.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter14();
+            playVideo('fireCutscene14.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
             startEarthChapter14();
+            playVideo('earthCutscene14.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter14();
+            playVideo('airCutscene14.mp4');
         }
     }
     else if (gameState.currentChapter === 15) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter15();
+            playVideo('waterCutscene15.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireChapter15();
+            playVideo('fireCutscene15.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
-            startEarthChapter15();
+           startEarthChapter15();
+            playVideo('earthCutscene15.mp4');
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirChapter15();
+            playVideo('airCutscene15.mp4');
         }
     }
     else if (gameState.currentChapter === 16) {
         if (gameState.currentCharacter === characters.katara.name) {
             startWaterChapter16();
+            playVideo('waterCutscene16.mp4');
         } else if (gameState.currentCharacter === characters.zuko.name) {
             startFireFinalChapter();
+            playVideo('fireCutscene16.mp4');
         } else if (gameState.currentCharacter === characters.toph.name) {
-            startEarthChapter16();
+        
         } else if (gameState.currentCharacter === characters.aang.name) {
             startAirFinalChapter();
             playVideo('airCutscene16.mp4');

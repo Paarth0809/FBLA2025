@@ -95,7 +95,7 @@ function handleOpt2FireChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: () => { startOpt2FireChapter6(); playVideo('fireCutscene6.mp4'); } } 
+            { text: "Continue", action: () => { startOpt2FireChapter6(); playVideo('waterCutscene8.mp4'); } } 
         ]);
     }, 300);
 }
@@ -148,7 +148,7 @@ function handleOpt1FireChapter5Choice(choice) {
     }
     setTimeout(() => {
         updateChoices([
-            { text: "Continue", action: () => { startOpt1FireChapter6(); playVideo('fireCutscene6.mp4'); } }
+            { text: "Continue", action: () => { startOpt1FireChapter6(); playVideo('waterCutscene8.mp4'); } }
         ]);
     }, 300);
 }

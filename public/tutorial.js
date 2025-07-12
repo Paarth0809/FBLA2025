@@ -9,7 +9,7 @@ const steps = [
         text: 'This is where you\'ll see important cutscenes from the Avatar story. These moments help immerse you in the world!'
     },
     {
-        element: '#choices',
+        element: '#tutorialChoices',
         text: 'Here you will make important decisions that affect your journey through the Avatar world. Choose wisely!'
     },
     {
@@ -109,7 +109,7 @@ function endTutorial() {
     currentStep = 0;
     
     // Show completion message
-    alert('Tutorial completed! You now know how to navigate the Avatar game. Enjoy your journey!');
+    
 }
 
 // Function to start tutorial

@@ -1,128 +1,53 @@
-//Get imports
-
-
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-
+import { updateSkill } from '../gameFunctions/utilityFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { startEarthChapter13} from './earthChapter13.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
-import { startOpt1EarthChapter13, startOpt2EarthChapter13 } from './earthChapter13.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
-export function startOpt1EarthChapter12() {
-    gameState.currentChapter = 12;
-    displayOpt1EarthChapter12();
+export function startEarthChapter12() {
+ gameState.currentChapter = 12;
+ displayEarthChapter12();
 }
 
-export function startOpt2EarthChapter12() {
-    gameState.currentChapter = 12;
-    displayOpt2EarthChapter12();
+function displayEarthChapter12() {
+ const chapter12Text = `
+ <h2>Chapter 11: The Fall of Ba Sing Se</h2>
+ <p>The crystal catacombs shake as Azula's lightning illuminates the cavern. Aang lies motionless in Katara's arms while Zuko makes his choice.</p>
+ <p>"I can't see in these stupid crystals!" you shout, sensing the chaos through vibrations. The Dai Li are everywhere.</p>
+ `;
+ updateStoryText(chapter12Text);
+ updateChoices([
+ { text: "\"Get Aang out!\" (Protect the retreat)", action: () => handleEarthChapter12Choice(1) },
+ { text: "\"I'm ending this!\" (Charge Azula)", action: () => handleEarthChapter12Choice(2) }
+ ]);
 }
 
-function displayOpt1EarthChapter12() {
-    const chapter12Text = `
-        <h2>Chapter 12A: The Assault Begins</h2>
-        <p>The team launches a direct assault on the Fire Nation. The battle is intense, and the stakes are high. You must lead the charge and make critical decisions.</p>
-        <p>You must decide: how will you lead the assault?</p>
-    `;
-    updateStoryText(chapter12Text);
-    updateChoices([
-        { text: "Lead the charge head-on", action: () => handleOpt1EarthChapter12Choice(1) },
-        { text: "Use stealth to infiltrate the Fire Nation", action: () => handleOpt1EarthChapter12Choice(2) },
-        { text: "Coordinate a strategic retreat", action: () => handleOpt1EarthChapter12Choice(3) },
-        { text: "Focus on protecting the team", action: () => handleOpt1EarthChapter12Choice(4) }
-    ]);
-}
-
-function displayOpt2EarthChapter12() {
-    const chapter12Text = `
-        <h2>Chapter 12: Gathering Allies</h2>
-    <p>The team embarks on a mission to gather allies from other nations. The journey is fraught with challenges, but the potential rewards are great.</p>
-    <p>You must decide: how will you approach the diplomatic mission?
-    `;
-    updateStoryText(chapter12Text);
-    updateChoices([
-        { text: "Negotiate with the Water Tribe", action: () => handleOpt2EarthChapter12Choice(1) },
-        { text: "Secure reinforcements from the Earth Kingdom", action: () => handleOpt2EarthChapter12Choice(2) },
-        { text: "Recruit Fire Nation defectors", action: () => handleOpt2EarthChapter12Choice(3) },
-       
-    ]);
-}
-
-
-function handleOpt1EarthChapter12Choice(choice) {
-    switch (choice) {
-        case 1:
-            updateStoryText(`
-                <p>You lead the charge head-on, inspiring the team with your bravery. The Fire Nation forces are caught off guard, and the team gains an early advantage.</p>
-            `);
-            updateSkillWithDifficulty('leadership', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-
-        case 2:
-            updateStoryText(`
-                <p>You use stealth to infiltrate the Fire Nation, avoiding direct confrontation. The team successfully sabotages key Fire Nation assets.</p>
-            `);
-            updateSkillWithDifficulty('stealth', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-
-        case 3:
-            updateStoryText(`
-                <p>You coordinate a strategic retreat, ensuring the team survives to fight another day. The Fire Nation is left confused and disorganized.</p>
-            `);
-            updateSkillWithDifficulty('wisdom', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-
-        case 4:
-            updateStoryText(`
-                <p>You focus on protecting the team, ensuring everyone makes it through the battle safely. The team's morale remains high despite the challenges.</p>
-            `);
-            updateSkillWithDifficulty('wisdom', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-    }
-
-
-    setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startOpt1EarthChapter13 }
-        ]);
-    }, 300);
-}
-
-
-function handleOpt2EarthChapter12Choice(choice) {
-    switch (choice) {
-        case 1:
-            updateStoryText(`
-                <p>You and Sokka negotiate with the Water Tribe, securing their support. The Water Tribe's warriors join the fight against the Fire Nation, bringing their powerful Waterbending skills to the team</p>
-            `);
-            updateSkillWithDifficulty('diplomacy', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-
-        case 2:
-            updateStoryText(`
-                <p>You rally additional Earth Kingdom troops, reinforcing your ranks with skilled Earthbenders and soldiers. The Earth Kingdom's commitment to the cause grows stronger.</p>
-            `);
-            updateSkillWithDifficulty('diplomacy', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-            break;
-
-        case 3:
-            updateStoryText(`
-                <p>You reach out to Fire Nation defectors, convincing them to join your cause. Their insider knowledge and combat experience prove invaluable in the fight ahead.</p>
-            `);
-            updateSkillWithDifficulty('diplomacy', 3);
-            updateReputationWithDifficulty('Team Avatar', 2);
-          
-    }
-    setTimeout(() => {
-        updateChoices([
-            { text: "Continue", action: startOpt2EarthChapter13 }
-        ]);
-    }, 300);
-
-
-}
+function handleEarthChapter12Choice(choice) {
+ switch (choice) {
+ case 1:
+ updateStoryText(`
+ <p>You earthbend a tunnel through the crystals. "GO!" Katara escapes with Aang while you hold off the Dai Li. Their rock gloves shatter against your defenses.</p>
+ `);
+ updateSkillWithDifficulty('leadership', 2);
+ setTimeout(() => {
+ updateChoices([
+ { text: "Continue to Path 1: The Escape", action: startEarthChapter13}
+ ]);
+ }, 300);
+ break;
+ 
+ case 2:
+ updateStoryText(`
+ <p>"You're going down, princess!" You launch crystal shards at Azula, but she backflips away laughing. Zuko firebends between you, forcing you back.</p>
+ <p>By the time you recover, Katara and Aang are gone - captured by the Dai Li.</p>
+ `);
+ updateSkillWithDifficulty('combat', 2);
+ setTimeout(() => {
+  updateChoices([
+                            { text: "Continue", action: () => { startEarthChapter13(); playVideo('earthCutscene13.mp4'); } }
+                        ]);
+                    }, 300);
+                }
+     }
+ 

@@ -1,13 +1,11 @@
-//Get imports
-
-import { startEarthChapter4 } from './earthChapter4.js';
+import { startEarthChapter4} from './earthChapter4.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-
-import { skillCheck, combat } from '../gameFunctions/gameMechanics.js';
+import { updateSkill, updateReputation, addToInventory } from '../gameFunctions/utilityFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
+import { skillCheck } from '../gameFunctions/gameMechanics.js'
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
-
-
+import { playVideo } from '../gameFunctions/cutscenes.js';
+;
 
 export function startEarthChapter3() {
     gameState.currentChapter = 3;
@@ -16,69 +14,62 @@ export function startEarthChapter3() {
 
 function displayEarthChapter3() {
     const chapter3Text = `
-        <h2>Chapter 3: The Hidden Village</h2>
-        <p>After your encounter with Xin Fu, you decide to leave the competition behind and continue your journey through the Earth Kingdom.
-         As you travel, you stumble upon a small, secluded village hidden deep within a forest. 
-        The villagers seem wary of outsiders, but they welcome you after learning of your Earthbending skills.</p>
-        <p>The village elder, an old and wise woman named Mei Ling, approaches you. She explains that the village is under threat 
-        from a group of bandits who have been stealing their supplies and terrorizing the villagers. 
-        The bandits are led by a ruthless Earthbender named Kang, who has been using his bending to intimidate and control the region.</p>
+        <h2>Chapter 3: The Chase</h2>
+        <p>You decide to join team avatar, one the one condition you don't teach but rather fight. After joining, you're all exhausted from being relentlessly pursued by the fire princess Azula and her team. The group stops near a ruined Earth Kingdom village to rest.</p>
+        <p>Katara wants to keep moving, Sokka wants to sleep, and Aang is too distracted by Appa's exhaustion. You sense tremors approaching...</p>
     `;
     updateStoryText(chapter3Text);
     updateChoices([
-        { text: "You offer to train the villagers on how to defend themselves.", action: () => handleEarthChapter3Choice(1) },
-        { text: "Fight Kang to help out the villagers.", action: () => handleEarthChapter3Choice(2) },
-        { text: "Negotiate with Kang to stop raiding the village", action: () => handleEarthChapter3Choice(3) }
+        { text: "Demand everyone keeps moving (like Katara)", action: () => handleEarthChapter3Choice(1) },
+        { text: "Mock their weakness and take first watch", action: () => handleEarthChapter3Choice(2) },
+        { text: "Pretend to sleep but stay alert", action: () => handleEarthChapter3Choice(3) }
     ]);
 }
 
 function handleEarthChapter3Choice(choice) {
     switch (choice) {
         case 1:
-            updateStoryText("You spend a couple days at the village teaching them basic Earthbending moves. Thankful for your kindness, Mei Ling gifts you a healing herb!");
-            updateSkillWithDifficulty('diplomacy', 1);
-            addToInventory('healingHerb');
+            updateStoryText(`
+                <p>"We stop when I say we stop!" You earthbend a path forward.</p>
+                <p>Katara appreciates your leadership, but Sokka groans about his aching feet.</p>
+            `);
+            updateSkillWithDifficulty('leadership', 1);
             break;
 
         case 2:
-            const Kang = {
-                name: "Kang",
-                health: 50,
-                difficulty: 12,
-                attackBonus: 4
-            };
-
-            const combatResult = combat(Kang);
-            if (combatResult === "win") {
-                updateStoryText(`
-                    <p>You defeat Kang and his bandits! The village celebrates and crowns you their hero!</p>
-                    <p>Your win against Kang sounds throughout the kingdom! Your reputation grows!</p>
-                `);
-                updateSkillWithDifficulty('combat', 2);
-                updateReputationWithDifficulty('Earth Kingdom', 2);
-            } else {
-                updateStoryText("Despite your loss, the villagers are proud of your incredible bravery and are grateful you tried to stand up for them.");
-                updateSkillWithDifficulty('combat', -1);
-                updateReputationWithDifficulty('Earth Kingdom', -1); // Losing should decrease reputation
-            }
+            updateStoryText(`
+                <p>"Ugh, you're all pathetic." You stomp the ground to create a perimeter wall.</p>
+                <p>Your sharp senses detect Azula's approach first.</p>
+            `);
+            updateSkillWithDifficulty('wisdom', 2);
             break;
 
         case 3:
-            const negotiationSuccess = skillCheck('diplomacy', 10); // Add a skill check for negotiation
-            if (negotiationSuccess) {
-                updateStoryText("After a tense negotiation, Kang agrees to leave the village alone if they promise to pay a yearly tax.");
-                updateSkillWithDifficulty('diplomacy', 2);
+            const stealthSuccess = skillCheck('stealth', 8);
+            if (stealthSuccess) {
+                updateStoryText(`
+                    <p>You fake snoring while tracking Azula's movements through vibrations.</p>
+                    <p>When she attacks, you're ready.</p>
+                `);
+                updateSkillWithDifficulty('combat', 1);
             } else {
-                updateStoryText("Your attempt to negotiate with Kang fails. He sees your diplomacy as a sign of weakness and attacks the village.");
-                updateSkillWithDifficulty('diplomacy', -1);
+                updateStoryText(`
+                    <p>Azula spots your ruse immediately. "The blind one isn't fooling anyone."</p>
+                    <p>The group scrambles to escape.</p>
+                `);
+                updateSkillWithDifficulty('empathy', -1);
             }
             break;
     }
 
-    // Proceed to the next chapter after a short delay
     setTimeout(() => {
+        updateStoryText(`
+            <p>Azula's fire blast lights up the night! The entire group fights together in the dark.</p>
+            <p>Iroh appears and helps you escape, but the tension between everyone is palpable...</p>
+        `);
+
         updateChoices([
-            { text: "Continue", action: startEarthChapter4 }
+            { text: "Continue", action: () => { startEarthChapter4(); playVideo('earthCutscene4.mp4'); } }
         ]);
     }, 300);
 }

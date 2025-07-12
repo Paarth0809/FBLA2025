@@ -5,6 +5,7 @@ import { updateCharacterInfo } from './uiUpdateFunctions.js';
 import { startAirFinalChapter } from '../Air/airFinalChapter.js';
 import { playVideo } from './cutscenes.js';
 import { startAirChapter8 } from '../Air/airChapter8.js';
+import { startAirChapter15 } from '../Air/airChapter15.js';
 
 
 // Stop or pause function.
@@ -18,6 +19,11 @@ document.getElementById('storyInput').addEventListener('input', function (e) {
     // Implement skip logic here
    startAirFinalChapter();
   playVideo('airCutscene16.mp4');
+  }
+  else if (inputValue === 'skip15') {
+    // Implement skip logic here
+   startAirChapter15();
+  playVideo('airCutscene15.mp4');
   }
 
   else if (inputValue === 'skip8') {
@@ -110,7 +116,8 @@ export function restartGame() {
 
     updateCharacterInfo(); // Update character info display
     saveGame(); // Save the initial game state
-   
+    
+
     const cutscene = document.getElementById('videoContainer');
     if (cutscene) {
         cutscene.pause && cutscene.pause(); // If it's a video

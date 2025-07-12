@@ -1,10 +1,9 @@
-//Get imports
-
 import { startOpt1EarthChapter6, startOpt2EarthChapter6 } from './earthChapter6.js';
 import { updateStoryText, updateChoices } from '../gameFunctions/uiUpdateFunctions.js';
-
+import { updateSkill, addToInventory } from '../gameFunctions/utilityFunctions.js';
 import { gameState } from '../gameFunctions/gameState.js';
 import { updateSkillWithDifficulty, updateReputationWithDifficulty, updateHealthWithDifficulty, updateEnergyWithDifficulty } from '../gameFunctions/gameMechanics.js';
+import { playVideo } from '../gameFunctions/cutscenes.js';
 
 export function startEarthChapter5() {
     gameState.currentChapter = 5;
@@ -14,18 +13,13 @@ export function startEarthChapter5() {
 function displayEarthChapter5() {
     const chapter5Text = `
         <h2>Chapter 5: The Library</h2>
-        <p> Team Avatar travels to the Si Wong Desert in search of the legendary Wan Shi Tong's library, a place that's said to contain knowledge about the Fire Nation's weaknesses. Sokka is very eager in getting the information neccessary in order to win the war. 
-        </p>
-        <p>Once you arrive, you meet professor Zei, who warns you about the guardian of the library, an owl spirit by the name of Wan Shi Tong. The owl is fiercly protective of the knowledge and doesn't allow for it to be used for violence. 
-        </p>
-        <p>You must decide: will you help Sokka find the information he needs, or will you respect Wan Shi Tong's rules and avoid provoking him?</p>
-       
+        <p>The group arrives at Wan Shi Tong's library, sinking into the desert sands. "Finally!" Sokka cheers. "We can find a Fire Nation weakness!"</p>
+        <p>Professor Zei warns: "The Spirit values knowledge, not war." Toph cracks her knuckles. "So we lie. Easy."</p>
     `;
     updateStoryText(chapter5Text);
     updateChoices([
-        { text: "Help Sokka find the information. ", action: () => handleEarthChapter5Choice(1) },
-        {text: "Respect Wan Shi Tong's rules. ", action: () => handleEarthChapter5Choice(2)}
-        
+        { text: "Use seismic sense to find war scrolls secretly", action: () => handleEarthChapter5Choice(1) },
+        { text: "Wait outside (desert heat bothers your feet)", action: () => handleEarthChapter5Choice(2) }
     ]);
 }
 
@@ -33,33 +27,29 @@ function handleEarthChapter5Choice(choice) {
     switch (choice) {
         case 1:
             updateStoryText(`
-                <p>You help Sokka search the library for information about the Fire Nation. 
-                Together, you discover a map that reveals the location of the Fire Nation's airship fleet. 
-                However, Wan Shi Tong catches you and becomes enraged, sinking the library into the desert.</p>
-                 <p>You barely escape with the map, but the knowledge comes at a cost: the library is lost forever.</p>
+                <p>You detect hidden chambers below. "Psst, Snoozles! War stuff's underground!"</p>
+                <p>Wan Shi Tong's wings erupt from darkness. "THIEVES!" The library begins collapsing as you grab the solar eclipse scroll.</p>
             `);
-            updateSkillWithDifficulty('stealth', -1);
-            addToInventory('airshipMap')
+            updateSkillWithDifficulty('wisdom', -1);
+         
             setTimeout(() => {
                 updateChoices([
-                    { text: "Continue", action: startOpt1EarthChapter6 }
+                    { text: "Escape to Chapter 6: The Desert", action: startOpt1EarthChapter6 }
                 ]);
             }, 300);
             break;
+
         case 2:
             updateStoryText(`
-                <p>You decide to respect Wan Shi Tong's rules and avoid provoking him. While Sokka is disappointed, you remind him that some knowledge comes with too high a price.</p>
-                <p>You leave the library empty-handed but with your integrity intact.</p>
-            
+                <p>"I'll guard Appa," you declare, planting your feet in cool sand. When the library starts sinking, you yank everyone out with rock pillars.</p>
+                <p>Katara nods approvingly. "That was actually smart."</p>
             `);
-            updateSkillWithDifficulty('diplomacy', 2); 
-            updateReputationWithDifficulty('Team Avatar', 1); 
+            updateSkillWithDifficulty('leadership', 2);
+            updateReputationWithDifficulty('Team Avatar', 1);
             setTimeout(() => {
-                updateChoices([
-                    { text: "Continue", action: startOpt2EarthChapter6 }
-                ]);
-            }, 300);
-            break;
-         
+               updateChoices([
+                           { text: "Continue", action: () => { startOpt1EarthChapter6(); playVideo('earthCutscene6.mp4'); } }
+                       ]);
+                   }, 300);
+               }
     }
-}

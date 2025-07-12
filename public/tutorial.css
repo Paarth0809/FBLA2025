@@ -58,10 +58,13 @@
 
 /* Video container styling for tutorial */
 #videoContainer {
-    margin: 20px 0;
+    margin: 20px;
+    margin-left: 35px;
+    margin-right: 35px;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+  max-width: 80%;
+
 }
 
 #videoContainer video {
@@ -104,4 +107,14 @@
     color: #2c3e50;
     margin: 10px 0 20px 0;
     font-size: 20px;
+}
+
+#tutorialChoices {
+    display: block; /* or flex, etc. */
+}
+
+#story-text {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 80%;
 }

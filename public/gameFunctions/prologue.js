@@ -15,7 +15,7 @@ export function displayEarthPrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startEarthChapter1 }
+        { text: "Continue", action: () => { startEarthChapter1(); playVideo('earthCutscene1.mp4'); } }
     ]);
 }
 
@@ -49,7 +49,7 @@ export function displayFirePrologue() {
     `;
     updateStoryText(prologueText);
     updateChoices([
-        { text: "Continue", action: startFireChapter1 }
+        { text: "Continue", action: () => { startFireChapter1(); playVideo('airCutscene2.mp4'); } }
     ]);
 }
 
